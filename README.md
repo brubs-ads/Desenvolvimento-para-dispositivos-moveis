@@ -40,3 +40,5 @@ Já a arquitetura MVC é composta pelas camadas do modelo, da visão e do contro
 
 
 ![telas de login](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/tela%20de%20login.jpeg)
+
+![Telas iniciais]{https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/telas%20iniciais.jpeg)
