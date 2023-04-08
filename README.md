@@ -33,3 +33,8 @@ Já a arquitetura MVC é composta pelas camadas do modelo, da visão e do contro
 
 ### Diagrama UML: 📊
 ![UML](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/UML.png)
+
+
+
+### Protótipos da aplicação 📱
+
