@@ -100,10 +100,18 @@ Nesta tela, o usuário poderá visualizar um botão com três traços um abaixo 
 
 #### 1.1 Tela de objetivo / Exemplo - Tela de Objetivo
  ![1.1 Tela de  objetivo ](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.1%20Tela%20do%20Objetivo.jpg)  ![Exemplo - Tela de Objetivo](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.2%20Exemplo%20-%20tela%20de%20Objetivo.jpg)
+ #### 1.1 Tela de objetivo:
+Nesta tela, o usuário pode clicar no botão "+" que o direciona para a (tela de criação do objetivo). Assim que o usuário criar seu objetivo, poderá visualizá-lo, podendo também editá-lo clicando no ícone de lápis que ficará ao lado da descrição do objetivo, indo então para (Tela editar objetivo). O usuário também poderá clicar no ícone de lixeira que ficará acima do valor do objetivo para excluí-lo da tela. Ao clicar na seta na parte superior esquerda, o usuário irá voltar para (tela de menu).
 
 #### 1.2 Tela de criação de objetivo /  1.3 Tela de edição de objetivo
 
 ![1.2 Tela de criação de objetivo](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.3%20Tela%20da%20Cria%C3%A7%C3%A3o%20do%20Objetivo.jpg) ![1.3 Tela de edição de objetivo](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.4%20Exemplo%20-%20Tela%20da%20edi%C3%A7%C3%A3o%20do%20Objetivo.jpg)
+
+#### 1.2 Tela de criação de objetivo:
+Nesta tela, o usuário pode definir uma meta que deseja alcançar. Ele pode inserir o nome do objetivo, o valor a ser alcançado, o valor já poupado e, se desejar, uma data para alcançá-lo. Além disso, ele pode escolher um ícone para representar o objetivo. Ao clicar no botão "Criar", o usuário será direcionado para a (tela do objetivo), se desejar cancelar a criação do objetivo, ele pode clicar no "X" na parte superior esquerda da tela, o que o levará de volta à (tela do objetivo)
+
+#### 1.3 Tela de edição de objetivo:
+ Nesta tela, o usuário poderá editar o que foi criado na (tela de criação de objetivo) , alterando o nome do objetivo, o valor do objetivo, o valor já poupado, assim como a data desejada para alcançá-lo, além dos ícones. Depois de alterado, o usuário poderá clicar no botão "salvar" na parte inferior da tela para salvar suas alterações. No entanto, se desejar cancelar a edição, poderá apertar o botão no formato de um "x" no canto superior esquerdo da tela para cancelar as alterações.
 
 ### Telas de receita: 
 
@@ -116,16 +124,12 @@ Nesta tela, o usuário poderá visualizar um botão com três traços um abaixo 
 #### 1.1 Tela de despesas / 1.2 Tela Editar Despesas
 
 ![1.1 Tela de despesas](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.1%20Tela%20Despesa.jpg) ![1.2 Tela Editar Despesas](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.2%20Tela%20%20Editar%20Despesa.jpg)
+#### 1.1 Tela de receita: 
+ Nesta tela, o usuário poderá inserir o valor da receita, a descrição do que se trata essa receita, a data em que foi recebida e, por fim, selecionar uma das quatro categorias: salário, investimento, serviços ou outros. Essa funcionalidade permite ao usuário identificar em quais áreas as receitas estão dando mais retorno. Ao clicar no botão 'Criar', a receita criada irá aparecer na (tela inicial) na categoria de receitas. Já ao clicar no 'X', localizado na parte superior esquerda da tela, o usuário poderá fechar a tela de criação de receitas e voltar para a (tela inicial) .
 
-### Telas de categorias de receitas
+#### 1.2Tela de edição de receita:
+Nesta tela, o usuário poderá editar o que foi criado na (tela de receita), alterando o valor da receita, bem como a descrição, data e categoria da receita. Depois de alterar, o usuário poderá clicar no botão "salvar" na parte inferior da tela para salvar suas modificações. Se desejar cancelar a alteração, basta clicar no botão em forma de "x" no canto superior esquerdo da tela para cancelar as alterações.
 
-#### 1.1 Exemplo - Tela Salário / 1.2 Exemplo - Tela Investimento: 
-
-![1.1 Exemplo - Tela Salário](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.1%20Exemplo%20-%20tela%20sal%C3%A1rio.jpg) ![1.2 Exemplo - Tela Investimento](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.2%20Exemplo%20-%20tela%20Investimento.jpg)
-
-#### 1.3 Exemplo - Tela Serviço / 1.4 Exemplo - Tela outros 
-
-![1.3 Exemplo - Tela Serviço](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.3%20Exemplo%20-%20tela%20servi%C3%A7os.jpg) ![1.4 Exemplo - Tela outros](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.4%20Exemplo%20-%20tela%20outros%201.jpg)
 
 
 ### Definição das Funcionalidades ✏️
