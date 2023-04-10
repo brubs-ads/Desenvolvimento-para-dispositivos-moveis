@@ -105,6 +105,12 @@ Nesta tela, o usuário poderá visualizar um botão com três traços um abaixo 
 
 ![1.2 Tela de criação de objetivo](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.3%20Tela%20da%20Cria%C3%A7%C3%A3o%20do%20Objetivo.jpg) ![1.3 Tela de edição de objetivo](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.4%20Exemplo%20-%20Tela%20da%20edi%C3%A7%C3%A3o%20do%20Objetivo.jpg)
 
+### Telas de receita: 
+
+#### 1.1 Tela de receita / 1.2 Tela de edição de receita
+
+![1.1 Tela de receita](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.1%20tela%20receita.jpg) ![1.2 Tela de edição de receita](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.2%20Tela%20editar%20receita.jpg)
+
 
 ### Definição das Funcionalidades ✏️
 
