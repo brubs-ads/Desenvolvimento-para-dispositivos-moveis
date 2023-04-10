@@ -111,6 +111,12 @@ Nesta tela, o usuário poderá visualizar um botão com três traços um abaixo 
 
 ![1.1 Tela de receita](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.1%20tela%20receita.jpg) ![1.2 Tela de edição de receita](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.2%20Tela%20editar%20receita.jpg)
 
+### Telas de despesas: 
+
+#### 1.1 Tela de despesas / 1.2 Tela Editar Despesas
+
+![1.1 Tela de despesas](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.1%20Tela%20Despesa.jpg) ![1.2 Tela Editar Despesas](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.2%20Tela%20%20Editar%20Despesa.jpg)
+
 
 ### Definição das Funcionalidades ✏️
 
