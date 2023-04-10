@@ -32,11 +32,22 @@ A arquitetura MVVM é composta por três camadas: a camada do modelo, a camada d
 Já a arquitetura MVC é composta pelas camadas do modelo, da visão e do controlador. A camada do modelo representa os dados e a lógica de negócios da aplicação. A camada da visão é responsável pela interface do usuário e pela apresentação dos dados. A camada do controlador atua como um intermediário entre a camada da visão e a camada do modelo, respondendo às ações do usuário na visão e atualizando o modelo de acordo.
 
 ### Diagrama UML: 📊
+
 ![UML](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/UML.png)
 
 
-
 ### Protótipos da aplicação 📱
+
+### Telas de Login:
+
+#### 1.1 tela de abertura / 1.2 tela de criar conta  
+![Telas de abertura](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.1%20Tela%20de%20Abertura.jpg) ![Telas de criar conta](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.2%20tela%20criar%20conta.jpg)
+
+#### 1.3 tela de login / 1.4 tela de recuperação de senha
+![telas de login](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.3%20tela%20de%20login.jpg) ![telas de recuperação de senha](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.4%20tela%20recupera%C3%A7%C3%A3o%20de%20senha.jpg)
+
+#### 1.5 tela código de recuperação / 1.6 tela nova senha
+![tela código de recuperação](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.4%20tela%20recupera%C3%A7%C3%A3o%20de%20senha.jpg) ![tela nova senha](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.6%20Tela%20nova%20senha.jpg)
 
 
 ### Definição das Funcionalidades ✏️
