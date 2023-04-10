@@ -118,17 +118,23 @@ Nesta tela, o usuário pode definir uma meta que deseja alcançar. Ele pode inse
 #### 1.1 Tela de receita / 1.2 Tela de edição de receita
 
 ![1.1 Tela de receita](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.1%20tela%20receita.jpg) ![1.2 Tela de edição de receita](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.2%20Tela%20editar%20receita.jpg)
+#### 1.1 Tela de receita: 
+ Nesta tela, o usuário poderá inserir o valor da receita, a descrição do que se trata essa receita, a data em que foi recebida e, por fim, selecionar uma das quatro categorias: salário, investimento, serviços ou outros. Essa funcionalidade permite ao usuário identificar em quais áreas as receitas estão dando mais retorno. Ao clicar no botão 'Criar', a receita criada irá aparecer na (tela inicial) na categoria de receitas. Já ao clicar no 'X', localizado na parte superior esquerda da tela, o usuário poderá fechar a tela de criação de receitas e voltar para a (tela inicial) .
+
+#### 1.2Tela de edição de receita:
+Nesta tela, o usuário poderá editar o que foi criado na (tela de receita), alterando o valor da receita, bem como a descrição, data e categoria da receita. Depois de alterar, o usuário poderá clicar no botão "salvar" na parte inferior da tela para salvar suas modificações. Se desejar cancelar a alteração, basta clicar no botão em forma de "x" no canto superior esquerdo da tela para cancelar as alterações.
+
 
 ### Telas de despesas: 
 
 #### 1.1 Tela de despesas / 1.2 Tela Editar Despesas
 
 ![1.1 Tela de despesas](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.1%20Tela%20Despesa.jpg) ![1.2 Tela Editar Despesas](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.2%20Tela%20%20Editar%20Despesa.jpg)
-#### 1.1 Tela de receita: 
- Nesta tela, o usuário poderá inserir o valor da receita, a descrição do que se trata essa receita, a data em que foi recebida e, por fim, selecionar uma das quatro categorias: salário, investimento, serviços ou outros. Essa funcionalidade permite ao usuário identificar em quais áreas as receitas estão dando mais retorno. Ao clicar no botão 'Criar', a receita criada irá aparecer na (tela inicial) na categoria de receitas. Já ao clicar no 'X', localizado na parte superior esquerda da tela, o usuário poderá fechar a tela de criação de receitas e voltar para a (tela inicial) .
+#### 1.1 Tela de despesas:
+ Nesta tela, o usuário poderá inserir o valor da despesa, a descrição do que é essa despesa, a data em que a despesa foi feita e, por fim, as categorias que serão separadas em cinco ícones: alimentação, casa, saúde, educação e outros. Com essa funcionalidade, o usuário poderá saber onde suas despesas estão sendo gastas. Ao clicar no botão "criar", a despesa criada aparecerá na  (tela inicial)  na categoria de despesas. Ao clicar no botão em forma de  "X" na parte superior esquerda da tela, o usuário fechará a criação da despesa e voltará para a (tela inicial).
 
-#### 1.2Tela de edição de receita:
-Nesta tela, o usuário poderá editar o que foi criado na (tela de receita), alterando o valor da receita, bem como a descrição, data e categoria da receita. Depois de alterar, o usuário poderá clicar no botão "salvar" na parte inferior da tela para salvar suas modificações. Se desejar cancelar a alteração, basta clicar no botão em forma de "x" no canto superior esquerdo da tela para cancelar as alterações.
+#### 1.2 Tela Editar Despesas:
+Nesta tela, o usuário poderá editar o que foi criado na (Tela Despesa), alterando o valor da despesa, bem como a descrição, data e categoria da despesa. Depois de alterado, o usuário poderá clicar no botão "Salvar" na parte inferior da tela para salvar suas modificações. Caso queira cancelar a alteração, poderá clicar no botão em formato de "x" no canto superior esquerdo da tela, assim, a alteração será cancelada.
 
 
 
