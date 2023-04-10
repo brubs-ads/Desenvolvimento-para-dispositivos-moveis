@@ -117,6 +117,16 @@ Nesta tela, o usuário poderá visualizar um botão com três traços um abaixo 
 
 ![1.1 Tela de despesas](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.1%20Tela%20Despesa.jpg) ![1.2 Tela Editar Despesas](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.2%20Tela%20%20Editar%20Despesa.jpg)
 
+### Telas de categorias de receitas
+
+#### 1.1 Exemplo - Tela Salário / 1.2 Exemplo - Tela Investimento: 
+
+![1.1 Exemplo - Tela Salário](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.1%20Exemplo%20-%20tela%20sal%C3%A1rio.jpg) ![1.2 Exemplo - Tela Investimento](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.2%20Exemplo%20-%20tela%20Investimento.jpg)
+
+#### 1.3 Exemplo - Tela Serviço / 1.4 Exemplo - Tela outros 
+
+![1.3 Exemplo - Tela Serviço](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.3%20Exemplo%20-%20tela%20servi%C3%A7os.jpg) ![1.4 Exemplo - Tela outros](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/1.4%20Exemplo%20-%20tela%20outros%201.jpg)
+
 
 ### Definição das Funcionalidades ✏️
 
