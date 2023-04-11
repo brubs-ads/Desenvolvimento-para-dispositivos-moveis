@@ -242,7 +242,6 @@ Delete/User: Esse endpoint é responsável por deletar um usuário na aplicaçã
 
 Resposta: COD 200.
 
-
     {
       "Info": "Deletado com sucesso."
     }
@@ -295,8 +294,45 @@ Resposta: COD 404.
       "info": "Erro No Email ou Senha do Usuário."
     }
 
-UPDATE/ USER 
+UPDATE/USER: Esse endpoint é responsável por fazer a atualização dos usuários na aplicação. Receberá como paramêtro Id.
+
+Resposta: COD 200.
 
     {
         "Info": "Atualização com sucesso."
     }
+
+Resposta: COD 404.
+
+    {
+        "Info": "Usuário não encontrado."
+    }
+    
+Create/Category:
+Esse endpoint é responsável por criar uma categoria de despesas do usuário na aplicação. Receberá como paramêtro Id do usuário e da categoria.
+
+Resposta: COD 201.
+
+   {
+        "Info": "."
+    }
+    
+Resposta: COD 404.
+   
+   {
+        "Info": "Usuário não encontrado."
+    }
+    
+Delete/Category:
+Esse endpoint é responsáel por deletar algo que está atrelado a um tipo de categoria. Receberá como paramêtro Id da categoria.
+
+Resposta: COD 200.
+
+Resposta: COD 404.
+
+Update/Category:
+Esse endpoint é responsáel por atualizar uma categoria. Receberá como paramêtro Id da categoria.
+
+Resposta: COD 200.
+
+Resposta: COD 404.
