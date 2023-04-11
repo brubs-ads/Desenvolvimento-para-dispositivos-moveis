@@ -236,24 +236,67 @@ Cadastro de despesas: o usuário pode cadastrar o valor da sua despesa, a descri
 
 Categorias: O usuário pode visualizar suas despesas criadas por categoria, podendo editar e excluir.
 
-#### Contrato com o JSON
+### Contrato com o JSON
 
 Delete/User: Esse endpoint é responsável por deletar um usuário na aplicação. Receberá como paramêtro Id do tipo long para idntificar o usuário que será removido.
 
 Resposta: COD 200.
 
+
+    {
+      "Info": "Deletado com sucesso."
+    }
+
 Resposta: COD 404.
+
+    {
+      "Info": "Usuário não encontrado."
+    }
 
 Login/User: Esse endpoint é responsável por fazer o login do usuário na aplicação. Receberá como paramêtro E-mail e Senha.
 
 Resposta: COD 200.
 
-Resposta: COD 403.
+    {
+      "Id":1,
+      "name":"Amanda chaves",
+      "Email": "Amanda@Gmail.com",
+      "Password": "745614!",
+      "Salary": 879514
+    }
 
 Resposta: COD 404.
+ 
+    {
+      "info": "Usuário não encontrado"
+    }
 
 Create/User: Esse endpoint é responsável por fazer o cadastro do usuário na aplicação. Receberá como paramêtro Nome, Id, Salário, E-mail, Senha.
 
 Resposta: COD 201.
 
+    {
+      "Id":1,
+      "name":"João Alves",
+      "Email": "Joao@Gmail.com",
+      "Password": "17894@",
+      "Salary": 147451
+    }
+
+Resposta: COD 403.
+
+    {
+      "info": "Email já está em uso"
+    }
+
 Resposta: COD 404.
+
+    {
+      "info": "Erro No Email ou Senha do Usuário."
+    }
+
+UPDATE/ USER 
+
+    {
+        "Info": "Atualização com sucesso."
+    }
