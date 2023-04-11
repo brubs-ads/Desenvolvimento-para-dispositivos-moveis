@@ -314,25 +314,44 @@ Esse endpoint é responsável por criar uma categoria de despesas do usuário na
 Resposta: COD 201.
 
    {
-        "Info": "."
+        "category_id": 12,
+        "user_id": 4,
+        "type_moviment": "despesas",
+        "value": 200,
+   "date": "2024-04-23T18:25:43.511Z"
     }
     
 Resposta: COD 404.
    
    {
-        "Info": "Usuário não encontrado."
+        "Informações": "Parâmetros passados errados."
     }
     
 Delete/Category:
 Esse endpoint é responsáel por deletar algo que está atrelado a um tipo de categoria. Receberá como paramêtro Id da categoria.
 
 Resposta: COD 200.
-
+   {
+        "Info": "Categoria deletada com sucesso."
+    }
+    
 Resposta: COD 404.
 
+   {
+        "Info": "Categoria não encontrada."
+    }
+    
 Update/Category:
 Esse endpoint é responsáel por atualizar uma categoria. Receberá como paramêtro Id da categoria.
 
 Resposta: COD 200.
 
+  {
+        "Info": "Atualizaçãoão realizada com sucesso."
+    }
+    
 Resposta: COD 404.
+
+   {
+        "Info": "ERRO ao atualizar , por favor verifique os parâmetros."
+    }
