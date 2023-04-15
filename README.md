@@ -105,7 +105,9 @@ Nesta parte inicial, o usuário poderá visualizar um botão com três traços u
 Nesta parte, o usuário pode clicar no botão "+" que o direciona para a parte  de criação do objetivo. Assim que o usuário criar seu objetivo, poderá visualizá-lo, podendo também editá-lo clicando no ícone de lápis que ficará ao lado da descrição do objetivo, indo então para a parte editar objetivo. O usuário também poderá clicar no ícone de lixeira que ficará acima do valor do objetivo para excluí-lo da tela. Ao clicar na seta na parte superior esquerda, o usuário irá voltar para a parte de menu.
 
 #### 1.2 Criação do objetivo /  1.3 Edição do objetivo
-![1.2 Tela de criação de objetivo](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.3%20Tela%20da%20Cria%C3%A7%C3%A3o%20do%20Objetivo.jpg) ![1.3 Tela de edição de objetivo](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/Exemplo%20-%20Tela%20da%20edi%C3%A7%C3%A3o%20do%20Objetivo.jpg)
+![1 3 Tela da Criação do Objetivo](https://user-images.githubusercontent.com/101484450/232240319-438037a2-8498-4880-87af-b083bd7a13ca.jpg)
+![Exemplo - Tela da edição do Objetivo](https://user-images.githubusercontent.com/101484450/232240350-ff7cc80c-32a1-46ce-82b3-60e538ae5189.jpg)
+
 
 #### 1.2 Criação do objetivo:
  Nesta parte, o usuário pode definir uma meta que deseja alcançar. Ele pode inserir o nome do objetivo, o valor a ser alcançado, o valor já poupado e, se desejar, uma data para alcançá-lo. Além disso, ele pode escolher um ícone para representar o objetivo. Ao clicar no botão "Criar", o usuário será direcionado para a parte do objetivo, se desejar cancelar a criação do objetivo, ele pode clicar no "X" na parte superior esquerda, o que o levará de volta à parte do objetivo.
@@ -117,7 +119,8 @@ Nesta parte, o usuário pode clicar no botão "+" que o direciona para a parte  
 
 #### 1.1 Receita / 1.2 Edição da receita
 
-![1.1 Tela de receita](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.1%20tela%20receita.jpg) ![1.2 Tela de edição de receita](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.2%20Tela%20editar%20receita.jpg)
+![1 1 tela receita](https://user-images.githubusercontent.com/101484450/232240540-8c79fced-5b61-4048-8d46-39155a6d286a.jpg)
+![1 2 Tela editar receita](https://user-images.githubusercontent.com/101484450/232240616-89c9d917-cdd0-4218-a1ed-7567e2eb695b.jpg)
 
 #### 1.1 Criação da Receita: 
  Nesta parte, o usuário poderá inserir o valor da receita, a descrição do que se trata essa receita, a data em que foi recebida e, por fim, selecionar uma das quatro categorias: salário, investimento, serviços ou outros. Essa funcionalidade permite ao usuário identificar em quais áreas as receitas estão dando mais retorno. Ao clicar no botão 'Criar', a receita criada irá aparecer na parte inicial na categoria de receitas. Já ao clicar no 'X', localizado na parte superior esquerda da tela, o usuário poderá fechar a tela de criação de receitas e voltar para a parte inicial .
@@ -129,7 +132,9 @@ Nesta parte, o usuário pode clicar no botão "+" que o direciona para a parte  
 
 #### 1.1 Despesas / 1.2 Edição da Despesas
 
-![1.1 Tela de despesas](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.1%20Tela%20Despesa.jpg) ![1.2 Tela Editar Despesas](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.2%20Tela%20%20Editar%20Despesa.jpg)
+![1 1 Tela Despesa](https://user-images.githubusercontent.com/101484450/232240867-c7ad6a87-bd17-449e-9f45-1795089dfb55.jpg)
+![1 2 Tela  Editar Despesa](https://user-images.githubusercontent.com/101484450/232240899-3189b73f-7077-4497-a6a7-b4e8de9d3a2e.jpg)
+
 
 #### 1.1 Criação da Despesa:
  Nesta parte, o usuário poderá inserir o valor da despesa, a descrição do que é essa despesa, a data em que a despesa foi feita e, por fim, as categorias que serão separadas em cinco ícones: alimentação, casa, saúde, educação e outros. Com essa funcionalidade, o usuário poderá saber onde suas despesas estão sendo gastas. Ao clicar no botão "criar", a despesa criada aparecerá na parte inicial na categoria de despesas. Ao clicar no botão em forma de  "X" na parte superior esquerda da tela, o usuário fechará a criação da despesa e voltará para a parte inicial.
@@ -140,8 +145,9 @@ Nesta tela, o usuário poderá editar o que foi criado na parte Despesa, alteran
 ### Categorias de receitas
 
 #### 1.1 Exemplo - Categoria Salário / 1.2 Exemplo - Categoria Investimento: 
+![1 1 Exemplo - tela salário](https://user-images.githubusercontent.com/101484450/232241462-159b73da-3089-4733-826c-10c79e7b2145.jpg)
+![1 2 Exemplo - tela Investimento](https://user-images.githubusercontent.com/101484450/232241484-5d47d835-3203-4132-8b7b-49bc33401f21.jpg)
 
-![1.1 Exemplo - Tela Salário](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.1%20Exemplo%20-%20tela%20sal%C3%A1rio.jpg) ![1.2 Exemplo - Tela Investimento](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.2%20Exemplo%20-%20tela%20Investimento.jpg)
 
 #### 1.1 Exemplo - Categoria Salário:
 Assim que o usuário criar sua receita com o ícone da categoria salário, ele poderá visualizar as receitas criadas com o mesmo ícone, podendo ver a data do recebimento, a descrição e também podendo editar clicando no lápis ao lado do nome da descrição, indo para a parte de editar receita. Depois de editado, terá o botão "salvar" na parte inferior da tela, que, ao ser clicado, salvará automaticamente as informações editadas. O usuário também poderá clicar no ícone da lixeira que ficará acima do valor da receita e esta será excluída automaticamente da categoria. Ao clicar na seta na parte superior esquerda, o usuário voltará para a parte inicial.
@@ -152,8 +158,9 @@ Assim que o usuário criar sua receita com o ícone da categoria salário, ele p
 
 
 #### 1.3 Exemplo - Categoria Serviço / 1.4 Exemplo - Categoria outros 
+![1 3 Exemplo - tela serviços](https://user-images.githubusercontent.com/101484450/232241607-21bb813d-3b10-42df-82f2-d12785a84048.jpg)
+![1 4 Exemplo - tela outros 1](https://user-images.githubusercontent.com/101484450/232241644-d1f1c0c6-9a33-4a6b-91a7-b44f0a07165a.jpg)
 
-![1.3 Exemplo - Tela Serviço](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.3%20Exemplo%20-%20tela%20servi%C3%A7os.jpg) ![1.4 Exemplo - Tela outros](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.4%20Exemplo%20-%20tela%20outros%201.jpg)
 
 #### 1.3 Exemplo - Categoria Serviço: 
  Assim que usuário criar sua receita  com ícone da Categoria serviço ele poderá visualizar suas receitas criadas com o mesmo ícone, podendo visualizar a data do recebimento, descrição e também podendo editar,  clicando no lápis que ficará ao lado no nome da descrição, indo então para parte de editar receita, depois de editado terá o botão para “salvar” na parte inferior da tela, que ao clicar salvará automático as informações editadas. e podendo clicar no ícone da  lixeira que ficava acima do valor da receita que será excluído automaticamente da tela de sua categoria. Ao clicar na seta na parte superior esquerda irá voltar para a parte inicial.
@@ -166,7 +173,8 @@ Assim que o usuário criar sua receita com o ícone da categoria salário, ele p
 
 #### 1.1 Exemplo - Categoria Alimentação / 1.2 Exemplo - Categoria Casa 
 
-![Exemplo - Tela Alimentação](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.1%20Exemplo%20-%20tela%20Alimenta%C3%A7%C3%A3o.jpg) ![Exemplo - Tela Casa](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.2%20Exemplo%20-%20tela%20casa.jpg)
+![1 1 Exemplo - tela Alimentação](https://user-images.githubusercontent.com/101484450/232241755-003cb1d1-b42a-443b-b71c-a07c5d43cf1f.jpg)
+![1 2 Exemplo - tela casa](https://user-images.githubusercontent.com/101484450/232241792-d4c6361b-bce9-4ea2-a606-50279b391d11.jpg)
 
 #### 1.1 Exemplo - Categoria Alimentação:
  Assim que o usuário criar sua despesa com o ícone da Categoria Alimentação, podendo  visualizar suas despesas criadas com o mesmo ícone, podendo ver a data do gasto, descrição e também poderá editá-las clicando no ícone de lápis que ficará ao lado do nome da descrição, indo então para a tela de editar despesa. Depois de editada, haverá o botão "Salvar" na parte inferior,  que ao ser clicado salvará automaticamente as informações editadas. Além disso, poderá clicar no ícone da lixeira que fica acima do valor da despesa para excluí-la automaticamente da tela de sua categoria. Ao clicar na seta na parte superior esquerda, irá voltar para a parte tela inicial.
@@ -175,8 +183,9 @@ Assim que o usuário criar sua receita com o ícone da categoria salário, ele p
  Assim que usuário criar sua despesa com ícone da Categoria Casa ele poderá visualizar suas despesas criadas com o mesmo ícone, podendo visualizar a data do gasto, descrição e também podendo editar  clicando no lápis que ficará ao lado no nome da descrição, indo então para a parte de editar despesa, depois de editado terá o botão para “salvar” na parte inferior, que ao clicar salvará automático as informações editadas. e podendo clicar no ícone da  lixeira que ficava acima do valor da despesa que será excluído automaticamente da tela de sua categoria. Ao clicar na seta na parte superior esquerda irá voltar para a parte inicial .
 
 #### 1.3 Exemplo - Tela Saúde 1.4 Exemplo - Tela Educação
+![1 3 Exemplo - tela saúde](https://user-images.githubusercontent.com/101484450/232241836-7b628b40-2e1b-4c68-a42e-7c1cab99e52e.jpg)
+![1 4 Exemplo - tela educação](https://user-images.githubusercontent.com/101484450/232241843-2f56b3cd-5a8d-41f1-ac06-fe9553955511.jpg)
 
-![1.3 Exemplo - Tela Saúde](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.3%20Exemplo%20-%20tela%20sa%C3%BAde.jpg) ![1.4 Exemplo - Tela Educação](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.4%20Exemplo%20-%20tela%20educa%C3%A7%C3%A3o.jpg)
 
 #### 1.3 Exemplo - Categoria Saúde
  Assim que usuário criar sua despesa com ícone da Categoria saúde ele poderá visualizar suas despesas criadas com o mesmo ícone, podendo visualizar a data do gasto, descrição e também podendo editar  clicando no lápis que ficará ao lado no nome da descrição, indo então para a parte de editar despesa, depois de editado terá o botão para “salvar” na parte inferior da tela, que ao clicar salvará automático as informações editadas. e podendo clicar no ícone da  lixeira que ficava acima do valor da despesa que será excluído automaticamente da tela de sua categoria. Ao clicar na seta na parte superior esquerda irá voltar para a parte inicial.
@@ -187,7 +196,8 @@ Assim que o usuário criar sua receita com o ícone da categoria salário, ele p
 
 #### 1.5 Exemplo - Categoria Outros
 
-![1.5 Exemplo - Tela Outros](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.5%20Exemplo%20-%20tela%20outros.jpg)
+![1 5 Exemplo - tela outros](https://user-images.githubusercontent.com/101484450/232241858-cbb9e332-4777-4f69-9f11-f3965d543861.jpg)
+
 
 #### 1.5 Exemplo - Categoria Outros: 
  Assim que usuário criar sua despesa com ícone outros ele poderá visualizar suas despesas criadas com o mesmo ícone, podendo visualizar a data do gasto, descrição e também podendo editar  clicando no lápis que ficará ao lado no nome da descrição, indo então para a parte de editar despesa, depois de editado terá o botão para “salvar” na parte inferior da tela, que ao clicar salvará automático as informações editadas. e podendo clicar no ícone da  lixeira que ficava acima do valor da despesa que será excluído automaticamente da tela de sua categoria. Ao clicar na seta na parte superior esquerda irá voltar para a parte de inicial.
