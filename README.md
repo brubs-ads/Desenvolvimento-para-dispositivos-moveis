@@ -117,7 +117,7 @@ Nesta parte, o usuário pode clicar no botão "+" que o direciona para a parte  
 
 ### Cadastro de receita: 
 
-#### 1.1 Receita / 1.2 Edição da receita
+#### 1.1 Criação de Receita / 1.2 Edição da receita
 
 ![1 1 tela receita](https://user-images.githubusercontent.com/101484450/232240540-8c79fced-5b61-4048-8d46-39155a6d286a.jpg)
 ![1 2 Tela editar receita](https://user-images.githubusercontent.com/101484450/232240616-89c9d917-cdd0-4218-a1ed-7567e2eb695b.jpg)
@@ -196,7 +196,7 @@ Assim que o usuário criar sua receita com o ícone da categoria salário, ele p
 
 #### 1.5 Exemplo - Categoria Outros
 
-![1 5 Exemplo - tela outros](https://user-images.githubusercontent.com/101484450/232241858-cbb9e332-4777-4f69-9f11-f3965d543861.jpg)
+![1.5 Exemplo - Tela Outros](https://github.com/FiveTech22/back-end-frameworks/blob/main/img/1.5%20Exemplo%20-%20tela%20outros.jpg)
 
 
 #### 1.5 Exemplo - Categoria Outros: 
