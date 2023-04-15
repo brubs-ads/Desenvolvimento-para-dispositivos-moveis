@@ -40,7 +40,9 @@ Já a arquitetura MVC é composta pelas camadas do modelo, da visão e do contro
 ### Cadastro do Usuário:
 
 #### 1.1 abertura / 1.2 criação de conta  
-![Telas de abertura](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.1%20Tela%20de%20Abertura.jpg) ![Telas de criar conta](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.2%20tela%20criar%20conta.jpg)
+![1 1 Tela de Abertura](https://user-images.githubusercontent.com/101484450/232239045-e0acd88d-1c87-46d7-8096-4b64952dbd8a.jpg)
+
+![1 2 tela criar conta](https://user-images.githubusercontent.com/101484450/232239059-ac698a8e-f062-4ad4-814b-a2af61f9af9c.jpg)
 
 #### 1.1 abertura: 
 Ao entrar no aplicativo, é exibida  duas opções: "Criar uma conta" e "Fazer Login". O usuário escolhe uma das opções clicando em um dos botões. Quando o usuário clica no botão "Criar uma Conta". O aplicativo redireciona o usuário para a criação de sua conta. Assim como quando o usuário clica no botão " Fazer login". O aplicativo redireciona o usuário para fazer login. 
@@ -51,7 +53,7 @@ Ao entrar no aplicativo, é exibida  duas opções: "Criar uma conta" e "Fazer L
 
 
 #### 1.3 Login 
-![telas de login](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/tela%20de%20login.jpg) )
+![tela de login](https://user-images.githubusercontent.com/101484450/232239092-faf635df-82d2-485a-9436-68fd7c511113.jpg)
 
 #### 1.3 Login: 
  O usuário insere seu endereço de e-mail e senha. Se algum dos campos estiver em branco, aparecerá a mensagem "Preencha o campo". O aplicativo verifica se as informações de login são válidas e correspondem a uma conta existente. Se as informações de login estiverem corretas, o aplicativo redireciona o usuário para a parte Inicial do aplicativo. Se o usuário digitar um e-mail diferente do que foi registrado, aparecerá a mensagem "E-mail incorreto". Da mesma forma, se digitar uma senha diferente, aparecerá a mensagem "Senha incorreta". Se quiser criar uma nova conta, poderá voltar para a parte  criação de conta clicando no botão "Criar conta". Se o usuário preencher o e-mail e a senha correta, poderá clicar no botão "Entrar", o que levará para a parte inicial. Para voltar à parte de abertura, basta clicar na seta localizada na parte superior esquerda
@@ -60,13 +62,18 @@ Ao entrar no aplicativo, é exibida  duas opções: "Criar uma conta" e "Fazer L
 ### Página Inicial
 
 #### 1.1 Inicial / Exemplo
-![tela Inicial](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.1%20tela%20Inicial.jpg) ![Exemplo - tela inicial](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/Exemplo%20-Tela%20Inicial.jpg)
+
+![1 1 tela Inicial](https://user-images.githubusercontent.com/101484450/232239171-d0c72394-3eb7-4a18-b16a-7ad2396f0be8.jpg)
+
+![Exemplo -Tela Inicial](https://user-images.githubusercontent.com/101484450/232239183-eea6a71c-a560-4b0f-8570-7ca98df0cc56.jpg)
 
 #### 1.1 Inicial:
 Nesta parte inicial, o usuário poderá visualizar um botão com três traços um abaixo do outro, como no exemplo ao lado “ ≡ “, que representará a parte de menu. Ao clicar, será direcionado para a mesma. Assim como o mês que terá duas setas, uma para a esquerda “←” e a outra para a direita “→”, com o intuito de, quando o usuário clicar na seta esquerda, voltar para o mês anterior e, quando clicar na seta direita, ir para o mês seguinte. Também haverá a possibilidade de visualizar o saldo da conta, o total das receitas e despesas e suas categorias. A parte de categoria de receitas e despesas só terá funcionalidade após adicionar as respectivas receitas e despesas. Se o usuário não criar as categorias, elas ficarão vazias com a mensagem: “Nenhum registro encontrado”. Após adicionadas, aparecerão o ícone, o nome e o valor descrito na parte de receita ou parte de despesa. Ao clicar no ícone da categoria, será direcionado para a respectiva categoria. O usuário não poderá editar o saldo de sua conta, pois ele será atualizado automaticamente ao adicionar receitas e despesas. Ao clicar no nome “receitas”, será direcionado para a parte de receita, assim como ao clicar no nome “despesa”, será direcionado para parte de despesas.
 
 #### 1.2 Menu / 1.3 Usuário
-![Tela de menu](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.2%20tela%20de%20menu.jpg) ![Tela do usúario](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.3%20usuario.jpg)
+![1 2 tela de menu](https://user-images.githubusercontent.com/101484450/232239251-5af5552a-e0f4-484d-aa4c-2a98c6cfe864.jpg)
+![1 3 usuario](https://user-images.githubusercontent.com/101484450/232239262-4a8f9de1-d16c-4fc7-b7c6-a4b1bb809c91.jpg)
+
 
 ####  1.2  Menu: 
   Nesta parte de menu, ao clicar no ícone do perfil redondo na parte superior da tela, o usuário será direcionado para a parte do usuário. Ao clicar em 'Início', será direcionado para a página inicial. Da mesma forma, ao clicar em 'Objetivos', será direcionado para a parte de objetivos, em 'Receitas' para a parte receitas, em 'Despesas' para a parte de despesas, em 'Sobre Nós' para a parte Sobre Nós e em 'Termos de Uso' para a parte de termos de uso.
@@ -75,7 +82,9 @@ Nesta parte inicial, o usuário poderá visualizar um botão com três traços u
  Nesta parte do usuário, o usuário poderá visualizar seu nome e email cadastrados na parte de criar conta, e também poderá editá-los. Além disso, poderá clicar no botão 'Sair' para ser direcionado à parte de abertura. Para voltar ao menu, basta clicar na seta na parte superior esquerda da tela, e se for editar, basta clicar na caixa do nome ou senha e editá-los, assim que formatado poderá confirmar a alteração clicando no ícone “✔” e sendo direcionado à parte de menu.Se algum dos campos estiver em branco, aparecerá a mensagem "Preencha o campo". 
 
 #### 1.4 Sobre nós / 1.5 Termo de uso
-![Tela sobre nós](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.4%20Tela%20Sobre%20N%C3%B3s.jpg) ![Tela de termo de uso](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.5%20Tela%20Termos%20de%20Uso.jpg)
+![1 4 Tela Sobre Nós](https://user-images.githubusercontent.com/101484450/232239281-7ef74c77-c019-4215-ac28-ef5c26a8ef43.jpg)
+![1 5 Tela Termos de Uso](https://user-images.githubusercontent.com/101484450/232239287-4695b296-63fd-4cca-a215-c60db54ca1a2.jpg)
+
 
 #### 1.4 Sobre Nós: 
  Nesta parte, apresentaremos um pouco sobre o propósito de nosso aplicativo. Para retornar à parte de menu, basta clicar na seta localizada na parte superior esquerda.
@@ -88,8 +97,9 @@ Nesta parte inicial, o usuário poderá visualizar um botão com três traços u
 
 
 #### 1.1 Objetivo / Exemplo 
+![1 1 Tela do Objetivo](https://user-images.githubusercontent.com/101484450/232239386-c9719a1b-48e9-4027-b900-db7281f6b184.jpg)
+![1 2 Exemplo - tela de Objetivo](https://user-images.githubusercontent.com/101484450/232239399-fa539dda-1dab-4e4a-beda-c84f058279e3.jpg)
 
- ![1.1 Tela de  objetivo ](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.1%20Tela%20do%20Objetivo.jpg)  ![Exemplo - Tela de Objetivo](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.2%20Exemplo%20-%20tela%20de%20Objetivo.jpg)
  
 #### 1.1 Objetivo:
 Nesta parte, o usuário pode clicar no botão "+" que o direciona para a parte  de criação do objetivo. Assim que o usuário criar seu objetivo, poderá visualizá-lo, podendo também editá-lo clicando no ícone de lápis que ficará ao lado da descrição do objetivo, indo então para a parte editar objetivo. O usuário também poderá clicar no ícone de lixeira que ficará acima do valor do objetivo para excluí-lo da tela. Ao clicar na seta na parte superior esquerda, o usuário irá voltar para a parte de menu.
