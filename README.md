@@ -33,7 +33,7 @@ Já a arquitetura MVC é composta pelas camadas do modelo, da visão e do contro
 
 ### Diagrama UML: 📊
 
-
+![UML](https://user-images.githubusercontent.com/101484450/232238897-3bd997f2-d8de-4922-aafe-5cf4a718df17.png)
 
 ### Protótipos da aplicação 📱
 
