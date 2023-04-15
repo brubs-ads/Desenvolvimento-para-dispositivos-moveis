@@ -50,7 +50,7 @@ Ao entrar no aplicativo, o usuário poderá criar uma conta ou fazer login por m
   Caso o usuário clique no botão "Criar conta" presente na (tela de abertura), será direcionado para esta tela, na qual deverá informar seu nome, e-mail e senha. Se algum dos campos estiver em branco, aparecerá a mensagem "Preencha o campo". Se o usuário tentar prosseguir sem preencher todos os campos, não conseguirá criar uma conta. Se o usuário já tiver uma conta, poderá clicar no botão "Já tenho uma conta" e será direcionado para a (tela de login). Para voltar à (tela de abertura), basta clicar na seta localizada na parte superior esquerda.
 
 #### 1.3 tela de login 
-![telas de login](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.3%20tela%20de%20login.jpg) )
+![telas de login](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/tela%20de%20login.jpg) )
 
 #### 1.3 Tela de login: 
  Nesta tela, o usuário deve informar o e-mail e a senha que foi criada na (tela de criação de conta). Se o usuário digitar um e-mail diferente do que foi registrado, aparecerá a mensagem "E-mail incorreto". Da mesma forma, se digitar uma senha diferente, aparecerá a mensagem "Senha incorreta". Caso o usuário tenha esquecido a senha, poderá clicar no botão "Recuperar senha" e será direcionado para a (tela de recuperação de senha). Se quiser criar uma nova conta, poderá voltar para a (tela de criação de conta) clicando no botão "Criar conta". Se o usuário preencher o e-mail e a senha correta, poderá clicar no botão "Entrar", o que o carregará à (tela inicial). Para voltar à (tela de abertura), basta clicar na seta localizada na parte superior esquerda.
@@ -94,7 +94,7 @@ Nesta tela, o usuário pode clicar no botão "+" que o direciona para a (tela de
 
 #### 1.2 Tela de criação de objetivo /  1.3 Tela de edição de objetivo
 
-![1.2 Tela de criação de objetivo](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.3%20Tela%20da%20Cria%C3%A7%C3%A3o%20do%20Objetivo.jpg) ![1.3 Tela de edição de objetivo](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.4%20Exemplo%20-%20Tela%20da%20edi%C3%A7%C3%A3o%20do%20Objetivo.jpg)
+![1.2 Tela de criação de objetivo](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/1.3%20Tela%20da%20Cria%C3%A7%C3%A3o%20do%20Objetivo.jpg) ![1.3 Tela de edição de objetivo](https://github.com/FiveTech22/Desenvolvimento-para-dispositivos-moveis/blob/main/img/Exemplo%20-%20Tela%20da%20edi%C3%A7%C3%A3o%20do%20Objetivo.jpg)
 #### 1.2 Tela de criação de objetivo:
 Nesta tela, o usuário pode definir uma meta que deseja alcançar. Ele pode inserir o nome do objetivo, o valor a ser alcançado, o valor já poupado e, se desejar, uma data para alcançá-lo. Além disso, ele pode escolher um ícone para representar o objetivo. Ao clicar no botão "Criar", o usuário será direcionado para a (tela do objetivo), se desejar cancelar a criação do objetivo, ele pode clicar no "X" na parte superior esquerda da tela, o que o levará de volta à (tela do objetivo) 
 
