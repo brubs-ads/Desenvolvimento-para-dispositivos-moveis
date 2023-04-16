@@ -262,7 +262,6 @@ Response:
 
   * Cod 200.
 
-    ![carbon (2)](https://user-images.githubusercontent.com/110068589/232253067-7ace9173-b1de-46b9-a55b-6dda4f2da33a.png)
 
 
 * Cod 404.
@@ -298,7 +297,7 @@ __api/category__
 
 Create/Category: Esse endpoint é responsável por criar uma categoria de despesas do usuário na aplicação. Receberá como __paramêtros:__
 
- Id do usuário, id da categoria, valor, descrição e data.
+ Id do usuário, id da categoria, valor,tipo, descrição e data.
 
 Response: 
 
