@@ -196,7 +196,8 @@ Assim que o usuário criar sua receita com o ícone da categoria salário, ele p
 
 #### 1.5 Exemplo - Categoria Outros
 
-![1.5 Exemplo - Tela Outros](https://github.com/FiveTech22/back-end-frameworks/blob/main/img/1.5%20Exemplo%20-%20tela%20outros.jpg)
+![1 5 Exemplo - tela outros](https://user-images.githubusercontent.com/101484450/232266353-3b2fec2f-4461-4cb5-8e9a-8976081e86d3.jpg)
+
 
 
 #### 1.5 Exemplo - Categoria Outros: 
