@@ -217,7 +217,8 @@ Response:
 
 * Cod 201.
 
-  
+  ![carbon](https://user-images.githubusercontent.com/101484450/232343833-ff0bb00d-b4e0-481f-9ae3-a11b999bfbfb.png)
+
 
 * Cod 403.
 
@@ -261,6 +262,7 @@ E-mail e Senha.
 Response: 
 
   * Cod 200.
+![carbon (5)](https://user-images.githubusercontent.com/101484450/232343911-d92742e5-7aca-4a78-b0ac-51828a3a5ccd.png)
 
 
 
