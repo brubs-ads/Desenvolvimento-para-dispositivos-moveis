@@ -368,11 +368,12 @@ Response:
 
  * Cod 200. 
  
-
+![carbon (6)](https://user-images.githubusercontent.com/101484450/232363264-4857106f-743c-4ab0-ac8b-c62624d04baa.png)
 
 
 * Cod 404.
 
+![carbon (7)](https://user-images.githubusercontent.com/101484450/232363281-7ece27c9-7e44-4130-8018-cd8e90c1d43c.png)
 
 
 ----------------------------------------------
@@ -454,9 +455,10 @@ Response:
 
  * Cod 200. 
 
-
+![carbon (8)](https://user-images.githubusercontent.com/101484450/232363187-037373ef-3898-475a-a19a-1f41629cc77a.png)
 
 * Cod 404.
+![carbon (9)](https://user-images.githubusercontent.com/101484450/232363113-a4ba97ba-a4c1-4d64-83c7-5da98d46617f.png)
 
 
 
