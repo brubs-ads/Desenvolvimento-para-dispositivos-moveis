@@ -367,10 +367,13 @@ passando com __paramêtros:__
 Response:
 
  * Cod 200. 
+ 
+ ![getcategory200](https://user-images.githubusercontent.com/101646936/232358888-15a116fa-8e62-4722-a7df-15ddf8b72f16.jpeg)
 
 
 * Cod 404.
 
+![getcategory404](https://user-images.githubusercontent.com/101646936/232358911-a51f4c91-f3e6-4366-b6f6-a672479f4258.jpeg)
 
 ----------------------------------------------
 
@@ -451,8 +454,13 @@ Response:
 
  * Cod 200. 
 
+![getobjective200](https://user-images.githubusercontent.com/101646936/232358776-e2a60214-a2f8-41ea-b22c-3b853b410a5d.jpeg)
+
 
 * Cod 404.
+
+![getobjective404](https://user-images.githubusercontent.com/101646936/232358844-5b83a364-c6d9-4cef-98f6-a26d986fcb1e.jpeg)
+
 
 
 ----------------------------------------------
