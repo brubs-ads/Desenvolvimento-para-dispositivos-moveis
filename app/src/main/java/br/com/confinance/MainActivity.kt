@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         supportActionBar?.hide()
-
         setOnClick()
 
     }

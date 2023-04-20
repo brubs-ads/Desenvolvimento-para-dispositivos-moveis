@@ -2,6 +2,14 @@
     <string name="app_name">Confinance</string>
     <string name="welcome">Seja Bem vindo(a)</string>
     <string name="information">Você está pronto para organizar e melhorar gestão das suas finanças?</string>
-    <string name="create_account">Criar uma Conta</string>
+    <string name="create_account">Criar Conta</string>
     <string name="login">Fazer Login</string>
+    <string name="create_new_account">Criar uma nova conta</string>
+    <string name="information_account">Crie sua conta para começar a organizar suas finanças</string>
+    <string name="whats_your_name">Qual o seu Nome?</string>
+    <string name="type_your_name">Digite Seu Nome</string>
+    <string name="whats_your_email">Qual o Seu Email?</string>
+    <string name="Type_your_email">Digite Seu Email</string>
+    <string name="type_your_password">Digite Sua Senha?</string>
+    <string name="whats_your_password">Qual é sua senha?</string>
 </resources>
