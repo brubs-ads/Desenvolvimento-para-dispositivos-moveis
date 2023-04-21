@@ -11,9 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Confinance"
         tools:targetApi="31">
-        <activity
-            android:name=".Create_Account"
-            android:exported="false" />
+        <activity android:name=".view.CreateAccount"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">

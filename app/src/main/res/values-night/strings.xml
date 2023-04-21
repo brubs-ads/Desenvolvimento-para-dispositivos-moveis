@@ -12,4 +12,6 @@
     <string name="Type_your_email">Digite Seu Email</string>
     <string name="type_your_password">Digite Sua Senha</string>
     <string name="whats_your_password">Qual é sua senha?</string>
+    <string name="terms_of_Use">Termos de uso</string>
+    <string name="privacy_policies">políticas de privacidade</string>
 </resources>
