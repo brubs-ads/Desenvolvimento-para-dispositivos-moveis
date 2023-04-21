@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/termos_de_uso_do_confinance_n_bem_vindo_ao_confinance_um_aplicativo_para_gerenciamento_financeiro_pessoal_antes_de_come_ar_a_usar_nosso_servi_o_leia_atentamente_os_seguintes_termos_de_uso_n_n_aceita_o_dos_termos_de_uso_n_ao_criar_uma_conta_no_confinance_voc_concorda_com_os_termos_de_uso_aqui_descritos_se_voc_n_o_concordar_com_estes_termos_n_o_utilize_o_servi_o_n_n_informa_es_da_conta_n_ao_criar_uma_conta_voc_ser_solicitado_a_fornecer_seu_nome_completo_endere_o_de_e_mail_e_senha_sua_responsabilidade_manter_sua_senha_segura_e_confidencial_o_confinance_n_o_se_responsabiliza_por_quaisquer_perdas_ou_danos_resultantes_do_uso_n_o_autorizado_de_sua_conta_n_n_uso_do_servi_o_n_o_confinance_permite_que_voc_gerencie_suas_finan_as_pessoais_incluindo_o_registro_de_d_bitos_e_cr_ditos_mensais_voc_o_nico_respons_vel_pela_precis_o_e_integridade_dos_dados_inseridos_no_aplicativo_n_n_privacidade_e_seguran_a_n_o_confinance_leva_a_privacidade_e_a_seguran_a_dos_seus_dados_muito_a_s_rio_n_s_nunca_compartilharemos_suas_informa_es_pessoais_com_terceiros_sem_sua_permiss_o_no_entanto_n_o_podemos_garantir_a_seguran_a_completa_dos_dados_transmitidos_pela_internet_n_altera_es_nos_termos_de_uso_n_o_confinance_se_reserva_o_direito_de_modificar_ou_atualizar_estes_termos_de_uso_a_qualquer_momento_sem_aviso_pr_vio_sua_responsabilidade_verificar_periodicamente_os_termos_de_uso_e_estar_ciente_de_quaisquer_altera_es_feitas_n_n_encerramento_da_conta_n_voc_pode_encerrar_sua_conta_a_qualquer_momento_se_voc_encerrar_sua_conta_o_confinance_ir_excluir_todos_os_seus_dados_e_informa_es_associadas_a_ela_n_n_ao_criar_uma_conta_no_confinance_voc_concorda_com_estes_termos_de_uso_e_com_a_pol_tica_de_privacidade_do_aplicativo_se_tiver_alguma_d_vida_entre_em_contato_conosco_atrav_s_do_e_mail_suporte_confinance_com_obrigado_por_usar_o_confinance"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.61" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="411dp"
+        android:layout_height="72dp"
+        android:background="#6495ED"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-2dp" />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="139dp"
+        android:layout_height="0dp"
+        android:text="Termos de uso"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="69dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
