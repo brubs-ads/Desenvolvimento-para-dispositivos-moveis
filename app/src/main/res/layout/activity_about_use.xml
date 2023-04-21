@@ -1,108 +1,35 @@
-<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="wrap_content" >
-    <!--
-    /*
-     *	This content is generated from the API File Info.
-     *	(Alt+Shift+Ctrl+I).
-     *
-     *	@desc
-     *	@file 		android_small___1
-     *	@date 		Friday 21st of April 2023 01:49:22 PM
-     *	@title 		tela sobre nos
-     *	@author
-     *	@keywords
-     *	@generator 	Export Kit v1.3.figma
-     *
-     */
-    -->
-    <ScrollView android:id="@+id/android_small___1"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <View
+        android:id="@+id/view"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent" >
+        android:layout_height="72dp"
+        android:background="@color/blue_main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <RelativeLayout android:id="@+id/content_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/about_us"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-
-
-            <RelativeLayout android:id="@+id/page_android_small___1_ek1"
-                android:layout_marginTop="0dp"
-                android:layout_marginStart="0dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                >
-
-                <View
-                    android:id="@+id/_bg__android_small___1_ek2"
-                    android:layout_width="360dp"
-                    android:layout_height="640dp"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="0dp"
-                    android:background="@drawable/_bg__android_small___1_ek2_shape" />
-
-                <View   android:id="@+id/rectangle_45"
-                    android:background="@drawable/rectangle_45_shape"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_width="411dp"
-                    android:layout_height="72dp" />
-
-
-                <RelativeLayout android:id="@+id/chevron_left"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginStart="-7dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    >
-
-                    <ImageView android:id="@+id/vector"
-                        android:src="@drawable/vector"
-                        android:contentDescription="vector"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_width="7.5dp"
-                        android:layout_height="15dp" />
-
-                </RelativeLayout>
-
-                <TextView
-                    android:id="@+id/sobre_n_s"
-
-                    android:layout_width="123dp"
-                    android:layout_height="38dp"
-                    android:layout_marginLeft="37dp"
-                    android:layout_marginTop="24dp"
-                    android:text="Sobre nós"
-                    android:textColor="@color/_bg__android_small___1_ek2_color"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/confinanc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="35.567142925262dp"
-                    android:layout_marginLeft="170dp"
-                    android:layout_marginTop="196dp"
-                    android:text="@string/confinanc_string"
-                    android:textColor="@color/confinanc_color"
-                    android:textSize="13.71sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/bem_vindo_ao_nosso_aplicativo_de_anota__es_financeiras__n_s_acreditamos_que_a_gest_o_financeira___uma_parte_crucial_da_vida_moderna_e_que_todo_mundo_deveria_ter_acesso_a_ferramentas_eficazes_para_controlar_suas_finan_as_pessoais____por_isso_que_criamos_este_aplicativo_simples_e_f_cil_de_usar__nosso_aplicativo_permite_que_voc__registre_facilmente_suas_despesas_e_cr_ditos_di_rios__permitindo_que_voc__monitore_o_seu_dinheiro_e_mantenha_o_controle_de_seus_gastos__ao_registrar_suas_transa__es__voc__ter__uma_vis_o_clara_de_suas_finan_as__o_que_o_ajudar__a_tomar_melhores_decis_es_financeiras_no_futuro__o_aplicativo_tamb_m_realiza_c_lculos_automaticamente__permitindo_que_voc__saiba_exatamente_quanto_dinheiro_voc__tem_dispon_vel_para_gastar_em_cada_m_s__e_para_ajudar_ainda_mais__fornecemos_gr_ficos_e_relat_rios_detalhados_para_que_voc__possa_ver_exatamente_onde_est__gastando_o_seu_dinheiro_e_onde_pode_reduzir_suas_despesas__n_s_entendemos_que_a_gest_o_financeira_pode_ser_desafiadora__mas_nosso_objetivo___torn__la_o_mais_f_cil_poss_vel_para_voc___se_voc__tiver_alguma_d_vida_ou_precisar_de_ajuda__nossa_equipe_de_suporte_est__sempre___disposi__o_para_ajud__lo__obrigado_por_escolher_nosso_aplicativo_para_ajud__lo_a_alcan_ar_seus_objetivos_financeiros__estamos_ansiosos_para_acompanh__lo_em_sua_jornada_de_controle_financeiro_"
-                    android:layout_width="411dp"
-                    android:layout_height="373.47491300583dp"
-                    android:layout_gravity="center_horizontal|center"
-                    android:layout_marginLeft="-1dp"
-                    android:layout_marginTop="246dp"
-                    android:gravity="center"
-                    android:text="@string/bem_vindo_ao_nosso_aplicativo_de_anota__es_financeiras__n_s_acreditamos_que_a_gest_o_financeira___uma_parte_crucial_da_vida_moderna_e_que_todo_mundo_deveria_ter_acesso_a_ferramentas_eficazes_para_controlar_suas_finan_as_pessoais____por_isso_que_criamos_este_aplicativo_simples_e_f_cil_de_usar__nosso_aplicativo_permite_que_voc__registre_facilmente_suas_despesas_e_cr_ditos_di_rios__permitindo_que_voc__monitore_o_seu_dinheiro_e_mantenha_o_controle_de_seus_gastos__ao_registrar_suas_transa__es__voc__ter__uma_vis_o_clara_de_suas_finan_as__o_que_o_ajudar__a_tomar_melhores_decis_es_financeiras_no_futuro__o_aplicativo_tamb_m_realiza_c_lculos_automaticamente__permitindo_que_voc__saiba_exatamente_quanto_dinheiro_voc__tem_dispon_vel_para_gastar_em_cada_m_s__e_para_ajudar_ainda_mais__fornecemos_gr_ficos_e_relat_rios_detalhados_para_que_voc__possa_ver_exatamente_onde_est__gastando_o_seu_dinheiro_e_onde_pode_reduzir_suas_despesas__n_s_entendemos_que_a_gest_o_financeira_pode_ser_desafiadora__mas_nosso_objetivo___torn__la_o_mais_f_cil_poss_vel_para_voc___se_voc__tiver_alguma_d_vida_ou_precisar_de_ajuda__nossa_equipe_de_suporte_est__sempre___disposi__o_para_ajud__lo__obrigado_por_escolher_nosso_aplicativo_para_ajud__lo_a_alcan_ar_seus_objetivos_financeiros__estamos_ansiosos_para_acompanh__lo_em_sua_jornada_de_controle_financeiro__string"
-                    android:textColor="@color/confinanc_color"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-            </RelativeLayout>
-        </RelativeLayout>
-
-    </ScrollView>
-</HorizontalScrollView>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/view"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/about_the_company"
+        android:gravity="center"
+        android:padding="5dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,38 +1,33 @@
 package br.com.confinance
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
 import br.com.confinance.databinding.ActivityMainBinding
+import br.com.confinance.view.CreateAccountActivity
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
-
+class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         supportActionBar?.hide()
-        setOnClick()
+
+        userAction()
 
     }
-    override fun onClick(view: View) {
 
-        when(view.id){
-            R.id.button_create_account ->{
-                Toast.makeText(this,"TESTEEEE", Toast.LENGTH_SHORT).show()
-            }
-            R.id.text_login ->{
-                Toast.makeText(this,"ESSE AQUI", Toast.LENGTH_LONG).show()
-            }
+    private fun userAction() {
+        binding.buttonCreateAccount.setOnClickListener {
+                startActivity(Intent(this,CreateAccountActivity::class.java))
         }
-    }
+        binding.textLogin.setOnClickListener {
+            /*startActivity()*/
+        }
 
-    private fun setOnClick() {
-        binding.buttonCreateAccount.setOnClickListener(this)
-        binding.textLogin.setOnClickListener(this)
     }
 
 
