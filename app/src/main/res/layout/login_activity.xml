@@ -1,95 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    <?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-
-        android:text="Entrar"
-        android:layout_width="197dp"
-        android:layout_height="51dp"
-        android:id="@+id/button"
-        />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/editTextTextEmailAddress"
-        />
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/editTextTextPassword"
-       />
-    <TextView
-        android:text="Qual o seu E-mail?"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        />
-    <TextView
-        android:text="Senha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView2"
-        />
-    <TextView
-        android:text="Recuperar senha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView3"
-     />
-    <TextView
-        android:text="Criar conta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView4"
-       />
-    <TextView
-        android:text="Acesse sua conta para começar a organizar suas finanças!"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView5"
-        />
-    <TextView
-        android:text="Bem vindo de volta!"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView6"
-       />
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="                Termos de uso"
-        android:ems="10"
-        android:id="@+id/editTextTextPersonName2"
-       />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Políticas de privacidade"
-        android:ems="10"
-        android:id="@+id/editTextTextPersonName3"
-        app:layout_constraintTop_toBottomOf=""
-        />
 
     <ImageView
+        android:id="@+id/imagePerfil"
         android:layout_width="126dp"
-        android:layout_height="109dp" app:srcCompat="@drawable/email_login"
+        android:layout_height="109dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/email_login" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_back"
+        app:layout_constraintTop_toBottomOf="@id/imagePerfil"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="40dp"
-        android:id="@+id/imageView" />
+        android:layout_marginTop="20dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/info"
+        />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_whats_your_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/whats_your_name" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edit_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_whats_your_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/type_your_password" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edit_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword" />
+
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_create_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create_account" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_login"
+        android:layout_width="197dp"
+        android:layout_height="51dp"
+        android:text="Entrar"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_terms_of_use"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="@string/terms_of_Use" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_privacy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/privacy_policies"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
