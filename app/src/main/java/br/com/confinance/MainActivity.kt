@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import br.com.confinance.databinding.ActivityMainBinding
 import br.com.confinance.view.CreateAccountActivity
+import br.com.confinance.view.LoginActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -25,9 +26,8 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this,CreateAccountActivity::class.java))
         }
         binding.textLogin.setOnClickListener {
-            /*startActivity()*/
+            startActivity(Intent(this,LoginActivity::class.java))
         }
-
     }
 
 

@@ -6,21 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_logo"
+        android:layout_width="178dp"
+        android:layout_height="240dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/logo"
+        android:layout_marginTop="100dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_name_app"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="4dp"
+        android:text="@string/app_name"
+        android:gravity="center"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@id/image_logo"/>
+
+    
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="30dp"
+        android:padding="8dp"
         android:text="@string/welcome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/text_name_app" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_information"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="24dp"
         android:gravity="center"
         android:text="@string/information"
         app:layout_constraintEnd_toEndOf="parent"
