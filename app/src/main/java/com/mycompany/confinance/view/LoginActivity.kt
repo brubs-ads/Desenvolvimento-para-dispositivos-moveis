@@ -2,7 +2,6 @@ package com.mycompany.confinance.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {

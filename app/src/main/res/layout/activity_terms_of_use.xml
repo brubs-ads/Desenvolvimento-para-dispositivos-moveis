@@ -42,17 +42,147 @@
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view"
         >
-
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/text_about_terms_of_use"
-            android:textSize="14sp"
-            />
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/terms_of_Use"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="start"
+                android:padding="8dp"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_about_terms_of_use_part_one"
+                android:gravity="start"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/accepted_the_terms_of_use"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="start"
+                android:padding="8dp"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_about_terms_of_use_part_two"
+                android:gravity="start"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/information_terms_of_use"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="start"
+                android:padding="8dp"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_about_terms_of_use_part_tree"
+                android:gravity="start"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Use_of_service"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="start"
+                android:padding="8dp"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_about_terms_of_use_part_four"
+                android:gravity="start"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/privacy_service"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="start"
+                android:padding="8dp"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_about_terms_of_use_part_five"
+                android:gravity="start"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Changes_to_the_terms_of_use"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="start"
+                android:padding="8dp"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_about_terms_of_use_part_six"
+                android:gravity="start"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/account_closure"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="start"
+                android:padding="8dp"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_about_terms_of_use_part_seven"
+                android:gravity="start"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_about_terms_of_use_part_eight"
+                android:gravity="start"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </ScrollView>
 
