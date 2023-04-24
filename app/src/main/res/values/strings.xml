@@ -57,4 +57,6 @@
 
 
     <string name="welcome_back">Bem vindo de volta!</string>
+    <string name="text_about_privacy_polices_part_one">A política de privacidade é um documento essencial para qualquer aplicativo que colete informações de seus usuários. No caso do Confiance, um aplicativo que coleta informações sensíveis, como nome, email, senha, despesas e receitas do mês do usuário, é ainda mais importante garantir a segurança e a privacidade dos dados coletados.</string>
+    <string name="text_about_privacy_polices_part_two">Primeiramente, é importante deixar claro que o Confiance respeita a privacidade de seus usuários e está comprometido em proteger suas informações pessoais. Para isso, o aplicativo utiliza medidas de segurança físicas, técnicas e administrativas para garantir a confidencialidade e a integridade dos dados coletados.</string>
 </resources>
