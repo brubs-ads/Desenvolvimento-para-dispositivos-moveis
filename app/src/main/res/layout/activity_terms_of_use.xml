@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".view.TermsOfUseActivity">
 
-
     <View
         android:id="@+id/view"
         android:layout_width="0dp"
@@ -55,8 +54,6 @@
             android:textSize="14sp"
             />
 
-
     </ScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
