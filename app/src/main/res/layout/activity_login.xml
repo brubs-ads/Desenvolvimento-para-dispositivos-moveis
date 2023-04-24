@@ -1,10 +1,9 @@
-    <?xml version="1.0" encoding="utf-8"?>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".view.LoginActivity">
 
 
     <ImageView
@@ -21,19 +20,17 @@
         android:id="@+id/text_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/welcome_back"
-        app:layout_constraintTop_toBottomOf="@id/imagePerfil"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
-        />
+        android:text="@string/welcome_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imagePerfil" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_information"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/info"
-        />
+        android:text="@string/info" />
 
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -61,7 +58,6 @@
         android:inputType="textPassword" />
 
 
-
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_create_account"
         android:layout_width="wrap_content"
@@ -73,20 +69,16 @@
         android:id="@+id/button_login"
         android:layout_width="197dp"
         android:layout_height="51dp"
-        android:text="Entrar"
-        />
+        android:text="Entrar" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_terms_of_use"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:text="@string/terms_of_Use" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_privacy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/privacy_policies"
-        />
+        android:text="@string/privacy_policies" />
 </androidx.constraintlayout.widget.ConstraintLayout>

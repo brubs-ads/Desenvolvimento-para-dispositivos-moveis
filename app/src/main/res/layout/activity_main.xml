@@ -8,13 +8,13 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/image_logo"
-        android:layout_width="178dp"
-        android:layout_height="240dp"
+        android:layout_width="140dp"
+        android:layout_height="180dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:src="@drawable/logo"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="50dp"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_name_app"
@@ -64,10 +64,6 @@
         android:background="@drawable/background_button"
         android:textSize="18sp"
         android:textColor="@color/white"
-        android:elevation="10dp"
-        android:shadowColor="@color/black"
-        android:shadowDx="15"
-        android:shadowDy="17"
         />
 
     <androidx.appcompat.widget.AppCompatTextView

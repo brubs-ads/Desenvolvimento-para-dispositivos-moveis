@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "br.com.confinance"
-        minSdk 24
+        minSdk 26
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -33,10 +33,13 @@ android {
     viewBinding {
         enabled = true
     }
+
 }
 
 dependencies {
 
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'androidx.recyclerview:recyclerview-compat:1.2.1'
     implementation 'androidx.core:core-ktx:1.10.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'

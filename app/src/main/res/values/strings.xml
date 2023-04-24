@@ -25,5 +25,40 @@
 
         Obrigado por escolher nosso aplicativo para ajudá-lo a alcançar seus objetivos financeiros. Estamos ansiosos para acompanhá-lo em sua jornada de controle financeiro.</string>
     <string name="info">Acesse sua conta para começar a organizar suas finanças!</string>
+    <string name="text_about_terms_of_use">Termos de Uso do Confinance
+
+Bem-vindo ao Confinance, um aplicativo para gerenciamento financeiro
+ pessoal. Antes de começar a usar nosso serviço, leia atentamente os
+ seguintes termos de uso.
+
+Aceitação dos Termos de Uso
+
+Ao criar uma conta no Confinance, você concorda com os termos de uso aqui descritos. Se você não concordar com estes termos, não utilize o serviço.
+
+Informações da Conta
+
+Ao criar uma conta, você será solicitado a fornecer seu nome completo,endereço de e-mail e senha. É sua responsabilidade manter sua senha segura e confidencial. O Confinance não se responsabiliza por quaisquer perdas ou danos resultantes do uso não autorizado de sua conta.
+
+Uso do Serviço
+
+O Confinance permite que você gerencie suas finanças pessoais, incluindo o registro de débitos e créditos mensais. Você é o único responsável pela precisão e integridade dos dados inseridos no aplicativo.
+
+Privacidade e Segurança
+
+O Confinance leva a privacidade e a segurança dos seus dados muito a  sério. Nós nunca compartilharemos suas informações pessoais com
+ terceiros sem sua permissão. No entanto, não podemos garantir a
+segurança completa dos dados transmitidos pela Internet.
+
+Alterações nos Termos de Uso
+
+O Confinance se reserva o direito de modificar ou atualizar estes termos de uso a qualquer momento, sem aviso prévio. É sua responsabilidade verificar periodicamente os termos de uso e estar ciente de quaisquer alterações feitas.
+
+Encerramento da Conta
+
+Você pode encerrar sua conta a qualquer momento. Se você encerrar sua conta, o Confinance irá excluir todos os seus dados e informações
+associadas a ela.
+
+Ao criar uma conta no Confinance, você concorda com estes termos de uso e com a política de privacidade do aplicativo. Se tiver alguma dúvida, entre em contato conosco através do e-mail suporte@confinance.com. Obrigado por usar o Confinance!</string>
+    
     <string name="welcome_back">Bem vindo de volta!</string>
 </resources>

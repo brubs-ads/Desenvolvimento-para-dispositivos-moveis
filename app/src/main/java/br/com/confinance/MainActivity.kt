@@ -23,10 +23,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun userAction() {
         binding.buttonCreateAccount.setOnClickListener {
-                startActivity(Intent(this,CreateAccountActivity::class.java))
+            val intent = Intent(applicationContext, CreateAccountActivity::class.java)
+            startActivity(intent)
         }
         binding.textLogin.setOnClickListener {
-            startActivity(Intent(this,LoginActivity::class.java))
+            val intent = Intent(applicationContext,LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 
