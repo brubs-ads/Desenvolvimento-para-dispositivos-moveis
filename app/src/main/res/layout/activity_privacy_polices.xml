@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/image_arrow_back_terms_of_use"
+        android:id="@+id/image_arrow_back_privacy_polices"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="10dp"
@@ -36,11 +36,12 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@id/view"
-        app:layout_constraintStart_toEndOf="@id/image_arrow_back_terms_of_use"
+        app:layout_constraintStart_toEndOf="@id/image_arrow_back_privacy_polices"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_one"
+        android:gravity="center"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/text_about_privacy_polices_part_one"
@@ -50,6 +51,7 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_two"
         android:layout_width="0dp"
+        android:gravity="center"
         android:layout_height="wrap_content"
         android:text="@string/text_about_privacy_polices_part_two"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,6 +60,7 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_tree"
         android:layout_width="0dp"
+        android:gravity="center"
         android:layout_height="wrap_content"
         android:text="@string/Text_about_privacy_tree"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,6 +69,7 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_four"
         android:layout_width="0dp"
+        android:gravity="center"
         android:layout_height="wrap_content"
         android:text="@string/Text_about_privacy_four"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,6 +78,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_five"
+        android:gravity="center"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/Text_about_privacy_five"
@@ -87,6 +92,7 @@
         android:layout_height="wrap_content"
         android:text="@string/Text_about_privacy_six"
         app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center"
         app:layout_constraintTop_toBottomOf="@+id/text_five"
         />
 
