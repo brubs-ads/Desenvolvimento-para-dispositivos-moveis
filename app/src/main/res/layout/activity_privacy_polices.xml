@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.PrivacyPolicesActivity">
+    tools:context="com.mycompany.confinance.view.PrivacyPolicesActivity">
 
     <View
         android:id="@+id/view"
         android:layout_width="0dp"
         android:layout_height="72dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/blue_main"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/blue_main"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/image_arrow_back_terms_of_use"
@@ -44,26 +44,51 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/text_about_privacy_polices_part_one"
-        app:layout_constraintTop_toBottomOf="@id/view"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@id/view" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_two"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/text_about_privacy_polices_part_two"
-        app:layout_constraintTop_toBottomOf="@id/text_one"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@id/text_one" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_tree"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/text_about_privacy_polices_part_two"
-        app:layout_constraintTop_toBottomOf="@id/text_one"
+        android:text="@string/Text_about_privacy_tree"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_two" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_four"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Text_about_privacy_four"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_tree"
         />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_five"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Text_about_privacy_five"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_four"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_six"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Text_about_privacy_six"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_five"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
