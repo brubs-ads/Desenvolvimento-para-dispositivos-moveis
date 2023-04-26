@@ -7,6 +7,14 @@
 
     <style name="Theme.Confinance" parent="Base.Theme.Confinance" />
 
+    <style name="Theme.Confinance.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Confinance.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Confinance.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
 </resources>

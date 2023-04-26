@@ -65,5 +65,17 @@
     <string name="welcome_back">Bem vindo de volta!</string>
     <string name="access_your_account">Acesse sua conta para começar a organizar suas finanças</string>
     <string name="to_enter">Entrar</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Confinance</string>
+    <string name="nav_header_subtitle">Confinance@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="menu_inicio">Inicio</string>
+    <string name="menu_objetivo">Objetivos</string>
+
 
 </resources>
