@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.mycompany.confinance.databinding.ActivityTermsOfUseBinding
+import com.mycompany.confinance.util.Constants
 
 class TermsOfUseActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTermsOfUseBinding
@@ -16,11 +17,17 @@ class TermsOfUseActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        binding.imageArrowBackTermsOfUse.setOnClickListener {
-            val intent = Intent(applicationContext,CreateAccountActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+        val account = intent.getBooleanExtra(Constants.REDIRECTION.KEY.ACCOUNT,false)
+        val login = intent.getBooleanExtra(Constants.REDIRECTION.KEY.ACCOUNT,false)
 
+        binding.imageArrowBackTermsOfUse.setOnClickListener {
+            if (account){
+                startActivity(Intent(this,CreateAccountActivity::class.java))
+                finish()
+            }else if (login){
+                startActivity(Intent(this,LoginActivity::class.java))
+                finish()
+            }
+        }
     }
 }

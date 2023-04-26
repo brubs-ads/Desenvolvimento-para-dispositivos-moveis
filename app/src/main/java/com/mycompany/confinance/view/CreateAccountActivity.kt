@@ -8,6 +8,7 @@ import android.view.View.OnClickListener
 import com.mycompany.confinance.MainActivity
 import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityCreateAccountBinding
+import com.mycompany.confinance.util.Constants
 
 class CreateAccountActivity : AppCompatActivity(), OnClickListener {
 
@@ -19,7 +20,6 @@ class CreateAccountActivity : AppCompatActivity(), OnClickListener {
         setContentView(binding.root)
 
         supportActionBar?.hide()
-
         handleClick()
     }
 
@@ -41,10 +41,17 @@ class CreateAccountActivity : AppCompatActivity(), OnClickListener {
 
             }
             R.id.text_terms_of_use -> {
-                startActivity(Intent(this, TermsOfUseActivity::class.java))
+                val intent = Intent(this, TermsOfUseActivity::class.java)
+                intent.putExtra(Constants.REDIRECTION.KEY.ACCOUNT, Constants.REDIRECTION.VALUE.ACCOUNT)
+                startActivity(intent)
+                finish()
+
             }
             R.id.text_privacy_polices -> {
-                startActivity(Intent(this,PrivacyPolicesActivity::class.java))
+                val intent = Intent(this, PrivacyPolicesActivity::class.java)
+                intent.putExtra(Constants.REDIRECTION.KEY.ACCOUNT, Constants.REDIRECTION.VALUE.ACCOUNT)
+                startActivity(intent)
+                finish()
             }
         }
     }
