@@ -94,37 +94,38 @@
         android:id="@+id/edit_password_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
         android:background="@drawable/edittext_background"
         android:hint="@string/type_your_password"
         android:padding="22dp"
-        app:layout_constraintStart_toStartOf="@id/edit_email_login"
         app:layout_constraintEnd_toEndOf="@id/edit_email_login"
-        app:layout_constraintTop_toBottomOf="@id/text_whats_your_password"
-        android:layout_marginTop="6dp"/>
+        app:layout_constraintStart_toStartOf="@id/edit_email_login"
+        app:layout_constraintTop_toBottomOf="@id/text_whats_your_password" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
         android:background="@drawable/background_button"
-        app:layout_constraintTop_toBottomOf="@id/edit_password_login"
-        app:layout_constraintStart_toStartOf="@id/edit_password_login"
-        app:layout_constraintEnd_toEndOf="@id/edit_password_login"
-        android:layout_marginTop="48dp"
-        android:textSize="20sp"
-        android:textColor="@color/white"
         android:text="@string/to_enter"
-        />
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@id/edit_password_login"
+        app:layout_constraintStart_toStartOf="@id/edit_password_login"
+        app:layout_constraintTop_toBottomOf="@id/edit_password_login" />
 
     <androidx.appcompat.widget.AppCompatCheckedTextView
+        android:id="@+id/text_create_account_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/button_login"
+        android:layout_marginTop="20dp"
         android:text="@string/create_account"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_login" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_terms_of_use_login"
@@ -134,7 +135,7 @@
         android:layout_marginBottom="4dp"
         android:background="@drawable/dash_underline"
         android:text="@string/terms_of_Use"
-        android:textSize="14sp"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -146,6 +147,7 @@
         android:layout_marginBottom="4dp"
         android:background="@drawable/dash_underline"
         android:text="@string/privacy_policies"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

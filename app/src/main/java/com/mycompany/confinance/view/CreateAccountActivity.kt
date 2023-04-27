@@ -3,56 +3,69 @@ package com.mycompany.confinance.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.view.View.OnClickListener
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.mycompany.confinance.MainActivity
-import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityCreateAccountBinding
 import com.mycompany.confinance.util.Constants
+import com.mycompany.confinance.viewmodel.CreateAccountViewModel
 
-class CreateAccountActivity : AppCompatActivity(), OnClickListener {
+class CreateAccountActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCreateAccountBinding
-
+    private lateinit var viewModel: CreateAccountViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCreateAccountBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        viewModel = ViewModelProvider(this)[(CreateAccountViewModel::class.java)]
+
         supportActionBar?.hide()
+
         handleClick()
     }
 
     private fun handleClick() {
-        binding.imageArrowCreateAccount.setOnClickListener(this)
-        binding.buttonAccount.setOnClickListener(this)
-        binding.textTermsOfUse.setOnClickListener(this)
-        binding.textPrivacyPolices.setOnClickListener(this)
-    }
+        binding.imageArrowCreateAccount.setOnClickListener {
+            val login = intent.getBooleanExtra(Constants.REDIRECTION.KEY.LOGIN,false)
 
-    override fun onClick(v: View) {
-        when (v.id) {
-            R.id.image_arrow_create_account -> {
+            if (login){
+                startActivity(Intent(this,LoginActivity::class.java))
+                finish()
+            }else{
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             }
-            R.id.button_account -> {
-                TODO("Não criei ainda, calma")
+        }
+        binding.buttonAccount.setOnClickListener {
+            TODO("Não criei ainda, calma")
 
-            }
-            R.id.text_terms_of_use -> {
-                val intent = Intent(this, TermsOfUseActivity::class.java)
-                intent.putExtra(Constants.REDIRECTION.KEY.ACCOUNT, Constants.REDIRECTION.VALUE.ACCOUNT)
-                startActivity(intent)
-                finish()
+        }
+        binding.textTermsOfUse.setOnClickListener {
+            val intent = Intent(this, TermsOfUseActivity::class.java)
+            intent.putExtra(
+                Constants.REDIRECTION.KEY.ACCOUNT, Constants.REDIRECTION.VALUE.ACCOUNT
+            )
+            startActivity(intent)
+            finish()
 
-            }
-            R.id.text_privacy_polices -> {
-                val intent = Intent(this, PrivacyPolicesActivity::class.java)
-                intent.putExtra(Constants.REDIRECTION.KEY.ACCOUNT, Constants.REDIRECTION.VALUE.ACCOUNT)
-                startActivity(intent)
-                finish()
-            }
+        }
+        binding.textPrivacyPolices.setOnClickListener {
+            val intent = Intent(this, PrivacyPolicesActivity::class.java)
+            intent.putExtra(
+                Constants.REDIRECTION.KEY.ACCOUNT, Constants.REDIRECTION.VALUE.ACCOUNT
+            )
+            startActivity(intent)
+            finish()
+        }
+        binding.textHaveAccount.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.putExtra(
+                Constants.REDIRECTION.KEY.ACCOUNT, Constants.REDIRECTION.VALUE.ACCOUNT
+            )
+            startActivity(intent)
+            finish()
         }
     }
 }

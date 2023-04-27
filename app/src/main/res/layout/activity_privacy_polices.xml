@@ -9,7 +9,7 @@
     <View
         android:id="@+id/view"
         android:layout_width="0dp"
-        android:layout_height="72dp"
+        android:layout_height="60dp"
         android:background="@color/blue_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,62 +39,71 @@
         app:layout_constraintStart_toEndOf="@id/image_arrow_back_privacy_polices"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_one"
-        android:gravity="center"
+    <ScrollView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/text_about_privacy_polices_part_one"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view" />
+        app:layout_constraintTop_toBottomOf="@id/view"
+        android:paddingBottom="64dp">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_two"
-        android:layout_width="0dp"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:text="@string/text_about_privacy_polices_part_two"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_one" />
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_tree"
-        android:layout_width="0dp"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:text="@string/Text_about_privacy_tree"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_two" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_four"
-        android:layout_width="0dp"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:text="@string/Text_about_privacy_four"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_tree"
-        />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/text_about_privacy_polices_part_one"
+                tools:ignore="VisualLintLongText" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_five"
-        android:gravity="center"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/Text_about_privacy_five"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_four"
-        />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/text_about_privacy_polices_part_two"
+                tools:ignore="VisualLintLongText" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_six"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/Text_about_privacy_six"
-        app:layout_constraintStart_toStartOf="parent"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/text_five"
-        />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_tree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/Text_about_privacy_tree"
+                tools:ignore="VisualLintLongText" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_four"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/Text_about_privacy_four"
+                tools:ignore="VisualLintLongText" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_five"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/Text_about_privacy_five"
+                tools:ignore="VisualLintLongText" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_six"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/Text_about_privacy_six"
+                tools:ignore="VisualLintLongText" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

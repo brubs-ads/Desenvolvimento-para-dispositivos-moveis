@@ -1,4 +1,7 @@
 package com.mycompany.confinance.viewmodel
 
-class CreateAccountViewModel {
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+
+class CreateAccountViewModel(application: Application) : AndroidViewModel(application) {
 }

@@ -18,7 +18,7 @@ class TermsOfUseActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         val account = intent.getBooleanExtra(Constants.REDIRECTION.KEY.ACCOUNT,false)
-        val login = intent.getBooleanExtra(Constants.REDIRECTION.KEY.ACCOUNT,false)
+        val login = intent.getBooleanExtra(Constants.REDIRECTION.KEY.LOGIN,false)
 
         binding.imageArrowBackTermsOfUse.setOnClickListener {
             if (account){
