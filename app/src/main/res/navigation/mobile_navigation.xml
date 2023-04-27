@@ -3,19 +3,44 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_inicio">
+    app:startDestination="@+id/nav_initial">
 
 
     <fragment
-        android:id="@+id/nav_inicio"
-        android:name="com.mycompany.confinance.ui.inicio.InicioFragment"
-        android:label="@string/menu_inicio"
-        tools:layout="@layout/fragment_inicio" />
+        android:id="@+id/nav_initial"
+        android:name="com.mycompany.confinance.view.fragment.InitialFragment"
+        android:label="@string/menu_initial"
+        tools:layout="@layout/fragment_initial" />
 
     <fragment
         android:id="@+id/nav_objective"
-        android:name="com.mycompany.confinance.ui.inicio.InicioFragment"
-        android:label="@string/menu_objetivo"
-        tools:layout="@layout/fragment_inicio" />
+        android:name="com.mycompany.confinance.view.fragment.ObjectiveFragment"
+        android:label="@string/menu_objective"
+        tools:layout="@layout/fragment_initial" />
+
+    <fragment
+        android:id="@+id/nav_revenues"
+        android:name="com.mycompany.confinance.view.fragment.RevenuesFragment"
+        android:label="@string/menu_revenues"
+        tools:layout="@layout/fragment_initial" />
+
+    <fragment
+        android:id="@+id/nav_expenses"
+        android:name="com.mycompany.confinance.view.fragment.ExpensesFragment"
+        android:label="@string/menu_expenses"
+        tools:layout="@layout/fragment_expenses" />
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.mycompany.confinance.view.fragment.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about" />
+
+    <fragment
+        android:id="@+id/nav_terms_of_use"
+        android:name="com.mycompany.confinance.view.fragment.termsofuseFragment"
+        android:label="@string/menu_terms_of_use"
+        tools:layout="@layout/fragment_termsofuse" />
+
 
 </navigation>

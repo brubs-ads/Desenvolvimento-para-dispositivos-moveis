@@ -8,10 +8,27 @@
         <item
             android:id="@+id/nav_inicio"
             android:icon="@drawable/inicio__menu"
-            android:title="@string/menu_inicio" />
+            android:title="@string/menu_initial" />
         <item
             android:id="@+id/nav_objective"
             android:icon="@drawable/objetivo__menu"
-            android:title="@string/menu_objetivo" />
+            android:title="@string/menu_objective" />
+        <item
+            android:id="@+id/nav_revenues"
+            android:icon="@drawable/receitas__menu"
+            android:title="@string/menu_revenues" />
+        <item
+            android:id="@+id/nav_expenses"
+            android:icon="@drawable/despesa__menu"
+            android:title="@string/menu_expenses" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/sobre"
+            android:title="@string/menu_about" />
+
+        <item
+            android:id="@+id/nav_terms_of_use"
+            android:icon="@drawable/termo_de_uso"
+            android:title="@string/menu_terms_of_use" />
     </group>
 </menu>

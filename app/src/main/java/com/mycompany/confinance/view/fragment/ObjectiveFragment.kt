@@ -1,28 +1,28 @@
-package com.mycompany.confinance.ui.inicio
+package com.mycompany.confinance.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.mycompany.confinance.databinding.FragmentInicioBinding
+import com.mycompany.confinance.databinding.FragmentObjectiveBinding
 
-class InicioFragment : Fragment() {
+class ObjectiveFragment : Fragment() {
 
-    private lateinit var binding: FragmentInicioBinding
+    private lateinit var binding: FragmentObjectiveBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentInicioBinding.inflate(inflater,container,false)
+        binding = FragmentObjectiveBinding.inflate(inflater,container,false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.txtInicio.text = "inicio"
+        binding.txtObjective.text = "objective"
     }
 }
