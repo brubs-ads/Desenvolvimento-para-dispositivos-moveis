@@ -3,19 +3,25 @@ package com.mycompany.confinance.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProvider
 import com.mycompany.confinance.MainActivity
+import com.mycompany.confinance.MenuActivity
 import com.mycompany.confinance.databinding.ActivityLoginBinding
 import com.mycompany.confinance.util.Constants
+import com.mycompany.confinance.viewmodel.CreateAccountViewModel
+import com.mycompany.confinance.viewmodel.LoginViewModel
 
-class LoginActivity : AppCompatActivity(){
+class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var viewModel:LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         supportActionBar?.hide()
 
         handleClick()
@@ -36,8 +42,7 @@ class LoginActivity : AppCompatActivity(){
 
         }
         binding.buttonLogin.setOnClickListener {
-            TODO("FAZENDO!!")
-
+            handleLogin()
         }
 
         binding.textTermsOfUseLogin.setOnClickListener {
@@ -62,5 +67,12 @@ class LoginActivity : AppCompatActivity(){
             startActivity(intent)
             finish()
         }
+    }
+
+    private fun handleLogin() {
+        val email = binding.editEmailLogin.text.toString()
+        val password = binding.editPasswordLogin.text.toString()
+
+        viewModel.doLogin(email,password)
     }
 }

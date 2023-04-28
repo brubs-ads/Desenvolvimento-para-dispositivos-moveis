@@ -39,7 +39,7 @@ class CreateAccountActivity : AppCompatActivity() {
             }
         }
         binding.buttonAccount.setOnClickListener {
-            TODO("Não criei ainda, calma")
+            handleAccount()
 
         }
         binding.textTermsOfUse.setOnClickListener {
@@ -68,4 +68,14 @@ class CreateAccountActivity : AppCompatActivity() {
             finish()
         }
     }
+
+    private fun handleAccount() {
+        val email = binding.editEmailCreateAccount.text.toString()
+        val password = binding.editEmailCreateAccount.text.toString()
+
+        viewModel.createAccount(email,password)
+
+    }
+
+
 }
