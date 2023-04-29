@@ -5,10 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.mycompany.confinance.MainActivity
-import com.mycompany.confinance.MenuActivity
 import com.mycompany.confinance.databinding.ActivityLoginBinding
 import com.mycompany.confinance.util.Constants
-import com.mycompany.confinance.viewmodel.CreateAccountViewModel
 import com.mycompany.confinance.viewmodel.LoginViewModel
 
 class LoginActivity : AppCompatActivity() {

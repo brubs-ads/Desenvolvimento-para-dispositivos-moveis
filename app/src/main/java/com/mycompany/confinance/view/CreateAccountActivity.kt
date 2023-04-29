@@ -3,7 +3,6 @@ package com.mycompany.confinance.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.mycompany.confinance.MainActivity
 import com.mycompany.confinance.databinding.ActivityCreateAccountBinding
@@ -39,6 +38,8 @@ class CreateAccountActivity : AppCompatActivity() {
             }
         }
         binding.buttonAccount.setOnClickListener {
+            startActivity(Intent(applicationContext, MenuActivity::class.java))
+            finish()
             handleAccount()
 
         }
@@ -71,7 +72,7 @@ class CreateAccountActivity : AppCompatActivity() {
 
     private fun handleAccount() {
         val email = binding.editEmailCreateAccount.text.toString()
-        val password = binding.editEmailCreateAccount.text.toString()
+        val password = binding.editPasswordCreateAccount.text.toString()
 
         viewModel.createAccount(email,password)
 
