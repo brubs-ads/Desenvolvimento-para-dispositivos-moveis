@@ -4,15 +4,18 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.mycompany.confinance.MainActivity
+import com.mycompany.confinance.controller.CreateAccountController
 import com.mycompany.confinance.databinding.ActivityCreateAccountBinding
 import com.mycompany.confinance.util.Constants
 class CreateAccountActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCreateAccountBinding
+    private var controller : CreateAccountController? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCreateAccountBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         supportActionBar?.hide()
 
@@ -32,7 +35,6 @@ class CreateAccountActivity : AppCompatActivity() {
             }
         }
         binding.buttonAccount.setOnClickListener {
-            finish()
             handleAccount()
 
         }
@@ -67,6 +69,7 @@ class CreateAccountActivity : AppCompatActivity() {
         val email = binding.editEmailCreateAccount.text.toString()
         val password = binding.editPasswordCreateAccount.text.toString()
 
+        controller?.createAccount(email,password)
     }
 
 
