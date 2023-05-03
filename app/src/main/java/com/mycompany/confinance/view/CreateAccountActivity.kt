@@ -3,22 +3,16 @@ package com.mycompany.confinance.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
 import com.mycompany.confinance.MainActivity
 import com.mycompany.confinance.databinding.ActivityCreateAccountBinding
 import com.mycompany.confinance.util.Constants
-import com.mycompany.confinance.viewmodel.CreateAccountViewModel
-
 class CreateAccountActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCreateAccountBinding
-    private lateinit var viewModel: CreateAccountViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCreateAccountBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        viewModel = ViewModelProvider(this)[(CreateAccountViewModel::class.java)]
 
         supportActionBar?.hide()
 
@@ -38,7 +32,6 @@ class CreateAccountActivity : AppCompatActivity() {
             }
         }
         binding.buttonAccount.setOnClickListener {
-            startActivity(Intent(applicationContext, MenuActivity::class.java))
             finish()
             handleAccount()
 
@@ -73,8 +66,6 @@ class CreateAccountActivity : AppCompatActivity() {
     private fun handleAccount() {
         val email = binding.editEmailCreateAccount.text.toString()
         val password = binding.editPasswordCreateAccount.text.toString()
-
-        viewModel.createAccount(email,password)
 
     }
 
