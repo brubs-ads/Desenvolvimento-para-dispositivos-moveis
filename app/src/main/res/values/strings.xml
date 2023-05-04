@@ -89,6 +89,10 @@
     <string name="descricao">Descrição</string>
     <string name="data">Data</string>
     <string name="categorias">Categorias</string>
+    <string name="text_objetivos">Objetivos</string>
+    <string name="text_criar_objetivos">Criar Objetivos</string>
+    <string name="text_economize">Economize para alcançar seus objetivos</string>
+    <string name="text_pressione">Pressione (+) para criar o primeiro</string>
 
 
 </resources>
