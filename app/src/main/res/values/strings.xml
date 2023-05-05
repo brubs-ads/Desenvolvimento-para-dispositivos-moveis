@@ -83,21 +83,22 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="have_account">Já Tenho uma Conta!</string>
-    <string name="nova_receita">Nova Receita</string>
-    <string name="editar_receita">Editar Receita</string>
-    <string name="valor_receita">R$0,00</string>
-    <string name="descricao">Descrição</string>
-    <string name="data">Data</string>
-    <string name="categorias">Categorias</string>
+    <string name="new_revenue">Nova Receita</string>
+    <string name="edit_revenue">Editar Receita</string>
+    <string name="revenue_value">R$0,00</string>
+    <string name="description">Descrição</string>
+    <string name="date">Data</string>
+    <string name="categories">Categorias</string>
     <string name="text_objetivos">Objetivos</string>
     <string name="text_criar_objetivos">Criar Objetivos</string>
     <string name="text_economize">Economize para alcançar seus objetivos</string>
     <string name="text_pressione">Pressione (+) para criar o primeiro</string>
     <string name="salary">Salário</string>
-    <string name="investiment">Investimento</string>
+    <string name="investment">Investimento</string>
     <string name="services">Serviços</string>
     <string name="othres">Outros</string>
     <string name="save">Salvar</string>
+    <string name="create">Criar</string>
 
 
 </resources>
