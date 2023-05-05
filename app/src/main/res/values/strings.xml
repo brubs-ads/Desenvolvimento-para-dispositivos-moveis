@@ -93,6 +93,11 @@
     <string name="text_criar_objetivos">Criar Objetivos</string>
     <string name="text_economize">Economize para alcançar seus objetivos</string>
     <string name="text_pressione">Pressione (+) para criar o primeiro</string>
+    <string name="salary">Salário</string>
+    <string name="investiment">Investimento</string>
+    <string name="services">Serviços</string>
+    <string name="othres">Outros</string>
+    <string name="save">Salvar</string>
 
 
 </resources>
