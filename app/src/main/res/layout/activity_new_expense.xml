@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.NewExpenseActivity">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:background="@color/red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@id/image_fechar_x_expense"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="12dp"
+        android:src="@drawable/fechar_x"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/view"
+        app:tint="@color/white" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/nova_despesa"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/image_fechar_x_expense"
+        app:layout_constraintTop_toBottomOf="@id/image_fechar_x_expense"
+        app:layout_constraintTop_toTopOf="@id/image_fechar_x_expense" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_expense_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_value"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:textSize="32sp"
+        android:textColor="@color/red"
+        android:layout_marginStart="12dp"
+        app:layout_constraintTop_toBottomOf="@id/view"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_dash_underline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/dash_underline"
+        android:layout_marginTop="10dp"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/text_expense_value"
+        app:tint="@color/black"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_description"
+        android:layout_width="65dp"
+        android:layout_height="25dp"
+        android:src="@drawable/salario_mensal"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/img_dash_underline"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/text_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:hint="@string/description"
+        android:padding="12dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/image_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/image_description"
+        app:layout_constraintBottom_toBottomOf="@id/image_description"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@id/img_dash_underline_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:srcCompat="@drawable/dash_underline"
+        app:layout_constraintTop_toBottomOf="@id/text_description"
+        app:tint="@color/text_warning"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_date"
+        android:layout_width="65dp"
+        android:layout_height="25dp"
+        android:src="@drawable/data"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@id/image_description"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/date"
+        android:background="@null"
+        android:padding="12dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/image_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/image_date"
+        app:layout_constraintBottom_toBottomOf="@id/image_date"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_dash_underline_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/date"
+        app:srcCompat="@drawable/dash_underline"
+        app:tint="@color/text_warning"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_categories"
+        android:layout_width="65dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@id/image_date"
+        android:src="@drawable/categoria"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/categories"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/categories"
+        android:background="@null"
+        android:padding="12dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/image_categories"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/image_categories"
+        app:layout_constraintBottom_toBottomOf="@id/image_categories"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_food"
+        android:layout_width="85dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/alimenta__o"
+        android:layout_marginLeft="42dp"
+        app:layout_constraintTop_toBottomOf="@id/categories"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_alimenta_o"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/image_food"
+        app:layout_constraintTop_toBottomOf="@id/image_food"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_house"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:src="@drawable/casa"
+        android:layout_marginLeft="24dp"
+        app:layout_constraintLeft_toLeftOf="@id/image_food"
+        app:layout_constraintTop_toTopOf="@id/image_food"
+        app:layout_constraintStart_toEndOf="@id/image_food"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_house"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/house"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="@id/text_house"
+        app:layout_constraintStart_toStartOf="@id/image_house"
+        app:layout_constraintTop_toBottomOf="@id/image_house" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_health"
+        android:layout_width="85dp"
+        android:layout_height="45dp"
+        android:src="@drawable/saude"
+        android:layout_marginLeft="24dp"
+        app:layout_constraintLeft_toLeftOf="@id/image_house"
+        app:layout_constraintTop_toTopOf="@id/image_house"
+        app:layout_constraintStart_toEndOf="@id/image_house"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_health"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/health"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="@id/text_health"
+        app:layout_constraintStart_toStartOf="@id/image_health"
+        app:layout_constraintTop_toBottomOf="@id/image_health" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_education"
+        android:layout_width="85dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/educa__o"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_food" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_education"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/education"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/image_education"
+        app:layout_constraintTop_toBottomOf="@id/image_education" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_others"
+        android:layout_width="85dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/outros_2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_house" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_others"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/othres"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="@id/image_others"
+        app:layout_constraintTop_toBottomOf="@id/image_others"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_create"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/red"
+        android:text="@string/create"
+        android:textColor="@color/white"
+        android:layout_marginBottom="52dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

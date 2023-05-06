@@ -11,10 +11,11 @@
         android:id="@+id/view"
         android:layout_width="0dp"
         android:layout_height="72dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/green"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/green"/>
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/image_fechar_x_revenue"

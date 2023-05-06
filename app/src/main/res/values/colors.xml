@@ -9,5 +9,6 @@
     <color name="green">#32CD32</color>
     <color name="color_objective">#DCDCDC</color>
     <color name="color_degrade">#808080</color>
+    <color name="red">#D2691E</color>
 
 </resources>
