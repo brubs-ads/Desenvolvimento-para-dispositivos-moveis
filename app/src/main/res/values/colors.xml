@@ -2,11 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
     <color name="blue_main">#6495ED</color>
     <color name="text_second">#808080</color>
     <color name="text_warning">#A6A6A6</color>
     <color name="green">#32CD32</color>
     <color name="color_objective">#DCDCDC</color>
+    <color name="color_degrade">#808080</color>
+    <color name="red">#D2691E</color>
 
 </resources>
