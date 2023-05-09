@@ -4,11 +4,18 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue_main">#6495ED</color>
     <color name="text_second">#808080</color>
+    <color name="Cinza_claro_medio">#B3B3B3</color>
+    <color name="color_investment">#C287CEFA</color>
+    <color name="color_food">#C9808080</color>
     <color name="text_warning">#A6A6A6</color>
     <color name="green">#32CD32</color>
     <color name="color_objective">#DCDCDC</color>
-    <color name="color_degrade">#808080</color>
     <color name="red">#D2691E</color>
-    <color name="Cinza_claro_medio">#B3B3B3</color>
+    <color name="color_salary">#B3B3B3</color>
+    <color name="color_services">#C69F84ED</color>
+    <color name="color_others">#C6FD6246</color>
+    <color name="color_health">#D3B6CE53</color>
+    <color name="color_education">#C8F77B4D</color>
+    <color name="color_house">#A487CEFA</color>/
 
 </resources>
