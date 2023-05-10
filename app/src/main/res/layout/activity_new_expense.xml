@@ -21,7 +21,7 @@
         android:layout_width="26dp"
         android:layout_height="26dp"
         android:layout_marginStart="12dp"
-        android:src="@drawable/fechar_x"
+        android:src="@drawable/close_x"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/view"
@@ -66,7 +66,7 @@
         android:id="@+id/image_description"
         android:layout_width="65dp"
         android:layout_height="25dp"
-        android:src="@drawable/salario_mensal"
+        android:src="@drawable/monthly_salary"
         android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@id/img_dash_underline"
         app:layout_constraintLeft_toLeftOf="parent" />
@@ -97,7 +97,7 @@
         android:id="@+id/image_date"
         android:layout_width="65dp"
         android:layout_height="25dp"
-        android:src="@drawable/data"
+        android:src="@drawable/date"
         android:layout_marginTop="40dp"
         app:layout_constraintTop_toBottomOf="@id/image_description"
         app:layout_constraintLeft_toLeftOf="parent"/>
@@ -190,7 +190,7 @@
         android:id="@+id/image_health"
         android:layout_width="85dp"
         android:layout_height="45dp"
-        android:src="@drawable/saude"
+        android:src="@drawable/health"
         android:layout_marginLeft="24dp"
         app:layout_constraintLeft_toLeftOf="@id/image_house"
         app:layout_constraintTop_toTopOf="@id/image_house"
@@ -214,7 +214,7 @@
         android:layout_height="45dp"
         android:layout_marginLeft="44dp"
         android:layout_marginTop="48dp"
-        android:src="@drawable/educa__o"
+        android:src="@drawable/education"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/image_food" />
 
@@ -235,7 +235,7 @@
         android:layout_height="45dp"
         android:layout_marginLeft="160dp"
         android:layout_marginTop="24dp"
-        android:src="@drawable/outros_2"
+        android:src="@drawable/expense_othors"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_house" />
 

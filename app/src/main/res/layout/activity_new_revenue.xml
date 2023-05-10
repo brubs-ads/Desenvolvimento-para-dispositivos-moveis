@@ -20,7 +20,7 @@
         android:id="@+id/image_fechar_x_revenue"
         android:layout_width="26dp"
         android:layout_height="26dp"
-        android:src="@drawable/fechar_x"
+        android:src="@drawable/close_x"
         app:tint="@color/white"
         app:layout_constraintBottom_toBottomOf="@id/view"
         app:layout_constraintTop_toTopOf="@id/view"
@@ -63,7 +63,7 @@
         android:id="@+id/image_description"
         android:layout_width="65dp"
         android:layout_height="25dp"
-        app:srcCompat="@drawable/salario_mensal"
+        app:srcCompat="@drawable/monthly_salary"
         android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@id/image_dash_underline"
         app:layout_constraintLeft_toLeftOf="parent" />
@@ -94,7 +94,7 @@
         android:id="@+id/image_date"
         android:layout_width="65dp"
         android:layout_height="25dp"
-        app:srcCompat="@drawable/data"
+        app:srcCompat="@drawable/date"
         android:layout_marginTop="40dp"
         app:layout_constraintTop_toBottomOf="@+id/image_description"
         app:layout_constraintLeft_toLeftOf="parent"/>
@@ -153,7 +153,7 @@
         app:layout_constraintTop_toBottomOf="@+id/categories"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="42dp"
-        app:srcCompat="@drawable/salario"
+        app:srcCompat="@drawable/salary"
         />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -171,7 +171,7 @@
         android:id="@+id/image_investment"
         android:layout_width="100dp"
         android:layout_height="45dp"
-        app:srcCompat="@drawable/investimento"
+        app:srcCompat="@drawable/investment"
         android:layout_marginLeft="24dp"
         app:layout_constraintLeft_toLeftOf="@id/image_salary"
         app:layout_constraintTop_toTopOf="@id/image_salary"
@@ -192,7 +192,7 @@
         android:id="@+id/image_services"
         android:layout_width="85dp"
         android:layout_height="45dp"
-        app:srcCompat="@drawable/servi_os"
+        app:srcCompat="@drawable/services"
         android:layout_marginLeft="24dp"
         app:layout_constraintLeft_toLeftOf="@id/image_investment"
         app:layout_constraintTop_toTopOf="@id/image_investment"
@@ -213,7 +213,7 @@
         android:id="@+id/image_others"
         android:layout_width="85dp"
         android:layout_height="45dp"
-        app:srcCompat="@drawable/outros_1"
+        app:srcCompat="@drawable/revenue_othors"
         android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@id/textview_salary"
         app:layout_constraintLeft_toLeftOf="parent"
