@@ -86,7 +86,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_margin="18dp"
-        android:src="@drawable/adicionar_objetivo"
+        android:src="@drawable/add_objective"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
