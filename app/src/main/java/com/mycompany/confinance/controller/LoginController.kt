@@ -1,16 +1,14 @@
 package com.mycompany.confinance.controller
 
-import android.content.Context
-import android.view.View
-import android.widget.Toast
+import com.mycompany.confinance.repository.UserRepository
 
-class LoginController(private val view: View){
+class LoginController{
+
+    private val userRepository = UserRepository()
 
     fun login(email: String, password: String) {
-        if (email != null && password != null) {
-            //val intent = Intent()
-        }else{
-            Toast.makeText(view as Context, "Digite o usuário e senha", Toast.LENGTH_SHORT).show()
+        if (email != null && password !=null){
+            userRepository.login(email,password)
         }
     }
 }

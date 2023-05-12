@@ -11,7 +11,7 @@ import com.mycompany.confinance.util.Constants
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-    private var controller: LoginController? = null
+    private lateinit var controller: LoginController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -68,6 +68,6 @@ class LoginActivity : AppCompatActivity() {
         val email = binding.editEmailLogin.text.toString()
         val password = binding.editPasswordLogin.text.toString()
 
-        controller?.login(email,password)
+        controller.login(email,password)
     }
 }

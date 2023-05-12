@@ -30,7 +30,7 @@
         android:id="@+id/image_home"
         android:layout_width="42dp"
         android:layout_height="42dp"
-        app:srcCompat="@drawable/House"
+        app:srcCompat="@drawable/house"
         app:layout_constraintLeft_toLeftOf="@id/image_arrow_back_home"
         app:layout_constraintStart_toEndOf="@id/image_arrow_back_home"
         app:layout_constraintTop_toTopOf="@id/view"
