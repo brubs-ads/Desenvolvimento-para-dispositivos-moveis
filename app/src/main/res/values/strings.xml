@@ -107,6 +107,14 @@
     <string name="health">Saúde</string>
     <string name="education">Educação</string>
     <string name="text_salary">Salário</string>
+    <string name="new_objective">Novos Objetivos</string>
+    <string name="name">Nome</string>
+    <string name="name_meta">nome da sua meta</string>
+    <string name="value_objective">Valor do objetivo</string>
+    <string name="already_saved">Já poupado</string>
+    <string name="desired_date">Data desejada</string>
+    <string name="icon">ícones</string>
+    <string name="Create">CRIAR</string>
 
 
 </resources>
