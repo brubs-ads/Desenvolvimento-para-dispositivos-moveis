@@ -13,7 +13,7 @@ class Constants {
             const val LOGIN: Boolean = true
         }
         object URL{
-            const val URL_BASE: String = "http:10.10.7.91//:8080/"
+            const val URL_BASE: String = "http://10.10.7.91:8080/"
             const val URL_LOGIN: String = "user/login"
             const val URL_CREATE_USER: String = "user"
         }
