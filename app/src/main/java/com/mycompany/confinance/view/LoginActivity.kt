@@ -68,6 +68,7 @@ class LoginActivity : AppCompatActivity() {
         val email = binding.editEmailLogin.text.toString()
         val password = binding.editPasswordLogin.text.toString()
 
+        controller = LoginController()
         controller.login(email,password)
     }
 }

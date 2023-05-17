@@ -5,10 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.mycompany.confinance.R
 
 
-    class FoodCategoryActivity : AppCompatActivity() {
+class FoodCategoryActivity : AppCompatActivity() {
 
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_food_category)
-        }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_food_category)
+    }
 }
