@@ -3,12 +3,24 @@ package com.mycompany.confinance.view
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mycompany.confinance.R
+import com.mycompany.confinance.databinding.ActivityFoodCategoryBinding
 
 
 class FoodCategoryActivity : AppCompatActivity() {
+<<<<<<< Updated upstream
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_food_category)
     }
+=======
+
+        private lateinit var binding: ActivityFoodCategoryBinding
+
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            binding = ActivityFoodCategoryBinding.inflate(layoutInflater)
+            setContentView(binding.root)
+        }
+>>>>>>> Stashed changes
 }
