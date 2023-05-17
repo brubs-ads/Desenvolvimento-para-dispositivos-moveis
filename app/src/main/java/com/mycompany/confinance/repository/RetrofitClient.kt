@@ -14,7 +14,7 @@ class RetrofitClient private constructor() {
             if (!::INSTANCE.isInitialized) {
                 synchronized(RetrofitClient::class) {
                     INSTANCE =
-                        Retrofit.Builder().baseUrl(Constants.REDIRECTION.URL.URL_BASE).client(http)
+                        Retrofit.Builder().baseUrl(Constants.HTTP.URL.URL_SELTON).client(http)
                             .addConverterFactory(GsonConverterFactory.create()).build()
                 }
             }

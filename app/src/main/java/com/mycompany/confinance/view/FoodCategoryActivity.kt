@@ -7,13 +7,6 @@ import com.mycompany.confinance.databinding.ActivityFoodCategoryBinding
 
 
 class FoodCategoryActivity : AppCompatActivity() {
-<<<<<<< Updated upstream
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_food_category)
-    }
-=======
 
         private lateinit var binding: ActivityFoodCategoryBinding
 
@@ -22,5 +15,4 @@ class FoodCategoryActivity : AppCompatActivity() {
             binding = ActivityFoodCategoryBinding.inflate(layoutInflater)
             setContentView(binding.root)
         }
->>>>>>> Stashed changes
 }

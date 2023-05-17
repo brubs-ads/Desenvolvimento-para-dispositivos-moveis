@@ -7,5 +7,5 @@ import kotlinx.parcelize.Parcelize
 data class UserLoginModel(
     val message: String,
     val status: Int,
-    var userId: Int? = null
+    var userId: Long? = null
 ) : Parcelable
