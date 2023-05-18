@@ -12,7 +12,7 @@ class AboutUsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.imageArrowBackAboutUs.setOnClickListener {
-            TODO("Ainda não tem.")
+           // TODO("Ainda não tem.")
         }
     }
 }
