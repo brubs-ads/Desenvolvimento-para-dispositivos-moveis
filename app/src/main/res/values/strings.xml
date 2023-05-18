@@ -115,6 +115,11 @@
     <string name="desired_date">Data desejada</string>
     <string name="icon">ícones</string>
     <string name="Create">CRIAR</string>
+    <string name="UserProfile">Perfil do usuário</string>
+    <string name="User_Name">Nome</string>
+    <string name="email_person">email</string>
+    <string name="email_person2">E-mail</string>
+    <string name="Exit_Profile">Sair</string>
 
 
 </resources>
