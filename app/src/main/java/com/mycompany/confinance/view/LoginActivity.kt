@@ -3,6 +3,7 @@ package com.mycompany.confinance.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.mycompany.confinance.MainActivity
 import com.mycompany.confinance.controller.LoginController
 import com.mycompany.confinance.databinding.ActivityLoginBinding
@@ -11,7 +12,7 @@ import com.mycompany.confinance.util.Constants
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var controller: LoginController
+    private val controller = LoginController()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -67,7 +68,12 @@ class LoginActivity : AppCompatActivity() {
     private fun handleLogin() {
         val email = binding.editEmailLogin.text.toString()
         val password = binding.editPasswordLogin.text.toString()
+        val validationLogin = controller.login(email, password)
 
-        controller.login(email,password)
+        if (validationLogin.status()) {
+            startActivity(Intent(this,MenuActivity::class.java))
+        }else{
+            Toast.makeText(this,validationLogin.message(),Toast.LENGTH_LONG).show()
+        }
     }
 }
