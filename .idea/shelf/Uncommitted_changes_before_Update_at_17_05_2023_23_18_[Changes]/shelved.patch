@@ -1,0 +1,908 @@
+Index: app/src/main/java/com/mycompany/confinance/util/Constants.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.util\r\n\r\n\r\nclass Constants {\r\n    companion object REDIRECTION {\r\n        object KEY {\r\n            const val ACCOUNT: String = \"Activity_Account\"\r\n            const val LOGIN: String = \"Activity_Login\"\r\n        }\r\n\r\n        object VALUE {\r\n            const val ACCOUNT: Boolean = true\r\n            const val LOGIN: Boolean = true\r\n        }\r\n        object URL{\r\n            const val URL_BASE: String = \"localhost:8080/\"\r\n            const val URL_LOGIN: String = \"user/login\"\r\n            const val URL_CREATE_USER: String = \"user\"\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/util/Constants.kt b/app/src/main/java/com/mycompany/confinance/util/Constants.kt
+--- a/app/src/main/java/com/mycompany/confinance/util/Constants.kt	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/app/src/main/java/com/mycompany/confinance/util/Constants.kt	(date 1684375791653)
+@@ -12,10 +12,16 @@
+             const val ACCOUNT: Boolean = true
+             const val LOGIN: Boolean = true
+         }
++    }
++    object HTTP{
+         object URL{
+-            const val URL_BASE: String = "localhost:8080/"
++            const val URL_BASE: String = "http://10.10.7.91:8080/"
++            const val URL_SELTON: String = "http://192.168.13.104:8080/"
+             const val URL_LOGIN: String = "user/login"
+             const val URL_CREATE_USER: String = "user"
+         }
++        object CODE{
++            const val CODE_SUCCESS: Int = 200
++        }
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/mycompany/confinance/view/EducationCategoryActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.view\r\n\r\nimport android.os.Bundle\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport com.mycompany.confinance.R\r\n\r\n\r\nclass EducationCategoryActivity : AppCompatActivity() {\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_education_category)\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/view/EducationCategoryActivity.kt b/app/src/main/java/com/mycompany/confinance/view/EducationCategoryActivity.kt
+--- a/app/src/main/java/com/mycompany/confinance/view/EducationCategoryActivity.kt	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/app/src/main/java/com/mycompany/confinance/view/EducationCategoryActivity.kt	(date 1684375791653)
+@@ -3,12 +3,16 @@
+ import android.os.Bundle
+ import androidx.appcompat.app.AppCompatActivity
+ import com.mycompany.confinance.R
++import com.mycompany.confinance.databinding.ActivityEducationCategoryBinding
+ 
+ 
+ class EducationCategoryActivity : AppCompatActivity() {
+ 
++    private lateinit var binding: ActivityEducationCategoryBinding
++
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+-        setContentView(R.layout.activity_education_category)
++        binding = ActivityEducationCategoryBinding.inflate(layoutInflater)
++        setContentView(binding.root)
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/mycompany/confinance/view/FoodCategoryActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.view\r\n\r\nimport android.os.Bundle\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport com.mycompany.confinance.R\r\n\r\n\r\n    class FoodCategoryActivity : AppCompatActivity() {\r\n\r\n        override fun onCreate(savedInstanceState: Bundle?) {\r\n            super.onCreate(savedInstanceState)\r\n            setContentView(R.layout.activity_food_category)\r\n        }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/view/FoodCategoryActivity.kt b/app/src/main/java/com/mycompany/confinance/view/FoodCategoryActivity.kt
+--- a/app/src/main/java/com/mycompany/confinance/view/FoodCategoryActivity.kt	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/app/src/main/java/com/mycompany/confinance/view/FoodCategoryActivity.kt	(date 1684375791661)
+@@ -3,12 +3,16 @@
+ import android.os.Bundle
+ import androidx.appcompat.app.AppCompatActivity
+ import com.mycompany.confinance.R
++import com.mycompany.confinance.databinding.ActivityFoodCategoryBinding
+ 
+ 
+-    class FoodCategoryActivity : AppCompatActivity() {
++class FoodCategoryActivity : AppCompatActivity() {
+ 
++        private lateinit var binding: ActivityFoodCategoryBinding
++
+         override fun onCreate(savedInstanceState: Bundle?) {
+             super.onCreate(savedInstanceState)
+-            setContentView(R.layout.activity_food_category)
++            binding = ActivityFoodCategoryBinding.inflate(layoutInflater)
++            setContentView(binding.root)
+         }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/mycompany/confinance/view/InvestmentCategoryActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.view\r\n\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\nimport com.mycompany.confinance.R\r\n\r\nclass InvestmentCategoryActivity : AppCompatActivity() {\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_investment_category)\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/view/InvestmentCategoryActivity.kt b/app/src/main/java/com/mycompany/confinance/view/InvestmentCategoryActivity.kt
+--- a/app/src/main/java/com/mycompany/confinance/view/InvestmentCategoryActivity.kt	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/app/src/main/java/com/mycompany/confinance/view/InvestmentCategoryActivity.kt	(date 1684375791669)
+@@ -3,10 +3,14 @@
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
+ import com.mycompany.confinance.R
++import com.mycompany.confinance.databinding.ActivityInvestmentCategoryBinding
+ 
+ class InvestmentCategoryActivity : AppCompatActivity() {
++
++    private lateinit var binding: ActivityInvestmentCategoryBinding
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+-        setContentView(R.layout.activity_investment_category)
++        binding = ActivityInvestmentCategoryBinding.inflate(layoutInflater)
++        setContentView(binding.root)
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/mycompany/confinance/view/LoginActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.view\r\n\r\nimport android.content.Intent\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\nimport com.mycompany.confinance.MainActivity\r\nimport com.mycompany.confinance.controller.LoginController\r\nimport com.mycompany.confinance.databinding.ActivityLoginBinding\r\nimport com.mycompany.confinance.util.Constants\r\n\r\nclass LoginActivity : AppCompatActivity() {\r\n\r\n    private lateinit var binding: ActivityLoginBinding\r\n    private lateinit var controller: LoginController\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        binding = ActivityLoginBinding.inflate(layoutInflater)\r\n        setContentView(binding.root)\r\n\r\n        supportActionBar?.hide()\r\n\r\n        handleClick()\r\n\r\n    }\r\n\r\n    private fun handleClick() {\r\n        binding.imageArrowBackLogin.setOnClickListener {\r\n\r\n            val account = intent.getBooleanExtra(Constants.REDIRECTION.KEY.ACCOUNT, false)\r\n            if (account) {\r\n                startActivity(Intent(this, CreateAccountActivity::class.java))\r\n                finish()\r\n            } else {\r\n                startActivity(Intent(this, MainActivity::class.java))\r\n                finish()\r\n            }\r\n\r\n        }\r\n        binding.buttonLogin.setOnClickListener {\r\n            handleLogin()\r\n        }\r\n\r\n        binding.textTermsOfUseLogin.setOnClickListener {\r\n\r\n            val intent = Intent(this, TermsOfUseActivity::class.java)\r\n            intent.putExtra(Constants.REDIRECTION.KEY.LOGIN, Constants.REDIRECTION.VALUE.LOGIN)\r\n            startActivity(intent)\r\n            finish()\r\n\r\n        }\r\n        binding.textPrivacyPolicesLogin.setOnClickListener {\r\n            val intent = Intent(this, PrivacyPolicesActivity::class.java)\r\n            intent.putExtra(Constants.REDIRECTION.KEY.LOGIN, Constants.REDIRECTION.VALUE.LOGIN)\r\n            startActivity(intent)\r\n            finish()\r\n\r\n        }\r\n\r\n        binding.textCreateAccountLogin.setOnClickListener {\r\n            val intent = Intent(this, CreateAccountActivity::class.java)\r\n            intent.putExtra(Constants.REDIRECTION.KEY.LOGIN, Constants.REDIRECTION.VALUE.LOGIN)\r\n            startActivity(intent)\r\n            finish()\r\n        }\r\n    }\r\n\r\n    private fun handleLogin() {\r\n        val email = binding.editEmailLogin.text.toString()\r\n        val password = binding.editPasswordLogin.text.toString()\r\n\r\n        controller.login(email,password)\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/view/LoginActivity.kt b/app/src/main/java/com/mycompany/confinance/view/LoginActivity.kt
+--- a/app/src/main/java/com/mycompany/confinance/view/LoginActivity.kt	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/app/src/main/java/com/mycompany/confinance/view/LoginActivity.kt	(date 1684375791677)
+@@ -68,6 +68,7 @@
+         val email = binding.editEmailLogin.text.toString()
+         val password = binding.editPasswordLogin.text.toString()
+ 
++        controller = LoginController()
+         controller.login(email,password)
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/mycompany/confinance/view/HealthCategoryActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.view\r\n\r\nclass HealthCategoryActivity {\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/view/HealthCategoryActivity.kt b/app/src/main/java/com/mycompany/confinance/view/HealthCategoryActivity.kt
+--- a/app/src/main/java/com/mycompany/confinance/view/HealthCategoryActivity.kt	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/app/src/main/java/com/mycompany/confinance/view/HealthCategoryActivity.kt	(date 1684375791661)
+@@ -1,4 +1,16 @@
+ package com.mycompany.confinance.view
+ 
+-class HealthCategoryActivity {
++import android.os.Bundle
++import androidx.appcompat.app.AppCompatActivity
++import com.mycompany.confinance.databinding.ActivityHealthCategoryBinding
++
++class HealthCategoryActivity : AppCompatActivity() {
++
++    private lateinit var binding: ActivityHealthCategoryBinding
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        binding = ActivityHealthCategoryBinding.inflate(layoutInflater)
++        setContentView(binding.root)
++    }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/mycompany/confinance/view/HouseCategoryActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance\r\n\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\n\r\nclass HouseCategoryActivity : AppCompatActivity() {\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_house_category)\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/view/HouseCategoryActivity.kt b/app/src/main/java/com/mycompany/confinance/view/HouseCategoryActivity.kt
+--- a/app/src/main/java/com/mycompany/confinance/view/HouseCategoryActivity.kt	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/app/src/main/java/com/mycompany/confinance/view/HouseCategoryActivity.kt	(date 1684375791669)
+@@ -2,11 +2,15 @@
+ 
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
++import com.mycompany.confinance.databinding.ActivityHouseCategoryBinding
+ 
+ class HouseCategoryActivity : AppCompatActivity() {
+ 
++    private lateinit var binding: ActivityHouseCategoryBinding
++
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+-        setContentView(R.layout.activity_house_category)
++        binding = ActivityHouseCategoryBinding.inflate(layoutInflater)
++        setContentView(binding.root)
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/mycompany/confinance/view/NewRevenueActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.view\r\n\r\nclass NewRevenueActivity {\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/view/NewRevenueActivity.kt b/app/src/main/java/com/mycompany/confinance/view/NewRevenueActivity.kt
+--- a/app/src/main/java/com/mycompany/confinance/view/NewRevenueActivity.kt	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/app/src/main/java/com/mycompany/confinance/view/NewRevenueActivity.kt	(date 1684375791677)
+@@ -1,4 +1,69 @@
+ package com.mycompany.confinance.view
+ 
+-class NewRevenueActivity {
++import android.app.DatePickerDialog
++import android.os.Bundle
++import android.text.format.DateFormat.format
++import android.view.View
++import android.widget.DatePicker
++import androidx.appcompat.app.AppCompatActivity
++import com.google.gson.internal.bind.util.ISO8601Utils.format
++import com.mycompany.confinance.R
++import com.mycompany.confinance.databinding.ActivityNewRevenueBinding
++import com.mycompany.confinance.model.MovementModel
++import java.text.SimpleDateFormat
++
++import java.util.*
++
++class NewRevenueActivity : AppCompatActivity(), View.OnClickListener, DatePickerDialog.OnDateSetListener {
++
++    private lateinit var binding: ActivityNewRevenueBinding
++    private val dateFormart = SimpleDateFormat("dd/MM/yyyy")
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        binding = ActivityNewRevenueBinding.inflate(layoutInflater)
++        setContentView(binding.root)
++
++        binding.buttonDate.setOnClickListener(this)
++        binding.buttonCreate.setOnClickListener(this)
++
++    }
++
++    override fun onClick(v: View) {
++        if (v.id == R.id.button_date){
++            handleDate()
++        }else if(v.id == R.id.button_create){
++            handleCreate()
++        }
++
++    }
++
++    override fun onDateSet(v: DatePicker, year: Int, month: Int, dayOfMonth: Int) {
++        val calendar = Calendar.getInstance()
++        calendar.set(year,month,dayOfMonth)
++        val date = dateFormart.format(calendar.time)
++        binding.buttonDate.text = date
++    }
++
++    private fun handleCreate(){
++        val movement = MovementModel().apply {
++            this.id = 0
++            val stringValue = binding.textRevenueValue.text.toString()
++            val doubleValue = stringValue.toDouble()
++            this.value = doubleValue
++            this.description = binding.edittextDescription.text.toString()
++            this.date = binding.buttonDate.text.toString()
++
++        }
++    }
++
++
++    private fun handleDate(){
++        val calendar = Calendar.getInstance()
++        val year = calendar.get(Calendar.YEAR)
++        val month = calendar.get(Calendar.MONTH)
++        val day = calendar.get(Calendar.DAY_OF_MONTH)
++
++        DatePickerDialog(this,this, year , month ,day).show()
++    }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/mycompany/confinance/view/NewExpenseActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.view\r\n\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\nimport com.mycompany.confinance.R\r\n\r\nclass NewExpenseActivity : AppCompatActivity() {\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_new_expense)\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/view/NewExpenseActivity.kt b/app/src/main/java/com/mycompany/confinance/view/NewExpenseActivity.kt
+--- a/app/src/main/java/com/mycompany/confinance/view/NewExpenseActivity.kt	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/app/src/main/java/com/mycompany/confinance/view/NewExpenseActivity.kt	(date 1684375791677)
+@@ -3,10 +3,14 @@
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
+ import com.mycompany.confinance.R
++import com.mycompany.confinance.databinding.ActivityNewExpenseBinding
+ 
+ class NewExpenseActivity : AppCompatActivity() {
++
++    private lateinit var binding: ActivityNewExpenseBinding
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+-        setContentView(R.layout.activity_new_expense)
++        binding = ActivityNewExpenseBinding.inflate(layoutInflater)
++        setContentView(binding.root)
+     }
+ }
+\ No newline at end of file
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\r\nplugins {\r\n    id 'com.android.application' version '8.0.1' apply false\r\n    id 'com.android.library' version '8.0.1' apply false\r\n    id 'org.jetbrains.kotlin.android' version '1.8.0' apply false\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle b/build.gradle
+--- a/build.gradle	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/build.gradle	(date 1684375791725)
+@@ -1,6 +1,6 @@
+ // Top-level build file where you can add configuration options common to all sub-projects/modules.
+ plugins {
+-    id 'com.android.application' version '8.0.1' apply false
+-    id 'com.android.library' version '8.0.1' apply false
++    id 'com.android.application' version '7.3.1' apply false
++    id 'com.android.library' version '7.3.1' apply false
+     id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/mycompany/confinance/view/SalaryCategoryActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.view\r\n\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\nimport com.mycompany.confinance.R\r\n\r\nclass SalaryCategoryActivity : AppCompatActivity() {\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_salary_category)\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/view/SalaryCategoryActivity.kt b/app/src/main/java/com/mycompany/confinance/view/SalaryCategoryActivity.kt
+--- a/app/src/main/java/com/mycompany/confinance/view/SalaryCategoryActivity.kt	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/app/src/main/java/com/mycompany/confinance/view/SalaryCategoryActivity.kt	(date 1684375791693)
+@@ -3,10 +3,14 @@
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
+ import com.mycompany.confinance.R
++import com.mycompany.confinance.databinding.ActivitySalaryCategoryBinding
+ 
+ class SalaryCategoryActivity : AppCompatActivity() {
++
++    private lateinit var binding: ActivitySalaryCategoryBinding
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+-        setContentView(R.layout.activity_salary_category)
++        binding = ActivitySalaryCategoryBinding.inflate(layoutInflater)
++        setContentView(binding.root)
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/mycompany/confinance/view/OthersCategoryExpenseActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance\r\n\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\n\r\nclass OthersCategoryExpenseActivity : AppCompatActivity() {\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_others_category_expense)\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/view/OthersCategoryExpenseActivity.kt b/app/src/main/java/com/mycompany/confinance/view/OthersCategoryExpenseActivity.kt
+--- a/app/src/main/java/com/mycompany/confinance/view/OthersCategoryExpenseActivity.kt	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/app/src/main/java/com/mycompany/confinance/view/OthersCategoryExpenseActivity.kt	(date 1684375791685)
+@@ -2,10 +2,14 @@
+ 
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
++import com.mycompany.confinance.databinding.ActivityOthersCategoryExpenseBinding
+ 
+ class OthersCategoryExpenseActivity : AppCompatActivity() {
++
++    private lateinit var binding: ActivityOthersCategoryExpenseBinding
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+-        setContentView(R.layout.activity_others_category_expense)
++        binding = ActivityOthersCategoryExpenseBinding.inflate(layoutInflater)
++        setContentView(binding.root)
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/mycompany/confinance/view/OthersCategoryRevenueActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.view\r\n\r\nclass OthersCategoryRevenueActivity {\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/view/OthersCategoryRevenueActivity.kt b/app/src/main/java/com/mycompany/confinance/view/OthersCategoryRevenueActivity.kt
+--- a/app/src/main/java/com/mycompany/confinance/view/OthersCategoryRevenueActivity.kt	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/app/src/main/java/com/mycompany/confinance/view/OthersCategoryRevenueActivity.kt	(date 1684375791685)
+@@ -1,4 +1,17 @@
+ package com.mycompany.confinance.view
+ 
+-class OthersCategoryRevenueActivity {
++import android.os.Bundle
++import androidx.appcompat.app.AppCompatActivity
++import com.mycompany.confinance.databinding.ActivityHouseCategoryBinding
++import com.mycompany.confinance.databinding.ActivityOthersCategoryRevenueBinding
++
++class OthersCategoryRevenueActivity: AppCompatActivity(){
++
++    private lateinit var binding: ActivityOthersCategoryRevenueBinding
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        binding = ActivityOthersCategoryRevenueBinding.inflate(layoutInflater)
++        setContentView(binding.root)
++    }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/mycompany/confinance/model/MovementModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/model/MovementModel.kt b/app/src/main/java/com/mycompany/confinance/model/MovementModel.kt
+new file mode 100644
+--- /dev/null	(date 1684375791613)
++++ b/app/src/main/java/com/mycompany/confinance/model/MovementModel.kt	(date 1684375791613)
+@@ -0,0 +1,10 @@
++package com.mycompany.confinance.model
++
++class MovementModel {
++
++    var id : Long = 0
++    var type_movement : String = ""
++    var value : Double = 0.0
++    var description : String = ""
++    var date : String = ""
++}
+\ No newline at end of file
+Index: app/src/main/java/com/mycompany/confinance/model/UserLoginModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.model\r\n\r\nimport android.os.Parcelable\r\nimport kotlinx.parcelize.Parcelize\r\n\r\n@Parcelize\r\ndata class UserLoginModel(\r\n    val message: String,\r\n    val status: Int,\r\n    var userId: Int? = null\r\n) : Parcelable
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/model/UserLoginModel.kt b/app/src/main/java/com/mycompany/confinance/model/UserLoginModel.kt
+--- a/app/src/main/java/com/mycompany/confinance/model/UserLoginModel.kt	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/app/src/main/java/com/mycompany/confinance/model/UserLoginModel.kt	(date 1684375791613)
+@@ -7,5 +7,5 @@
+ data class UserLoginModel(
+     val message: String,
+     val status: Int,
+-    var userId: Int? = null
++    var userId: Long? = null
+ ) : Parcelable
+\ No newline at end of file
+Index: app/src/main/java/com/mycompany/confinance/view/ServicesCategoryActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.view\r\n\r\nclass ServicesCategoryActivity {\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/view/ServicesCategoryActivity.kt b/app/src/main/java/com/mycompany/confinance/view/ServicesCategoryActivity.kt
+--- a/app/src/main/java/com/mycompany/confinance/view/ServicesCategoryActivity.kt	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/app/src/main/java/com/mycompany/confinance/view/ServicesCategoryActivity.kt	(date 1684375791693)
+@@ -1,4 +1,17 @@
+ package com.mycompany.confinance.view
+ 
+-class ServicesCategoryActivity {
++import android.os.Bundle
++import androidx.appcompat.app.AppCompatActivity
++import com.mycompany.confinance.databinding.ActivityHouseCategoryBinding
++import com.mycompany.confinance.databinding.ActivityServicesCategoryBinding
++
++class ServicesCategoryActivity: AppCompatActivity() {
++
++    private lateinit var binding: ActivityServicesCategoryBinding
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        binding = ActivityServicesCategoryBinding.inflate(layoutInflater)
++        setContentView(binding.root)
++    }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/mycompany/confinance/repository/service/MovementService.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/repository/service/MovementService.kt b/app/src/main/java/com/mycompany/confinance/repository/service/MovementService.kt
+new file mode 100644
+--- /dev/null	(date 1684375791645)
++++ b/app/src/main/java/com/mycompany/confinance/repository/service/MovementService.kt	(date 1684375791645)
+@@ -0,0 +1,45 @@
++package com.mycompany.confinance.repository.service
++
++import com.mycompany.confinance.model.MovementModel
++import retrofit2.Call
++import retrofit2.http.DELETE
++import retrofit2.http.Field
++import retrofit2.http.FormUrlEncoded
++import retrofit2.http.GET
++import retrofit2.http.POST
++import retrofit2.http.PUT
++import retrofit2.http.Path
++
++interface MovementService {
++
++   /* @GET("movement")
++   fun List():Call<List<>>
++
++    @GET("movement/{id}")
++    fun load(@Path(value = "id" , encoded = true) id:Long):Call<>
++
++    @GET("movement/user/{id}")
++
++    @POST("movement")
++    @FormUrlEncoded
++    fun create(
++        @Field ("type_movement") type_movement : String,
++        @Field ("value") value: Double,
++        @Field ("description") description : String,
++        @Field ("date") date :String
++    )
++
++    @PUT("movement")
++    @FormUrlEncoded
++    fun update(
++        @Field ("id") id : Long,
++        @Field ("type_movement") type_movement : String,
++        @Field ("value") value: Double,
++        @Field ("description") description : String,
++        @Field ("date") date :String
++    )
++
++    @DELETE
++    @FormUrlEncoded
++    fun delete(@Field ("id") id: Long): Call<> */
++}
+\ No newline at end of file
+Index: app/src/main/java/com/mycompany/confinance/repository/RetrofitClient.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.repository\r\n\r\nimport com.mycompany.confinance.util.Constants\r\nimport okhttp3.OkHttpClient\r\nimport retrofit2.Retrofit\r\nimport retrofit2.converter.gson.GsonConverterFactory\r\n\r\nclass RetrofitClient private constructor() {\r\n    companion object {\r\n        private lateinit var INSTANCE: Retrofit\r\n\r\n        private fun getRetrofitInstance(): Retrofit {\r\n            val http = OkHttpClient.Builder().build()\r\n            if (!::INSTANCE.isInitialized) {\r\n                synchronized(RetrofitClient::class) {\r\n                    INSTANCE =\r\n                        Retrofit.Builder().baseUrl(Constants.REDIRECTION.URL.URL_BASE).client(http)\r\n                            .addConverterFactory(GsonConverterFactory.create()).build()\r\n                }\r\n            }\r\n            return INSTANCE\r\n        }\r\n\r\n        fun <T> getService(service: Class<T>): T {\r\n            return getRetrofitInstance().create(service)\r\n        }\r\n\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/repository/RetrofitClient.kt b/app/src/main/java/com/mycompany/confinance/repository/RetrofitClient.kt
+--- a/app/src/main/java/com/mycompany/confinance/repository/RetrofitClient.kt	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/app/src/main/java/com/mycompany/confinance/repository/RetrofitClient.kt	(date 1684375791621)
+@@ -14,7 +14,7 @@
+             if (!::INSTANCE.isInitialized) {
+                 synchronized(RetrofitClient::class) {
+                     INSTANCE =
+-                        Retrofit.Builder().baseUrl(Constants.REDIRECTION.URL.URL_BASE).client(http)
++                        Retrofit.Builder().baseUrl(Constants.HTTP.URL.URL_SELTON).client(http)
+                             .addConverterFactory(GsonConverterFactory.create()).build()
+                 }
+             }
+Index: app/src/main/java/com/mycompany/confinance/repository/MovementRepository.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/repository/MovementRepository.kt b/app/src/main/java/com/mycompany/confinance/repository/MovementRepository.kt
+new file mode 100644
+--- /dev/null	(date 1684375791613)
++++ b/app/src/main/java/com/mycompany/confinance/repository/MovementRepository.kt	(date 1684375791613)
+@@ -0,0 +1,8 @@
++package com.mycompany.confinance.repository
++
++import com.mycompany.confinance.repository.service.MovementService
++
++class MovementRepository {
++
++    private val remote = RetrofitClient.getService(MovementService::class.java)
++}
+\ No newline at end of file
+Index: app/src/main/java/com/mycompany/confinance/controller/LoginController.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.controller\r\n\r\nimport com.mycompany.confinance.repository.UserRepository\r\n\r\nclass LoginController{\r\n\r\n    private val userRepository = UserRepository()\r\n\r\n    fun login(email: String, password: String) {\r\n        if (email != null && password !=null){\r\n            userRepository.login(email,password)\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/controller/LoginController.kt b/app/src/main/java/com/mycompany/confinance/controller/LoginController.kt
+--- a/app/src/main/java/com/mycompany/confinance/controller/LoginController.kt	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/app/src/main/java/com/mycompany/confinance/controller/LoginController.kt	(date 1684375791605)
+@@ -1,6 +1,8 @@
+ package com.mycompany.confinance.controller
+ 
++import com.mycompany.confinance.model.UserLoginModel
+ import com.mycompany.confinance.repository.UserRepository
++import com.mycompany.confinance.repository.listener.ApiListener
+ 
+ class LoginController{
+ 
+@@ -8,7 +10,14 @@
+ 
+     fun login(email: String, password: String) {
+         if (email != null && password !=null){
+-            userRepository.login(email,password)
++            userRepository.login(email,password, object : ApiListener<UserLoginModel>{
++                override fun onSuccess(result: UserLoginModel) {
++
++                }
++
++                override fun onFailure(message: String) {
++                }
++            })
+         }
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/mycompany/confinance/repository/listener/ApiListener.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/repository/listener/ApiListener.kt b/app/src/main/java/com/mycompany/confinance/repository/listener/ApiListener.kt
+new file mode 100644
+--- /dev/null	(date 1684375791645)
++++ b/app/src/main/java/com/mycompany/confinance/repository/listener/ApiListener.kt	(date 1684375791645)
+@@ -0,0 +1,6 @@
++package com.mycompany.confinance.repository.listener
++
++interface ApiListener<T> {
++    fun onSuccess(result: T)
++    fun onFailure(message:String)
++}
+\ No newline at end of file
+Index: app/src/main/java/com/mycompany/confinance/repository/service/UserService.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.repository.service\r\n\r\nimport com.mycompany.confinance.model.CreateUserModel\r\nimport com.mycompany.confinance.model.UserLoginModel\r\nimport com.mycompany.confinance.util.Constants\r\nimport retrofit2.Call\r\nimport retrofit2.http.Field\r\nimport retrofit2.http.FormUrlEncoded\r\nimport retrofit2.http.POST\r\n\r\ninterface UserService {\r\n\r\n    @POST(Constants.REDIRECTION.URL.URL_LOGIN)\r\n    @FormUrlEncoded\r\n    fun login(\r\n        @Field(\"email\") email: String,\r\n        @Field(\"password\") password: String\r\n    ): Call<UserLoginModel>\r\n\r\n    @POST(Constants.REDIRECTION.URL.URL_CREATE_USER)\r\n    @FormUrlEncoded\r\n    fun create(\r\n        @Field(\"name\") name: String,\r\n        @Field(\"email\") email: String,\r\n        @Field(\"password\") password: String\r\n    ):Call<CreateUserModel>\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/repository/service/UserService.kt b/app/src/main/java/com/mycompany/confinance/repository/service/UserService.kt
+--- a/app/src/main/java/com/mycompany/confinance/repository/service/UserService.kt	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/app/src/main/java/com/mycompany/confinance/repository/service/UserService.kt	(date 1684375791645)
+@@ -4,25 +4,21 @@
+ import com.mycompany.confinance.model.UserLoginModel
+ import com.mycompany.confinance.util.Constants
+ import retrofit2.Call
++import retrofit2.http.Body
+ import retrofit2.http.Field
+ import retrofit2.http.FormUrlEncoded
+ import retrofit2.http.POST
+ 
+ interface UserService {
+ 
+-    @POST(Constants.REDIRECTION.URL.URL_LOGIN)
+-    @FormUrlEncoded
++    @POST(Constants.HTTP.URL.URL_LOGIN)
+     fun login(
+-        @Field("email") email: String,
+-        @Field("password") password: String
++        @Body User: Map<String,String>
+     ): Call<UserLoginModel>
+ 
+-    @POST(Constants.REDIRECTION.URL.URL_CREATE_USER)
+-    @FormUrlEncoded
++    @POST(Constants.HTTP.URL.URL_CREATE_USER)
+     fun create(
+-        @Field("name") name: String,
+-        @Field("email") email: String,
+-        @Field("password") password: String
+-    ):Call<CreateUserModel>
++        @Body User:CreateUserModel
++    ): Call<CreateUserModel>
+ 
+ }
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    id 'com.android.application'\r\n    id 'org.jetbrains.kotlin.android'\r\n    id 'kotlin-parcelize'\r\n}\r\n\r\nandroid {\r\n    namespace 'com.mycompany.confinance'\r\n    compileSdk 33\r\n\r\n    defaultConfig {\r\n        applicationId \"com.mycompany.confinance\"\r\n        minSdk 24\r\n        targetSdk 33\r\n        versionCode 1\r\n        versionName \"1.0\"\r\n\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n    compileOptions {\r\n        sourceCompatibility JavaVersion.VERSION_1_8\r\n        targetCompatibility JavaVersion.VERSION_1_8\r\n    }\r\n    kotlinOptions {\r\n        jvmTarget = '1.8'\r\n    }\r\n    viewBinding{\r\n        enabled = true\r\n    }\r\n    buildFeatures {\r\n        viewBinding true\r\n    }\r\n}\r\n\r\ndependencies {\r\n\r\n    implementation 'androidx.core:core-ktx:1.10.1'\r\n    implementation 'androidx.appcompat:appcompat:1.6.1'\r\n    implementation 'com.google.android.material:material:1.9.0'\r\n    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'\r\n    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'\r\n    implementation 'com.squareup.retrofit2:retrofit:2.9.0'\r\n    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'\r\n    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'\r\n    testImplementation 'junit:junit:4.13.2'\r\n    androidTestImplementation 'androidx.test.ext:junit:1.1.5'\r\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle b/app/build.gradle
+--- a/app/build.gradle	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/app/build.gradle	(date 1684375791589)
+@@ -46,8 +46,8 @@
+     implementation 'com.google.android.material:material:1.9.0'
+     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
+-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
++    implementation 'com.squareup.retrofit2:retrofit:2.6.0'
++    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
+     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+     testImplementation 'junit:junit:4.13.2'
+     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+Index: app/src/main/java/com/mycompany/confinance/repository/UserRepository.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.repository\r\nimport com.mycompany.confinance.model.UserLoginModel\r\nimport com.mycompany.confinance.repository.service.UserService\r\nimport retrofit2.Call\r\nimport retrofit2.Callback\r\nimport retrofit2.Response\r\n\r\n\r\nclass UserRepository {\r\n\r\n    private val remote = RetrofitClient.getService(UserService::class.java)\r\n\r\n    fun login(email: String, password: String){\r\n        var call = remote.login(email, password)\r\n        call.enqueue(object :Callback<UserLoginModel>{\r\n            override fun onResponse(\r\n                call: Call<UserLoginModel>,response: Response<UserLoginModel>) {\r\n                val s = \"\"\r\n            }\r\n            override fun onFailure(call: Call<UserLoginModel>, t: Throwable) {\r\n                val s = \"\"\r\n            }\r\n        })\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/repository/UserRepository.kt b/app/src/main/java/com/mycompany/confinance/repository/UserRepository.kt
+--- a/app/src/main/java/com/mycompany/confinance/repository/UserRepository.kt	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/app/src/main/java/com/mycompany/confinance/repository/UserRepository.kt	(date 1684375791637)
+@@ -1,6 +1,9 @@
+ package com.mycompany.confinance.repository
++
+ import com.mycompany.confinance.model.UserLoginModel
++import com.mycompany.confinance.repository.listener.ApiListener
+ import com.mycompany.confinance.repository.service.UserService
++import com.mycompany.confinance.util.Constants
+ import retrofit2.Call
+ import retrofit2.Callback
+ import retrofit2.Response
+@@ -10,15 +13,27 @@
+ 
+     private val remote = RetrofitClient.getService(UserService::class.java)
+ 
+-    fun login(email: String, password: String){
+-        var call = remote.login(email, password)
+-        call.enqueue(object :Callback<UserLoginModel>{
++    fun login(email: String, password: String, listener: ApiListener<UserLoginModel>) {
++        val user = hashMapOf("email" to email, "password" to password)
++        var call = remote.login(user)
++        call.enqueue(object : Callback<UserLoginModel> {
+             override fun onResponse(
+-                call: Call<UserLoginModel>,response: Response<UserLoginModel>) {
+-                val s = ""
++                call: Call<UserLoginModel>, response: Response<UserLoginModel>
++            ) {
++                if (response.code() == Constants.HTTP.CODE.CODE_SUCCESS) {
++                    response.body()?.let {
++                        listener.onSuccess(it)
++                    }
++                }
++                else{
++                    response.body()?.let {
++                        listener.onFailure(it.message)
++                    }
++                }
+             }
++
+             override fun onFailure(call: Call<UserLoginModel>, t: Throwable) {
+-                val s = ""
++                listener.onFailure("ERROR, Para mais informações entre em contato com os Desenvolvedores")
+             }
+         })
+     }
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.Confinance\"\r\n        android:usesCleartextTraffic=\"true\"\r\n        tools:targetApi=\"31\">\r\n        <activity\r\n            android:name=\".view.UserProfileActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".CreateObjectiveActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".HouseCategoryActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".OthersCategoryExpenseActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".view.InvestmentCategoryActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".view.SalaryCategoryActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".view.NewExpenseActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".view.ObjectiveActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".view.MenuActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".view.PrivacyPolicesActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".view.TermsOfUseActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".view.CreateAccountActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".view.AboutUsActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".view.LoginActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/app/src/main/AndroidManifest.xml	(date 1684376290336)
+@@ -5,6 +5,7 @@
+     <uses-permission android:name="android.permission.INTERNET" />
+     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+ 
++
+     <application
+         android:allowBackup="true"
+         android:dataExtractionRules="@xml/data_extraction_rules"
+@@ -14,13 +15,9 @@
+         android:roundIcon="@mipmap/ic_launcher_round"
+         android:supportsRtl="true"
+         android:theme="@style/Theme.Confinance"
+-        android:usesCleartextTraffic="true"
+         tools:targetApi="31">
+         <activity
+-            android:name=".view.UserProfileActivity"
+-            android:exported="false" />
+-        <activity
+-            android:name=".CreateObjectiveActivity"
++            android:name=".view.CreateObjectiveActivity"
+             android:exported="false" />
+         <activity
+             android:name=".HouseCategoryActivity"
+Index: app/src/main/res/layout/activity_new_revenue.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:orientation=\"vertical\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\">\r\n\r\n    <View\r\n        android:id=\"@+id/view\"\r\n        android:layout_width=\"0dp\"\r\n        android:layout_height=\"72dp\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        android:background=\"@color/green\"/>\r\n\r\n\r\n    <androidx.appcompat.widget.AppCompatImageView\r\n        android:id=\"@+id/image_fechar_x_revenue\"\r\n        android:layout_width=\"26dp\"\r\n        android:layout_height=\"26dp\"\r\n        android:src=\"@drawable/close_x\"\r\n        app:tint=\"@color/white\"\r\n        app:layout_constraintBottom_toBottomOf=\"@id/view\"\r\n        app:layout_constraintTop_toTopOf=\"@id/view\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        android:layout_marginStart=\"12dp\"/>\r\n\r\n    <androidx.appcompat.widget.AppCompatTextView\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"@string/new_revenue\"\r\n        app:layout_constraintStart_toEndOf=\"@id/image_fechar_x_revenue\"\r\n        app:layout_constraintBottom_toBottomOf=\"@id/image_fechar_x_revenue\"\r\n        app:layout_constraintTop_toTopOf=\"@id/image_fechar_x_revenue\"\r\n        android:layout_marginStart=\"16dp\"\r\n        android:textColor=\"@color/white\"\r\n        android:textSize=\"20sp\"/>\r\n\r\n    <androidx.appcompat.widget.AppCompatTextView\r\n        android:id=\"@+id/text_revenue_value\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"@string/revenue_value\"\r\n        android:layout_marginTop=\"16dp\"\r\n        android:textSize=\"32sp\"\r\n        android:textColor=\"@color/green\"\r\n        android:layout_marginStart=\"12dp\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/view\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"/>\r\n\r\n    <androidx.appcompat.widget.AppCompatImageView\r\n        android:id=\"@+id/image_dash_underline\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        app:srcCompat=\"@drawable/dash_underline\"\r\n        android:layout_marginTop=\"16dp\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/text_revenue_value\"\r\n        app:tint=\"@color/black\"/>\r\n\r\n    <androidx.appcompat.widget.AppCompatImageView\r\n        android:id=\"@+id/image_description\"\r\n        android:layout_width=\"65dp\"\r\n        android:layout_height=\"25dp\"\r\n        app:srcCompat=\"@drawable/monthly_salary\"\r\n        android:layout_marginTop=\"24dp\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/image_dash_underline\"\r\n        app:layout_constraintLeft_toLeftOf=\"parent\" />\r\n\r\n    <androidx.appcompat.widget.AppCompatEditText\r\n        android:id=\"@+id/edittext_description\"\r\n        android:layout_width=\"0dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:hint=\"@string/description\"\r\n        android:background=\"@null\"\r\n        app:layout_constraintStart_toEndOf=\"@+id/image_description\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"@id/image_description\"\r\n        app:layout_constraintBottom_toBottomOf=\"@id/image_description\"\r\n        android:padding=\"12dp\"\r\n        android:textSize=\"20sp\"/>\r\n\r\n    <androidx.appcompat.widget.AppCompatImageView\r\n        android:id=\"@+id/image_dash_underline_description\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        app:srcCompat=\"@drawable/dash_underline\"\r\n        android:layout_marginTop=\"0dp\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/edittext_description\"\r\n        app:tint=\"@color/text_warning\"/>\r\n\r\n    <androidx.appcompat.widget.AppCompatImageView\r\n        android:id=\"@+id/image_date\"\r\n        android:layout_width=\"65dp\"\r\n        android:layout_height=\"25dp\"\r\n        app:srcCompat=\"@drawable/date\"\r\n        android:layout_marginTop=\"40dp\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/image_description\"\r\n        app:layout_constraintLeft_toLeftOf=\"parent\"/>\r\n\r\n    <androidx.appcompat.widget.AppCompatEditText\r\n        android:id=\"@+id/date\"\r\n        android:layout_width=\"0dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:hint=\"@string/date\"\r\n        android:background=\"@null\"\r\n        app:layout_constraintStart_toEndOf=\"@+id/image_date\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"@id/image_date\"\r\n        app:layout_constraintBottom_toBottomOf=\"@id/image_date\"\r\n        android:padding=\"12dp\"\r\n        android:textSize=\"20sp\"/>\r\n\r\n    <androidx.appcompat.widget.AppCompatImageView\r\n        android:id=\"@+id/image_dash_underline_date\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"4dp\"\r\n        android:visibility=\"visible\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/date\"\r\n        app:srcCompat=\"@drawable/dash_underline\"\r\n        app:tint=\"@color/text_warning\"\r\n        />\r\n\r\n    <androidx.appcompat.widget.AppCompatImageView\r\n        android:id=\"@+id/image_categories\"\r\n        android:layout_width=\"65dp\"\r\n        android:layout_height=\"25dp\"\r\n        android:layout_marginTop=\"40dp\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/image_date\"\r\n        app:srcCompat=\"@drawable/category\"\r\n        app:layout_constraintLeft_toLeftOf=\"parent\" />\r\n\r\n    <androidx.appcompat.widget.AppCompatTextView\r\n        android:id=\"@+id/categories\"\r\n        android:layout_width=\"0dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:hint=\"@string/categories\"\r\n        android:background=\"@null\"\r\n        app:layout_constraintStart_toEndOf=\"@+id/image_categories\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"@id/image_categories\"\r\n        app:layout_constraintBottom_toBottomOf=\"@id/image_categories\"\r\n        android:padding=\"12dp\"\r\n        android:textSize=\"20sp\"/>\r\n\r\n    <androidx.appcompat.widget.AppCompatImageView\r\n        android:id=\"@+id/image_salary\"\r\n        android:layout_width=\"85dp\"\r\n        android:layout_height=\"45dp\"\r\n        android:layout_marginTop=\"28dp\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/categories\"\r\n        app:layout_constraintLeft_toLeftOf=\"parent\"\r\n        android:layout_marginLeft=\"42dp\"\r\n        app:srcCompat=\"@drawable/salary\"\r\n        />\r\n\r\n    <androidx.appcompat.widget.AppCompatTextView\r\n        android:id=\"@+id/textview_salary\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"@string/salary\"\r\n        app:layout_constraintLeft_toLeftOf=\"parent\"\r\n        android:layout_marginLeft=\"16dp\"\r\n        app:layout_constraintStart_toStartOf=\"@id/image_salary\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/image_salary\"\r\n        android:textSize=\"16sp\"/>\r\n\r\n    <androidx.appcompat.widget.AppCompatImageView\r\n        android:id=\"@+id/image_investment\"\r\n        android:layout_width=\"100dp\"\r\n        android:layout_height=\"45dp\"\r\n        app:srcCompat=\"@drawable/investment\"\r\n        android:layout_marginLeft=\"24dp\"\r\n        app:layout_constraintLeft_toLeftOf=\"@id/image_salary\"\r\n        app:layout_constraintTop_toTopOf=\"@id/image_salary\"\r\n        app:layout_constraintStart_toEndOf=\"@id/image_salary\"/>\r\n\r\n    <androidx.appcompat.widget.AppCompatTextView\r\n        android:id=\"@+id/textview_investment\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"@string/investment\"\r\n        app:layout_constraintLeft_toLeftOf=\"@id/textview_salary\"\r\n        app:layout_constraintStart_toStartOf=\"@id/image_investment\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/image_investment\"\r\n        android:layout_marginLeft=\"8dp\"\r\n        android:textSize=\"16sp\"/>\r\n\r\n    <androidx.appcompat.widget.AppCompatImageView\r\n        android:id=\"@+id/image_services\"\r\n        android:layout_width=\"85dp\"\r\n        android:layout_height=\"45dp\"\r\n        app:srcCompat=\"@drawable/services\"\r\n        android:layout_marginLeft=\"24dp\"\r\n        app:layout_constraintLeft_toLeftOf=\"@id/image_investment\"\r\n        app:layout_constraintTop_toTopOf=\"@id/image_investment\"\r\n        app:layout_constraintStart_toEndOf=\"@id/image_investment\"/>\r\n\r\n    <androidx.appcompat.widget.AppCompatTextView\r\n        android:id=\"@+id/textview_services\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"@string/services\"\r\n        app:layout_constraintStart_toStartOf=\"@id/image_services\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/image_services\"\r\n        app:layout_constraintLeft_toLeftOf=\"@id/textview_investment\"\r\n        android:layout_marginLeft=\"12dp\"\r\n        android:textSize=\"16sp\"/>\r\n\r\n    <androidx.appcompat.widget.AppCompatImageView\r\n        android:id=\"@+id/image_others\"\r\n        android:layout_width=\"85dp\"\r\n        android:layout_height=\"45dp\"\r\n        app:srcCompat=\"@drawable/revenue_othors\"\r\n        android:layout_marginTop=\"24dp\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/textview_salary\"\r\n        app:layout_constraintLeft_toLeftOf=\"parent\"\r\n        android:layout_marginLeft=\"42dp\"/>\r\n\r\n    <androidx.appcompat.widget.AppCompatTextView\r\n        android:id=\"@+id/textview_others\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"@string/othres\"\r\n        app:layout_constraintStart_toStartOf=\"@id/image_others\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/image_others\"\r\n        app:layout_constraintLeft_toLeftOf=\"parent\"\r\n        android:layout_marginLeft=\"20dp\"\r\n        android:textSize=\"16sp\"/>\r\n\r\n    <androidx.appcompat.widget.AppCompatButton\r\n        android:id=\"@+id/button\"\r\n        android:layout_width=\"150dp\"\r\n        android:layout_height=\"50dp\"\r\n        android:text=\"@string/create\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        android:layout_marginBottom=\"52dp\"\r\n        android:backgroundTint=\"@color/green\"\r\n        android:textColor=\"@color/white\"\r\n        />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_new_revenue.xml b/app/src/main/res/layout/activity_new_revenue.xml
+--- a/app/src/main/res/layout/activity_new_revenue.xml	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/app/src/main/res/layout/activity_new_revenue.xml	(date 1684375791717)
+@@ -38,14 +38,15 @@
+         android:textColor="@color/white"
+         android:textSize="20sp"/>
+ 
+-    <androidx.appcompat.widget.AppCompatTextView
++    <androidx.appcompat.widget.AppCompatEditText
+         android:id="@+id/text_revenue_value"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:text="@string/revenue_value"
++        android:hint="@string/revenue_value"
++        android:textColorHint="@color/green"
++        android:background="@null"
+         android:layout_marginTop="16dp"
+-        android:textSize="32sp"
+-        android:textColor="@color/green"
++        android:textSize="36sp"
+         android:layout_marginStart="12dp"
+         app:layout_constraintTop_toBottomOf="@id/view"
+         app:layout_constraintStart_toStartOf="parent"/>
+@@ -99,12 +100,15 @@
+         app:layout_constraintTop_toBottomOf="@+id/image_description"
+         app:layout_constraintLeft_toLeftOf="parent"/>
+ 
+-    <androidx.appcompat.widget.AppCompatEditText
+-        android:id="@+id/date"
++    <androidx.appcompat.widget.AppCompatButton
++        android:id="@+id/button_date"
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+-        android:hint="@string/date"
++        android:text="@string/date"
++        android:textColor="@color/Cinza_claro_medio"
++        android:textAllCaps="false"
+         android:background="@null"
++        android:gravity="start"
+         app:layout_constraintStart_toEndOf="@+id/image_date"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintTop_toTopOf="@id/image_date"
+@@ -118,7 +122,7 @@
+         android:layout_height="wrap_content"
+         android:layout_marginTop="4dp"
+         android:visibility="visible"
+-        app:layout_constraintTop_toBottomOf="@+id/date"
++        app:layout_constraintTop_toBottomOf="@+id/button_date"
+         app:srcCompat="@drawable/dash_underline"
+         app:tint="@color/text_warning"
+         />
+@@ -231,7 +235,7 @@
+         android:textSize="16sp"/>
+ 
+     <androidx.appcompat.widget.AppCompatButton
+-        android:id="@+id/button"
++        android:id="@+id/button_create"
+         android:layout_width="150dp"
+         android:layout_height="50dp"
+         android:text="@string/create"
+Index: app/src/main/res/layout/activity_login.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".view.LoginActivity\">\r\n\r\n    <androidx.appcompat.widget.AppCompatImageView\r\n        android:id=\"@+id/image_arrow_back_login\"\r\n        android:layout_width=\"26dp\"\r\n        android:layout_height=\"26dp\"\r\n        android:layout_marginStart=\"12dp\"\r\n        android:layout_marginTop=\"30dp\"\r\n        android:src=\"@drawable/back_arrow\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n    <androidx.appcompat.widget.AppCompatImageView\r\n        android:id=\"@+id/image_logo\"\r\n        android:layout_width=\"110dp\"\r\n        android:layout_height=\"110dp\"\r\n        android:layout_marginTop=\"38dp\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:srcCompat=\"@drawable/email_login\" />\r\n\r\n    <androidx.appcompat.widget.AppCompatTextView\r\n        android:id=\"@+id/text_welcome_back\"\r\n        android:layout_width=\"0dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"12dp\"\r\n        android:gravity=\"center\"\r\n        android:padding=\"8dp\"\r\n        android:text=\"@string/welcome_back\"\r\n        android:textAllCaps=\"true\"\r\n        android:textSize=\"20sp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/image_logo\" />\r\n\r\n    <androidx.appcompat.widget.AppCompatTextView\r\n        android:id=\"@+id/text_access_your_account\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_margin=\"14dp\"\r\n        android:gravity=\"center\"\r\n        android:padding=\"8dp\"\r\n        android:text=\"@string/access_your_account\"\r\n        android:textSize=\"16sp\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/text_welcome_back\" />\r\n\r\n    <androidx.appcompat.widget.AppCompatTextView\r\n        android:id=\"@+id/text_whats_your_email\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"8dp\"\r\n        android:text=\"@string/whats_your_email\"\r\n        android:textColor=\"@color/black\"\r\n        android:textSize=\"16sp\"\r\n        app:layout_constraintStart_toStartOf=\"@id/edit_email_login\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/text_access_your_account\" />\r\n\r\n    <androidx.appcompat.widget.AppCompatEditText\r\n        android:id=\"@+id/edit_email_login\"\r\n        android:layout_width=\"0dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"32dp\"\r\n        android:layout_marginTop=\"6dp\"\r\n        android:layout_marginEnd=\"32dp\"\r\n        android:background=\"@drawable/edittext_background\"\r\n        android:hint=\"@string/Type_your_email\"\r\n        android:padding=\"22dp\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/text_whats_your_email\" />\r\n\r\n    <androidx.appcompat.widget.AppCompatTextView\r\n        android:id=\"@+id/text_whats_your_password\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"8dp\"\r\n        android:text=\"@string/whats_your_password\"\r\n        android:textColor=\"@color/black\"\r\n        android:textSize=\"16sp\"\r\n        app:layout_constraintStart_toStartOf=\"@id/edit_email_login\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/edit_email_login\" />\r\n\r\n    <androidx.appcompat.widget.AppCompatEditText\r\n        android:id=\"@+id/edit_password_login\"\r\n        android:layout_width=\"0dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"6dp\"\r\n        android:background=\"@drawable/edittext_background\"\r\n        android:hint=\"@string/type_your_password\"\r\n        android:padding=\"22dp\"\r\n        app:layout_constraintEnd_toEndOf=\"@id/edit_email_login\"\r\n        app:layout_constraintStart_toStartOf=\"@id/edit_email_login\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/text_whats_your_password\" />\r\n\r\n    <androidx.appcompat.widget.AppCompatButton\r\n        android:id=\"@+id/button_login\"\r\n        android:layout_width=\"0dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"38dp\"\r\n        android:background=\"@drawable/background_button\"\r\n        android:text=\"@string/to_enter\"\r\n        android:textColor=\"@color/white\"\r\n        android:textSize=\"20sp\"\r\n        app:layout_constraintEnd_toEndOf=\"@id/edit_password_login\"\r\n        app:layout_constraintStart_toStartOf=\"@id/edit_password_login\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/edit_password_login\" />\r\n\r\n    <androidx.appcompat.widget.AppCompatCheckedTextView\r\n        android:id=\"@+id/text_create_account_login\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"20dp\"\r\n        android:text=\"@string/create_account\"\r\n        android:textAllCaps=\"true\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/button_login\" />\r\n\r\n    <androidx.appcompat.widget.AppCompatTextView\r\n        android:id=\"@+id/text_terms_of_use_login\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"8dp\"\r\n        android:layout_marginBottom=\"4dp\"\r\n        android:background=\"@drawable/dash_underline\"\r\n        android:text=\"@string/terms_of_Use\"\r\n        android:textSize=\"10sp\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\" />\r\n\r\n    <androidx.appcompat.widget.AppCompatTextView\r\n        android:id=\"@+id/text_privacy_polices_login\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginEnd=\"8dp\"\r\n        android:layout_marginBottom=\"4dp\"\r\n        android:background=\"@drawable/dash_underline\"\r\n        android:text=\"@string/privacy_policies\"\r\n        android:textSize=\"10sp\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_login.xml b/app/src/main/res/layout/activity_login.xml
+--- a/app/src/main/res/layout/activity_login.xml	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/app/src/main/res/layout/activity_login.xml	(date 1684375791693)
+@@ -73,11 +73,13 @@
+         android:layout_marginTop="6dp"
+         android:layout_marginEnd="32dp"
+         android:background="@drawable/edittext_background"
++        android:inputType="textEmailAddress"
+         android:hint="@string/Type_your_email"
+         android:padding="22dp"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toBottomOf="@id/text_whats_your_email" />
++        app:layout_constraintTop_toBottomOf="@id/text_whats_your_email"
++        tools:ignore="VisualLintTextFieldSize" />
+ 
+     <androidx.appcompat.widget.AppCompatTextView
+         android:id="@+id/text_whats_your_password"
+@@ -97,10 +99,12 @@
+         android:layout_marginTop="6dp"
+         android:background="@drawable/edittext_background"
+         android:hint="@string/type_your_password"
++        android:inputType="textPassword"
+         android:padding="22dp"
+         app:layout_constraintEnd_toEndOf="@id/edit_email_login"
+         app:layout_constraintStart_toStartOf="@id/edit_email_login"
+-        app:layout_constraintTop_toBottomOf="@id/text_whats_your_password" />
++        app:layout_constraintTop_toBottomOf="@id/text_whats_your_password"
++        tools:ignore="VisualLintTextFieldSize" />
+ 
+     <androidx.appcompat.widget.AppCompatButton
+         android:id="@+id/button_login"
+@@ -113,7 +117,8 @@
+         android:textSize="20sp"
+         app:layout_constraintEnd_toEndOf="@id/edit_password_login"
+         app:layout_constraintStart_toStartOf="@id/edit_password_login"
+-        app:layout_constraintTop_toBottomOf="@id/edit_password_login" />
++        app:layout_constraintTop_toBottomOf="@id/edit_password_login"
++        tools:ignore="VisualLintButtonSize" />
+ 
+     <androidx.appcompat.widget.AppCompatCheckedTextView
+         android:id="@+id/text_create_account_login"
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_17\" project-jdk-name=\"jbr-17\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n  <component name=\"VisualizationToolProject\">\r\n    <option name=\"state\">\r\n      <ProjectState>\r\n        <option name=\"scale\" value=\"0.060997147126749085\" />\r\n      </ProjectState>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision eddde0b4af7f87c222c400d23dc7edc58a15810d)
++++ b/.idea/misc.xml	(date 1684375791589)
+@@ -1,6 +1,10 @@
+ <project version="4">
++  <component name="ASMSmaliIdeaPluginConfiguration">
++    <asm skipDebug="true" skipFrames="true" skipCode="false" expandFrames="false" />
++    <groovy codeStyle="LEGACY" />
++  </component>
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_17_PREVIEW" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/build/classes" />
+   </component>
+   <component name="ProjectType">

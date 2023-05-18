@@ -20,7 +20,7 @@
             android:name=".view.UserProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".CreateObjectiveActivity"
+            android:name=".view.CreateObjectiveActivity"
             android:exported="false" />
         <activity
             android:name=".HouseCategoryActivity"
