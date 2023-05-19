@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Cinza_claro_medio"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
@@ -27,6 +28,7 @@
         app:tint="@color/white" />
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_initial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/initial"
@@ -37,4 +39,134 @@
         android:paddingBottom="8dp"
         android:textColor="@color/white"
         android:textSize="30sp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_mes_atual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mes_atual"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/text_initial"
+        app:layout_constraintStart_toEndOf="@id/text_initial"
+        app:layout_constraintTop_toBottomOf="@id/text_initial"
+        app:layout_constraintRight_toLeftOf="parent"
+        android:textColor="@color/white"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="70dp"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_white_balance"
+        android:layout_width="360dp"
+        android:layout_height="120dp"
+        android:src="@drawable/edittext_background"
+        app:layout_constraintTop_toBottomOf="@id/text_mes_atual"
+        app:layout_constraintTop_toTopOf="@id/text_mes_atual"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="30dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_account_balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/account_balance"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/image_white_balance"
+        app:layout_constraintTop_toTopOf="@id/text_mes_atual"
+        app:layout_constraintTop_toBottomOf="@id/text_mes_atual"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="60dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/balance"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/text_account_balance"
+        app:layout_constraintTop_toTopOf="@id/text_account_balance"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"/>
+
+  <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/image_white_overview"
+      android:layout_width="360dp"
+      android:layout_height="200dp"
+      android:src="@drawable/edittext_background"
+      app:layout_constraintStart_toStartOf="@id/image_white_balance"
+      app:layout_constraintTop_toTopOf="@id/image_white_balance"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_marginEnd="20dp"
+      android:layout_marginTop="150dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_month_overview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/month_overview"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/image_white_overview"
+        app:layout_constraintTop_toTopOf="@id/text_balance"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="120dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/text_month_overview"
+        app:layout_constraintTop_toBottomOf="@id/image_white_balance"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_revenues"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/revenue"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/text_month_overview"
+        app:layout_constraintTop_toTopOf="@+id/text_month_overview"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="55dp"
+        android:layout_marginStart="15dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/revenues_total"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/text_revenues"
+        app:layout_constraintTop_toBottomOf="@id/text_total"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="75dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_expenses"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/text_revenues"
+        app:layout_constraintTop_toTopOf="@id/text_revenues"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="50dp"
+
+        />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

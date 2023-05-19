@@ -121,6 +121,13 @@
     <string name="email_person2">E-mail</string>
     <string name="Exit_Profile">Sair</string>
     <string name="initial">Inicio</string>
+    <string name="mes_atual">Março</string>
+    <string name="account_balance">Saldo da conta</string>
+    <string name="balance">R$0,00</string>
+    <string name="month_overview">Visão geral do mês</string>
+    <string name="total">Total</string>
+    <string name="revenue">Receitas</string>
+    <string name="revenues_total">R$0,00</string>
 
 
 </resources>
