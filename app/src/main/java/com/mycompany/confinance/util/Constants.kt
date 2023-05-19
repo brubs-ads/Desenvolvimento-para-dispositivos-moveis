@@ -19,6 +19,12 @@ class Constants {
             const val URL_BASE: String = "http://192.168.13.104:8080/"
             const val URL_LOGIN: String = "user/login"
             const val URL_CREATE_USER: String = "user"
+            const val URL_CREATE_MOVEMENT: String = "movement"
+            const val URL_UPDATE_MOVEMENT: String = "movement/{id}"
+            const val URL_RETURN_MOVEMENT_ID: String = "movement/{id}"
+            const val URL_RETURN_MOVEMENT_ID_USER: String = "movement/user{id}"
+            const val URL_RETURN_MOVEMENT_LIST: String = "movement"
+            const val URL_DELETE_MOVEMENT: String = "movement/{id}"
         }
 
         object CODE {

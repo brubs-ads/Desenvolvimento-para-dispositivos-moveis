@@ -2,14 +2,18 @@ package com.mycompany.confinance.view.revenue
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.mycompany.confinance.databinding.ActivityNewRevenueBinding
+import com.mycompany.confinance.databinding.ActivityRevenuesBinding
 
-class NewRevenueActivity : AppCompatActivity() {
+class RevenuesActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityNewRevenueBinding
+
+    private lateinit var binding: ActivityRevenuesBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityNewRevenueBinding.inflate(layoutInflater)
+        binding = ActivityRevenuesBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
     }
 }
+
