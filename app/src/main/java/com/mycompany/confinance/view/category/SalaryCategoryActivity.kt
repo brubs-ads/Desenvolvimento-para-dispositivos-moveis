@@ -1,14 +1,12 @@
-package com.mycompany.confinance.view
+package com.mycompany.confinance.view.category
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import com.mycompany.confinance.R
 
-
-class EducationCategoryActivity : AppCompatActivity() {
-
+class SalaryCategoryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_education_category)
+        setContentView(R.layout.activity_salary_category)
     }
 }

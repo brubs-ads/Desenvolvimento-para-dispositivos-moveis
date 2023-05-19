@@ -1,4 +1,4 @@
-package com.mycompany.confinance.model
+package com.mycompany.confinance.model.validation
 
 class ValidationModel {
     private var status: Boolean = false

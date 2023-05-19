@@ -1,12 +1,12 @@
-package com.mycompany.confinance
+package com.mycompany.confinance.view.user
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.mycompany.confinance.R
 
-class HouseCategoryActivity : AppCompatActivity() {
-
+class UserProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_house_category)
+        setContentView(R.layout.activity_user_profile)
     }
 }

@@ -1,4 +1,4 @@
-package com.mycompany.confinance.view
+package com.mycompany.confinance.view.category
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

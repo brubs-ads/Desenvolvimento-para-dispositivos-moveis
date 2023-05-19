@@ -1,7 +1,7 @@
 package com.mycompany.confinance.controller
 
 import com.mycompany.confinance.model.UserLoginModel
-import com.mycompany.confinance.model.ValidationModel
+import com.mycompany.confinance.model.validation.ValidationModel
 import com.mycompany.confinance.repository.UserRepository
 import com.mycompany.confinance.repository.listener.ApiListener
 import com.mycompany.confinance.util.Constants
@@ -11,18 +11,18 @@ class LoginController{
     private val userRepository = UserRepository()
     private var validationModel = ValidationModel()
     companion object {
-        private var userId: Int? = null
-      private  fun setUserId(userId: Int?) {
+        private var userId: Long? = null
+      private  fun setUserId(userId: Long?) {
             this.userId = userId
         }
 
-        fun getIdUser(): Int? {
+        fun getIdUser(): Long? {
             return userId
         }
     }
 
     fun login(email: String, password: String) : ValidationModel {
-        if (email != null && password != null) {
+        if (email.matches(Regex("[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")) && password.length >= 6) {
             userRepository.login(email, password, object : ApiListener<UserLoginModel> {
                 override fun onSuccess(result: UserLoginModel) {
                     if (result.status == Constants.HTTP.CODE.SUCCESS) {
@@ -39,6 +39,9 @@ class LoginController{
                     validationModel.setValidationMessage(message)
                 }
             })
+        }else{
+            validationModel.status()
+            validationModel.setValidationMessage("Parâmetros Incosistentes, Verifique.")
         }
         return validationModel
     }

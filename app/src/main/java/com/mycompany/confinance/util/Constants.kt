@@ -20,8 +20,10 @@ class Constants {
             const val URL_LOGIN: String = "user/login"
             const val URL_CREATE_USER: String = "user"
         }
+
         object CODE {
             const val SUCCESS: Int = 200
+            const val CREATE: Int = 201
         }
     }
 }

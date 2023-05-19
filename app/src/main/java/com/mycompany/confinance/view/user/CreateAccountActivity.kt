@@ -1,16 +1,22 @@
-package com.mycompany.confinance.view
+package com.mycompany.confinance.view.user
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.mycompany.confinance.MainActivity
 import com.mycompany.confinance.controller.CreateAccountController
 import com.mycompany.confinance.databinding.ActivityCreateAccountBinding
 import com.mycompany.confinance.util.Constants
+import com.mycompany.confinance.view.MenuActivity
+import com.mycompany.confinance.view.company.PrivacyPolicesActivity
+import com.mycompany.confinance.view.company.TermsOfUseActivity
+
 class CreateAccountActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCreateAccountBinding
-    private var controller : CreateAccountController? = null
+    private val controller = CreateAccountController()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCreateAccountBinding.inflate(layoutInflater)
@@ -24,12 +30,12 @@ class CreateAccountActivity : AppCompatActivity() {
 
     private fun handleClick() {
         binding.imageArrowCreateAccount.setOnClickListener {
-            val login = intent.getBooleanExtra(Constants.REDIRECTION.KEY.LOGIN,false)
+            val login = intent.getBooleanExtra(Constants.REDIRECTION.KEY.LOGIN, false)
 
-            if (login){
-                startActivity(Intent(this,LoginActivity::class.java))
+            if (login) {
+                startActivity(Intent(this, LoginActivity::class.java))
                 finish()
-            }else{
+            } else {
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             }
@@ -66,11 +72,17 @@ class CreateAccountActivity : AppCompatActivity() {
     }
 
     private fun handleAccount() {
-        val email = binding.editEmailCreateAccount.text.toString()
+        val name = binding.editNameCreateAccount.text.toString()
+        val email = binding.editEmailCreateAccount.text.toString().lowercase()
         val password = binding.editPasswordCreateAccount.text.toString()
 
-        controller?.createAccount(email,password)
+        val validationAccount = controller.createAccount(name, email, password)
+
+        if (validationAccount.status()) {
+            startActivity(Intent(this, MenuActivity::class.java))
+            finish()
+        } else {
+            Toast.makeText(this, validationAccount.message(), Toast.LENGTH_LONG).show()
+        }
     }
-
-
 }

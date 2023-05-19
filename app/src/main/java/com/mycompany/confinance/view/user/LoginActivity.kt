@@ -1,4 +1,4 @@
-package com.mycompany.confinance.view
+package com.mycompany.confinance.view.user
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +8,10 @@ import com.mycompany.confinance.MainActivity
 import com.mycompany.confinance.controller.LoginController
 import com.mycompany.confinance.databinding.ActivityLoginBinding
 import com.mycompany.confinance.util.Constants
+import com.mycompany.confinance.view.MenuActivity
+import com.mycompany.confinance.view.company.PrivacyPolicesActivity
+import com.mycompany.confinance.view.company.TermsOfUseActivity
+import java.util.Locale
 
 class LoginActivity : AppCompatActivity() {
 
@@ -66,14 +70,14 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun handleLogin() {
-        val email = binding.editEmailLogin.text.toString()
+        val email = binding.editEmailLogin.text.toString().lowercase()
         val password = binding.editPasswordLogin.text.toString()
-        val validationLogin = controller.login(email, password)
 
+        val validationLogin = controller.login(email, password)
         if (validationLogin.status()) {
-            startActivity(Intent(this,MenuActivity::class.java))
-        }else{
-            Toast.makeText(this,validationLogin.message(),Toast.LENGTH_LONG).show()
+            startActivity(Intent(this, MenuActivity::class.java))
+        } else {
+            Toast.makeText(this, validationLogin.message(), Toast.LENGTH_LONG).show()
         }
     }
 }

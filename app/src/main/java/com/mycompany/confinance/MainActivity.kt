@@ -4,8 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.mycompany.confinance.databinding.ActivityMainBinding
-import com.mycompany.confinance.view.CreateAccountActivity
-import com.mycompany.confinance.view.LoginActivity
+import com.mycompany.confinance.view.user.CreateAccountActivity
+import com.mycompany.confinance.view.user.LoginActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
