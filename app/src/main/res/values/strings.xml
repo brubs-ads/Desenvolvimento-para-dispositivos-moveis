@@ -120,6 +120,7 @@
     <string name="email_person">email</string>
     <string name="email_person2">E-mail</string>
     <string name="Exit_Profile">Sair</string>
+    <string name="initial">Inicio</string>
 
 
 </resources>
