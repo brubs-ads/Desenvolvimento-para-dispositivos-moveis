@@ -8,10 +8,9 @@ import com.mycompany.confinance.MainActivity
 import com.mycompany.confinance.controller.LoginController
 import com.mycompany.confinance.databinding.ActivityLoginBinding
 import com.mycompany.confinance.util.Constants
-import com.mycompany.confinance.view.MenuActivity
+import com.mycompany.confinance.view.main.MenuActivity
 import com.mycompany.confinance.view.company.PrivacyPolicesActivity
 import com.mycompany.confinance.view.company.TermsOfUseActivity
-import java.util.Locale
 
 class LoginActivity : AppCompatActivity() {
 

@@ -1,7 +1,7 @@
 package com.mycompany.confinance.repository
 
-import com.mycompany.confinance.model.CreateUserModel
-import com.mycompany.confinance.model.UserLoginModel
+import com.mycompany.confinance.model.user.CreateUserModel
+import com.mycompany.confinance.model.user.UserLoginModel
 import com.mycompany.confinance.repository.listener.ApiListener
 import com.mycompany.confinance.repository.service.UserService
 import com.mycompany.confinance.util.Constants
@@ -59,5 +59,4 @@ class UserRepository {
 
         })
     }
-
 }

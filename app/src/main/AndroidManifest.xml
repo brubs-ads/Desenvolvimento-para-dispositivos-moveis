@@ -41,7 +41,7 @@
             android:name=".view.objective.ObjectiveActivity"
             android:exported="false" />
         <activity
-            android:name=".view.MenuActivity"
+            android:name=".view.main.MenuActivity"
             android:exported="false" />
         <activity
             android:name=".view.company.PrivacyPolicesActivity"

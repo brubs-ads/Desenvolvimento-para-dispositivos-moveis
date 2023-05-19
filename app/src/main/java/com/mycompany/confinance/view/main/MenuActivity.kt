@@ -1,9 +1,8 @@
-package com.mycompany.confinance.view
+package com.mycompany.confinance.view.main
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityMenuBinding
 import com.mycompany.confinance.view.company.AboutUsActivity
 import com.mycompany.confinance.view.company.TermsOfUseActivity

@@ -1,6 +1,5 @@
 package com.mycompany.confinance.view.user
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,7 +8,7 @@ import com.mycompany.confinance.MainActivity
 import com.mycompany.confinance.controller.CreateAccountController
 import com.mycompany.confinance.databinding.ActivityCreateAccountBinding
 import com.mycompany.confinance.util.Constants
-import com.mycompany.confinance.view.MenuActivity
+import com.mycompany.confinance.view.main.MenuActivity
 import com.mycompany.confinance.view.company.PrivacyPolicesActivity
 import com.mycompany.confinance.view.company.TermsOfUseActivity
 

@@ -1,4 +1,4 @@
-package com.mycompany.confinance.model
+package com.mycompany.confinance.model.user
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

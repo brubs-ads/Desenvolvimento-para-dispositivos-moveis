@@ -1,0 +1,383 @@
+Index: app/src/main/java/com/mycompany/confinance/view/InitialActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/view/InitialActivity.kt b/app/src/main/java/com/mycompany/confinance/view/main/InitialActivity.kt
+rename from app/src/main/java/com/mycompany/confinance/view/InitialActivity.kt
+rename to app/src/main/java/com/mycompany/confinance/view/main/InitialActivity.kt
+--- a/app/src/main/java/com/mycompany/confinance/view/InitialActivity.kt	(revision bad6be15cc4d31c409d65f241b98ecb110fa049b)
++++ b/app/src/main/java/com/mycompany/confinance/view/main/InitialActivity.kt	(date 1684516057970)
+@@ -1,4 +1,4 @@
+-package com.mycompany.confinance.view
++package com.mycompany.confinance.view.main
+ 
+ import android.os.Bundle
+ import androidx.appcompat.app.AppCompatActivity
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:tools=\"http://schemas.android.com/tools\">\n\n    <uses-permission android:name=\"android.permission.INTERNET\" />\n    <uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />\n\n    <application\n        android:allowBackup=\"true\"\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\n        android:fullBackupContent=\"@xml/backup_rules\"\n        android:icon=\"@mipmap/ic_launcher\"\n        android:label=\"@string/app_name\"\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\n        android:supportsRtl=\"true\"\n        android:theme=\"@style/Theme.Confinance\"\n        android:usesCleartextTraffic=\"true\"\n        tools:targetApi=\"31\">\n        <activity\n            android:name=\".view.user.UserProfileActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".view.objective.CreateObjectiveActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".view.category.HouseCategoryActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".view.expense.OthersCategoryExpenseActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".view.category.InvestmentCategoryActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".view.category.SalaryCategoryActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".view.expense.NewExpenseActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".view.objective.ObjectiveActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".view.MenuActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".view.company.PrivacyPolicesActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".view.company.TermsOfUseActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".view.user.CreateAccountActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".view.company.AboutUsActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".view.user.LoginActivity\"\n            android:exported=\"false\" />\n\n        <activity\n            android:name=\".view.revenue.RevenuesActivity\"\n            android:exported=\"false\"/>\n\n        <activity\n            android:name=\".view.revenue.NewRevenueActivity\"\n            android:exported=\"false\"/>\n\n        <activity\n            android:name=\".view.expense.ExpensesActivity\"\n            android:exported=\"false\"/>\n\n        <activity\n            android:name=\".MainActivity\"\n            android:exported=\"true\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\" />\n\n                <category android:name=\"android.intent.category.LAUNCHER\" />\n            </intent-filter>\n        </activity>\n    </application>\n\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision bad6be15cc4d31c409d65f241b98ecb110fa049b)
++++ b/app/src/main/AndroidManifest.xml	(date 1684516057946)
+@@ -41,7 +41,7 @@
+             android:name=".view.objective.ObjectiveActivity"
+             android:exported="false" />
+         <activity
+-            android:name=".view.MenuActivity"
++            android:name=".view.main.MenuActivity"
+             android:exported="false" />
+         <activity
+             android:name=".view.company.PrivacyPolicesActivity"
+Index: app/src/main/java/com/mycompany/confinance/controller/CreateAccountController.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.controller\n\nimport com.mycompany.confinance.model.CreateUserModel\nimport com.mycompany.confinance.model.validation.ValidationModel\nimport com.mycompany.confinance.repository.UserRepository\nimport com.mycompany.confinance.repository.listener.ApiListener\n\nclass CreateAccountController {\n\n    private val repository = UserRepository()\n    private var validationModel = ValidationModel()\n\n    companion object {\n        private var userId: Long? = null\n        private  fun setUserId(userId: Long?) {\n            this.userId = userId\n        }\n\n        fun getIdUser(): Long? {\n            return userId\n        }\n    }\n    fun createAccount(name: String, email: String, password: String): ValidationModel {\n        if (name.length in 3..30 && email.matches(Regex(\"[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,}\"))\n            && password.length >=8) {\n            repository.createAccount(name,email,password, object : ApiListener<CreateUserModel>{\n                override fun onSuccess(result: CreateUserModel) {\n                    validationModel.setStatus(true)\n                    setUserId(result.id)\n                }\n                override fun onFailure(message: String) {\n                    validationModel.setValidationMessage(message)\n                    validationModel.status()\n                }\n            })\n        }else{\n            validationModel.setValidationMessage(\"Parâmetros Incosistentes, Verifique.\")\n            validationModel.status()\n        }\n        return  validationModel\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/controller/CreateAccountController.kt b/app/src/main/java/com/mycompany/confinance/controller/CreateAccountController.kt
+--- a/app/src/main/java/com/mycompany/confinance/controller/CreateAccountController.kt	(revision bad6be15cc4d31c409d65f241b98ecb110fa049b)
++++ b/app/src/main/java/com/mycompany/confinance/controller/CreateAccountController.kt	(date 1684518583018)
+@@ -1,6 +1,6 @@
+ package com.mycompany.confinance.controller
+ 
+-import com.mycompany.confinance.model.CreateUserModel
++import com.mycompany.confinance.model.user.CreateUserModel
+ import com.mycompany.confinance.model.validation.ValidationModel
+ import com.mycompany.confinance.repository.UserRepository
+ import com.mycompany.confinance.repository.listener.ApiListener
+Index: app/src/main/java/com/mycompany/confinance/view/user/CreateAccountActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.view.user\n\nimport android.annotation.SuppressLint\nimport android.content.Intent\nimport androidx.appcompat.app.AppCompatActivity\nimport android.os.Bundle\nimport android.widget.Toast\nimport com.mycompany.confinance.MainActivity\nimport com.mycompany.confinance.controller.CreateAccountController\nimport com.mycompany.confinance.databinding.ActivityCreateAccountBinding\nimport com.mycompany.confinance.util.Constants\nimport com.mycompany.confinance.view.MenuActivity\nimport com.mycompany.confinance.view.company.PrivacyPolicesActivity\nimport com.mycompany.confinance.view.company.TermsOfUseActivity\n\nclass CreateAccountActivity : AppCompatActivity() {\n\n    private lateinit var binding: ActivityCreateAccountBinding\n    private val controller = CreateAccountController()\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        binding = ActivityCreateAccountBinding.inflate(layoutInflater)\n        setContentView(binding.root)\n\n\n        supportActionBar?.hide()\n\n        handleClick()\n    }\n\n    private fun handleClick() {\n        binding.imageArrowCreateAccount.setOnClickListener {\n            val login = intent.getBooleanExtra(Constants.REDIRECTION.KEY.LOGIN, false)\n\n            if (login) {\n                startActivity(Intent(this, LoginActivity::class.java))\n                finish()\n            } else {\n                startActivity(Intent(this, MainActivity::class.java))\n                finish()\n            }\n        }\n        binding.buttonAccount.setOnClickListener {\n            handleAccount()\n\n        }\n        binding.textTermsOfUse.setOnClickListener {\n            val intent = Intent(this, TermsOfUseActivity::class.java)\n            intent.putExtra(\n                Constants.REDIRECTION.KEY.ACCOUNT, Constants.REDIRECTION.VALUE.ACCOUNT\n            )\n            startActivity(intent)\n            finish()\n\n        }\n        binding.textPrivacyPolices.setOnClickListener {\n            val intent = Intent(this, PrivacyPolicesActivity::class.java)\n            intent.putExtra(\n                Constants.REDIRECTION.KEY.ACCOUNT, Constants.REDIRECTION.VALUE.ACCOUNT\n            )\n            startActivity(intent)\n            finish()\n        }\n        binding.textHaveAccount.setOnClickListener {\n            val intent = Intent(this, LoginActivity::class.java)\n            intent.putExtra(\n                Constants.REDIRECTION.KEY.ACCOUNT, Constants.REDIRECTION.VALUE.ACCOUNT\n            )\n            startActivity(intent)\n            finish()\n        }\n    }\n\n    private fun handleAccount() {\n        val name = binding.editNameCreateAccount.text.toString()\n        val email = binding.editEmailCreateAccount.text.toString().lowercase()\n        val password = binding.editPasswordCreateAccount.text.toString()\n\n        val validationAccount = controller.createAccount(name, email, password)\n\n        if (validationAccount.status()) {\n            startActivity(Intent(this, MenuActivity::class.java))\n            finish()\n        } else {\n            Toast.makeText(this, validationAccount.message(), Toast.LENGTH_LONG).show()\n        }\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/view/user/CreateAccountActivity.kt b/app/src/main/java/com/mycompany/confinance/view/user/CreateAccountActivity.kt
+--- a/app/src/main/java/com/mycompany/confinance/view/user/CreateAccountActivity.kt	(revision bad6be15cc4d31c409d65f241b98ecb110fa049b)
++++ b/app/src/main/java/com/mycompany/confinance/view/user/CreateAccountActivity.kt	(date 1684516057978)
+@@ -1,6 +1,5 @@
+ package com.mycompany.confinance.view.user
+ 
+-import android.annotation.SuppressLint
+ import android.content.Intent
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
+@@ -9,7 +8,7 @@
+ import com.mycompany.confinance.controller.CreateAccountController
+ import com.mycompany.confinance.databinding.ActivityCreateAccountBinding
+ import com.mycompany.confinance.util.Constants
+-import com.mycompany.confinance.view.MenuActivity
++import com.mycompany.confinance.view.main.MenuActivity
+ import com.mycompany.confinance.view.company.PrivacyPolicesActivity
+ import com.mycompany.confinance.view.company.TermsOfUseActivity
+ 
+Index: app/src/main/java/com/mycompany/confinance/controller/LoginController.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.controller\n\nimport com.mycompany.confinance.model.UserLoginModel\nimport com.mycompany.confinance.model.validation.ValidationModel\nimport com.mycompany.confinance.repository.UserRepository\nimport com.mycompany.confinance.repository.listener.ApiListener\nimport com.mycompany.confinance.util.Constants\n\nclass LoginController{\n\n    private val userRepository = UserRepository()\n    private var validationModel = ValidationModel()\n    companion object {\n        private var userId: Long? = null\n      private  fun setUserId(userId: Long?) {\n            this.userId = userId\n        }\n\n        fun getIdUser(): Long? {\n            return userId\n        }\n    }\n\n    fun login(email: String, password: String) : ValidationModel {\n        if (email.matches(Regex(\"[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,}\")) && password.length >= 6) {\n            userRepository.login(email, password, object : ApiListener<UserLoginModel> {\n                override fun onSuccess(result: UserLoginModel) {\n                    if (result.status == Constants.HTTP.CODE.SUCCESS) {\n                        validationModel.setStatus(true)\n                        setUserId(result.userId)\n                    }else{\n                        validationModel.setValidationMessage(result.message)\n                        validationModel.status()\n                    }\n                }\n\n                override fun onFailure(message: String) {\n                    validationModel.status()\n                    validationModel.setValidationMessage(message)\n                }\n            })\n        }else{\n            validationModel.status()\n            validationModel.setValidationMessage(\"Parâmetros Incosistentes, Verifique.\")\n        }\n        return validationModel\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/controller/LoginController.kt b/app/src/main/java/com/mycompany/confinance/controller/LoginController.kt
+--- a/app/src/main/java/com/mycompany/confinance/controller/LoginController.kt	(revision bad6be15cc4d31c409d65f241b98ecb110fa049b)
++++ b/app/src/main/java/com/mycompany/confinance/controller/LoginController.kt	(date 1684518583042)
+@@ -1,6 +1,6 @@
+ package com.mycompany.confinance.controller
+ 
+-import com.mycompany.confinance.model.UserLoginModel
++import com.mycompany.confinance.model.user.UserLoginModel
+ import com.mycompany.confinance.model.validation.ValidationModel
+ import com.mycompany.confinance.repository.UserRepository
+ import com.mycompany.confinance.repository.listener.ApiListener
+Index: app/src/main/java/com/mycompany/confinance/view/user/LoginActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.view.user\n\nimport android.content.Intent\nimport androidx.appcompat.app.AppCompatActivity\nimport android.os.Bundle\nimport android.widget.Toast\nimport com.mycompany.confinance.MainActivity\nimport com.mycompany.confinance.controller.LoginController\nimport com.mycompany.confinance.databinding.ActivityLoginBinding\nimport com.mycompany.confinance.util.Constants\nimport com.mycompany.confinance.view.MenuActivity\nimport com.mycompany.confinance.view.company.PrivacyPolicesActivity\nimport com.mycompany.confinance.view.company.TermsOfUseActivity\nimport java.util.Locale\n\nclass LoginActivity : AppCompatActivity() {\n\n    private lateinit var binding: ActivityLoginBinding\n    private val controller = LoginController()\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        binding = ActivityLoginBinding.inflate(layoutInflater)\n        setContentView(binding.root)\n\n        supportActionBar?.hide()\n\n        handleClick()\n\n    }\n\n    private fun handleClick() {\n        binding.imageArrowBackLogin.setOnClickListener {\n\n            val account = intent.getBooleanExtra(Constants.REDIRECTION.KEY.ACCOUNT, false)\n            if (account) {\n                startActivity(Intent(this, CreateAccountActivity::class.java))\n                finish()\n            } else {\n                startActivity(Intent(this, MainActivity::class.java))\n                finish()\n            }\n\n        }\n        binding.buttonLogin.setOnClickListener {\n            handleLogin()\n        }\n\n        binding.textTermsOfUseLogin.setOnClickListener {\n\n            val intent = Intent(this, TermsOfUseActivity::class.java)\n            intent.putExtra(Constants.REDIRECTION.KEY.LOGIN, Constants.REDIRECTION.VALUE.LOGIN)\n            startActivity(intent)\n            finish()\n\n        }\n        binding.textPrivacyPolicesLogin.setOnClickListener {\n            val intent = Intent(this, PrivacyPolicesActivity::class.java)\n            intent.putExtra(Constants.REDIRECTION.KEY.LOGIN, Constants.REDIRECTION.VALUE.LOGIN)\n            startActivity(intent)\n            finish()\n\n        }\n\n        binding.textCreateAccountLogin.setOnClickListener {\n            val intent = Intent(this, CreateAccountActivity::class.java)\n            intent.putExtra(Constants.REDIRECTION.KEY.LOGIN, Constants.REDIRECTION.VALUE.LOGIN)\n            startActivity(intent)\n            finish()\n        }\n    }\n\n    private fun handleLogin() {\n        val email = binding.editEmailLogin.text.toString().lowercase()\n        val password = binding.editPasswordLogin.text.toString()\n\n        val validationLogin = controller.login(email, password)\n        if (validationLogin.status()) {\n            startActivity(Intent(this, MenuActivity::class.java))\n        } else {\n            Toast.makeText(this, validationLogin.message(), Toast.LENGTH_LONG).show()\n        }\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/view/user/LoginActivity.kt b/app/src/main/java/com/mycompany/confinance/view/user/LoginActivity.kt
+--- a/app/src/main/java/com/mycompany/confinance/view/user/LoginActivity.kt	(revision bad6be15cc4d31c409d65f241b98ecb110fa049b)
++++ b/app/src/main/java/com/mycompany/confinance/view/user/LoginActivity.kt	(date 1684516057986)
+@@ -8,10 +8,9 @@
+ import com.mycompany.confinance.controller.LoginController
+ import com.mycompany.confinance.databinding.ActivityLoginBinding
+ import com.mycompany.confinance.util.Constants
+-import com.mycompany.confinance.view.MenuActivity
++import com.mycompany.confinance.view.main.MenuActivity
+ import com.mycompany.confinance.view.company.PrivacyPolicesActivity
+ import com.mycompany.confinance.view.company.TermsOfUseActivity
+-import java.util.Locale
+ 
+ class LoginActivity : AppCompatActivity() {
+ 
+Index: app/src/main/java/com/mycompany/confinance/repository/service/UserService.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.repository.service\n\nimport com.mycompany.confinance.model.CreateUserModel\nimport com.mycompany.confinance.model.UserLoginModel\nimport com.mycompany.confinance.util.Constants\nimport retrofit2.Call\nimport retrofit2.http.Body\nimport retrofit2.http.Field\nimport retrofit2.http.FormUrlEncoded\nimport retrofit2.http.POST\n\ninterface UserService {\n\n    @POST(Constants.HTTP.URL.URL_LOGIN)\n    fun login(\n        @Body user : Map<String,String>\n    ): Call<UserLoginModel>\n\n    @POST(Constants.HTTP.URL.URL_CREATE_USER)\n    fun create(\n        @Body user: CreateUserModel\n    ):Call<CreateUserModel>\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/repository/service/UserService.kt b/app/src/main/java/com/mycompany/confinance/repository/service/UserService.kt
+--- a/app/src/main/java/com/mycompany/confinance/repository/service/UserService.kt	(revision bad6be15cc4d31c409d65f241b98ecb110fa049b)
++++ b/app/src/main/java/com/mycompany/confinance/repository/service/UserService.kt	(date 1684519649404)
+@@ -1,24 +1,29 @@
+ package com.mycompany.confinance.repository.service
+ 
+-import com.mycompany.confinance.model.CreateUserModel
+-import com.mycompany.confinance.model.UserLoginModel
++import com.mycompany.confinance.model.user.CreateUserModel
++import com.mycompany.confinance.model.user.GetUserModel
++import com.mycompany.confinance.model.user.UserLoginModel
+ import com.mycompany.confinance.util.Constants
+ import retrofit2.Call
+ import retrofit2.http.Body
+-import retrofit2.http.Field
+-import retrofit2.http.FormUrlEncoded
++import retrofit2.http.GET
+ import retrofit2.http.POST
++import retrofit2.http.Path
+ 
+ interface UserService {
+ 
+     @POST(Constants.HTTP.URL.URL_LOGIN)
+     fun login(
+-        @Body user : Map<String,String>
++        @Body user: Map<String, String>
+     ): Call<UserLoginModel>
+ 
+     @POST(Constants.HTTP.URL.URL_CREATE_USER)
+     fun create(
+         @Body user: CreateUserModel
+-    ):Call<CreateUserModel>
++    ): Call<CreateUserModel>
+ 
++    @GET(Constants.HTTP.URL.URL_RETURN_USER)
++    fun getUserById(
++        @Path("id") id: String
++    ): Call<GetUserModel>
+ }
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"11\" project-jdk-type=\"JavaSDK\">\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\n  </component>\n  <component name=\"ProjectType\">\n    <option name=\"id\" value=\"Android\" />\n  </component>\n  <component name=\"VisualizationToolProject\">\n    <option name=\"state\">\n      <ProjectState>\n        <option name=\"scale\" value=\"0.060997147126749085\" />\n      </ProjectState>\n    </option>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision bad6be15cc4d31c409d65f241b98ecb110fa049b)
++++ b/.idea/misc.xml	(date 1684520665322)
+@@ -1,7 +1,6 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/build/classes" />
+   </component>
+   <component name="ProjectType">
+Index: app/src/main/java/com/mycompany/confinance/view/MenuActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/view/MenuActivity.kt b/app/src/main/java/com/mycompany/confinance/view/main/MenuActivity.kt
+rename from app/src/main/java/com/mycompany/confinance/view/MenuActivity.kt
+rename to app/src/main/java/com/mycompany/confinance/view/main/MenuActivity.kt
+--- a/app/src/main/java/com/mycompany/confinance/view/MenuActivity.kt	(revision bad6be15cc4d31c409d65f241b98ecb110fa049b)
++++ b/app/src/main/java/com/mycompany/confinance/view/main/MenuActivity.kt	(date 1684516057958)
+@@ -1,9 +1,8 @@
+-package com.mycompany.confinance.view
++package com.mycompany.confinance.view.main
+ 
+ import android.content.Intent
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
+-import com.mycompany.confinance.R
+ import com.mycompany.confinance.databinding.ActivityMenuBinding
+ import com.mycompany.confinance.view.company.AboutUsActivity
+ import com.mycompany.confinance.view.company.TermsOfUseActivity
+Index: gradle.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Project-wide Gradle settings.\n# IDE (e.g. Android Studio) users:\n# Gradle settings configured through the IDE *will override*\n# any settings specified in this file.\n# For more details on how to configure your build environment visit\n# http://www.gradle.org/docs/current/userguide/build_environment.html\n# Specifies the JVM arguments used for the daemon process.\n# The setting is particularly useful for tweaking memory settings.\norg.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8\n# When configured, Gradle will run in incubating parallel mode.\n# This option should only be used with decoupled projects. More details, visit\n# http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:decoupled_projects\n# org.gradle.parallel=true\n# AndroidX package structure to make it clearer which packages are bundled with the\n# Android operating system, and which are packaged with your app's APK\n# https://developer.android.com/topic/libraries/support-library/androidx-rn\nandroid.useAndroidX=true\n# Kotlin code style for this project: \"official\" or \"obsolete\":\nkotlin.code.style=official\n# Enables namespacing of each library's R class so that its R class includes only the\n# resources declared in the library itself and none from the library's dependencies,\n# thereby reducing the size of the R class for that library\nandroid.nonTransitiveRClass=true
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/gradle.properties b/gradle.properties
+--- a/gradle.properties	(revision bad6be15cc4d31c409d65f241b98ecb110fa049b)
++++ b/gradle.properties	(date 1684516512303)
+@@ -20,4 +20,6 @@
+ # Enables namespacing of each library's R class so that its R class includes only the
+ # resources declared in the library itself and none from the library's dependencies,
+ # thereby reducing the size of the R class for that library
+-android.nonTransitiveRClass=true
+\ No newline at end of file
++android.nonTransitiveRClass=true
++android.defaults.buildfeatures.buildconfig=true
++android.nonFinalResIds=false
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_menu.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:layout_gravity=\"center\"\n    tools:context=\".view.MenuActivity\">\n\n    <View\n        android:id=\"@+id/view\"\n        android:layout_width=\"0dp\"\n        android:layout_height=\"150dp\"\n        android:background=\"@color/blue_main\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\" />\n\n    <androidx.appcompat.widget.AppCompatImageView\n        android:id=\"@+id/image_profile_picture\"\n        android:layout_width=\"102dp\"\n        android:layout_height=\"93dp\"\n        android:src=\"@drawable/profile_menu\"\n        app:layout_constraintBottom_toBottomOf=\"@id/view\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"@id/view\" />\n\n\n    <androidx.appcompat.widget.AppCompatTextView\n        android:id=\"@+id/text_name_app\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"@string/app_name\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@id/image_profile_picture\" />\n\n    <androidx.appcompat.widget.AppCompatImageView\n        android:id=\"@+id/image_initiel\"\n        android:layout_width=\"30dp\"\n        android:layout_height=\"30dp\"\n        android:layout_marginTop=\"26dp\"\n        android:layout_marginStart=\"4dp\"\n        app:layout_constraintTop_toBottomOf=\"@id/view\"\n        app:srcCompat=\"@drawable/initial__menu\"\n        app:layout_constraintStart_toStartOf=\"parent\" />\n\n    <androidx.appcompat.widget.AppCompatTextView\n        android:id=\"@+id/text_initial\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"@string/menu_initial\"\n        android:layout_marginStart=\"4dp\"\n        app:layout_constraintLeft_toLeftOf=\"@id/image_initiel\"\n        app:layout_constraintBottom_toBottomOf=\"@id/image_initiel\"\n        app:layout_constraintStart_toEndOf=\"@id/image_initiel\"\n        app:layout_constraintTop_toTopOf=\"@id/image_initiel\" />\n\n\n    <androidx.appcompat.widget.AppCompatTextView\n        android:id=\"@+id/text_plan\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"@string/plan\"\n        android:textColor=\"@color/text_second\"\n        android:layout_marginLeft=\"6dp\"\n        android:layout_marginTop=\"12dp\"\n        app:layout_constraintLeft_toLeftOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@id/image_dash_underline_initiel\"\n        />\n\n    <androidx.appcompat.widget.AppCompatImageView\n        android:id=\"@+id/image_dash_underline_initiel\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        app:srcCompat=\"@drawable/dash_underline\"\n        android:layout_marginTop=\"15dp\"\n        app:layout_constraintTop_toBottomOf=\"@+id/image_initiel\"\n        app:tint=\"@color/text_second\"/>\n\n\n    <androidx.appcompat.widget.AppCompatImageView\n        android:id=\"@+id/image_objective\"\n        android:layout_width=\"30dp\"\n        android:layout_height=\"30dp\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        android:layout_marginTop=\"16dp\"\n        android:layout_marginLeft=\"4dp\"\n        app:layout_constraintLeft_toLeftOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@id/text_plan\"\n        app:srcCompat=\"@drawable/objective_menu\" />\n\n    <androidx.appcompat.widget.AppCompatTextView\n        android:id=\"@+id/text_objective\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"@string/menu_objective\"\n        android:layout_marginStart=\"4dp\"\n        app:layout_constraintLeft_toLeftOf=\"@id/image_objective\"\n        app:layout_constraintBottom_toBottomOf=\"@id/image_objective\"\n        app:layout_constraintStart_toEndOf=\"@id/image_objective\"\n        app:layout_constraintTop_toTopOf=\"@id/image_objective\" />\n\n\n    <androidx.appcompat.widget.AppCompatImageView\n        android:id=\"@+id/image_revenue\"\n        android:layout_width=\"30dp\"\n        android:layout_height=\"30dp\"\n        android:layout_marginTop=\"15dp\"\n        android:layout_marginLeft=\"4dp\"\n        app:layout_constraintLeft_toLeftOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@id/image_objective\"\n        app:srcCompat=\"@drawable/revenue__menu\"\n        app:layout_constraintStart_toStartOf=\"parent\" />\n\n    <androidx.appcompat.widget.AppCompatTextView\n        android:id=\"@+id/text_revenues\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"@string/menu_revenues\"\n        android:layout_marginStart=\"4dp\"\n        app:layout_constraintBottom_toBottomOf=\"@id/image_revenue\"\n        app:layout_constraintStart_toEndOf=\"@id/image_revenue\"\n        app:layout_constraintTop_toTopOf=\"@id/image_revenue\" />\n\n\n    <androidx.appcompat.widget.AppCompatImageView\n        android:id=\"@+id/image_expense\"\n        android:layout_width=\"30dp\"\n        android:layout_height=\"30dp\"\n        android:layout_marginTop=\"15dp\"\n        android:layout_marginLeft=\"4dp\"\n        app:layout_constraintLeft_toLeftOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@id/image_revenue\"\n        app:srcCompat=\"@drawable/expense_menu\"/>\n\n    <androidx.appcompat.widget.AppCompatTextView\n        android:id=\"@+id/text_expenses\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"@string/menu_expenses\"\n        android:layout_marginStart=\"4dp\"\n        app:layout_constraintBottom_toBottomOf=\"@id/image_expense\"\n        app:layout_constraintStart_toEndOf=\"@id/image_expense\"\n        app:layout_constraintTop_toTopOf=\"@id/image_expense\" />\n\n    <androidx.appcompat.widget.AppCompatImageView\n        android:id=\"@+id/image_dash_underline_plan\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        app:srcCompat=\"@drawable/dash_underline\"\n        android:layout_marginTop=\"20dp\"\n        app:layout_constraintTop_toBottomOf=\"@+id/image_expense\"\n        app:tint=\"@color/text_second\"/>\n\n    <androidx.appcompat.widget.AppCompatImageView\n        android:id=\"@+id/image_about\"\n        android:layout_width=\"30dp\"\n        android:layout_height=\"30dp\"\n        android:layout_marginTop=\"15dp\"\n        android:layout_marginLeft=\"4dp\"\n        app:layout_constraintLeft_toLeftOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@id/image_dash_underline_plan\"\n        app:srcCompat=\"@drawable/about\"\n        />\n\n    <androidx.appcompat.widget.AppCompatTextView\n        android:id=\"@+id/text_about\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"@string/menu_about\"\n        android:layout_marginStart=\"4dp\"\n        app:layout_constraintStart_toEndOf=\"@id/image_about\"\n        app:layout_constraintTop_toTopOf=\"@id/image_about\"\n        app:layout_constraintBottom_toBottomOf=\"@id/image_about\"/>\n\n    <androidx.appcompat.widget.AppCompatImageView\n        android:id=\"@+id/image_terms_of_use\"\n        android:layout_width=\"30dp\"\n        android:layout_height=\"30dp\"\n        android:layout_marginTop=\"15dp\"\n        android:layout_marginLeft=\"4dp\"\n        app:layout_constraintLeft_toLeftOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@id/image_about\"\n        app:srcCompat=\"@drawable/terms_of_use\"\n        />\n\n    <androidx.appcompat.widget.AppCompatTextView\n        android:id=\"@+id/text_terms_of_use\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"@string/menu_terms_of_use\"\n        android:layout_marginStart=\"4dp\"\n        app:layout_constraintBottom_toBottomOf=\"@id/image_terms_of_use\"\n        app:layout_constraintStart_toEndOf=\"@id/image_terms_of_use\"\n        app:layout_constraintTop_toTopOf=\"@id/image_terms_of_use\" />\n\n    <androidx.appcompat.widget.AppCompatImageView\n        android:id=\"@+id/image_dash_underline_terms\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        app:srcCompat=\"@drawable/dash_underline\"\n        android:layout_marginTop=\"20dp\"\n        app:layout_constraintTop_toBottomOf=\"@+id/image_terms_of_use\"\n        app:tint=\"@color/text_second\"/>\n\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_menu.xml b/app/src/main/res/layout/activity_menu.xml
+--- a/app/src/main/res/layout/activity_menu.xml	(revision bad6be15cc4d31c409d65f241b98ecb110fa049b)
++++ b/app/src/main/res/layout/activity_menu.xml	(date 1684516057974)
+@@ -5,7 +5,7 @@
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:layout_gravity="center"
+-    tools:context=".view.MenuActivity">
++    tools:context=".view.main.MenuActivity">
+ 
+     <View
+         android:id="@+id/view"
+Index: app/src/main/java/com/mycompany/confinance/repository/RetrofitClient.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.repository\n\nimport com.mycompany.confinance.util.Constants\nimport okhttp3.OkHttpClient\nimport retrofit2.Retrofit\nimport retrofit2.converter.gson.GsonConverterFactory\n\nclass RetrofitClient private constructor() {\n    companion object {\n        private lateinit var INSTANCE: Retrofit\n\n        private fun getRetrofitInstance(): Retrofit {\n            val http = OkHttpClient.Builder().build()\n            if (!::INSTANCE.isInitialized) {\n                synchronized(RetrofitClient::class) {\n                    INSTANCE =\n                        Retrofit.Builder().baseUrl(Constants.HTTP.URL.URL_BASE).client(http)\n                            .addConverterFactory(GsonConverterFactory.create()).build()\n                }\n            }\n            return INSTANCE\n        }\n\n        fun <T> getService(service: Class<T>): T {\n            return getRetrofitInstance().create(service)\n        }\n\n    }\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/repository/RetrofitClient.kt b/app/src/main/java/com/mycompany/confinance/repository/RetrofitClient.kt
+--- a/app/src/main/java/com/mycompany/confinance/repository/RetrofitClient.kt	(revision bad6be15cc4d31c409d65f241b98ecb110fa049b)
++++ b/app/src/main/java/com/mycompany/confinance/repository/RetrofitClient.kt	(date 1684519649392)
+@@ -14,7 +14,7 @@
+             if (!::INSTANCE.isInitialized) {
+                 synchronized(RetrofitClient::class) {
+                     INSTANCE =
+-                        Retrofit.Builder().baseUrl(Constants.HTTP.URL.URL_BASE).client(http)
++                        Retrofit.Builder().baseUrl(Constants.HTTP.URL.URL_SELTON).client(http)
+                             .addConverterFactory(GsonConverterFactory.create()).build()
+                 }
+             }
+Index: app/src/main/java/com/mycompany/confinance/util/Constants.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.util\n\n\nclass Constants {\n    companion object REDIRECTION {\n        object KEY {\n            const val ACCOUNT: String = \"Activity_Account\"\n            const val LOGIN: String = \"Activity_Login\"\n        }\n\n        object VALUE {\n            const val ACCOUNT: Boolean = true\n            const val LOGIN: Boolean = true\n        }\n    }\n\n    object HTTP {\n        object URL {\n            const val URL_BASE: String = \"http://192.168.13.104:8080/\"\n            const val URL_LOGIN: String = \"user/login\"\n            const val URL_CREATE_USER: String = \"user\"\n            const val URL_CREATE_MOVEMENT: String = \"movement\"\n            const val URL_UPDATE_MOVEMENT: String = \"movement/{id}\"\n            const val URL_RETURN_MOVEMENT_ID: String = \"movement/{id}\"\n            const val URL_RETURN_MOVEMENT_ID_USER: String = \"movement/user{id}\"\n            const val URL_RETURN_MOVEMENT_LIST: String = \"movement\"\n            const val URL_DELETE_MOVEMENT: String = \"movement/{id}\"\n        }\n\n        object CODE {\n            const val SUCCESS: Int = 200\n            const val CREATE: Int = 201\n        }\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/util/Constants.kt b/app/src/main/java/com/mycompany/confinance/util/Constants.kt
+--- a/app/src/main/java/com/mycompany/confinance/util/Constants.kt	(revision bad6be15cc4d31c409d65f241b98ecb110fa049b)
++++ b/app/src/main/java/com/mycompany/confinance/util/Constants.kt	(date 1684518938875)
+@@ -16,9 +16,10 @@
+ 
+     object HTTP {
+         object URL {
+-            const val URL_BASE: String = "http://192.168.13.104:8080/"
++            const val URL_SELTON: String = "http://192.168.13.104:8080/"
+             const val URL_LOGIN: String = "user/login"
+             const val URL_CREATE_USER: String = "user"
++            const val URL_RETURN_USER:String = "user/{id}"
+             const val URL_CREATE_MOVEMENT: String = "movement"
+             const val URL_UPDATE_MOVEMENT: String = "movement/{id}"
+             const val URL_RETURN_MOVEMENT_ID: String = "movement/{id}"
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"CompilerConfiguration\">\n    <bytecodeTargetLevel target=\"11\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+--- a/.idea/compiler.xml	(revision bad6be15cc4d31c409d65f241b98ecb110fa049b)
++++ b/.idea/compiler.xml	(date 1684516181577)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="CompilerConfiguration">
+-    <bytecodeTargetLevel target="11" />
++    <bytecodeTargetLevel target="17" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\nplugins {\n    id 'com.android.application' version '7.3.1' apply false\n    id 'com.android.library' version '7.3.1' apply false\n    id 'org.jetbrains.kotlin.android' version '1.8.0' apply false\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle b/build.gradle
+--- a/build.gradle	(revision bad6be15cc4d31c409d65f241b98ecb110fa049b)
++++ b/build.gradle	(date 1684516512283)
+@@ -1,6 +1,6 @@
+ // Top-level build file where you can add configuration options common to all sub-projects/modules.
+ plugins {
+-    id 'com.android.application' version '7.3.1' apply false
+-    id 'com.android.library' version '7.3.1' apply false
++    id 'com.android.application' version '8.0.0' apply false
++    id 'com.android.library' version '8.0.0' apply false
+     id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/mycompany/confinance/model/CreateUserModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/model/CreateUserModel.kt b/app/src/main/java/com/mycompany/confinance/model/user/CreateUserModel.kt
+rename from app/src/main/java/com/mycompany/confinance/model/CreateUserModel.kt
+rename to app/src/main/java/com/mycompany/confinance/model/user/CreateUserModel.kt
+--- a/app/src/main/java/com/mycompany/confinance/model/CreateUserModel.kt	(revision bad6be15cc4d31c409d65f241b98ecb110fa049b)
++++ b/app/src/main/java/com/mycompany/confinance/model/user/CreateUserModel.kt	(date 1684518583026)
+@@ -1,4 +1,4 @@
+-package com.mycompany.confinance.model
++package com.mycompany.confinance.model.user
+ 
+ import android.os.Parcelable
+ import kotlinx.parcelize.Parcelize
+Index: app/src/main/java/com/mycompany/confinance/repository/UserRepository.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.repository\n\nimport com.mycompany.confinance.model.CreateUserModel\nimport com.mycompany.confinance.model.UserLoginModel\nimport com.mycompany.confinance.repository.listener.ApiListener\nimport com.mycompany.confinance.repository.service.UserService\nimport com.mycompany.confinance.util.Constants\nimport retrofit2.Call\nimport retrofit2.Callback\nimport retrofit2.Response\n\n\nclass UserRepository {\n\n    private val remote = RetrofitClient.getService(UserService::class.java)\n\n    fun login(email: String, password: String, listener: ApiListener<UserLoginModel>) {\n        val loginData = hashMapOf(\"email\" to email, \"password\" to password)\n        val call = remote.login(loginData)\n        call.enqueue(object : Callback<UserLoginModel> {\n            override fun onResponse(\n                call: Call<UserLoginModel>, response: Response<UserLoginModel>\n            ) {\n                if (response.code() == Constants.HTTP.CODE.SUCCESS) {\n                    response.body()?.let {\n                        listener.onSuccess(it)\n                    }\n                } else {\n                    response.let {\n                        listener.onFailure(it.message())\n                    }\n                }\n            }\n\n            override fun onFailure(call: Call<UserLoginModel>, t: Throwable) {\n                listener.onFailure(\"ERRO, ENTRA EM CONTATO COM O DESENVOLVEDOR\")\n            }\n        })\n    }\n\n    fun createAccount(name: String, email: String, password: String, listener: ApiListener<CreateUserModel>) {\n        val user = CreateUserModel(null, name, email, password)\n        val call = remote.create(user)\n        call.enqueue(object : Callback<CreateUserModel> {\n            override fun onResponse(\n                call: Call<CreateUserModel>, response: Response<CreateUserModel>) {\n                if (response.code() == Constants.HTTP.CODE.CREATE) {\n                    response.body()?.let {\n                        listener.onSuccess(it)\n                    }\n                } else{\n                    listener.onFailure(response.message())\n                }\n            }\n\n            override fun onFailure(call: Call<CreateUserModel>, t: Throwable) {\n                listener.onFailure(\"ERRO, ENTRA EM CONTATO COM O DESENVOLVEDOR\")\n            }\n\n        })\n    }\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/repository/UserRepository.kt b/app/src/main/java/com/mycompany/confinance/repository/UserRepository.kt
+--- a/app/src/main/java/com/mycompany/confinance/repository/UserRepository.kt	(revision bad6be15cc4d31c409d65f241b98ecb110fa049b)
++++ b/app/src/main/java/com/mycompany/confinance/repository/UserRepository.kt	(date 1684519649396)
+@@ -1,7 +1,7 @@
+ package com.mycompany.confinance.repository
+ 
+-import com.mycompany.confinance.model.CreateUserModel
+-import com.mycompany.confinance.model.UserLoginModel
++import com.mycompany.confinance.model.user.CreateUserModel
++import com.mycompany.confinance.model.user.UserLoginModel
+ import com.mycompany.confinance.repository.listener.ApiListener
+ import com.mycompany.confinance.repository.service.UserService
+ import com.mycompany.confinance.util.Constants
+@@ -59,5 +59,4 @@
+ 
+         })
+     }
+-
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/mycompany/confinance/model/UserLoginModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/model/UserLoginModel.kt b/app/src/main/java/com/mycompany/confinance/model/user/UserLoginModel.kt
+rename from app/src/main/java/com/mycompany/confinance/model/UserLoginModel.kt
+rename to app/src/main/java/com/mycompany/confinance/model/user/UserLoginModel.kt
+--- a/app/src/main/java/com/mycompany/confinance/model/UserLoginModel.kt	(revision bad6be15cc4d31c409d65f241b98ecb110fa049b)
++++ b/app/src/main/java/com/mycompany/confinance/model/user/UserLoginModel.kt	(date 1684518583038)
+@@ -1,4 +1,4 @@
+-package com.mycompany.confinance.model
++package com.mycompany.confinance.model.user
+ 
+ import android.os.Parcelable
+ import kotlinx.parcelize.Parcelize

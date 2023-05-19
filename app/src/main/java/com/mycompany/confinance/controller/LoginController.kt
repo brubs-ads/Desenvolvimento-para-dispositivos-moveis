@@ -1,6 +1,6 @@
 package com.mycompany.confinance.controller
 
-import com.mycompany.confinance.model.UserLoginModel
+import com.mycompany.confinance.model.user.UserLoginModel
 import com.mycompany.confinance.model.validation.ValidationModel
 import com.mycompany.confinance.repository.UserRepository
 import com.mycompany.confinance.repository.listener.ApiListener

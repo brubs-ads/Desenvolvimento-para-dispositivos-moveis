@@ -1,24 +1,29 @@
 package com.mycompany.confinance.repository.service
 
-import com.mycompany.confinance.model.CreateUserModel
-import com.mycompany.confinance.model.UserLoginModel
+import com.mycompany.confinance.model.user.CreateUserModel
+import com.mycompany.confinance.model.user.GetUserModel
+import com.mycompany.confinance.model.user.UserLoginModel
 import com.mycompany.confinance.util.Constants
 import retrofit2.Call
 import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface UserService {
 
     @POST(Constants.HTTP.URL.URL_LOGIN)
     fun login(
-        @Body user : Map<String,String>
+        @Body user: Map<String, String>
     ): Call<UserLoginModel>
 
     @POST(Constants.HTTP.URL.URL_CREATE_USER)
     fun create(
         @Body user: CreateUserModel
-    ):Call<CreateUserModel>
+    ): Call<CreateUserModel>
 
+    @GET(Constants.HTTP.URL.URL_RETURN_USER)
+    fun getUserById(
+        @Path("id") id: Long
+    ): Call<GetUserModel>
 }
