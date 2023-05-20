@@ -17,5 +17,6 @@
     <color name="color_health">#D3B6CE53</color>
     <color name="color_education">#C8F77B4D</color>
     <color name="color_house">#A487CEFA</color>/
+    <color name="color_revenues">#228B22</color>
 
 </resources>

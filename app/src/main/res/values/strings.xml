@@ -89,8 +89,8 @@
     <string name="description">Descrição</string>
     <string name="date">Data</string>
     <string name="categories">Categorias</string>
-    <string name="text_objetivos">Objetivos</string>
-    <string name="text_criar_objetivos">Criar Objetivos</string>
+    <string name="text_objective">Objetivos</string>
+    <string name="text_criar_objective">Criar Objetivos</string>
     <string name="text_economize">Economize para alcançar seus objetivos</string>
     <string name="text_pressione">Pressione (+) para criar o primeiro</string>
     <string name="salary">Salário</string>
@@ -128,6 +128,7 @@
     <string name="total">Total</string>
     <string name="revenue">Receitas</string>
     <string name="revenues_total">R$0,00</string>
-
+    <string name="create_revenues">Criar Receitas</string>
+    <string name="create_expenses">Criar Despesas</string>
 
 </resources>
