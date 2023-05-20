@@ -24,34 +24,43 @@ class MenuActivity : AppCompatActivity() {
 
     private fun handleclick() {
         binding.textRevenues.setOnClickListener {
-        val revenuesintent = Intent(this, RevenuesActivity::class.java)
-        startActivity(revenuesintent)
+            val revenuesintent = Intent(this, RevenuesActivity::class.java)
+            startActivity(revenuesintent)
+        }
+
+        binding.textInitial.setOnClickListener{
+            val initialintent = Intent(this,InitialActivity::class.java)
+            startActivity(initialintent)
+        }
 
         binding.textExpenses.setOnClickListener {
-        val expensesintent = Intent(this, ExpensesActivity::class.java)
-        startActivity(expensesintent)
+            val expensesintent = Intent(this, ExpensesActivity::class.java)
+            startActivity(expensesintent)
+        }
 
         binding.textObjective.setOnClickListener {
-        val objectiveintent = Intent(this, ObjectiveActivity::class.java)
-        startActivity(objectiveintent)
+            val objectiveintent = Intent(this, ObjectiveActivity::class.java)
+            startActivity(objectiveintent)
+        }
 
         binding.textAbout.setOnClickListener {
-        val aboutintent = Intent(this, AboutUsActivity::class.java)
-        startActivity(aboutintent)
+            val aboutintent = Intent(this, AboutUsActivity::class.java)
+            startActivity(aboutintent)
+        }
 
         binding.textTermsOfUse.setOnClickListener {
-        val termsofuseintent = Intent(this, TermsOfUseActivity::class.java)
-        startActivity(termsofuseintent)
+            val termsofuseintent = Intent(this, TermsOfUseActivity::class.java)
+            startActivity(termsofuseintent)
+        }
 
-        binding.imageProfilePicture.setOnClickListener{
-        val profilepictureintent = Intent(this,UserProfileActivity::class.java)
-        startActivity(profilepictureintent)
+        binding.imageProfilePicture.setOnClickListener {
+            val profilepictureintent = Intent(this, UserProfileActivity::class.java)
+            startActivity(profilepictureintent)
+        }
 
           }
          }
-       }
-       }
-      }
-     }
-  }
-}
+
+
+
+

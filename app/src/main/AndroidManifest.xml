@@ -71,6 +71,9 @@
             android:name=".view.expense.ExpensesActivity"
             android:exported="false"/>
 
+        <activity android:name=".view.main.InitialActivity"
+            android:exported="false"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
