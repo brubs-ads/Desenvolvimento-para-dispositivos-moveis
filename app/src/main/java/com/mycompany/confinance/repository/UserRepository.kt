@@ -1,6 +1,7 @@
 package com.mycompany.confinance.repository
 
 import com.mycompany.confinance.model.user.CreateUserModel
+import com.mycompany.confinance.model.user.GetUserModel
 import com.mycompany.confinance.model.user.UserLoginModel
 import com.mycompany.confinance.repository.listener.ApiListener
 import com.mycompany.confinance.repository.service.UserService
@@ -38,17 +39,23 @@ class UserRepository {
         })
     }
 
-    fun createAccount(name: String, email: String, password: String, listener: ApiListener<CreateUserModel>) {
-        val user = CreateUserModel(null, name, email, password)
+    fun createAccount(
+        name: String,
+        email: String,
+        password: String,
+        listener: ApiListener<CreateUserModel>
+    ) {
+        val user = CreateUserModel(0, name, email, password)
         val call = remote.create(user)
         call.enqueue(object : Callback<CreateUserModel> {
             override fun onResponse(
-                call: Call<CreateUserModel>, response: Response<CreateUserModel>) {
+                call: Call<CreateUserModel>, response: Response<CreateUserModel>
+            ) {
                 if (response.code() == Constants.HTTP.CODE.CREATE) {
                     response.body()?.let {
                         listener.onSuccess(it)
                     }
-                } else{
+                } else {
                     listener.onFailure(response.message())
                 }
             }
@@ -57,6 +64,25 @@ class UserRepository {
                 listener.onFailure("ERRO, ENTRA EM CONTATO COM O DESENVOLVEDOR")
             }
 
+        })
+    }
+
+    fun getUserById(id: Long, listener: ApiListener<GetUserModel>) {
+        val user = remote.getUserById(id)
+        user.enqueue(object : Callback<GetUserModel> {
+            override fun onResponse(call: Call<GetUserModel>, response: Response<GetUserModel>) {
+                if (response.code() == Constants.HTTP.CODE.SUCCESS) {
+                    response.body()?.let {
+                        listener.onSuccess(it)
+                    }
+                } else {
+                    val s = ""
+                }
+            }
+
+            override fun onFailure(call: Call<GetUserModel>, t: Throwable) {
+                listener.onFailure("ERRO, ENTRA EM CONTATO COM O DESENVOLVEDOR")
+            }
         })
     }
 }

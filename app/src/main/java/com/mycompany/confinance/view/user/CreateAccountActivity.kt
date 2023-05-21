@@ -11,6 +11,7 @@ import com.mycompany.confinance.util.Constants
 import com.mycompany.confinance.view.main.MenuActivity
 import com.mycompany.confinance.view.company.PrivacyPolicesActivity
 import com.mycompany.confinance.view.company.TermsOfUseActivity
+import com.mycompany.confinance.view.main.InitialActivity
 
 class CreateAccountActivity : AppCompatActivity() {
 
@@ -78,7 +79,7 @@ class CreateAccountActivity : AppCompatActivity() {
         val validationAccount = controller.createAccount(name, email, password)
 
         if (validationAccount.status()) {
-            startActivity(Intent(this, MenuActivity::class.java))
+            startActivity(Intent(this, InitialActivity::class.java))
             finish()
         } else {
             Toast.makeText(this, validationAccount.message(), Toast.LENGTH_LONG).show()

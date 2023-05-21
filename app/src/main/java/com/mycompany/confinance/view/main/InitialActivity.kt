@@ -15,10 +15,10 @@ class InitialActivity : AppCompatActivity() {
         binding = ActivityInitialBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        handleclick()
+        handleClick()
     }
 
-    private fun handleclick() {
+    private fun handleClick() {
 
         binding.textRevenueCategory.setOnClickListener {
             val revenuecategoryintent = Intent(this, RevenuesActivity::class.java)
@@ -29,8 +29,8 @@ class InitialActivity : AppCompatActivity() {
             startActivity(expensecategoryintent)
         }
         binding.imageMenuInitial.setOnClickListener {
-            val menuinitalintent = Intent(this, MenuActivity::class.java)
-            startActivity(menuinitalintent)
+            startActivity(Intent(this, MenuActivity::class.java))
+            finish()
         }
     }
 }

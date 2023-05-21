@@ -31,7 +31,7 @@
         android:layout_marginStart="15dp"
         android:text="@string/UserProfile"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintStart_toEndOf="@+id/image_back_profile"
@@ -50,8 +50,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@id/image_user_profile"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="60dp"
         android:src="@drawable/profile_menu"
@@ -59,45 +59,23 @@
         app:layout_constraintTop_toBottomOf="@+id/image_back_profile"
         tools:ignore="MissingConstraints" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textview_name_person"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:text="@string/User_Name"
-        android:textColor="@color/Cinza_claro_medio"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/image_user_profile"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/image_user_profile" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edittext_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="12dp"
+        android:hint="@string/name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/image_user_profile"
-        app:layout_constraintTop_toTopOf="@+id/textview_name_person"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintBottom_toBottomOf="@id/image_user_profile"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textview_email_person"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/email_person2"
-        android:textColor="@color/Cinza_claro_medio"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/image_user_profile"
-        app:layout_constraintTop_toBottomOf="@+id/image_user_profile" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edittext_email"
@@ -111,14 +89,13 @@
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textview_email_person"
-        tools:ignore="MissingConstraints" />
+        android:hint="@string/email_person"
+        app:layout_constraintTop_toBottomOf="@+id/image_user_profile" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="250dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/background_button"
         android:text="@string/Exit_Profile"
         android:textColor="@color/white"

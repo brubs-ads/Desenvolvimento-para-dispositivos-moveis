@@ -1,8 +1,8 @@
 package com.mycompany.confinance.view.main
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.mycompany.confinance.databinding.ActivityMenuBinding
 import com.mycompany.confinance.view.company.AboutUsActivity
 import com.mycompany.confinance.view.company.TermsOfUseActivity
@@ -24,42 +24,41 @@ class MenuActivity : AppCompatActivity() {
 
     private fun handleclick() {
         binding.textRevenues.setOnClickListener {
-            val revenuesintent = Intent(this, RevenuesActivity::class.java)
-            startActivity(revenuesintent)
+            startActivity(Intent(this, RevenuesActivity::class.java))
+            finish()
         }
 
         binding.textInitial.setOnClickListener{
-            val initialintent = Intent(this,InitialActivity::class.java)
-            startActivity(initialintent)
+            startActivity(Intent(this,InitialActivity::class.java))
+            finish()
         }
 
         binding.textExpenses.setOnClickListener {
-            val expensesintent = Intent(this, ExpensesActivity::class.java)
-            startActivity(expensesintent)
+            startActivity(Intent(this, ExpensesActivity::class.java))
+            finish()
         }
 
         binding.textObjective.setOnClickListener {
-            val objectiveintent = Intent(this, ObjectiveActivity::class.java)
-            startActivity(objectiveintent)
+            startActivity(Intent(this, ObjectiveActivity::class.java))
+            finish()
         }
 
         binding.textAbout.setOnClickListener {
-            val aboutintent = Intent(this, AboutUsActivity::class.java)
-            startActivity(aboutintent)
+            startActivity(Intent(this, AboutUsActivity::class.java))
+            finish()
         }
 
         binding.textTermsOfUse.setOnClickListener {
-            val termsofuseintent = Intent(this, TermsOfUseActivity::class.java)
-            startActivity(termsofuseintent)
+            startActivity(Intent(this, TermsOfUseActivity::class.java))
+            finish()
         }
 
         binding.imageProfilePicture.setOnClickListener {
-            val profilepictureintent = Intent(this, UserProfileActivity::class.java)
-            startActivity(profilepictureintent)
+            startActivity(Intent(this, UserProfileActivity::class.java))
+            finish()
         }
-
-          }
-         }
+    }
+}
 
 
 
