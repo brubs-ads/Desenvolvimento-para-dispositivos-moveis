@@ -18,5 +18,6 @@
     <color name="color_education">#C8F77B4D</color>
     <color name="color_house">#A487CEFA</color>
     <color name="color_revenues">#228B22</color>
+    <color name="color_view_balance">#9747fe</color>
 
 </resources>
