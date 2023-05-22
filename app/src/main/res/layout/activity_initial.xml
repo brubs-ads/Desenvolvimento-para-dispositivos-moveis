@@ -17,8 +17,9 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/image_menu_initial"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="80dp"
         app:layout_constraintBottom_toBottomOf="@id/view"
@@ -32,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:paddingBottom="8dp"
+        android:paddingBottom="10dp"
         android:text="@string/initial"
         android:textColor="@color/white"
         android:textSize="20sp"
