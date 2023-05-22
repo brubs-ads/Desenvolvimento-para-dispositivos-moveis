@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mycompany.confinance.databinding.ActivityInitialBinding
+import com.mycompany.confinance.repository.MovementRepository.Companion.valueTotal
 import com.mycompany.confinance.view.expense.ExpensesActivity
 import com.mycompany.confinance.view.revenue.RevenuesActivity
 
@@ -14,6 +15,8 @@ class InitialActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityInitialBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.textBalance.text = "Valor Total: ${valueTotal}"
 
         handleClick()
     }
