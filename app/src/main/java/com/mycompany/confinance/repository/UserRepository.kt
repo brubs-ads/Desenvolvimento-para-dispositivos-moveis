@@ -1,5 +1,6 @@
 package com.mycompany.confinance.repository
 
+import com.google.gson.Gson
 import com.mycompany.confinance.model.user.CreateUserModel
 import com.mycompany.confinance.model.user.GetUserModel
 import com.mycompany.confinance.model.user.UserLoginModel
@@ -28,7 +29,8 @@ class UserRepository {
                     }
                 } else {
                     response.let {
-                        listener.onFailure(it.message())
+                        val error = Gson().fromJson(response.errorBody()?.string(), UserLoginModel::class.java)
+                        listener.onFailure(error.message + " Code: ${error.status} ")
                     }
                 }
             }
@@ -56,7 +58,8 @@ class UserRepository {
                         listener.onSuccess(it)
                     }
                 } else {
-                    listener.onFailure(response.message())
+                    val error = Gson().fromJson(response.errorBody()?.string(), UserLoginModel::class.java)
+                    listener.onFailure(error.message + " Code: ${error.status} ")
                 }
             }
 

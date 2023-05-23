@@ -76,13 +76,13 @@ class CreateAccountActivity : AppCompatActivity() {
         val email = binding.editEmailCreateAccount.text.toString().lowercase()
         val password = binding.editPasswordCreateAccount.text.toString()
 
-        val validationAccount = controller.createAccount(name, email, password)
-
-        if (validationAccount.status()) {
-            startActivity(Intent(this, InitialActivity::class.java))
-            finish()
-        } else {
-            Toast.makeText(this, validationAccount.message(), Toast.LENGTH_LONG).show()
-        }
+        val validationAccount =
+            controller.createAccount(name = name, email = email, password = password,
+                onSuccess = {
+                    startActivity(Intent(this, InitialActivity::class.java))
+                    finish()
+                }, onFailure = { message ->
+                    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+                })
     }
 }

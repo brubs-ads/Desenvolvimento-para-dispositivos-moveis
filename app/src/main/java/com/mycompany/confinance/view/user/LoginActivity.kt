@@ -73,12 +73,16 @@ class LoginActivity : AppCompatActivity() {
         val email = binding.editEmailLogin.text.toString().lowercase()
         val password = binding.editPasswordLogin.text.toString()
 
-        val validationLogin = controller.login(email, password)
-        if (validationLogin.status()) {
-            startActivity(Intent(this, InitialActivity::class.java))
-            finish()
-        } else {
-            Toast.makeText(this, validationLogin.message(), Toast.LENGTH_LONG).show()
-        }
+        controller.login(
+            email = email,
+            password = password,
+            onSuccess = {
+                startActivity(Intent(this, InitialActivity::class.java))
+                finish()
+            },
+            onFailure = { message ->
+                Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+            }
+        )
     }
 }
