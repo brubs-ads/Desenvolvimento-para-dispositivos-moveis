@@ -1,14 +1,13 @@
 package com.mycompany.confinance.view.user
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.mycompany.confinance.MainActivity
 import com.mycompany.confinance.controller.CreateAccountController
 import com.mycompany.confinance.databinding.ActivityCreateAccountBinding
 import com.mycompany.confinance.util.Constants
-import com.mycompany.confinance.view.main.MenuActivity
 import com.mycompany.confinance.view.company.PrivacyPolicesActivity
 import com.mycompany.confinance.view.company.TermsOfUseActivity
 import com.mycompany.confinance.view.main.InitialActivity
@@ -76,7 +75,6 @@ class CreateAccountActivity : AppCompatActivity() {
         val email = binding.editEmailCreateAccount.text.toString().lowercase()
         val password = binding.editPasswordCreateAccount.text.toString()
 
-        val validationAccount =
             controller.createAccount(name = name, email = email, password = password,
                 onSuccess = {
                     startActivity(Intent(this, InitialActivity::class.java))

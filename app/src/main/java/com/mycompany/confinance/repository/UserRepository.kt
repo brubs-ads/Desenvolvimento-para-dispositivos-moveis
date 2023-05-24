@@ -10,6 +10,7 @@ import com.mycompany.confinance.util.Constants
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.net.HttpURLConnection
 
 
 class UserRepository {
@@ -23,7 +24,7 @@ class UserRepository {
             override fun onResponse(
                 call: Call<UserLoginModel>, response: Response<UserLoginModel>
             ) {
-                if (response.code() == Constants.HTTP.CODE.SUCCESS) {
+                if (response.code() == HttpURLConnection.HTTP_OK) {
                     response.body()?.let {
                         listener.onSuccess(it)
                     }
@@ -53,7 +54,7 @@ class UserRepository {
             override fun onResponse(
                 call: Call<CreateUserModel>, response: Response<CreateUserModel>
             ) {
-                if (response.code() == Constants.HTTP.CODE.CREATE) {
+                if (response.code() == HttpURLConnection.HTTP_CREATED) {
                     response.body()?.let {
                         listener.onSuccess(it)
                     }
@@ -74,7 +75,7 @@ class UserRepository {
         val user = remote.getUserById(id)
         user.enqueue(object : Callback<GetUserModel> {
             override fun onResponse(call: Call<GetUserModel>, response: Response<GetUserModel>) {
-                if (response.code() == Constants.HTTP.CODE.SUCCESS) {
+                if (response.code() == HttpURLConnection.HTTP_OK) {
                     response.body()?.let {
                         listener.onSuccess(it)
                     }

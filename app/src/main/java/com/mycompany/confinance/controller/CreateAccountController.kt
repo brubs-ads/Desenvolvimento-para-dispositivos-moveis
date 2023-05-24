@@ -11,7 +11,7 @@ class CreateAccountController {
 
     fun createAccount(name: String, email: String, password: String,onSuccess: () -> Unit, onFailure: (message: String) -> Unit) {
         if (name.length in 3..30 && email.matches(Regex("[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"))
-            && password.length >=8) {
+            && password.length >=6) {
             repository.createAccount(name,email,password, object : ApiListener<CreateUserModel>{
                 override fun onSuccess(result: CreateUserModel) {
                     Session.userId = result.id
