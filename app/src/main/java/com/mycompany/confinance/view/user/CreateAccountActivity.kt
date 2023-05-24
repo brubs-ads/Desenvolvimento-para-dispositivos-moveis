@@ -75,12 +75,12 @@ class CreateAccountActivity : AppCompatActivity() {
         val email = binding.editEmailCreateAccount.text.toString().lowercase()
         val password = binding.editPasswordCreateAccount.text.toString()
 
-            controller.createAccount(name = name, email = email, password = password,
-                onSuccess = {
-                    startActivity(Intent(this, InitialActivity::class.java))
-                    finish()
-                }, onFailure = { message ->
-                    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
-                })
+        controller.createAccount(name = name, email = email, password = password,
+            onSuccess = {
+                startActivity(Intent(this, InitialActivity::class.java))
+                finish()
+            }, onFailure = { message ->
+                Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+            })
     }
 }

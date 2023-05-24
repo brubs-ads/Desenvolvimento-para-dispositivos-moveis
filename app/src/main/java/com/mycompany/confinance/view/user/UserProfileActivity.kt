@@ -1,10 +1,13 @@
 package com.mycompany.confinance.view.user
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.mycompany.confinance.MainActivity
 import com.mycompany.confinance.controller.UserProfileController
 import com.mycompany.confinance.databinding.ActivityUserProfileBinding
+import com.mycompany.confinance.view.main.InitialActivity
 
 class UserProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUserProfileBinding
@@ -14,7 +17,21 @@ class UserProfileActivity : AppCompatActivity() {
         binding = ActivityUserProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.hide()
+
+        handleClick()
         handleUser()
+    }
+
+    private fun handleClick() {
+        binding.imageBackProfile.setOnClickListener {
+            startActivity(Intent(this,InitialActivity::class.java))
+            finish()
+        }
+        binding.buttonExit.setOnClickListener {
+            startActivity(Intent(this,MainActivity::class.java))
+            finish()
+        }
     }
 
     private fun handleUser() {

@@ -3,10 +3,9 @@ package com.mycompany.confinance.repository
 import com.google.gson.Gson
 import com.mycompany.confinance.model.user.CreateUserModel
 import com.mycompany.confinance.model.user.GetUserModel
-import com.mycompany.confinance.model.user.UserLoginModel
+import com.mycompany.confinance.model.user.ResponseUserModel
 import com.mycompany.confinance.repository.listener.ApiListener
 import com.mycompany.confinance.repository.service.UserService
-import com.mycompany.confinance.util.Constants
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -17,12 +16,12 @@ class UserRepository {
 
     private val remote = RetrofitClient.getService(UserService::class.java)
 
-    fun login(email: String, password: String, listener: ApiListener<UserLoginModel>) {
+    fun login(email: String, password: String, listener: ApiListener<ResponseUserModel>) {
         val loginData = hashMapOf("email" to email, "password" to password)
         val call = remote.login(loginData)
-        call.enqueue(object : Callback<UserLoginModel> {
+        call.enqueue(object : Callback<ResponseUserModel> {
             override fun onResponse(
-                call: Call<UserLoginModel>, response: Response<UserLoginModel>
+                call: Call<ResponseUserModel>, response: Response<ResponseUserModel>
             ) {
                 if (response.code() == HttpURLConnection.HTTP_OK) {
                     response.body()?.let {
@@ -30,13 +29,13 @@ class UserRepository {
                     }
                 } else {
                     response.let {
-                        val error = Gson().fromJson(response.errorBody()?.string(), UserLoginModel::class.java)
+                        val error = Gson().fromJson(response.errorBody()?.string(), ResponseUserModel::class.java)
                         listener.onFailure(error.message + " Code: ${error.status} ")
                     }
                 }
             }
 
-            override fun onFailure(call: Call<UserLoginModel>, t: Throwable) {
+            override fun onFailure(call: Call<ResponseUserModel>, t: Throwable) {
                 listener.onFailure("ERRO, ENTRA EM CONTATO COM O DESENVOLVEDOR")
             }
         })
@@ -59,7 +58,7 @@ class UserRepository {
                         listener.onSuccess(it)
                     }
                 } else {
-                    val error = Gson().fromJson(response.errorBody()?.string(), UserLoginModel::class.java)
+                    val error = Gson().fromJson(response.errorBody()?.string(), ResponseUserModel::class.java)
                     listener.onFailure(error.message + " Code: ${error.status} ")
                 }
             }
@@ -80,7 +79,8 @@ class UserRepository {
                         listener.onSuccess(it)
                     }
                 } else {
-                   val s = ""
+                    val error = Gson().fromJson(response.errorBody()?.string(), ResponseUserModel::class.java)
+                    listener.onFailure(error.message)
                 }
             }
 

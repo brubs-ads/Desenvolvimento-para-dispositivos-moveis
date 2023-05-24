@@ -1,7 +1,7 @@
 package com.mycompany.confinance.controller
 
 import com.mycompany.confinance.util.Session
-import com.mycompany.confinance.model.user.UserLoginModel
+import com.mycompany.confinance.model.user.ResponseUserModel
 import com.mycompany.confinance.repository.UserRepository
 import com.mycompany.confinance.repository.listener.ApiListener
 import com.mycompany.confinance.util.Constants
@@ -12,8 +12,8 @@ class LoginController{
 
     fun login(email: String, password: String, onSuccess: () -> Unit, onFailure: (message: String) -> Unit) {
         if (email.matches(Regex("[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")) && password.length >= 6) {
-            userRepository.login(email, password, object : ApiListener<UserLoginModel> {
-                override fun onSuccess(result: UserLoginModel) {
+            userRepository.login(email, password, object : ApiListener<ResponseUserModel> {
+                override fun onSuccess(result: ResponseUserModel) {
                     if (result.status == Constants.HTTP.CODE.SUCCESS) {
                         Session.userId = result.userId
                         onSuccess.invoke()

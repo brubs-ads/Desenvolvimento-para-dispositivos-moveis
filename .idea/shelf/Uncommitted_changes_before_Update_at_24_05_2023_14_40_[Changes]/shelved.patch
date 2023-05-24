@@ -1,0 +1,184 @@
+Index: app/src/main/java/com/mycompany/confinance/model/user/UserLoginModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/model/user/UserLoginModel.kt b/app/src/main/java/com/mycompany/confinance/model/user/ResponseUserModel.kt
+rename from app/src/main/java/com/mycompany/confinance/model/user/UserLoginModel.kt
+rename to app/src/main/java/com/mycompany/confinance/model/user/ResponseUserModel.kt
+--- a/app/src/main/java/com/mycompany/confinance/model/user/UserLoginModel.kt	(revision 1748749ee6609c79cd16d2902746c2ff6a85ca9c)
++++ b/app/src/main/java/com/mycompany/confinance/model/user/ResponseUserModel.kt	(date 1684950057799)
+@@ -4,7 +4,7 @@
+ import kotlinx.parcelize.Parcelize
+ 
+ @Parcelize
+-data class UserLoginModel(
++data class ResponseUserModel(
+     val message: String,
+     val status: Int,
+     var userId: Long? = null
+Index: app/src/main/java/com/mycompany/confinance/controller/UserProfileController.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.controller\n\nimport com.mycompany.confinance.util.Session\nimport com.mycompany.confinance.model.user.GetUserModel\nimport com.mycompany.confinance.repository.UserRepository\nimport com.mycompany.confinance.repository.listener.ApiListener\n\n\nclass UserProfileController {\n    private var userRepository = UserRepository()\n    fun getUser(onSuccess: (name: String, email: String) -> Unit,onFailure: (message: String) -> Unit){\n        userRepository.getUserById(id= Session.userId!!, object : ApiListener<GetUserModel>{\n            override fun onSuccess(result: GetUserModel) {\n               if (result.id == Session.userId){\n                    onSuccess(result.name, result.email)\n               }else{\n                   onFailure(\"oi\")\n               }\n\n            }\n\n            override fun onFailure(message: String) {\n                onFailure(message)\n            }\n\n        })\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/controller/UserProfileController.kt b/app/src/main/java/com/mycompany/confinance/controller/UserProfileController.kt
+--- a/app/src/main/java/com/mycompany/confinance/controller/UserProfileController.kt	(revision 1748749ee6609c79cd16d2902746c2ff6a85ca9c)
++++ b/app/src/main/java/com/mycompany/confinance/controller/UserProfileController.kt	(date 1684950057823)
+@@ -1,9 +1,9 @@
+ package com.mycompany.confinance.controller
+ 
+-import com.mycompany.confinance.util.Session
+ import com.mycompany.confinance.model.user.GetUserModel
+ import com.mycompany.confinance.repository.UserRepository
+ import com.mycompany.confinance.repository.listener.ApiListener
++import com.mycompany.confinance.util.Session
+ 
+ 
+ class UserProfileController {
+@@ -11,12 +11,7 @@
+     fun getUser(onSuccess: (name: String, email: String) -> Unit,onFailure: (message: String) -> Unit){
+         userRepository.getUserById(id= Session.userId!!, object : ApiListener<GetUserModel>{
+             override fun onSuccess(result: GetUserModel) {
+-               if (result.id == Session.userId){
+                     onSuccess(result.name, result.email)
+-               }else{
+-                   onFailure("oi")
+-               }
+-
+             }
+ 
+             override fun onFailure(message: String) {
+Index: app/src/main/java/com/mycompany/confinance/controller/LoginController.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.controller\n\nimport com.mycompany.confinance.util.Session\nimport com.mycompany.confinance.model.user.UserLoginModel\nimport com.mycompany.confinance.repository.UserRepository\nimport com.mycompany.confinance.repository.listener.ApiListener\nimport com.mycompany.confinance.util.Constants\n\nclass LoginController{\n\n    private val userRepository = UserRepository()\n\n    fun login(email: String, password: String, onSuccess: () -> Unit, onFailure: (message: String) -> Unit) {\n        if (email.matches(Regex(\"[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,}\")) && password.length >= 6) {\n            userRepository.login(email, password, object : ApiListener<UserLoginModel> {\n                override fun onSuccess(result: UserLoginModel) {\n                    if (result.status == Constants.HTTP.CODE.SUCCESS) {\n                        Session.userId = result.userId\n                        onSuccess.invoke()\n                    }else{\n                        onFailure.invoke(result.message)\n                    }\n                }\n\n                override fun onFailure(message: String) {\n                    onFailure.invoke(message)\n                }\n            })\n        }else{\n            onFailure.invoke(\"Parâmetros Incosistentes, Verifique.\")\n        }\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/controller/LoginController.kt b/app/src/main/java/com/mycompany/confinance/controller/LoginController.kt
+--- a/app/src/main/java/com/mycompany/confinance/controller/LoginController.kt	(revision 1748749ee6609c79cd16d2902746c2ff6a85ca9c)
++++ b/app/src/main/java/com/mycompany/confinance/controller/LoginController.kt	(date 1684950057863)
+@@ -1,7 +1,7 @@
+ package com.mycompany.confinance.controller
+ 
+ import com.mycompany.confinance.util.Session
+-import com.mycompany.confinance.model.user.UserLoginModel
++import com.mycompany.confinance.model.user.ResponseUserModel
+ import com.mycompany.confinance.repository.UserRepository
+ import com.mycompany.confinance.repository.listener.ApiListener
+ import com.mycompany.confinance.util.Constants
+@@ -12,8 +12,8 @@
+ 
+     fun login(email: String, password: String, onSuccess: () -> Unit, onFailure: (message: String) -> Unit) {
+         if (email.matches(Regex("[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")) && password.length >= 6) {
+-            userRepository.login(email, password, object : ApiListener<UserLoginModel> {
+-                override fun onSuccess(result: UserLoginModel) {
++            userRepository.login(email, password, object : ApiListener<ResponseUserModel> {
++                override fun onSuccess(result: ResponseUserModel) {
+                     if (result.status == Constants.HTTP.CODE.SUCCESS) {
+                         Session.userId = result.userId
+                         onSuccess.invoke()
+Index: app/src/main/java/com/mycompany/confinance/repository/service/UserService.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.repository.service\n\nimport com.mycompany.confinance.model.user.CreateUserModel\nimport com.mycompany.confinance.model.user.GetUserModel\nimport com.mycompany.confinance.model.user.UserLoginModel\nimport com.mycompany.confinance.util.Constants\nimport retrofit2.Call\nimport retrofit2.http.Body\nimport retrofit2.http.GET\nimport retrofit2.http.POST\nimport retrofit2.http.Path\n\ninterface UserService {\n\n    @POST(Constants.HTTP.URL.URL_LOGIN)\n    fun login(\n        @Body user: Map<String, String>\n    ): Call<UserLoginModel>\n\n    @POST(Constants.HTTP.URL.URL_CREATE_USER)\n    fun create(\n        @Body user: CreateUserModel\n    ): Call<CreateUserModel>\n\n    @GET(Constants.HTTP.URL.URL_RETURN_USER)\n    fun getUserById(\n        @Path(\"id\") id: Long\n    ): Call<GetUserModel>\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/repository/service/UserService.kt b/app/src/main/java/com/mycompany/confinance/repository/service/UserService.kt
+--- a/app/src/main/java/com/mycompany/confinance/repository/service/UserService.kt	(revision 1748749ee6609c79cd16d2902746c2ff6a85ca9c)
++++ b/app/src/main/java/com/mycompany/confinance/repository/service/UserService.kt	(date 1684950057843)
+@@ -2,7 +2,7 @@
+ 
+ import com.mycompany.confinance.model.user.CreateUserModel
+ import com.mycompany.confinance.model.user.GetUserModel
+-import com.mycompany.confinance.model.user.UserLoginModel
++import com.mycompany.confinance.model.user.ResponseUserModel
+ import com.mycompany.confinance.util.Constants
+ import retrofit2.Call
+ import retrofit2.http.Body
+@@ -15,7 +15,7 @@
+     @POST(Constants.HTTP.URL.URL_LOGIN)
+     fun login(
+         @Body user: Map<String, String>
+-    ): Call<UserLoginModel>
++    ): Call<ResponseUserModel>
+ 
+     @POST(Constants.HTTP.URL.URL_CREATE_USER)
+     fun create(
+Index: app/src/main/java/com/mycompany/confinance/repository/UserRepository.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.mycompany.confinance.repository\n\nimport com.google.gson.Gson\nimport com.mycompany.confinance.model.user.CreateUserModel\nimport com.mycompany.confinance.model.user.GetUserModel\nimport com.mycompany.confinance.model.user.UserLoginModel\nimport com.mycompany.confinance.repository.listener.ApiListener\nimport com.mycompany.confinance.repository.service.UserService\nimport com.mycompany.confinance.util.Constants\nimport retrofit2.Call\nimport retrofit2.Callback\nimport retrofit2.Response\nimport java.net.HttpURLConnection\n\n\nclass UserRepository {\n\n    private val remote = RetrofitClient.getService(UserService::class.java)\n\n    fun login(email: String, password: String, listener: ApiListener<UserLoginModel>) {\n        val loginData = hashMapOf(\"email\" to email, \"password\" to password)\n        val call = remote.login(loginData)\n        call.enqueue(object : Callback<UserLoginModel> {\n            override fun onResponse(\n                call: Call<UserLoginModel>, response: Response<UserLoginModel>\n            ) {\n                if (response.code() == HttpURLConnection.HTTP_OK) {\n                    response.body()?.let {\n                        listener.onSuccess(it)\n                    }\n                } else {\n                    response.let {\n                        val error = Gson().fromJson(response.errorBody()?.string(), UserLoginModel::class.java)\n                        listener.onFailure(error.message + \" Code: ${error.status} \")\n                    }\n                }\n            }\n\n            override fun onFailure(call: Call<UserLoginModel>, t: Throwable) {\n                listener.onFailure(\"ERRO, ENTRA EM CONTATO COM O DESENVOLVEDOR\")\n            }\n        })\n    }\n\n    fun createAccount(\n        name: String,\n        email: String,\n        password: String,\n        listener: ApiListener<CreateUserModel>\n    ) {\n        val user = CreateUserModel(0, name, email, password)\n        val call = remote.create(user)\n        call.enqueue(object : Callback<CreateUserModel> {\n            override fun onResponse(\n                call: Call<CreateUserModel>, response: Response<CreateUserModel>\n            ) {\n                if (response.code() == HttpURLConnection.HTTP_CREATED) {\n                    response.body()?.let {\n                        listener.onSuccess(it)\n                    }\n                } else {\n                    val error = Gson().fromJson(response.errorBody()?.string(), UserLoginModel::class.java)\n                    listener.onFailure(error.message + \" Code: ${error.status} \")\n                }\n            }\n\n            override fun onFailure(call: Call<CreateUserModel>, t: Throwable) {\n                listener.onFailure(\"ERRO, ENTRA EM CONTATO COM O DESENVOLVEDOR\")\n            }\n\n        })\n    }\n\n    fun getUserById(id: Long, listener: ApiListener<GetUserModel>) {\n        val user = remote.getUserById(id)\n        user.enqueue(object : Callback<GetUserModel> {\n            override fun onResponse(call: Call<GetUserModel>, response: Response<GetUserModel>) {\n                if (response.code() == HttpURLConnection.HTTP_OK) {\n                    response.body()?.let {\n                        listener.onSuccess(it)\n                    }\n                } else {\n                   val s = \"\"\n                }\n            }\n\n            override fun onFailure(call: Call<GetUserModel>, t: Throwable) {\n                listener.onFailure(\"ERRO, ENTRA EM CONTATO COM O DESENVOLVEDOR\")\n            }\n        })\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/mycompany/confinance/repository/UserRepository.kt b/app/src/main/java/com/mycompany/confinance/repository/UserRepository.kt
+--- a/app/src/main/java/com/mycompany/confinance/repository/UserRepository.kt	(revision 1748749ee6609c79cd16d2902746c2ff6a85ca9c)
++++ b/app/src/main/java/com/mycompany/confinance/repository/UserRepository.kt	(date 1684950057851)
+@@ -3,10 +3,9 @@
+ import com.google.gson.Gson
+ import com.mycompany.confinance.model.user.CreateUserModel
+ import com.mycompany.confinance.model.user.GetUserModel
+-import com.mycompany.confinance.model.user.UserLoginModel
++import com.mycompany.confinance.model.user.ResponseUserModel
+ import com.mycompany.confinance.repository.listener.ApiListener
+ import com.mycompany.confinance.repository.service.UserService
+-import com.mycompany.confinance.util.Constants
+ import retrofit2.Call
+ import retrofit2.Callback
+ import retrofit2.Response
+@@ -17,12 +16,12 @@
+ 
+     private val remote = RetrofitClient.getService(UserService::class.java)
+ 
+-    fun login(email: String, password: String, listener: ApiListener<UserLoginModel>) {
++    fun login(email: String, password: String, listener: ApiListener<ResponseUserModel>) {
+         val loginData = hashMapOf("email" to email, "password" to password)
+         val call = remote.login(loginData)
+-        call.enqueue(object : Callback<UserLoginModel> {
++        call.enqueue(object : Callback<ResponseUserModel> {
+             override fun onResponse(
+-                call: Call<UserLoginModel>, response: Response<UserLoginModel>
++                call: Call<ResponseUserModel>, response: Response<ResponseUserModel>
+             ) {
+                 if (response.code() == HttpURLConnection.HTTP_OK) {
+                     response.body()?.let {
+@@ -30,13 +29,13 @@
+                     }
+                 } else {
+                     response.let {
+-                        val error = Gson().fromJson(response.errorBody()?.string(), UserLoginModel::class.java)
++                        val error = Gson().fromJson(response.errorBody()?.string(), ResponseUserModel::class.java)
+                         listener.onFailure(error.message + " Code: ${error.status} ")
+                     }
+                 }
+             }
+ 
+-            override fun onFailure(call: Call<UserLoginModel>, t: Throwable) {
++            override fun onFailure(call: Call<ResponseUserModel>, t: Throwable) {
+                 listener.onFailure("ERRO, ENTRA EM CONTATO COM O DESENVOLVEDOR")
+             }
+         })
+@@ -59,7 +58,7 @@
+                         listener.onSuccess(it)
+                     }
+                 } else {
+-                    val error = Gson().fromJson(response.errorBody()?.string(), UserLoginModel::class.java)
++                    val error = Gson().fromJson(response.errorBody()?.string(), ResponseUserModel::class.java)
+                     listener.onFailure(error.message + " Code: ${error.status} ")
+                 }
+             }
+@@ -80,7 +79,8 @@
+                         listener.onSuccess(it)
+                     }
+                 } else {
+-                   val s = ""
++                    val error = Gson().fromJson(response.errorBody()?.string(), ResponseUserModel::class.java)
++                    listener.onFailure(error.message)
+                 }
+             }
+ 

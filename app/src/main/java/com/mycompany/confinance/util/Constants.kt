@@ -6,11 +6,13 @@ class Constants {
         object KEY {
             const val ACCOUNT: String = "Activity_Account"
             const val LOGIN: String = "Activity_Login"
+            const val MENU: String = "Activity_Menu"
         }
 
         object VALUE {
             const val ACCOUNT: Boolean = true
             const val LOGIN: Boolean = true
+            const val MENU: Boolean = true
         }
     }
 

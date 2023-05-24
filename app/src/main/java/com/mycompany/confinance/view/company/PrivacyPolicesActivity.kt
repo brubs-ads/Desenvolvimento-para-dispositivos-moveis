@@ -16,9 +16,16 @@ class PrivacyPolicesActivity : AppCompatActivity() {
         binding = ActivityPrivacyPolicesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.hide()
+
         val account = intent.getBooleanExtra(Constants.REDIRECTION.KEY.ACCOUNT,false)
         val login = intent.getBooleanExtra(Constants.REDIRECTION.KEY.LOGIN,false)
 
+        handleClick(account =  account, login = login)
+
+    }
+
+    private fun handleClick(account:Boolean, login: Boolean ) {
         binding.imageArrowBackPrivacyPolices.setOnClickListener {
             if (account){
                 startActivity(Intent(this, CreateAccountActivity::class.java))

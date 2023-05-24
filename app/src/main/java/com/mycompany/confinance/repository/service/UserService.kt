@@ -2,7 +2,7 @@ package com.mycompany.confinance.repository.service
 
 import com.mycompany.confinance.model.user.CreateUserModel
 import com.mycompany.confinance.model.user.GetUserModel
-import com.mycompany.confinance.model.user.UserLoginModel
+import com.mycompany.confinance.model.user.ResponseUserModel
 import com.mycompany.confinance.util.Constants
 import retrofit2.Call
 import retrofit2.http.Body
@@ -15,7 +15,7 @@ interface UserService {
     @POST(Constants.HTTP.URL.URL_LOGIN)
     fun login(
         @Body user: Map<String, String>
-    ): Call<UserLoginModel>
+    ): Call<ResponseUserModel>
 
     @POST(Constants.HTTP.URL.URL_CREATE_USER)
     fun create(

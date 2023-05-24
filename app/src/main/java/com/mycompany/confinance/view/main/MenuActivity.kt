@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mycompany.confinance.databinding.ActivityMenuBinding
+import com.mycompany.confinance.util.Constants
 import com.mycompany.confinance.view.company.AboutUsActivity
+import com.mycompany.confinance.view.company.PrivacyPolicesActivity
 import com.mycompany.confinance.view.company.TermsOfUseActivity
 import com.mycompany.confinance.view.expense.ExpensesActivity
 import com.mycompany.confinance.view.objective.ObjectiveActivity
@@ -19,10 +21,10 @@ class MenuActivity : AppCompatActivity() {
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        handleclick()
+        handleClick()
     }
 
-    private fun handleclick() {
+    private fun handleClick() {
         binding.textRevenues.setOnClickListener {
             startActivity(Intent(this, RevenuesActivity::class.java))
             finish()
@@ -49,7 +51,9 @@ class MenuActivity : AppCompatActivity() {
         }
 
         binding.textTermsOfUse.setOnClickListener {
-            startActivity(Intent(this, TermsOfUseActivity::class.java))
+            val intent = Intent(this, TermsOfUseActivity::class.java)
+            intent.putExtra(Constants.REDIRECTION.KEY.MENU, Constants.REDIRECTION.VALUE.MENU)
+            startActivity(intent)
             finish()
         }
 
