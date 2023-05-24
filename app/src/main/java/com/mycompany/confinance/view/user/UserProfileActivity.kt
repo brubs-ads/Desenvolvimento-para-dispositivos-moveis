@@ -8,6 +8,8 @@ import com.mycompany.confinance.MainActivity
 import com.mycompany.confinance.controller.UserProfileController
 import com.mycompany.confinance.databinding.ActivityUserProfileBinding
 import com.mycompany.confinance.view.main.InitialActivity
+import com.mycompany.confinance.view.main.MenuActivity
+import java.net.HttpURLConnection
 
 class UserProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUserProfileBinding
@@ -32,6 +34,9 @@ class UserProfileActivity : AppCompatActivity() {
             startActivity(Intent(this,MainActivity::class.java))
             finish()
         }
+        binding.buttonDelete.setOnClickListener {
+            deleteUser()
+        }
     }
 
     private fun handleUser() {
@@ -41,5 +46,19 @@ class UserProfileActivity : AppCompatActivity() {
         }, onFailure = {message ->
             Toast.makeText(this,message,Toast.LENGTH_LONG).show()
         })
+    }
+
+    private fun deleteUser() {
+        controller.deleteUser(
+            status = { message, code ->
+                if (code == HttpURLConnection.HTTP_OK){
+                    Toast.makeText(this,message,Toast.LENGTH_LONG).show()
+                    startActivity(Intent(this,MainActivity::class.java))
+                    finish()
+                }else{
+                    Toast.makeText(this,message,Toast.LENGTH_LONG).show()
+                }
+            }
+        )
     }
 }

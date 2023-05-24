@@ -6,6 +6,7 @@ import com.mycompany.confinance.model.user.ResponseUserModel
 import com.mycompany.confinance.util.Constants
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
@@ -26,4 +27,9 @@ interface UserService {
     fun getUserById(
         @Path("id") id: Long
     ): Call<GetUserModel>
+
+    @DELETE(Constants.HTTP.URL.URL_DELETE_USER)
+    fun deleteUser(
+        @Path("id") id: Long
+    ):Call<ResponseUserModel>
 }

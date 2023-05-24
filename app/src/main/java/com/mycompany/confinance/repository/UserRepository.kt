@@ -89,4 +89,28 @@ class UserRepository {
             }
         })
     }
+
+    fun deleteUser(id: Long, listener: ApiListener<ResponseUserModel>){
+        val user = remote.deleteUser(id)
+        user.enqueue(object : Callback<ResponseUserModel>{
+            override fun onResponse(call: Call<ResponseUserModel>,response: Response<ResponseUserModel>
+            ) {
+                if (response.code() == HttpURLConnection.HTTP_OK){
+                    response.body().let {
+                        if (it != null) {
+                            listener.onSuccess(it)
+                        }
+                    }
+                }else{
+                    val error = Gson().fromJson(response.errorBody()?.string(), ResponseUserModel::class.java)
+                    listener.onFailure(error.message)
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseUserModel>, t: Throwable) {
+                listener.onFailure("ERRO, ENTRA EM CONTATO COM O DESENVOLVEDOR")
+            }
+
+        })
+    }
 }

@@ -8,6 +8,7 @@ import com.mycompany.confinance.util.Constants
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.net.HttpURLConnection
 import java.time.LocalDate
 
 class MovementRepository {
@@ -40,7 +41,7 @@ class MovementRepository {
                 call: Call<MovementModel>,
                 response: Response<MovementModel>
             ) {
-                if (response.code() == Constants.HTTP.CODE.SUCCESS) {
+                if (response.code() == HttpURLConnection.HTTP_CREATED) {
                     response.body()?.let {
                         listener.onSuccess(it)
                         // Atualize o valor total

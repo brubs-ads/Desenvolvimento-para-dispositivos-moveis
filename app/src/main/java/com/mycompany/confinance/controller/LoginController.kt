@@ -5,6 +5,7 @@ import com.mycompany.confinance.model.user.ResponseUserModel
 import com.mycompany.confinance.repository.UserRepository
 import com.mycompany.confinance.repository.listener.ApiListener
 import com.mycompany.confinance.util.Constants
+import java.net.HttpURLConnection
 
 class LoginController{
 
@@ -14,7 +15,7 @@ class LoginController{
         if (email.matches(Regex("[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")) && password.length >= 6) {
             userRepository.login(email, password, object : ApiListener<ResponseUserModel> {
                 override fun onSuccess(result: ResponseUserModel) {
-                    if (result.status == Constants.HTTP.CODE.SUCCESS) {
+                    if (result.status == HttpURLConnection.HTTP_OK) {
                         Session.userId = result.userId
                         onSuccess.invoke()
                     }else{

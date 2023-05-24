@@ -19,5 +19,6 @@
     <color name="color_house">#A487CEFA</color>
     <color name="color_revenues">#228B22</color>
     <color name="color_view_balance">#9747fe</color>
+    <color name="danger">#B70404</color>
 
 </resources>

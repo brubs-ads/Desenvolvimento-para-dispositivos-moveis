@@ -134,5 +134,6 @@
     <string name="category">Categoria</string>
     <string name="revenues">Receita</string>
     <string name="expense">Despesa</string>
+    <string name="delete_account">Deletar Conta</string>
 
 </resources>
