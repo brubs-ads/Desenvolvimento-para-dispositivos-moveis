@@ -135,5 +135,7 @@
     <string name="revenues">Receita</string>
     <string name="expense">Despesa</string>
     <string name="delete_account">Deletar Conta</string>
+    <string name="total_value">%.2f</string>
+
 
 </resources>

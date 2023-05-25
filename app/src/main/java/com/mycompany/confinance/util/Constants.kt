@@ -20,6 +20,7 @@ class Constants {
         object URL {
             const val URL_SELTON: String = "http://192.168.13.104:8080/"
             const val URL_JOAO: String = "http://192.168.43.58:8080/"
+            const val URL_THAMYRES: String = "http://127.0.0.1:8080/"
             const val URL_LOGIN: String = "user/login"
             const val URL_CREATE_USER: String = "user"
             const val URL_RETURN_USER:String = "user/{id}"

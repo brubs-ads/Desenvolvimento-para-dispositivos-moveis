@@ -3,8 +3,9 @@ package com.mycompany.confinance.view.main
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityInitialBinding
-import com.mycompany.confinance.repository.MovementRepository.Companion.valueTotal
+import com.mycompany.confinance.util.Session
 import com.mycompany.confinance.view.expense.ExpensesActivity
 import com.mycompany.confinance.view.revenue.RevenuesActivity
 
@@ -15,6 +16,10 @@ class InitialActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityInitialBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val total = Session.total
+        val totalText = getString(R.string.total_value, total)
+        binding.textBalance.text = totalText
 
         handleClick()
     }

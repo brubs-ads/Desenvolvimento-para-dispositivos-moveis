@@ -11,6 +11,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.net.HttpURLConnection
 import java.time.LocalDate
+import java.util.Date
 
 class MovementRepository {
 
@@ -72,7 +73,7 @@ class MovementRepository {
         type_movement: String,
         value: Double,
         description: String,
-        date: LocalDate,
+        date: Date,
         listener: ApiListener<CreateMovementModel>
     ) {
         val movement = CreateMovementModel(0, type_movement, value, description, date, 0)
