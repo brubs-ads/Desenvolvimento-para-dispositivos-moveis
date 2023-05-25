@@ -16,8 +16,6 @@ class InitialActivity : AppCompatActivity() {
         binding = ActivityInitialBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.textBalance.text = "Valor Total: ${valueTotal}"
-
         handleClick()
     }
 
