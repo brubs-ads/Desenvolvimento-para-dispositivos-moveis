@@ -60,7 +60,7 @@
         android:layout_width="340dp"
         android:layout_height="110dp"
         android:layout_marginTop="40dp"
-        android:background="@color/white"
+        android:background="@drawable/rounded_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_mes_atual"
@@ -108,7 +108,7 @@
         android:layout_width="340dp"
         android:layout_height="180dp"
         android:layout_marginTop="135dp"
-        android:background="@color/white"
+        android:background="@drawable/rounded_background"
         app:layout_constraintEnd_toEndOf="@id/view_total"
         app:layout_constraintStart_toStartOf="@id/view_total"
         app:layout_constraintTop_toTopOf="@id/view_total" />
@@ -208,73 +208,88 @@
 
     <View
         android:id="@+id/view_category_revenue"
-        android:layout_width="385dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="200dp"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="@id/view_overview"
-        app:layout_constraintStart_toStartOf="@id/view_overview"
-        app:layout_constraintTop_toTopOf="@id/view_overview" />
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_overview" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_category_revevenue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="88dp"
         android:text="@string/category"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@id/view_category_revenue"
-        app:layout_constraintTop_toTopOf="@id/text_expenses" />
+        android:layout_marginStart="20dp"
+        app:layout_constraintTop_toTopOf="@id/view_category_revenue" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:text="teste"
+        app:layout_constraintEnd_toEndOf="@id/text_category_revevenue"
+        app:layout_constraintStart_toStartOf="@id/text_category_revevenue"
+        app:layout_constraintTop_toBottomOf="@id/text_category_revevenue" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_revenue_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="68dp"
         android:text="@string/revenues"
         android:textColor="@color/green"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="@id/text_category_revevenue"
-        app:layout_constraintTop_toBottomOf="@id/text_expenses_total" />
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/view_category_revenue"
+        app:layout_constraintEnd_toEndOf="@id/view_category_revenue"
+        app:layout_constraintTop_toTopOf="@id/view_category_revenue" />
 
 
     <View
         android:id="@+id/view_category_expense"
-        android:layout_width="385dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="65dp"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="@id/view_category_revenue"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/rounded_background"
         app:layout_constraintStart_toStartOf="@id/view_category_revenue"
-        app:layout_constraintTop_toTopOf="@id/view_category_revenue" />
+        app:layout_constraintEnd_toEndOf="@id/view_category_revenue"
+        app:layout_constraintTop_toBottomOf="@id/view_category_revenue" />
+
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_category_expense"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="65dp"
         android:text="@string/category"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@id/view_category_expense"
-        app:layout_constraintTop_toTopOf="@id/text_category_revevenue" />
+        app:layout_constraintTop_toTopOf="@id/view_category_expense" />
+
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_expense_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="40dp"
         android:text="@string/expense"
         android:textColor="@color/red"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="@id/text_category_expense"
-        app:layout_constraintTop_toBottomOf="@id/text_revenue_category" />
+        app:layout_constraintBottom_toBottomOf="@id/view_category_expense"
+        app:layout_constraintEnd_toEndOf="@+id/text_revenue_category"
+        app:layout_constraintTop_toTopOf="@id/view_category_expense" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:text="teste"
+        app:layout_constraintEnd_toEndOf="@+id/text_category_expense"
+        app:layout_constraintStart_toStartOf="@+id/text_category_expense"
+        app:layout_constraintTop_toBottomOf="@+id/text_category_expense" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
