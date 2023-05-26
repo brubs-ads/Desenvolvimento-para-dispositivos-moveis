@@ -218,20 +218,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view_overview" />
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_add_revenues"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/add_revenues"
+        app:layout_constraintStart_toStartOf="@id/view_category_revenue"
+        app:layout_constraintBottom_toBottomOf="@id/view_category_revenue"
+        app:layout_constraintTop_toTopOf="@id/view_category_revenue"
+        android:layout_marginStart="8dp"
+        />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_category_revevenue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/category"
+        android:text="@string/revenue"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@id/view_category_revenue"
-        android:layout_marginStart="20dp"
-        app:layout_constraintTop_toTopOf="@id/view_category_revenue" />
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toTopOf="@id/view_category_revenue"
+        app:layout_constraintStart_toEndOf="@id/image_add_revenues"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
+        android:padding="4dp"
         android:text="teste"
         app:layout_constraintEnd_toEndOf="@id/text_category_revevenue"
         app:layout_constraintStart_toStartOf="@id/text_category_revevenue"
@@ -241,7 +253,7 @@
         android:id="@+id/text_revenue_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/revenues"
+        android:text="@string/create_revenues"
         android:textColor="@color/green"
         android:textSize="18sp"
         android:layout_marginEnd="10dp"
@@ -260,36 +272,44 @@
         app:layout_constraintEnd_toEndOf="@id/view_category_revenue"
         app:layout_constraintTop_toBottomOf="@id/view_category_revenue" />
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/add_expenses"
+        app:layout_constraintStart_toStartOf="@id/image_add_revenues"
+        app:layout_constraintEnd_toEndOf="@id/image_add_revenues"
+        app:layout_constraintTop_toTopOf="@id/view_category_expense"
+        app:layout_constraintBottom_toBottomOf="@id/view_category_expense"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_category_expense"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="@string/category"
+        android:layout_marginTop="10dp"
+        android:text="@string/menu_expenses"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@id/view_category_expense"
+        app:layout_constraintStart_toStartOf="@id/text_category_revevenue"
         app:layout_constraintTop_toTopOf="@id/view_category_expense" />
 
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="teste"
+        app:layout_constraintEnd_toEndOf="@+id/text_category_expense"
+        app:layout_constraintStart_toStartOf="@+id/text_category_expense"
+        app:layout_constraintTop_toBottomOf="@+id/text_category_expense" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_expense_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/expense"
-        android:textColor="@color/red"
+        android:text="@string/create_expenses"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@id/view_category_expense"
         app:layout_constraintEnd_toEndOf="@+id/text_revenue_category"
         app:layout_constraintTop_toTopOf="@id/view_category_expense" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:text="teste"
-        app:layout_constraintEnd_toEndOf="@+id/text_category_expense"
-        app:layout_constraintStart_toStartOf="@+id/text_category_expense"
-        app:layout_constraintTop_toBottomOf="@+id/text_category_expense" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
