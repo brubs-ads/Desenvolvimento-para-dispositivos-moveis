@@ -10,6 +10,6 @@ data class GetMovementModel (
     var type_movement: String,
     var value: Double,
     var description: String,
-    var date: LocalDate,
-    var userId: Long? = null
+    var date: String,
+    var userId: Long
     ) : Parcelable

@@ -4,14 +4,14 @@ import com.google.gson.Gson
 import com.mycompany.confinance.model.movement.CreateMovementModel
 import com.mycompany.confinance.model.movement.GetMovementModel
 import com.mycompany.confinance.model.movement.MovementResponse
+import com.mycompany.confinance.model.user.UserTeste
 import com.mycompany.confinance.repository.listener.ApiListener
 import com.mycompany.confinance.repository.service.MovementService
+import com.mycompany.confinance.util.Session.userId
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.net.HttpURLConnection
-import java.time.LocalDate
-import java.util.Date
 
 class MovementRepository {
 
@@ -73,10 +73,12 @@ class MovementRepository {
         type_movement: String,
         value: Double,
         description: String,
-        date: Date,
+        date: String,
+        userId: UserTeste,
         listener: ApiListener<CreateMovementModel>
     ) {
-        val movement = CreateMovementModel(0, type_movement, value, description, date, 0)
+        val movement = CreateMovementModel(null, type_movement = type_movement, value = value,
+            description = description, date = date,userId = userId )
         val call = remote.createMovement(movement)
         call.enqueue(object : Callback<CreateMovementModel> {
             override fun onResponse(
@@ -107,19 +109,22 @@ class MovementRepository {
         newTypeMovement: String,
         newValue: Double,
         newDescription: String,
-        newDate: LocalDate,
+        newDate: String,
         listener: ApiListener<GetMovementModel>
     ) {
-        val updatedMovement = GetMovementModel(
-            id = id,
-            type_movement = newTypeMovement,
-            value = newValue,
-            description = newDescription,
-            date = newDate
-        )
+        val updatedMovement = userId?.let {
+            GetMovementModel(
+                id = id,
+                type_movement = newTypeMovement,
+                value = newValue,
+                description = newDescription,
+                date = newDate,
+                userId = it
+            )
+        }
 
-        val call = remote.updateMovementById(id, updatedMovement)
-        call.enqueue(object : Callback<GetMovementModel> {
+        val call = updatedMovement?.let { remote.updateMovementById(id, it) }
+        call?.enqueue(object : Callback<GetMovementModel> {
             override fun onResponse(
                 call: Call<GetMovementModel>,
                 response: Response<GetMovementModel>

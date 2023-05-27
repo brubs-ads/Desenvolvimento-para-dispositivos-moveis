@@ -23,18 +23,6 @@
             android:name=".view.objective.CreateObjectiveActivity"
             android:exported="false" />
         <activity
-            android:name=".view.category.HouseCategoryActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.expense.OthersCategoryExpenseActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.category.InvestmentCategoryActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.category.SalaryCategoryActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.expense.NewExpenseActivity"
             android:exported="false" />
         <activity

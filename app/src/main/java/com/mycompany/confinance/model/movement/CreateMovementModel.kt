@@ -1,6 +1,8 @@
 package com.mycompany.confinance.model.movement
 
 import android.os.Parcelable
+import com.mycompany.confinance.model.user.GetUserModel
+import com.mycompany.confinance.model.user.UserTeste
 import kotlinx.parcelize.Parcelize
 import java.util.Date
 
@@ -10,6 +12,6 @@ data class CreateMovementModel(
     var type_movement: String,
     var value: Double,
     var description: String,
-    var date: Date,
-    var userId: Long? = null
+    var date: String,
+    val userId: UserTeste
 ) : Parcelable

@@ -2,8 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.revenue.NewRevenueActivity">
 
     <View
         android:id="@+id/view"
@@ -42,6 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
+        android:background= "@null"
         android:textColorHint="@color/green"
         android:hint="@string/revenue_value"
         android:layout_marginTop="16dp"
@@ -99,8 +102,8 @@
         app:layout_constraintTop_toBottomOf="@+id/image_description"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/date"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_date"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/date"
@@ -118,7 +121,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:visibility="visible"
-        app:layout_constraintTop_toBottomOf="@+id/date"
+        app:layout_constraintTop_toBottomOf="@+id/button_date"
         app:srcCompat="@drawable/dash_underline"
         app:tint="@color/text_warning"
         />

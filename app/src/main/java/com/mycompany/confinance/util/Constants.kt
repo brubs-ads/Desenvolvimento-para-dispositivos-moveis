@@ -20,7 +20,7 @@ class Constants {
         object URL {
             const val URL_SELTON: String = "http://192.168.13.104:8080/"
             const val URL_JOAO: String = "http://172.20.10.2:8080/"
-            const val URL_THAMYRES: String = "http://127.0.0.1:8080/"
+            const val URL_THAMYRES: String = "http://192.168.1.15:8080/"
             const val URL_LOGIN: String = "user/login"
             const val URL_CREATE_USER: String = "user"
             const val URL_RETURN_USER:String = "user/{id}"
@@ -32,5 +32,10 @@ class Constants {
              const val URL_RETURN_MOVEMENT_LIST: String = "movement"
             const val URL_DELETE_MOVEMENT: String = "movement/{id}"
         }
+    }
+
+    object MOVEMENT{
+        const val REVENUE: String = "receita"
+        const val EXPENSE: String = "despesa"
     }
 }

@@ -1,64 +1,74 @@
 package com.mycompany.confinance.view.revenue
 
-import android.os.Build
+import android.annotation.SuppressLint
+import android.app.DatePickerDialog
 import android.os.Bundle
+import android.widget.DatePicker
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.mycompany.confinance.controller.MovementController
+import com.mycompany.confinance.controller.NewRevenueController
 import com.mycompany.confinance.databinding.ActivityNewRevenueBinding
-import com.mycompany.confinance.model.movement.CreateMovementModel
-import com.mycompany.confinance.util.Session
+import java.text.SimpleDateFormat
 import java.util.Calendar
 
-class NewRevenueActivity : AppCompatActivity() {
+class NewRevenueActivity : AppCompatActivity(),
+    DatePickerDialog.OnDateSetListener {
 
     private lateinit var binding: ActivityNewRevenueBinding
+    @SuppressLint("SimpleDateFormat")
+    private val dateformat = SimpleDateFormat("yyyy-MM-dd")
+    private val controller = NewRevenueController()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNewRevenueBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        handleClick()
 
-        binding.button.setOnClickListener { addMovement() }
+    }
+    private fun handleClick(){
+        binding.button.setOnClickListener {
+            addMovement()
+        }
+        binding.buttonDate.setOnClickListener {
+            handleDate()
+        }
+    }
 
 
-
+    override fun onDateSet(view: DatePicker, year: Int, month: Int, dayOfMonth: Int) {
+        val calendar = Calendar.getInstance()
+        calendar.set(year,month,dayOfMonth)
+        val date = dateformat.format(calendar.time)
+        binding.buttonDate.text = date
     }
 
     private fun addMovement() {
-        val value = binding.textRevenueValue.text.toString().toDoubleOrNull()
+        val value = binding.textRevenueValue.text.toString().toDouble()
         val description = binding.edittextDescription.text.toString()
+        val date = binding.buttonDate.text.toString()
 
-        if (value != null && description.isNotBlank()) {
-            val typeMovement = "receita"
-            val calendar = Calendar.getInstance()
-            val date = calendar.time
-
-            val movement = CreateMovementModel(
-                type_movement = typeMovement,
-                value = value,
-                description = description,
-                date = date
-            )
-
-            val movementController = MovementController()
-            movementController.createMovement(
-                movement.type_movement,
-                movement.value,
-                movement.description,
-                movement.date,
-                {
-                    val total = movement.value + Session.total
-                    Session.total = total
-                    finish()
-                }
-            ) { message ->
-                Toast.makeText(this, "Erro: $message", Toast.LENGTH_SHORT).show()
-            }
-        } else {
-            Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
-        }
+        controller.createMovement(
+            value,
+            description,
+            date,
+            onSuccess = {
+                Toast.makeText(this, "Movimento criado com Sucesso!", Toast.LENGTH_LONG).show()
+                finish()
+            },
+            onFailure = { message ->
+                Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+            })
     }
+
+    private fun handleDate(){
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+        DatePickerDialog(this,this,year,month,day).show()
+    }
+
 }
 
 
