@@ -92,7 +92,8 @@
     <string name="text_objective">Objetivos</string>
     <string name="text_criar_objective">Criar Objetivos</string>
     <string name="text_economize">Economize para alcançar seus objetivos</string>
-    <string name="text_pressione">Pressione (+) para criar o primeiro</string>
+    <string name="text_Press">Pressione (+) para criar o primeiro</string>
+    <string name="text_Press_r_e">Pressione (+) para criar a primeira</string>
     <string name="salary">Salário</string>
     <string name="investment">Investimento</string>
     <string name="services">Serviços</string>
@@ -126,13 +127,12 @@
     <string name="balance">R$0,00</string>
     <string name="month_overview">Visão geral do mês</string>
     <string name="total">Total</string>
-    <string name="revenue">Receitas</string>
     <string name="revenues_total">R$0,00</string>
     <string name="create_revenues">Criar Receitas</string>
     <string name="create_expenses">Criar Despesas</string>
     <string name="expenses_total">R$0,00</string>
     <string name="category">Categoria</string>
-    <string name="revenues">Receita</string>
+    <string name="revenue">Receita</string>
     <string name="expense">Despesa</string>
     <string name="delete_account">Deletar Conta</string>
     <string name="total_value">%.2f</string>
