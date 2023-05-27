@@ -2,6 +2,7 @@ package com.mycompany.confinance.view.revenue
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.DatePicker
 import android.widget.Toast
@@ -54,6 +55,7 @@ class NewRevenueActivity : AppCompatActivity(),
             date,
             onSuccess = {
                 Toast.makeText(this, "Movimento criado com Sucesso!", Toast.LENGTH_LONG).show()
+                startActivity(Intent(this,RevenuesActivity::class.java))
                 finish()
             },
             onFailure = { message ->

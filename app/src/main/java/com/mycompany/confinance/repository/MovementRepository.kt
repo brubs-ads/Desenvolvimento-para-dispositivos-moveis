@@ -7,6 +7,7 @@ import com.mycompany.confinance.model.movement.MovementResponse
 import com.mycompany.confinance.model.user.UserTeste
 import com.mycompany.confinance.repository.listener.ApiListener
 import com.mycompany.confinance.repository.service.MovementService
+import com.mycompany.confinance.util.Session
 import com.mycompany.confinance.util.Session.userId
 import retrofit2.Call
 import retrofit2.Callback
@@ -74,11 +75,11 @@ class MovementRepository {
         value: Double,
         description: String,
         date: String,
-        userId: UserTeste,
+        user: UserTeste,
         listener: ApiListener<CreateMovementModel>
     ) {
         val movement = CreateMovementModel(null, type_movement = type_movement, value = value,
-            description = description, date = date,userId = userId )
+            description = description, date = date,user = UserTeste(Session.userId) )
         val call = remote.createMovement(movement)
         call.enqueue(object : Callback<CreateMovementModel> {
             override fun onResponse(
