@@ -21,8 +21,7 @@ class MovementRepository {
         val call = remote.getAllMovements()
         call.enqueue(object : Callback<List<GetMovementModel>> {
             override fun onResponse(
-                call: Call<List<GetMovementModel>>,
-                response: Response<List<GetMovementModel>>
+                call: Call<List<GetMovementModel>>, response: Response<List<GetMovementModel>>
             ) {
                 if (response.code() == HttpURLConnection.HTTP_OK) {
                     response.body()?.let {
@@ -30,8 +29,7 @@ class MovementRepository {
                     }
                 } else {
                     val error = Gson().fromJson(
-                        response.errorBody()?.string(),
-                        MovementResponse::class.java
+                        response.errorBody()?.string(), MovementResponse::class.java
                     )
                     listener.onFailure(error.message)
                 }
@@ -47,8 +45,7 @@ class MovementRepository {
         val call = remote.getMovementById(id)
         call.enqueue(object : Callback<GetMovementModel> {
             override fun onResponse(
-                call: Call<GetMovementModel>,
-                response: Response<GetMovementModel>
+                call: Call<GetMovementModel>, response: Response<GetMovementModel>
             ) {
                 if (response.code() == HttpURLConnection.HTTP_OK) {
                     response.body()?.let {
@@ -56,8 +53,7 @@ class MovementRepository {
                     }
                 } else {
                     val error = Gson().fromJson(
-                        response.errorBody()?.string(),
-                        MovementResponse::class.java
+                        response.errorBody()?.string(), MovementResponse::class.java
                     )
                     listener.onFailure(error.message)
                 }
@@ -77,13 +73,18 @@ class MovementRepository {
         userId: UserTeste,
         listener: ApiListener<CreateMovementModel>
     ) {
-        val movement = CreateMovementModel(null, type_movement = type_movement, value = value,
-            description = description, date = date,userId = userId )
+        val movement = CreateMovementModel(
+            null,
+            type_movement = type_movement,
+            value = value,
+            description = description,
+            date = date,
+            user = userId
+        )
         val call = remote.createMovement(movement)
         call.enqueue(object : Callback<CreateMovementModel> {
             override fun onResponse(
-                call: Call<CreateMovementModel>,
-                response: Response<CreateMovementModel>
+                call: Call<CreateMovementModel>, response: Response<CreateMovementModel>
             ) {
                 if (response.code() == HttpURLConnection.HTTP_CREATED) {
                     response.body()?.let {
@@ -91,8 +92,7 @@ class MovementRepository {
                     }
                 } else {
                     val error = Gson().fromJson(
-                        response.errorBody()?.string(),
-                        MovementResponse::class.java
+                        response.errorBody()?.string(), MovementResponse::class.java
                     )
                     listener.onFailure(error.message + " Code: ${error.status} ")
                 }
@@ -104,7 +104,7 @@ class MovementRepository {
         })
     }
 
-    fun updateMovementById(
+   /* fun updateMovementById(
         id: Long,
         newTypeMovement: String,
         newValue: Double,
@@ -126,8 +126,7 @@ class MovementRepository {
         val call = updatedMovement?.let { remote.updateMovementById(id, it) }
         call?.enqueue(object : Callback<GetMovementModel> {
             override fun onResponse(
-                call: Call<GetMovementModel>,
-                response: Response<GetMovementModel>
+                call: Call<GetMovementModel>, response: Response<GetMovementModel>
             ) {
                 if (response.isSuccessful) {
                     response.body()?.let {
@@ -135,8 +134,7 @@ class MovementRepository {
                     }
                 } else {
                     val error = Gson().fromJson(
-                        response.errorBody()?.string(),
-                        MovementResponse::class.java
+                        response.errorBody()?.string(), MovementResponse::class.java
                     )
                     listener.onFailure(error.message)
                 }
@@ -147,14 +145,13 @@ class MovementRepository {
 
             }
         })
-    }
+    }*/
 
     fun deleteMovementById(id: Long, listener: ApiListener<MovementResponse>) {
         val call = remote.deleteMovementById(id)
         call.enqueue(object : Callback<MovementResponse> {
             override fun onResponse(
-                call: Call<MovementResponse>,
-                response: Response<MovementResponse>
+                call: Call<MovementResponse>, response: Response<MovementResponse>
             ) {
 
                 if (response.code() == HttpURLConnection.HTTP_OK) {
@@ -165,8 +162,7 @@ class MovementRepository {
                     }
                 } else {
                     val error = Gson().fromJson(
-                        response.errorBody()?.string(),
-                        MovementResponse::class.java
+                        response.errorBody()?.string(), MovementResponse::class.java
                     )
                     listener.onFailure(error.message)
                 }
@@ -177,6 +173,33 @@ class MovementRepository {
             }
         })
     }
+
+    fun getMovementByUserId(id: Long, listener: ApiListener<List<GetMovementModel>>){
+        val call = remote.getMovementByUserId(id)
+        call.enqueue(object : Callback<List<GetMovementModel>>{
+            override fun onResponse(
+                call: Call<List<GetMovementModel>>, response: Response<List<GetMovementModel>>) {
+                if (response.code() == HttpURLConnection.HTTP_OK){
+                    response.body()?.let {
+                        listener.onSuccess(it)
+                    }
+                }else{
+                    val error = Gson().fromJson(
+                        response.errorBody()?.string(),
+                        MovementResponse::class.java
+                    )
+                    listener.onFailure(error.message + " Code: ${error.status} ")
+                }
+            }
+
+            override fun onFailure(call: Call<List<GetMovementModel>>, t: Throwable) {
+                listener.onFailure("ERRO, ENTRA EM CONTATO COM O DESENVOLVEDOR")
+            }
+
+        })
+    }
+
 }
+
 
 

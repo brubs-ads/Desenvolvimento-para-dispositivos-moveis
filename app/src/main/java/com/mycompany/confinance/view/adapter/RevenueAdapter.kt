@@ -11,22 +11,19 @@ class RevenueAdapter: RecyclerView.Adapter<RevenueViewHolder>() {
     private var listRevenue: List<GetMovementModel> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RevenueViewHolder {
-        return RevenueViewHolder(RowRevenueBinding.inflate(LayoutInflater.from(parent.context),
-                parent,
-                false
-            )
-        )
+        val item = RowRevenueBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return RevenueViewHolder(item)
     }
 
     override fun getItemCount(): Int {
-        return listRevenue.count()
+        return listRevenue.size
     }
 
     override fun onBindViewHolder(holder: RevenueViewHolder, position: Int) {
         holder.bind(listRevenue[position])
     }
 
-    fun uptadeRevenue(list: List<GetMovementModel>) {
+    fun updateRevenue(list: List<GetMovementModel>) {
         listRevenue = list
     }
 }

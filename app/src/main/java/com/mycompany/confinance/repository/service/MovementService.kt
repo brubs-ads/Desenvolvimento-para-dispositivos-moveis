@@ -16,7 +16,7 @@ interface MovementService{
         fun getMovementById(@Path("id") id: Long) : Call<GetMovementModel>
 
         @GET(Constants.HTTP.URL.URL_RETURN_MOVEMENT_ID_USER)
-        fun getMovementByUserId(@Path("userId") userId: Long) : Call<GetMovementModel>
+        fun getMovementByUserId(@Path("id") id: Long) : Call<List<GetMovementModel>>
 
         @POST(Constants.HTTP.URL.URL_CREATE_MOVEMENT)
         fun createMovement(@Body movement: CreateMovementModel):Call<CreateMovementModel>

@@ -13,5 +13,5 @@ data class CreateMovementModel(
     var value: Double,
     var description: String,
     var date: String,
-    val userId: UserTeste
+    val user: UserTeste
 ) : Parcelable

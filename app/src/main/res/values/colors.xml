@@ -20,5 +20,6 @@
     <color name="color_revenues">#228B22</color>
     <color name="color_view_balance">#9747fe</color>
     <color name="danger">#B70404</color>
+    <color name="gray_three">#45B3B3B3</color>
 
 </resources>

@@ -1,6 +1,7 @@
 package com.mycompany.confinance.model.movement
 
 import android.os.Parcelable
+import com.mycompany.confinance.model.user.UserTeste
 import kotlinx.parcelize.Parcelize
 import java.time.LocalDate
 
@@ -11,5 +12,5 @@ data class GetMovementModel (
     var value: Double,
     var description: String,
     var date: String,
-    var userId: Long
-    ) : Parcelable
+    var user: UserTeste
+) : Parcelable

@@ -15,12 +15,29 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_information"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="3000"
-        app:layout_constraintBottom_toBottomOf="@id/view_recycler"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@id/view_recycler"
-        app:layout_constraintTop_toTopOf="@id/view_recycler" />
+        app:layout_constraintTop_toTopOf="@id/view_recycler"
+        />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:textStyle="bold"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/view_recycler"
+        app:layout_constraintStart_toStartOf="@id/text_information"
+        app:layout_constraintTop_toBottomOf="@id/text_information" />
+
+
 
 
 
