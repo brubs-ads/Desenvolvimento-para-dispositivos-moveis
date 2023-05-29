@@ -28,6 +28,24 @@ class RevenueController {
 
         })
     }
+
+    fun deleteMovementById(
+        id: Long?,
+        onSuccess: () -> Unit,
+        onFailure: (message: String) -> Unit
+    ) {
+        if (id != null) {
+            repository.deleteMovementById(id, object : ApiListener<Unit> {
+                override fun onSuccess(result: Unit) {
+                    onSuccess()
+                }
+
+                override fun onFailure(message: String) {
+                    onFailure(message)
+                }
+            })
+        }
+    }
 }
 
 

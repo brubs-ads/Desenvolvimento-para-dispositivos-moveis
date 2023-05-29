@@ -17,8 +17,9 @@ class RevenuesActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRevenuesBinding
     private val controller = RevenueController()
-    private val adapter = RevenueAdapter()
-
+    private val adapter: RevenueAdapter by lazy {
+        RevenueAdapter(::deleteMovement)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRevenuesBinding.inflate(layoutInflater)
@@ -47,6 +48,18 @@ class RevenuesActivity : AppCompatActivity() {
             }, onFailure = {
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
             })
+    }
+    private fun deleteMovement(movement: GetMovementModel) {
+        controller.deleteMovementById(
+            movement.id,
+            onSuccess = {
+                adapter.deleteRevenue(movement)
+                Toast.makeText(this, "Movement deletado com sucesso!", Toast.LENGTH_SHORT).show()
+            },
+            onFailure = {
+                Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+            }
+        )
     }
 
     private fun recycler(list: List<GetMovementModel>) {

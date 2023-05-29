@@ -8,7 +8,6 @@ import com.mycompany.confinance.model.user.UserTeste
 import com.mycompany.confinance.repository.listener.ApiListener
 import com.mycompany.confinance.repository.service.MovementService
 import com.mycompany.confinance.util.Session
-import com.mycompany.confinance.util.Session.userId
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -144,7 +143,7 @@ class MovementRepository {
          })
      }*/
 
-    fun deleteMovementById(id: Long, listener: ApiListener<MovementResponse>) {
+    fun deleteMovementById(id: Long, listener: ApiListener<Unit>) {
         val call = remote.deleteMovementById(id)
         call.enqueue(object : Callback<MovementResponse> {
             override fun onResponse(
