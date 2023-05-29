@@ -74,8 +74,10 @@ class MovementRepository {
         user: UserTeste,
         listener: ApiListener<CreateMovementModel>
     ) {
-        val movement = CreateMovementModel(null, type_movement = type_movement, value = value,
-            description = description, date = date,user = UserTeste(Session.userId) )
+        val movement = CreateMovementModel(
+            null, type_movement = type_movement, value = value,
+            description = description, date = date, user = UserTeste(Session.userId)
+        )
         val call = remote.createMovement(movement)
         call.enqueue(object : Callback<CreateMovementModel> {
             override fun onResponse(
@@ -99,48 +101,48 @@ class MovementRepository {
         })
     }
 
-   /* fun updateMovementById(
-        id: Long,
-        newTypeMovement: String,
-        newValue: Double,
-        newDescription: String,
-        newDate: String,
-        user : UserTeste,
-        listener: ApiListener<GetMovementModel>
-    ) {
-        val updatedMovement = GetMovementModel(
-                id = id,
-                type_movement = newTypeMovement,
-                value = newValue,
-                description = newDescription,
-                date = newDate,
-                user = UserTeste(Session.userId)
-            )
-        }
+    /* fun updateMovementById(
+         id: Long,
+         newTypeMovement: String,
+         newValue: Double,
+         newDescription: String,
+         newDate: String,
+         user : UserTeste,
+         listener: ApiListener<GetMovementModel>
+     ) {
+         val updatedMovement = GetMovementModel(
+                 id = id,
+                 type_movement = newTypeMovement,
+                 value = newValue,
+                 description = newDescription,
+                 date = newDate,
+                 user = UserTeste(Session.userId)
+             )
+         }
 
-        val call = updatedMovement?.let { remote.updateMovementById(id, it) }
-        call?.enqueue(object : Callback<GetMovementModel> {
-            override fun onResponse(
-                call: Call<GetMovementModel>, response: Response<GetMovementModel>
-            ) {
-                if (response.isSuccessful) {
-                    response.body()?.let {
-                        listener.onSuccess(it)
-                    }
-                } else {
-                    val error = Gson().fromJson(
-                        response.errorBody()?.string(), MovementResponse::class.java
-                    )
-                    listener.onFailure(error.message)
-                }
-            }
+         val call = updatedMovement?.let { remote.updateMovementById(id, it) }
+         call?.enqueue(object : Callback<GetMovementModel> {
+             override fun onResponse(
+                 call: Call<GetMovementModel>, response: Response<GetMovementModel>
+             ) {
+                 if (response.isSuccessful) {
+                     response.body()?.let {
+                         listener.onSuccess(it)
+                     }
+                 } else {
+                     val error = Gson().fromJson(
+                         response.errorBody()?.string(), MovementResponse::class.java
+                     )
+                     listener.onFailure(error.message)
+                 }
+             }
 
-            override fun onFailure(call: Call<GetMovementModel>, t: Throwable) {
-                listener.onFailure("ERRO, ENTRA EM CONTATO COM O DESENVOLVEDOR")
+             override fun onFailure(call: Call<GetMovementModel>, t: Throwable) {
+                 listener.onFailure("ERRO, ENTRA EM CONTATO COM O DESENVOLVEDOR")
 
-            }
-        })
-    }*/
+             }
+         })
+     }*/
 
     fun deleteMovementById(id: Long, listener: ApiListener<MovementResponse>) {
         val call = remote.deleteMovementById(id)
@@ -169,16 +171,24 @@ class MovementRepository {
         })
     }
 
-    fun getMovementByUserId(id: Long, listener: ApiListener<List<GetMovementModel>>){
+    fun getMovementByUserId(
+        id: Long,
+        typeMovement: String,
+        listener: ApiListener<List<GetMovementModel>>
+    ) {
         val call = remote.getMovementByUserId(id)
-        call.enqueue(object : Callback<List<GetMovementModel>>{
+        call.enqueue(object : Callback<List<GetMovementModel>> {
             override fun onResponse(
-                call: Call<List<GetMovementModel>>, response: Response<List<GetMovementModel>>) {
-                if (response.code() == HttpURLConnection.HTTP_OK){
-                    response.body()?.let {
-                        listener.onSuccess(it)
+                call: Call<List<GetMovementModel>>, response: Response<List<GetMovementModel>>
+            ) {
+                if (response.code() == HttpURLConnection.HTTP_OK) {
+                    val movementList = response.body()
+                    if (movementList != null) {
+                        val filteredList = movementList.filter { it.type_movement == typeMovement }
+                        listener.onSuccess(filteredList)
                     }
-                }else{
+
+                } else {
                     val error = Gson().fromJson(
                         response.errorBody()?.string(),
                         MovementResponse::class.java
