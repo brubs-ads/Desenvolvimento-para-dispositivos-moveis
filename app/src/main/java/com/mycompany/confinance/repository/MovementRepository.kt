@@ -105,16 +105,16 @@ class MovementRepository {
         newValue: Double,
         newDescription: String,
         newDate: String,
+        user : UserTeste,
         listener: ApiListener<GetMovementModel>
     ) {
-        val updatedMovement = userId?.let {
-            GetMovementModel(
+        val updatedMovement = GetMovementModel(
                 id = id,
                 type_movement = newTypeMovement,
                 value = newValue,
                 description = newDescription,
                 date = newDate,
-                userId = it
+                user = UserTeste(Session.userId)
             )
         }
 

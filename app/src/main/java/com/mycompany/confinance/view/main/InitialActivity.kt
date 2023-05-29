@@ -16,12 +16,10 @@ class InitialActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityInitialBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val total = Session.total
-        val totalText = getString(R.string.total_value, total)
-        binding.textBalance.text = totalText
+        binding.textBalance.text = String.format("%.2f", Session.total)
 
         handleClick()
+
     }
 
     private fun handleClick() {

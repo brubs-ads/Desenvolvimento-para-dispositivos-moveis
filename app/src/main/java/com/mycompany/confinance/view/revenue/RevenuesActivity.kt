@@ -34,7 +34,7 @@ class RevenuesActivity : AppCompatActivity() {
             startActivity(Intent(this, NewRevenueActivity::class.java))
             finish()
         }
-        binding.imageRevenues.setOnClickListener {
+        binding.imageBackArrowRevenues.setOnClickListener {
             startActivity(Intent(this, InitialActivity::class.java))
             finish()
         }

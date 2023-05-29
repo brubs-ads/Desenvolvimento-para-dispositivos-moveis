@@ -102,8 +102,8 @@
         app:layout_constraintTop_toBottomOf="@id/image_description"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/date"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Button_Date"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/date"
@@ -120,7 +120,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
-        app:layout_constraintTop_toBottomOf="@id/date"
+        app:layout_constraintTop_toBottomOf="@id/Button_Date"
         app:srcCompat="@drawable/dash_underline"
         app:tint="@color/text_warning"/>
 
@@ -152,7 +152,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="28dp"
         android:src="@drawable/food"
-        android:layout_marginLeft="42dp"
+        android:layout_marginStart="42dp"
         app:layout_constraintTop_toBottomOf="@id/categories"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
@@ -170,7 +170,7 @@
         android:layout_width="100dp"
         android:layout_height="45dp"
         android:src="@drawable/house"
-        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
         app:layout_constraintLeft_toLeftOf="@id/image_food"
         app:layout_constraintTop_toTopOf="@id/image_food"
         app:layout_constraintStart_toEndOf="@id/image_food"/>
@@ -191,7 +191,7 @@
         android:layout_width="85dp"
         android:layout_height="45dp"
         android:src="@drawable/health"
-        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
         app:layout_constraintLeft_toLeftOf="@id/image_house"
         app:layout_constraintTop_toTopOf="@id/image_house"
         app:layout_constraintStart_toEndOf="@id/image_house"/>
@@ -212,7 +212,7 @@
         android:id="@+id/image_education"
         android:layout_width="85dp"
         android:layout_height="45dp"
-        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="48dp"
         android:src="@drawable/education"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -233,7 +233,7 @@
         android:id="@+id/image_others"
         android:layout_width="85dp"
         android:layout_height="45dp"
-        android:layout_marginLeft="160dp"
+        android:layout_marginStart="160dp"
         android:layout_marginTop="24dp"
         android:src="@drawable/expense_othors"
         app:layout_constraintLeft_toLeftOf="parent"

@@ -7,7 +7,8 @@ import com.mycompany.confinance.repository.listener.ApiListener
 import com.mycompany.confinance.util.Constants
 import com.mycompany.confinance.util.Session
 
-class NewRevenueController {
+class NewExpenseController {
+
     private val repository = MovementRepository()
 
     fun createMovement(
@@ -19,14 +20,14 @@ class NewRevenueController {
     ) {
         if (value >0 && description.isNotBlank()) {
             repository.createMovement(
-                Constants.MOVEMENT.REVENUE,
+                Constants.MOVEMENT.EXPENSE,
                 value,
                 description,
                 date,
                 UserTeste(Session.userId),
                 object : ApiListener<CreateMovementModel> {
                     override fun onSuccess(result: CreateMovementModel) {
-                        Session.total -= result.value
+                        Session.total += result.value
                         Session.movementId = result.id
                         onSuccess.invoke()
                     }

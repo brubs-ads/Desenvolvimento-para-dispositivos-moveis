@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.mycompany.confinance.controller.NewRevenueController
 import com.mycompany.confinance.databinding.ActivityNewRevenueBinding
+import com.mycompany.confinance.util.Session
+import com.mycompany.confinance.view.main.InitialActivity
 import java.text.SimpleDateFormat
 import java.util.Calendar
 
@@ -60,7 +62,7 @@ class NewRevenueActivity : AppCompatActivity(),
             },
             onFailure = { message ->
                 Toast.makeText(this, message, Toast.LENGTH_LONG).show()
-            })
+            } )
     }
 
     private fun handleDate(){

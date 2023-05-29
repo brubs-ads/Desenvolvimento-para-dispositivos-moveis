@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/image_revenues"
+        android:id="@+id/image_back_arrow_revenues"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="20dp"
@@ -37,7 +37,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/view"
-        app:layout_constraintStart_toEndOf="@id/image_revenues"
+        app:layout_constraintStart_toEndOf="@id/image_back_arrow_revenues"
         app:layout_constraintTop_toTopOf="parent" />
 
    <androidx.appcompat.widget.AppCompatImageView
