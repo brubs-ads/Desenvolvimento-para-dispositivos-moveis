@@ -11,6 +11,7 @@ import com.mycompany.confinance.databinding.ActivityRevenuesBinding
 import com.mycompany.confinance.model.movement.GetMovementModel
 import com.mycompany.confinance.view.adapter.RevenueAdapter
 import com.mycompany.confinance.view.main.InitialActivity
+import java.net.HttpURLConnection
 
 class RevenuesActivity : AppCompatActivity() {
 
@@ -50,16 +51,15 @@ class RevenuesActivity : AppCompatActivity() {
             })
     }
     private fun deleteMovement(movement: GetMovementModel) {
-        controller.deleteMovementById(
-            movement.id,
-            onSuccess = {
-                adapter.deleteRevenue(movement)
-                Toast.makeText(this, "Movement deletado com sucesso!", Toast.LENGTH_SHORT).show()
-            },
-            onFailure = {
-                Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
-            }
-        )
+            controller.deleteMovementById(
+                status = { message, code ->
+                    if (code == HttpURLConnection.HTTP_OK) {
+                        adapter.deleteRevenue(movement)
+                        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+                    } else {
+                        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+                    }
+                })
     }
 
     private fun recycler(list: List<GetMovementModel>) {

@@ -1,6 +1,8 @@
 package com.mycompany.confinance.controller
 
 import com.mycompany.confinance.model.movement.GetMovementModel
+import com.mycompany.confinance.model.movement.MovementResponse
+import com.mycompany.confinance.model.user.ResponseUserModel
 import com.mycompany.confinance.repository.MovementRepository
 import com.mycompany.confinance.repository.listener.ApiListener
 import com.mycompany.confinance.util.Constants
@@ -29,22 +31,15 @@ class RevenueController {
         })
     }
 
-    fun deleteMovementById(
-        id: Long?,
-        onSuccess: () -> Unit,
-        onFailure: (message: String) -> Unit
-    ) {
-        if (id != null) {
-            repository.deleteMovementById(id, object : ApiListener<Unit> {
-                override fun onSuccess(result: Unit) {
-                    onSuccess()
+    fun deleteMovementById(status: (message: String, code:Int) -> Unit){
+            repository.deleteMovementById(id = Session.movementId!!, object : ApiListener<MovementResponse> {
+                override fun onSuccess(result: MovementResponse) {
+                    status(result.message, result.status)
                 }
-
                 override fun onFailure(message: String) {
-                    onFailure(message)
-                }
-            })
-        }
+                    status(message,0)
+            }
+        })
     }
 }
 

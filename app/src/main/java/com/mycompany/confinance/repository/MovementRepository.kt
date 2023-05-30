@@ -100,50 +100,9 @@ class MovementRepository {
         })
     }
 
-    /* fun updateMovementById(
-         id: Long,
-         newTypeMovement: String,
-         newValue: Double,
-         newDescription: String,
-         newDate: String,
-         user : UserTeste,
-         listener: ApiListener<GetMovementModel>
-     ) {
-         val updatedMovement = GetMovementModel(
-                 id = id,
-                 type_movement = newTypeMovement,
-                 value = newValue,
-                 description = newDescription,
-                 date = newDate,
-                 user = UserTeste(Session.userId)
-             )
-         }
 
-         val call = updatedMovement?.let { remote.updateMovementById(id, it) }
-         call?.enqueue(object : Callback<GetMovementModel> {
-             override fun onResponse(
-                 call: Call<GetMovementModel>, response: Response<GetMovementModel>
-             ) {
-                 if (response.isSuccessful) {
-                     response.body()?.let {
-                         listener.onSuccess(it)
-                     }
-                 } else {
-                     val error = Gson().fromJson(
-                         response.errorBody()?.string(), MovementResponse::class.java
-                     )
-                     listener.onFailure(error.message)
-                 }
-             }
 
-             override fun onFailure(call: Call<GetMovementModel>, t: Throwable) {
-                 listener.onFailure("ERRO, ENTRA EM CONTATO COM O DESENVOLVEDOR")
-
-             }
-         })
-     }*/
-
-    fun deleteMovementById(id: Long, listener: ApiListener<Unit>) {
+    fun deleteMovementById(id: Long, listener: ApiListener<MovementResponse>) {
         val call = remote.deleteMovementById(id)
         call.enqueue(object : Callback<MovementResponse> {
             override fun onResponse(
