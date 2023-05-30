@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mycompany.confinance.controller.RevenueController
 import com.mycompany.confinance.databinding.ActivityRevenuesBinding
 import com.mycompany.confinance.model.movement.GetMovementModel
+import com.mycompany.confinance.view.OnMovementListener
 import com.mycompany.confinance.view.adapter.RevenueAdapter
 import com.mycompany.confinance.view.main.InitialActivity
 import java.net.HttpURLConnection
@@ -18,9 +19,8 @@ class RevenuesActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRevenuesBinding
     private val controller = RevenueController()
-    private val adapter: RevenueAdapter by lazy {
-        RevenueAdapter(::deleteMovement)
-    }
+    private val adapter = RevenueAdapter()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRevenuesBinding.inflate(layoutInflater)
@@ -62,6 +62,20 @@ class RevenuesActivity : AppCompatActivity() {
                 })
     }
 
+    private fun handleMovement() {
+        val listener = object : OnMovementListener {
+            override fun onClick(id: Long) {
+                Toast.makeText(applicationContext, "clicooouu", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onDelete(id: Long) {
+                val s = ""
+            }
+
+        }
+        adapter.movementClick(listener)
+    }
+
     private fun recycler(list: List<GetMovementModel>) {
         binding.imageView.visibility = View.GONE
         binding.textCreateRevenues.visibility = View.GONE
@@ -70,6 +84,7 @@ class RevenuesActivity : AppCompatActivity() {
         binding.recyclerAllRevenues.layoutManager = LinearLayoutManager(applicationContext)
         binding.recyclerAllRevenues.adapter = adapter
         adapter.updateRevenue(list)
+        handleMovement()
     }
 }
 
