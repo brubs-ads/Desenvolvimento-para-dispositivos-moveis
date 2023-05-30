@@ -31,13 +31,13 @@ class RevenueController {
         })
     }
 
-    fun deleteMovementById(status: (message: String, code:Int) -> Unit){
-            repository.deleteMovementById(id = Session.movementId!!, object : ApiListener<MovementResponse> {
-                override fun onSuccess(result: MovementResponse) {
-                    status(result.message, result.status)
-                }
-                override fun onFailure(message: String) {
-                    status(message,0)
+    fun deleteMovementById(id:Long, result: (message: String, status: Boolean) -> Unit){
+        repository.deleteMovementById(id, object : ApiListener<MovementResponse> {
+            override fun onSuccess(result: MovementResponse) {
+                result(result.message,true)
+            }
+            override fun onFailure(message: String) {
+                result(message,false)
             }
         })
     }

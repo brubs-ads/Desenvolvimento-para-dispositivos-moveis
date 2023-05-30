@@ -50,17 +50,6 @@ class RevenuesActivity : AppCompatActivity() {
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
             })
     }
-    private fun deleteMovement(movement: GetMovementModel) {
-            controller.deleteMovementById(
-                status = { message, code ->
-                    if (code == HttpURLConnection.HTTP_OK) {
-                        adapter.deleteRevenue(movement)
-                        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
-                    } else {
-                        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
-                    }
-                })
-    }
 
     private fun handleMovement() {
         val listener = object : OnMovementListener {
@@ -69,7 +58,16 @@ class RevenuesActivity : AppCompatActivity() {
             }
 
             override fun onDelete(id: Long) {
-                val s = ""
+                controller.deleteMovementById(id, result = {
+                        message, status ->
+                    if (status){
+                        Toast.makeText(applicationContext,message,Toast.LENGTH_LONG).show()
+                        getMovement()
+                    }else{
+                        Toast.makeText(applicationContext,message,Toast.LENGTH_LONG).show()
+                    }
+
+                })
             }
 
         }
