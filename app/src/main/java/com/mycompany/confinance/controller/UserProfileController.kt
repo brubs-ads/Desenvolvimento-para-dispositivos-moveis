@@ -13,27 +13,28 @@ class UserProfileController {
     fun getUser(onSuccess: (name: String, email: String) -> Unit,onFailure: (message: String) -> Unit){
         userRepository.getUserById(id= Session.userId!!, object : ApiListener<GetUserModel>{
             override fun onSuccess(result: GetUserModel) {
-                onSuccess(result.name, result.email)
+                onSuccess.invoke(result.name, result.email)
             }
 
             override fun onFailure(message: String) {
-                onFailure(message)
+                onFailure.invoke(message)
             }
 
         })
     }
 
-    fun deleteUser(result: (message: String, status: Boolean) -> Unit) {
+    fun deleteUser(status: (message: String, status: Boolean) -> Unit) {
         userRepository.deleteUser(id = Session.userId!!, object : ApiListener<ResponseUserModel>{
             override fun onSuccess(result: ResponseUserModel) {
                 if (result.status == HttpURLConnection.HTTP_OK){
-                    result(result.message,true)
+                    status.invoke(result.message,true)
                 }else{
-                    result(result.message,false)
+                    status.invoke(result.message,false)
                 }
             }
             override fun onFailure(message: String) {
-                result(message,false)
+                status.invoke(message,false)
+
             }
 
         })

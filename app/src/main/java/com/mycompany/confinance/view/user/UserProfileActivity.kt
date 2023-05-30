@@ -47,7 +47,7 @@ class UserProfileActivity : AppCompatActivity() {
     }
 
     private fun deleteUser() {
-        controller.deleteUser(result = { message, status ->
+        controller.deleteUser(status = { message, status ->
             if (status){
                 Toast.makeText(this, message, Toast.LENGTH_LONG).show()
                 startActivity(Intent(this, MainActivity::class.java))
