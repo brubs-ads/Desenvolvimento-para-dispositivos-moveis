@@ -23,13 +23,17 @@ class UserProfileController {
         })
     }
 
-    fun deleteUser(status: (message: String, code:Int) -> Unit) {
+    fun deleteUser(result: (message: String, status: Boolean) -> Unit) {
         userRepository.deleteUser(id = Session.userId!!, object : ApiListener<ResponseUserModel>{
             override fun onSuccess(result: ResponseUserModel) {
-                status(result.message, result.status)
+                if (result.status == HttpURLConnection.HTTP_OK){
+                    result(result.message,true)
+                }else{
+                    result(result.message,false)
+                }
             }
             override fun onFailure(message: String) {
-                status(message,0)
+                result(message,false)
             }
 
         })

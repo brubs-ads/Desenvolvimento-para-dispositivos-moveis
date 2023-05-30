@@ -3,6 +3,7 @@ package com.mycompany.confinance.repository
 import com.google.gson.Gson
 import com.mycompany.confinance.model.user.CreateUserModel
 import com.mycompany.confinance.model.user.GetUserModel
+import com.mycompany.confinance.model.user.LoginUser
 import com.mycompany.confinance.model.user.ResponseUserModel
 import com.mycompany.confinance.repository.listener.ApiListener
 import com.mycompany.confinance.repository.service.UserService
@@ -17,8 +18,8 @@ class UserRepository {
     private val remote = RetrofitClient.getService(UserService::class.java)
 
     fun login(email: String, password: String, listener: ApiListener<ResponseUserModel>) {
-        val loginData = hashMapOf("email" to email, "password" to password)
-        val call = remote.login(loginData)
+        val user = LoginUser(email, password)
+        val call = remote.login(user)
         call.enqueue(object : Callback<ResponseUserModel> {
             override fun onResponse(
                 call: Call<ResponseUserModel>, response: Response<ResponseUserModel>
@@ -96,10 +97,8 @@ class UserRepository {
             override fun onResponse(call: Call<ResponseUserModel>,response: Response<ResponseUserModel>
             ) {
                 if (response.code() == HttpURLConnection.HTTP_OK){
-                    response.body().let {
-                        if (it != null) {
+                    response.body()?.let {
                             listener.onSuccess(it)
-                        }
                     }
                 }else{
                     val error = Gson().fromJson(response.errorBody()?.string(), ResponseUserModel::class.java)
