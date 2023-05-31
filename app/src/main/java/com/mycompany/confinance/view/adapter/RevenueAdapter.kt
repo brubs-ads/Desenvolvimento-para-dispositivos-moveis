@@ -29,15 +29,7 @@ class RevenueAdapter() : RecyclerView.Adapter<RevenueViewHolder>() {
     fun updateRevenue(list: List<GetMovementModel>) {
         listRevenue = list
     }
-
-    fun deleteRevenue(movement: GetMovementModel) {
-        val position = listRevenue.indexOf(movement)
-        if (position != -1) {
-            listRevenue = listRevenue.toMutableList().apply { removeAt(position) }
-            notifyItemRemoved(position)
-        }
-    }
-
+    
     fun movementClick(movement: OnMovementListener){
         listener = movement
     }

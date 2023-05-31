@@ -96,32 +96,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_value_object" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textview_already_saved"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="5dp"
-        android:text="@string/already_saved"
-        android:textColor="@color/gray_second"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_value_object" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edittext_already_saved"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="8dp"
-        android:hint="@string/already_saved"
-        android:inputType="numberDecimal"
-        android:minHeight="48dp"
-        android:padding="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_already_saved" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textview_desired_date"
@@ -133,7 +108,7 @@
         android:textColor="@color/gray_second"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_already_saved" />
+        app:layout_constraintTop_toBottomOf="@id/edittext_value_object" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edittext_desired_date"
@@ -150,98 +125,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_desired_date" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textview_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="5dp"
-        android:text="@string/icon"
-        android:textColor="@color/gray_second"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_desired_date"
-
-        />
-
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/image_health"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="18dp"
-        android:src="@drawable/ob__1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_icon" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/img_stores"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="50dp"
-        android:src="@drawable/ob__2"
-        app:layout_constraintBottom_toBottomOf="@+id/image_health"
-        app:layout_constraintStart_toEndOf="@id/image_health"
-        app:layout_constraintTop_toTopOf="@id/image_health" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/img_phone"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="50dp"
-        android:src="@drawable/ob__3"
-        app:layout_constraintBottom_toBottomOf="@id/img_stores"
-        app:layout_constraintStart_toEndOf="@+id/img_stores"
-        app:layout_constraintTop_toTopOf="@+id/img_stores" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/img_shopping"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="18dp"
-        android:src="@drawable/ob__4"
-        app:layout_constraintBottom_toBottomOf="@id/img_phone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/img_phone"
-        app:layout_constraintTop_toTopOf="@id/img_phone" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/img_present"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/ob__5"
-        app:layout_constraintStart_toStartOf="@+id/image_health"
-        app:layout_constraintTop_toBottomOf="@+id/image_health" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/img_change"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/ob__6"
-        app:layout_constraintStart_toStartOf="@+id/img_stores"
-        app:layout_constraintTop_toBottomOf="@+id/img_stores" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/img_travel"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/ob__7"
-        app:layout_constraintStart_toStartOf="@+id/img_phone"
-        app:layout_constraintTop_toBottomOf="@+id/img_phone" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/img_email"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/ob__8"
-        app:layout_constraintStart_toStartOf="@+id/img_shopping"
-        app:layout_constraintTop_toBottomOf="@+id/img_shopping" />
 
 
     <androidx.appcompat.widget.AppCompatButton
@@ -254,7 +137,8 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edittext_desired_date"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

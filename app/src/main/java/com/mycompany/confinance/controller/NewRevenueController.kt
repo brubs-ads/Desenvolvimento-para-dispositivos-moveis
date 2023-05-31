@@ -26,7 +26,7 @@ class NewRevenueController {
                 UserTeste(Session.userId),
                 object : ApiListener<CreateMovementModel> {
                     override fun onSuccess(result: CreateMovementModel) {
-                        Session.total -= result.value
+                        Session.total += result.value
                         Session.movementId = result.id
                         onSuccess.invoke()
                     }

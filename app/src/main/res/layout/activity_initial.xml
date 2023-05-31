@@ -165,11 +165,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="75dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="28dp"
         android:text="@string/revenues_total"
         android:textColor="@color/green"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.544"
         app:layout_constraintStart_toEndOf="@id/text_revenues"
         app:layout_constraintTop_toBottomOf="@id/text_total" />
 
@@ -307,6 +308,7 @@
         android:layout_height="wrap_content"
         android:text="@string/create_expenses"
         android:textSize="18sp"
+        android:textColor="@color/red"
         app:layout_constraintBottom_toBottomOf="@id/view_category_expense"
         app:layout_constraintEnd_toEndOf="@+id/text_revenue_category"
         app:layout_constraintTop_toTopOf="@id/view_category_expense" />
