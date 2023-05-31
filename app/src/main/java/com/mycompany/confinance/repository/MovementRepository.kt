@@ -4,6 +4,7 @@ import com.google.gson.Gson
 import com.mycompany.confinance.model.movement.CreateMovementModel
 import com.mycompany.confinance.model.movement.GetMovementModel
 import com.mycompany.confinance.model.movement.MovementResponse
+import com.mycompany.confinance.model.movement.MovementTotalsModel
 import com.mycompany.confinance.model.user.UserTeste
 import com.mycompany.confinance.repository.listener.ApiListener
 import com.mycompany.confinance.repository.service.MovementService
@@ -17,29 +18,6 @@ class MovementRepository {
 
     private val remote = RetrofitClient.getService(MovementService::class.java)
 
-    fun getAllMovements(listener: ApiListener<List<GetMovementModel>>) {
-        val call = remote.getAllMovements()
-        call.enqueue(object : Callback<List<GetMovementModel>> {
-            override fun onResponse(
-                call: Call<List<GetMovementModel>>, response: Response<List<GetMovementModel>>
-            ) {
-                if (response.code() == HttpURLConnection.HTTP_OK) {
-                    response.body()?.let {
-                        listener.onSuccess(it)
-                    }
-                } else {
-                    val error = Gson().fromJson(
-                        response.errorBody()?.string(), MovementResponse::class.java
-                    )
-                    listener.onFailure(error.message)
-                }
-            }
-
-            override fun onFailure(call: Call<List<GetMovementModel>>, t: Throwable) {
-                listener.onFailure("ERRO, ENTRA EM CONTATO COM O DESENVOLVEDOR")
-            }
-        })
-    }
 
     fun getMovementById(id: Long, listener: ApiListener<GetMovementModel>) {
         val call = remote.getMovementById(id)
@@ -161,6 +139,32 @@ class MovementRepository {
 
         })
     }
+
+    fun getTotalRevenueAndExpense(listener: ApiListener<MovementTotalsModel>) {
+        val call = remote.getMovementTotals()
+        call.enqueue(object : Callback<MovementTotalsModel> {
+            override fun onResponse(
+                call: Call<MovementTotalsModel>,
+                response: Response<MovementTotalsModel>
+            ) {
+                if (response.code() == HttpURLConnection.HTTP_OK) {
+                    response.body()?.let {
+                        listener.onSuccess(it)
+                    }
+                } else {
+                    val error = Gson().fromJson(
+                        response.errorBody()?.string(), MovementResponse::class.java
+                    )
+                    listener.onFailure(error.message)
+                }
+            }
+
+            override fun onFailure(call: Call<MovementTotalsModel>, t: Throwable) {
+                listener.onFailure("ERRO, ENTRA EM CONTATO COM O DESENVOLVEDOR")
+            }
+        })
+    }
+
 
 }
 
