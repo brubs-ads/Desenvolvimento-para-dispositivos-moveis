@@ -8,4 +8,4 @@ class ObjectiveResponse (
     val message: String,
     val status: Int,
     var userId: Long? = null
-        ): Parcelable 
+        ) : Parcelable

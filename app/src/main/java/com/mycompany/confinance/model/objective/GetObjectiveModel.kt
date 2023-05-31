@@ -11,4 +11,4 @@ data class GetObjectiveModel (
     var description: String,
     var date: String,
     var user: UserTeste
-        ): Parcelable
+) : Parcelable
