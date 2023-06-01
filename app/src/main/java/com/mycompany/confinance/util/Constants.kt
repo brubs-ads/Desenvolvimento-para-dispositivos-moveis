@@ -32,6 +32,7 @@ class Constants {
             const val URL_RETURN_MOVEMENT_TOTALS : String = "movement/totals"
              const val URL_RETURN_MOVEMENT_LIST: String = "movement"
             const val URL_DELETE_MOVEMENT: String = "movement/{id}"
+            const val URL_CREATE_OBJECTIVE: String = "objective"
             const val URL_UPDATE_OBJECTIVE: String = "objective/{id}"
             const val URL_DELETE_OBJECTIVE: String = "objective/{id}"
         }

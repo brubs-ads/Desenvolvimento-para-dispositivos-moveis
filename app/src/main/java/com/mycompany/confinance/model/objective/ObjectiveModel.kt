@@ -5,10 +5,10 @@ import com.mycompany.confinance.model.user.UserTeste
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class CreateObjectiveModel (
+data class ObjectiveModel (
     var id: Long? = null,
     var value: Double,
-    var description: String,
+    var name: String,
     var date: String,
     var user: UserTeste
 

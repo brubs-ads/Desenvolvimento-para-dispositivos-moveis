@@ -1,11 +1,11 @@
 package com.mycompany.confinance.view.viewholder
 
 import androidx.recyclerview.widget.RecyclerView
-import com.mycompany.confinance.databinding.RowRevenueBinding
+import com.mycompany.confinance.databinding.RowRecyclerBinding
 import com.mycompany.confinance.model.movement.GetMovementModel
 import com.mycompany.confinance.view.OnMovementListener
 
-class RevenueViewHolder(private val bind: RowRevenueBinding, private val listener : OnMovementListener
+class RevenueViewHolder(private val bind: RowRecyclerBinding, private val listener : OnMovementListener
 ) : RecyclerView.ViewHolder(bind.root) {
 
     fun bind(movement: GetMovementModel) {

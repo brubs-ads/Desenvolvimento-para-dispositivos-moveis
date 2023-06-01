@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-class ObjectiveResponse (
+data class ObjectiveResponse (
     val message: String,
     val status: Int,
     var userId: Long? = null
