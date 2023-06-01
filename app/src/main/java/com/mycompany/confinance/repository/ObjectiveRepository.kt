@@ -42,5 +42,28 @@ class ObjectiveRepository {
         })
     }
 
+   /*fun deleteObjectiveById(id: Long, listener: ApiListener<ObjectiveResponse>) {
+        val call = remote.deleteObjectiveById(id)
+        call.enqueue(object : Callback<ObjectiveResponse>{
+            override fun onResponse(call: Call<ObjectiveResponse>, response: Response<ObjectiveResponse>
+            ) {
+                if (response.code() == HttpURLConnection.HTTP_OK) {
+                    response.body().let {
+                        if (it != null) {
+                            listener.onSuccess(it)
+                        }
+                    }
+                } else {
+                    val error = Gson().fromJson(
+                        response.errorBody()?.string(), ObjectiveResponse::class.java
+                    )
+                }
+            }
+            override fun onFailure(call: Call<ObjectiveResponse>, t: Throwable) {
+                listener.onFailure("ERRO, ENTRE EM CONTATO COM O DESENVOLVEDOR")
+            }
+        })
+    } */
 
 }
+
