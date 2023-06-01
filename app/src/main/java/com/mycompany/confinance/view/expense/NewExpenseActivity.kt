@@ -39,6 +39,12 @@ class NewExpenseActivity : AppCompatActivity(),  DatePickerDialog.OnDateSetListe
         binding.ButtonDate.setOnClickListener {
             handleDate()
         }
+        binding.imageFecharXExpense.setOnClickListener{
+            val expenseslIntent = Intent(this,ExpensesActivity::class.java)
+            startActivity(expenseslIntent)
+            finish()
+
+        }
     }
 
     override fun onDateSet(view: DatePicker, year: Int, month: Int, dayOfMonth: Int) {

@@ -34,10 +34,12 @@ class InitialActivity : AppCompatActivity() {
         binding.textRevenueCategory.setOnClickListener {
             val revenuecategoryintent = Intent(this, RevenuesActivity::class.java)
             startActivity(revenuecategoryintent)
+            finish()
         }
         binding.textExpenseCategory.setOnClickListener {
             val expensecategoryintent = Intent(this, ExpensesActivity::class.java)
             startActivity(expensecategoryintent)
+            finish()
         }
         binding.imageMenuInitial.setOnClickListener {
             startActivity(Intent(this, MenuActivity::class.java))

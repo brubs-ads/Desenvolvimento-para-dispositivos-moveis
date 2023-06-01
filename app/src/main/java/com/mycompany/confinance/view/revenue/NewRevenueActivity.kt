@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.mycompany.confinance.controller.NewRevenueController
 import com.mycompany.confinance.databinding.ActivityNewRevenueBinding
 import com.mycompany.confinance.util.Session
+import com.mycompany.confinance.view.expense.ExpensesActivity
 import com.mycompany.confinance.view.main.InitialActivity
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -35,6 +36,11 @@ class NewRevenueActivity : AppCompatActivity(),
         }
         binding.buttonDate.setOnClickListener {
             handleDate()
+        }
+        binding.imageFecharXRevenue.setOnClickListener{
+            val revenueslIntent = Intent(this, RevenuesActivity::class.java)
+            startActivity(revenueslIntent)
+            finish()
         }
     }
 
