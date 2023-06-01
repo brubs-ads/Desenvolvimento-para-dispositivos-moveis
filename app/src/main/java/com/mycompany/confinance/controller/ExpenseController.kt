@@ -1,6 +1,7 @@
 package com.mycompany.confinance.controller
 
 import com.mycompany.confinance.model.movement.GetMovementModel
+import com.mycompany.confinance.model.movement.MovementResponse
 import com.mycompany.confinance.repository.MovementRepository
 import com.mycompany.confinance.repository.listener.ApiListener
 import com.mycompany.confinance.util.Constants
@@ -8,13 +9,18 @@ import com.mycompany.confinance.util.Session
 
 class ExpenseController {
 
+
     private val repository = MovementRepository()
 
-    fun getMovementUserId(onSuccess : (List<GetMovementModel>) -> Unit, onFailure: (message: String) -> Unit) {
+
+    fun getMovementUserId(
+        onSuccess: (List<GetMovementModel>) -> Unit,
+        onFailure: (message: String) -> Unit
+    ) {
         repository.getMovementByUserId(Session.userId!!, Constants.MOVEMENT.EXPENSE, object :
             ApiListener<List<GetMovementModel>> {
             override fun onSuccess(result: List<GetMovementModel>) {
-                if (result.isNotEmpty()){
+                if (result.isNotEmpty()) {
                     onSuccess(result)
                 }
             }
@@ -23,6 +29,17 @@ class ExpenseController {
                 onFailure(message)
             }
 
+        })
+    }
+
+    fun deleteMovementById(id:Long, result: (message: String, status: Boolean) -> Unit){
+        repository.deleteMovementById(id, object : ApiListener<MovementResponse> {
+            override fun onSuccess(result: MovementResponse) {
+                result(result.message,true)
+            }
+            override fun onFailure(message: String) {
+                result(message,false)
+            }
         })
     }
 

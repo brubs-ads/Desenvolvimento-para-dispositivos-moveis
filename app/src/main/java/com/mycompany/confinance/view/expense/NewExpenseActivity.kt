@@ -28,7 +28,8 @@ class NewExpenseActivity : AppCompatActivity(),  DatePickerDialog.OnDateSetListe
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNewExpenseBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_new_expense)
+        setContentView(binding.root)
+        handleClick()
     }
 
     private fun handleClick(){
@@ -47,7 +48,7 @@ class NewExpenseActivity : AppCompatActivity(),  DatePickerDialog.OnDateSetListe
         binding.ButtonDate.text = date
     }
     private fun addMovement() {
-        val value = binding.textExpenseValue.toString().toDouble()
+        val value = binding.textExpenseValue.text.toString().toDouble()
         val description = binding.textDescription.text.toString()
         val date = binding.ButtonDate.text.toString()
 
@@ -57,7 +58,7 @@ class NewExpenseActivity : AppCompatActivity(),  DatePickerDialog.OnDateSetListe
             date,
             onSuccess = {
                 Toast.makeText(this, "Movimento criado com Sucesso!", Toast.LENGTH_LONG).show()
-                startActivity(Intent(this, RevenuesActivity::class.java))
+                startActivity(Intent(this, ExpensesActivity::class.java))
                 finish()
             },
             onFailure = { message ->

@@ -140,8 +140,8 @@ class MovementRepository {
         })
     }
 
-    fun getTotalRevenueAndExpense(listener: ApiListener<MovementTotalsModel>) {
-        val call = remote.getMovementTotals()
+    fun getTotalRevenueAndExpense(userId: Long, listener: ApiListener<MovementTotalsModel>) {
+        val call = remote.getMovementTotals(userId)
         call.enqueue(object : Callback<MovementTotalsModel> {
             override fun onResponse(
                 call: Call<MovementTotalsModel>,
