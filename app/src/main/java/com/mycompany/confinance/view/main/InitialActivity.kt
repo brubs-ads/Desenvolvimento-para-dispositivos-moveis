@@ -25,6 +25,10 @@ class InitialActivity : AppCompatActivity() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        handleTotal()
+    }
     private fun handleClick() {
 
         binding.textRevenueCategory.setOnClickListener {

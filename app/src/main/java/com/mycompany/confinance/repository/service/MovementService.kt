@@ -10,9 +10,6 @@ import retrofit2.http.*
 
 interface MovementService{
 
-        @GET(Constants.HTTP.URL.URL_RETURN_MOVEMENT_LIST)
-        fun getAllMovements() : Call<List<GetMovementModel>>
-
         @GET(Constants.HTTP.URL.URL_RETURN_MOVEMENT_ID)
         fun getMovementById(@Path("id") id: Long) : Call<GetMovementModel>
 
