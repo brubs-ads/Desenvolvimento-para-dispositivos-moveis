@@ -125,7 +125,7 @@
     <string name="mes_atual">Março</string>
     <string name="account_balance">Saldo da conta</string>
     <string name="balance">R$0,00</string>
-    <string name="month_overview">Visão geral do mês</string>
+    <string name="overview">Visão geral</string>
     <string name="total">Total</string>
     <string name="revenues_total">R$0,00</string>
     <string name="create_revenues">Criar Receitas</string>
@@ -136,6 +136,7 @@
     <string name="expense">Despesa</string>
     <string name="delete_account">Deletar Conta</string>
     <string name="total_value">%.2f</string>
+    <string name="revenues">Receitas</string>
 
 
 </resources>

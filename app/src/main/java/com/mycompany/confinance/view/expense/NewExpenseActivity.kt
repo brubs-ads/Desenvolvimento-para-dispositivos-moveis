@@ -12,6 +12,7 @@ import com.mycompany.confinance.controller.NewExpenseController
 import com.mycompany.confinance.controller.NewRevenueController
 import com.mycompany.confinance.databinding.ActivityNewExpenseBinding
 import com.mycompany.confinance.databinding.ActivityNewRevenueBinding
+import com.mycompany.confinance.view.main.InitialActivity
 import com.mycompany.confinance.view.revenue.RevenuesActivity
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -40,8 +41,7 @@ class NewExpenseActivity : AppCompatActivity(),  DatePickerDialog.OnDateSetListe
             handleDate()
         }
         binding.imageFecharXExpense.setOnClickListener{
-            val expenseslIntent = Intent(this,ExpensesActivity::class.java)
-            startActivity(expenseslIntent)
+            startActivity(Intent(this, ExpensesActivity::class.java))
             finish()
 
         }

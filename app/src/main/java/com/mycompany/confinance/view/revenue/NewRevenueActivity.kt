@@ -38,8 +38,7 @@ class NewRevenueActivity : AppCompatActivity(),
             handleDate()
         }
         binding.imageFecharXRevenue.setOnClickListener{
-            val revenueslIntent = Intent(this, RevenuesActivity::class.java)
-            startActivity(revenueslIntent)
+            startActivity(Intent(this, RevenuesActivity::class.java))
             finish()
         }
     }
