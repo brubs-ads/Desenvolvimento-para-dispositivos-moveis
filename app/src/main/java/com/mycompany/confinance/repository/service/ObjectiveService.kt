@@ -1,6 +1,7 @@
 package com.mycompany.confinance.repository.service
 
 import com.mycompany.confinance.model.objective.ObjectiveModel
+import com.mycompany.confinance.model.objective.ObjectiveResponse
 import com.mycompany.confinance.util.Constants
 import retrofit2.Call
 import retrofit2.http.Body
@@ -19,5 +20,5 @@ interface ObjectiveService {
             Call<ObjectiveModel>
 
     @DELETE(Constants.HTTP.URL.URL_DELETE_OBJECTIVE)
-    fun deleteObjectiveById(@Path("id") id: Long) : Call<ObjectiveModel>
+    fun deleteObjectiveById(@Path("id") id: Long) : Call<ObjectiveResponse>
 }

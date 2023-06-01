@@ -42,7 +42,7 @@ class ObjectiveRepository {
         })
     }
 
-   /*fun deleteObjectiveById(id: Long, listener: ApiListener<ObjectiveResponse>) {
+   fun deleteObjectiveById(id: Long, listener: ApiListener<ObjectiveResponse>) {
         val call = remote.deleteObjectiveById(id)
         call.enqueue(object : Callback<ObjectiveResponse>{
             override fun onResponse(call: Call<ObjectiveResponse>, response: Response<ObjectiveResponse>
@@ -63,7 +63,7 @@ class ObjectiveRepository {
                 listener.onFailure("ERRO, ENTRE EM CONTATO COM O DESENVOLVEDOR")
             }
         })
-    } */
+    }
 
 }
 
