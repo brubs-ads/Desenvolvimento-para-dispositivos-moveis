@@ -15,15 +15,18 @@ import java.util.Calendar
 class CreateObjectiveActivity : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
     private lateinit var binding: ActivityCreateObjectiveBinding
     private val controller = CreateObjectiveController()
+    @SuppressLint("SimpleDateFormat")
+    private val dateformat = SimpleDateFormat("yyyy-MM-dd")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCreateObjectiveBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        handleClick()
     }
 
-    @SuppressLint("SimpleDateFormat")
+
     override fun onDateSet(view: DatePicker, year: Int, month: Int, dayOfMonth: Int) {
-        val dateformat = SimpleDateFormat("yyyy-MM-dd")
         val calendar = Calendar.getInstance()
         calendar.set(year, month, dayOfMonth)
         val date = dateformat.format(calendar.time)
@@ -37,6 +40,11 @@ class CreateObjectiveActivity : AppCompatActivity(),DatePickerDialog.OnDateSetLi
         binding.buttonDate.setOnClickListener {
             handleDate()
         }
+        binding.imageBackObject.setOnClickListener{
+            startActivity(Intent(this, ObjectiveActivity::class.java))
+            finish()
+        }
+
     }
 
     private fun addObjective() {

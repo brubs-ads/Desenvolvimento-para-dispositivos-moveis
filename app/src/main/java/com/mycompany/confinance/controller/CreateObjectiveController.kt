@@ -1,8 +1,10 @@
 package com.mycompany.confinance.controller
 
 import com.mycompany.confinance.model.objective.ObjectiveModel
+import com.mycompany.confinance.model.user.UserTeste
 import com.mycompany.confinance.repository.ObjectiveRepository
 import com.mycompany.confinance.repository.listener.ApiListener
+import com.mycompany.confinance.util.Session
 
 class CreateObjectiveController {
 
@@ -15,7 +17,7 @@ class CreateObjectiveController {
         onSuccess: () -> Unit,
         onFailure: (message: String) -> Unit
     ) {
-        if (name != "" && value <= 0) {
+        if (value > 0 && name.isNotBlank()) {
             repository.createObjective(
                 value = value,
                 name = name,

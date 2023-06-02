@@ -1,6 +1,7 @@
 package com.mycompany.confinance.controller
 
 import com.mycompany.confinance.model.objective.ObjectiveModel
+import com.mycompany.confinance.model.objective.ObjectiveResponse
 import com.mycompany.confinance.repository.ObjectiveRepository
 import com.mycompany.confinance.repository.listener.ApiListener
 import com.mycompany.confinance.util.Session
@@ -20,6 +21,18 @@ class ObjectiveController {
 
             override fun onFailure(message: String) {
                 onFailure(message)
+            }
+        })
+    }
+
+    fun deleteObjectiveById(id: Long, result: (message: String, status: Boolean) -> Unit){
+        repository.deleteObjectiveById(id, object : ApiListener<ObjectiveResponse> {
+            override fun onSuccess(result: ObjectiveResponse) {
+                result(result.message,true)
+            }
+
+            override fun onFailure(message: String) {
+                result(message, false)
             }
         })
     }

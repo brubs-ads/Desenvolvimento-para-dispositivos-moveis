@@ -56,8 +56,8 @@ class ObjectiveRepository {
                 } else {
                     val error = Gson().fromJson(
                         response.errorBody()?.string(), ObjectiveResponse::class.java
-                    /* ta faltando um trecho de código aqui */
                     )
+                    listener.onFailure(error.message)
                 }
             }
             override fun onFailure(call: Call<ObjectiveResponse>, t: Throwable) {

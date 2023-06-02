@@ -71,6 +71,14 @@ class ObjectiveActivity : AppCompatActivity() {
             }
 
             override fun onDelete(id: Long) {
+                controller.deleteObjectiveById(id, result = {message, status ->
+                    if (status) {
+                        Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
+                        update(id)
+                    } else {
+                        Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
+                    }
+                })
 
             }
         }
@@ -80,7 +88,7 @@ class ObjectiveActivity : AppCompatActivity() {
     private fun recyclerView() {
         binding.textView7.visibility = View.GONE
         binding.imageView.visibility = View.GONE
-        binding.textView7.visibility = View.GONE
+        binding.textCreateObjective.visibility = View.GONE
         binding.textInfo.visibility = View.GONE
 
         binding.recycler.layoutManager = LinearLayoutManager(applicationContext)
