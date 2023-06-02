@@ -56,6 +56,7 @@ class ObjectiveRepository {
                 } else {
                     val error = Gson().fromJson(
                         response.errorBody()?.string(), ObjectiveResponse::class.java
+                    /* ta faltando um trecho de código aqui */
                     )
                 }
             }
@@ -65,5 +66,31 @@ class ObjectiveRepository {
         })
     }
 
+    fun getObjectiveById(id: Long, listener: ApiListener<List<ObjectiveModel>>) {
+        val call = remote.getObjectiveId(id)
+        call.enqueue(object : Callback<List<ObjectiveModel>> {
+            override fun onResponse(
+                call: Call<List<ObjectiveModel>>,
+                response: Response<List<ObjectiveModel>>
+            ) {
+                if (response.code() == HttpURLConnection.HTTP_OK) {
+                    response.body()?.let {
+                        listener.onSuccess(it)
+                    }
+                } else {
+                    val error = Gson().fromJson(
+                        response.errorBody()?.toString(),
+                        ObjectiveResponse::class.java
+                    )
+                    listener.onFailure(error.message)
+                }
+            }
+
+            override fun onFailure(call: Call<List<ObjectiveModel>>, t: Throwable) {
+                listener.onFailure("ERRO, ENTRE EM CONTATO COM O DESENVOLVEDOR")
+            }
+
+        })
+    }
 }
 

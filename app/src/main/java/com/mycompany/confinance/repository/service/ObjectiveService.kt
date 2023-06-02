@@ -6,6 +6,7 @@ import com.mycompany.confinance.util.Constants
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.DELETE
+import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
@@ -21,4 +22,7 @@ interface ObjectiveService {
 
     @DELETE(Constants.HTTP.URL.URL_DELETE_OBJECTIVE)
     fun deleteObjectiveById(@Path("id") id: Long) : Call<ObjectiveResponse>
+
+    @GET(Constants.HTTP.URL.URL_RETURN_OBJECTIVE_ID_USER)
+    fun getObjectiveId(@Path("id") id: Long): Call<List<ObjectiveModel>>
 }
