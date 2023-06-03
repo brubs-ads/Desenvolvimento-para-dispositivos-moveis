@@ -165,6 +165,38 @@ class MovementRepository {
         })
     }
 
+    fun updateMovement(
+        id: Long,
+        type_movement: String,
+        value: Double,
+        description: String,
+        date: String,
+        listener: ApiListener<CreateMovementModel>
+    ) {
+        val call = remote.updateMovementById(id,CreateMovementModel(null,type_movement,value,description,date,UserTeste(Session.userId)))
+        call.enqueue(object : Callback<CreateMovementModel> {
+            override fun onResponse(
+                call: Call<CreateMovementModel>, response: Response<CreateMovementModel>
+            ) {
+                if (response.code() == HttpURLConnection.HTTP_OK) {
+                    response.body()?.let {
+                        listener.onSuccess(it)
+                    }
+                } else {
+                    val error = Gson().fromJson(
+                        response.errorBody()?.string(), MovementResponse::class.java
+                    )
+                    listener.onFailure(error.message + " Code: ${error.status} ")
+                }
+            }
+
+            override fun onFailure(call: Call<CreateMovementModel>, t: Throwable) {
+                listener.onFailure("ERRO, ENTRE EM CONTATO COM O DESENVOLVEDOR")
+            }
+        })
+    }
+
+
 
 }
 

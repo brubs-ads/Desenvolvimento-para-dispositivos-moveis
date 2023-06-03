@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import androidx.recyclerview.widget.RecyclerView
 import com.mycompany.confinance.databinding.RowRecyclerBinding
+import com.mycompany.confinance.model.movement.CreateMovementModel
 import com.mycompany.confinance.model.movement.GetMovementModel
 import com.mycompany.confinance.view.OnMovementListener
 

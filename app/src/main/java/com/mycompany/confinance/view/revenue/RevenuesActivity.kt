@@ -16,11 +16,11 @@ import java.net.HttpURLConnection
 
 class RevenuesActivity : AppCompatActivity() {
 
-
     private lateinit var binding: ActivityRevenuesBinding
     private val controller = RevenueController()
     private val adapter = RevenueAdapter()
     private var listRevenue: ArrayList<GetMovementModel> = arrayListOf()
+    private var isEditing = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,10 +28,6 @@ class RevenuesActivity : AppCompatActivity() {
         setContentView(binding.root)
         handleClick()
         getMovement()
-    }
-
-    override fun onResume() {
-        super.onResume()
     }
 
     private fun handleClick() {
@@ -55,10 +51,10 @@ class RevenuesActivity : AppCompatActivity() {
             })
     }
 
-    private fun updateMovements(id: Long) {
+    private fun updateMovement(id: Long) {
         var position = 0
         var movement: GetMovementModel? = null
-        for (i in 0 until listRevenue.size){
+        for (i in 0 until listRevenue.size) {
             if (listRevenue[i].id == id) {
                 position = i
                 movement = listRevenue[i]
@@ -71,21 +67,26 @@ class RevenuesActivity : AppCompatActivity() {
     private fun handleMovement() {
         val listener = object : OnMovementListener {
             override fun onClick(id: Long) {
-                Toast.makeText(applicationContext, "clicooouu", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this@RevenuesActivity, NewRevenueActivity::class.java)
+                val selectedMovement = listRevenue.firstOrNull { it.id == id }
+                selectedMovement?.let {
+                    isEditing = true // Indica que está editando o movimento
+                    intent.putExtra("movement", it)
+                    startActivity(intent)
+                    finish()
+                }
             }
 
             override fun onDelete(id: Long) {
-                controller.deleteMovementById(id, result = {
-                        message, status ->
-                    if (status){
-                        Toast.makeText(applicationContext,message,Toast.LENGTH_LONG).show()
-                        updateMovements(id)
-                    }else{
-                        Toast.makeText(applicationContext,message,Toast.LENGTH_LONG).show()
+                controller.deleteMovementById(id) { message, status ->
+                    if (status) {
+                        Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
+                        updateMovement(id)
+                    } else {
+                        Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
                     }
-                })
+                }
             }
-
         }
         adapter.movementClick(listener)
     }
@@ -100,6 +101,5 @@ class RevenuesActivity : AppCompatActivity() {
         adapter.updateRevenue(listRevenue)
         handleMovement()
     }
-
 }
 

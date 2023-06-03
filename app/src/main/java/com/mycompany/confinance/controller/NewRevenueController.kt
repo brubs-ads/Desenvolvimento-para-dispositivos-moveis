@@ -38,5 +38,33 @@ class NewRevenueController {
             onFailure("Erro ao criar Movimentação!")
         }
     }
+    fun updateMovement(
+        id: Long,
+        value: Double,
+        description: String,
+        date: String,
+        onSuccess: () -> Unit,
+        onFailure: (message: String) -> Unit
+    ) {
+        if (value > 0 && description.isNotBlank()) {
+            repository.updateMovement(
+                id,
+                Constants.MOVEMENT.REVENUE,
+                value,
+                description,
+                date,
+                object : ApiListener<CreateMovementModel> {
+                    override fun onSuccess(result: CreateMovementModel) {
+                        onSuccess.invoke()
+                    }
 
+                    override fun onFailure(message: String) {
+                        onFailure(message)
+                    }
+                }
+            )
+        } else {
+            onFailure("Erro ao atualizar Movimentação!")
+        }
+    }
 }
