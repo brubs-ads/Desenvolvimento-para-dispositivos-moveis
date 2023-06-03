@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mycompany.confinance.R
 import com.mycompany.confinance.controller.ObjectiveController
 import com.mycompany.confinance.databinding.ActivityObjectiveBinding
 import com.mycompany.confinance.model.objective.ObjectiveModel
@@ -20,6 +19,9 @@ class ObjectiveActivity : AppCompatActivity() {
     private val controller = ObjectiveController()
     private val adapter = ObjectiveAdapter()
     private var listObjective: ArrayList<ObjectiveModel> = arrayListOf()
+    private var isEditing = false
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityObjectiveBinding.inflate(layoutInflater)
@@ -67,11 +69,18 @@ class ObjectiveActivity : AppCompatActivity() {
     private fun handleObjective() {
         val listener = object : OnMovementListener {
             override fun onClick(id: Long) {
-                Toast.makeText(applicationContext, "clicooouu", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this@ObjectiveActivity, CreateObjectiveActivity::class.java)
+                val selectedObjective = listObjective.firstOrNull { it.id == id }
+                selectedObjective?.let {
+                    isEditing = true // Indica que está editando o objetivo
+                    intent.putExtra("objective", it)
+                    startActivity(intent)
+                    finish()
+                }
             }
 
             override fun onDelete(id: Long) {
-                controller.deleteObjectiveById(id, result = {message, status ->
+                controller.deleteObjectiveById(id, result = { message, status ->
                     if (status) {
                         Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
                         update(id)
@@ -79,11 +88,12 @@ class ObjectiveActivity : AppCompatActivity() {
                         Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
                     }
                 })
-
             }
         }
         adapter.clickObjective(listener)
     }
+
+
 
     private fun recyclerView() {
         binding.textView7.visibility = View.GONE

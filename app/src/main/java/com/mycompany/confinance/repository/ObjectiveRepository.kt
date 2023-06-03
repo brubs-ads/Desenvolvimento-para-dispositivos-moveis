@@ -92,5 +92,37 @@ class ObjectiveRepository {
 
         })
     }
+
+
+    fun updateObjective(
+        id: Long,
+        value: Double,
+        name: String,
+        data: String,
+        listener: ApiListener<ObjectiveModel>
+    ) {
+        val call = remote.updateObjectiveById(
+            id,
+            ObjectiveModel(null, value, name, data, UserTeste(Session.userId))
+        )
+
+        call.enqueue(object : Callback<ObjectiveModel> {
+            override fun onResponse(call: Call<ObjectiveModel>, response: Response<ObjectiveModel>) {
+                if (response.code() == HttpURLConnection.HTTP_OK) {
+                    response.body()?.let {
+                        listener.onSuccess(it)
+                    }
+                } else {
+                    val error = Gson().fromJson(response.errorBody()?.string(), ObjectiveResponse::class.java)
+                    listener.onFailure(error.message + "Code: ${error.status}")
+                }
+            }
+
+            override fun onFailure(call: Call<ObjectiveModel>, t: Throwable) {
+                listener.onFailure("ERRO, ENTRA EM CONTATO COM O DESENVOLVEDOR.")
+            }
+
+        })
+    }
 }
 

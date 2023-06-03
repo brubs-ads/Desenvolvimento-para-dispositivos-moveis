@@ -9,27 +9,39 @@ import android.widget.DatePicker
 import android.widget.Toast
 import com.mycompany.confinance.controller.CreateObjectiveController
 import com.mycompany.confinance.databinding.ActivityCreateObjectiveBinding
+import com.mycompany.confinance.model.objective.ObjectiveModel
 import java.text.SimpleDateFormat
 import java.util.Calendar
 
-class CreateObjectiveActivity : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
+class CreateObjectiveActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     private lateinit var binding: ActivityCreateObjectiveBinding
     private val controller = CreateObjectiveController()
+    private var isEditing = false // Indica se está editando um objetivo
     @SuppressLint("SimpleDateFormat")
-    private val dateformat = SimpleDateFormat("yyyy-MM-dd")
+    private val dateFormat = SimpleDateFormat("yyyy-MM-dd")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCreateObjectiveBinding.inflate(layoutInflater)
         setContentView(binding.root)
         handleClick()
-    }
+        getObjectiveFromIntent()
 
+        val selectedObjective = intent.getParcelableExtra<ObjectiveModel>("objective")
+        if (selectedObjective != null) {
+            isEditing = true
+            binding.edittextNameMeta.setText(selectedObjective.name)
+            binding.edittextValueObject.setText(selectedObjective.value.toString())
+            binding.buttonDate.text = selectedObjective.date
+            binding.button.text = "Salvar"
+            binding.textviewNewObject.text = "Editar Objetivos"
+        }
+    }
 
     override fun onDateSet(view: DatePicker, year: Int, month: Int, dayOfMonth: Int) {
         val calendar = Calendar.getInstance()
         calendar.set(year, month, dayOfMonth)
-        val date = dateformat.format(calendar.time)
+        val date = dateFormat.format(calendar.time)
         binding.buttonDate.text = date
     }
 
@@ -44,22 +56,47 @@ class CreateObjectiveActivity : AppCompatActivity(),DatePickerDialog.OnDateSetLi
             startActivity(Intent(this, ObjectiveActivity::class.java))
             finish()
         }
-
     }
 
     private fun addObjective() {
         val name = binding.edittextNameMeta.text.toString()
         val value = binding.edittextValueObject.text.toString().toDouble()
-        val data = binding.buttonDate.text.toString()
+        val date = binding.buttonDate.text.toString()
 
-        controller.createObjective(name,value,data, onSuccess = {
-            Toast.makeText(this,"Adicionado com Sucesso.",Toast.LENGTH_SHORT).show()
-            startActivity(Intent(this,ObjectiveActivity::class.java))
-            finish()
-        }, onFailure = {
-            Toast.makeText(this,it,Toast.LENGTH_SHORT).show()
-        })
+        if (isEditing) {
+            val selectedObjective = intent.getParcelableExtra<ObjectiveModel>("objective")
+            selectedObjective?.let {
+                it.id?.let { it1 ->
+                    controller.updateObjective(it1, name, value, date, onSuccess = {
+                        Toast.makeText(this, "Atualizado com sucesso.", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this, ObjectiveActivity::class.java))
+                        finish()
+                    }, onFailure = {
+                        Toast.makeText(baseContext, "Atualizado com sucesso.", Toast.LENGTH_SHORT).show()
+
+                    })
+                }
+            }
+        } else {
+            controller.createObjective(name, value, date, onSuccess = {
+                Toast.makeText(this, "Adicionado com sucesso.", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, ObjectiveActivity::class.java))
+                finish()
+            }, onFailure = {
+                Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+            })
+        }
     }
+
+    private fun getObjectiveFromIntent() {
+        val objective = intent.getParcelableExtra<ObjectiveModel>("objective")
+        objective?.let {
+            binding.edittextNameMeta.setText(it.name)
+            binding.edittextValueObject.setText(it.value.toString())
+            binding.buttonDate.text = it.date
+        }
+    }
+
     private fun handleDate() {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
