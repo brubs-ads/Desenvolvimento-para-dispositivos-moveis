@@ -1,6 +1,7 @@
 package com.mycompany.confinance.controller
 
 import com.mycompany.confinance.model.movement.CreateMovementModel
+import com.mycompany.confinance.model.movement.GetMovementModel
 import com.mycompany.confinance.model.user.UserTeste
 import com.mycompany.confinance.repository.MovementRepository
 import com.mycompany.confinance.repository.listener.ApiListener
@@ -53,8 +54,8 @@ class NewRevenueController {
                 value,
                 description,
                 date,
-                object : ApiListener<CreateMovementModel> {
-                    override fun onSuccess(result: CreateMovementModel) {
+                object : ApiListener<GetMovementModel> {
+                    override fun onSuccess(result: GetMovementModel) {
                         onSuccess.invoke()
                     }
 

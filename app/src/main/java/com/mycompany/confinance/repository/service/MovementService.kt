@@ -23,7 +23,7 @@ interface MovementService{
         fun createMovement(@Body movement: CreateMovementModel):Call<CreateMovementModel>
 
         @PUT(Constants.HTTP.URL.URL_UPDATE_MOVEMENT)
-        fun updateMovementById(@Path("id") id: Long, @Body movement: CreateMovementModel) :Call<CreateMovementModel>
+        fun updateMovementById(@Path("id") id: Long, @Body movement: GetMovementModel) :Call<GetMovementModel>
 
         @DELETE(Constants.HTTP.URL.URL_DELETE_MOVEMENT)
         fun deleteMovementById(@Path("id") id: Long) : Call<MovementResponse>

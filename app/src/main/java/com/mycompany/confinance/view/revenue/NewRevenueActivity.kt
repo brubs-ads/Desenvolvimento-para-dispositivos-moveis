@@ -9,25 +9,17 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.mycompany.confinance.controller.NewRevenueController
 import com.mycompany.confinance.databinding.ActivityNewRevenueBinding
-import com.mycompany.confinance.model.movement.CreateMovementModel
-import com.mycompany.confinance.model.objective.ObjectiveModel
-import com.mycompany.confinance.util.Constants
-import com.mycompany.confinance.util.Session
-import com.mycompany.confinance.util.Session.movementId
-import com.mycompany.confinance.view.expense.ExpensesActivity
-import com.mycompany.confinance.view.main.InitialActivity
-import com.mycompany.confinance.view.objective.ObjectiveActivity
+import com.mycompany.confinance.model.movement.GetMovementModel
 import java.text.SimpleDateFormat
 import java.util.Calendar
 
 class NewRevenueActivity : AppCompatActivity(),
     DatePickerDialog.OnDateSetListener {
     private lateinit var binding: ActivityNewRevenueBinding
-    @SuppressLint("SimpleDateFormat")
-    private val dateformat = SimpleDateFormat("yyyy-MM-dd")
     private val controller = NewRevenueController()
     private var isEditing = false // Indica se está editando uma movimentação
-    private var editmovement: CreateMovementModel? = null
+    @SuppressLint("SimpleDateFormat")
+    private val dateformat = SimpleDateFormat("yyyy-MM-dd")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,13 +28,12 @@ class NewRevenueActivity : AppCompatActivity(),
         handleClick()
         getMovementFromIntent()
 
-        val editmovement = intent.getParcelableExtra<CreateMovementModel>("movement")
-        if (editmovement != null) {
+        val selectedMovement = intent.getParcelableExtra<GetMovementModel>("movement")
+        if (selectedMovement != null) {
             isEditing = true
-            this.editmovement = editmovement
-            binding.textRevenueValue.setText(editmovement.value.toString())
-            binding.edittextDescription.setText(editmovement.description)
-            binding.buttonDate.text = editmovement.date
+            binding.textRevenueValue.setText(selectedMovement.value.toString())
+            binding.edittextDescription.setText(selectedMovement.description)
+            binding.buttonDate.text = selectedMovement.date
             binding.button.text = "Salvar"
             binding.textNewMovement.text = "Editar Receita"
         }
@@ -74,7 +65,7 @@ class NewRevenueActivity : AppCompatActivity(),
         val date = binding.buttonDate.text.toString()
 
         if (isEditing) {
-            val selectedMovement = intent.getParcelableExtra<CreateMovementModel>("Movement")
+            val selectedMovement = intent.getParcelableExtra<GetMovementModel>("movement")
             selectedMovement?.let {
                 it.id?.let { it1 ->
                     controller.updateMovement(it1,value, description,date, onSuccess = {
@@ -106,7 +97,7 @@ class NewRevenueActivity : AppCompatActivity(),
     }
 
     private fun getMovementFromIntent() {
-        val movement = intent.getParcelableExtra<CreateMovementModel>("movement")
+        val movement = intent.getParcelableExtra<GetMovementModel>("movement")
         movement?.let {
             binding.textRevenueValue.setText(it.value.toString())
             binding.edittextDescription.setText(it.description)
@@ -122,5 +113,4 @@ class NewRevenueActivity : AppCompatActivity(),
         DatePickerDialog(this, this, year, month, day).show()
     }
 }
-
 

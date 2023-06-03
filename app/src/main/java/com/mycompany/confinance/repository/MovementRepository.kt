@@ -171,12 +171,14 @@ class MovementRepository {
         value: Double,
         description: String,
         date: String,
-        listener: ApiListener<CreateMovementModel>
+        listener: ApiListener<GetMovementModel>
     ) {
-        val call = remote.updateMovementById(id,CreateMovementModel(null,type_movement,value,description,date,UserTeste(Session.userId)))
-        call.enqueue(object : Callback<CreateMovementModel> {
+        val call = remote.updateMovementById(id,
+            GetMovementModel(null,type_movement,value,description,date,UserTeste(Session.userId))
+        )
+        call.enqueue(object : Callback<GetMovementModel> {
             override fun onResponse(
-                call: Call<CreateMovementModel>, response: Response<CreateMovementModel>
+                call: Call<GetMovementModel>, response: Response<GetMovementModel>
             ) {
                 if (response.code() == HttpURLConnection.HTTP_OK) {
                     response.body()?.let {
@@ -190,7 +192,7 @@ class MovementRepository {
                 }
             }
 
-            override fun onFailure(call: Call<CreateMovementModel>, t: Throwable) {
+            override fun onFailure(call: Call<GetMovementModel>, t: Throwable) {
                 listener.onFailure("ERRO, ENTRE EM CONTATO COM O DESENVOLVEDOR")
             }
         })
