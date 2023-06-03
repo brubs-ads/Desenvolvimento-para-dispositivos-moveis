@@ -17,9 +17,9 @@ class ObjectiveRepository {
     private val remote = RetrofitClient.getService(ObjectiveService::class.java)
 
 
-    fun createObjective(value:Double,name:String,data: String, listener: ApiListener<ObjectiveModel>){
+    fun createObjective(value:Double,name:String,date: String, listener: ApiListener<ObjectiveModel>){
         val call= remote.createObjective(
-            ObjectiveModel(null, value = value, name = name, date = data, user =
+            ObjectiveModel(null, value = value, name = name, date = date, user =
         UserTeste(Session.userId))
         )
 
@@ -98,12 +98,12 @@ class ObjectiveRepository {
         id: Long,
         value: Double,
         name: String,
-        data: String,
+        date: String,
         listener: ApiListener<ObjectiveModel>
     ) {
         val call = remote.updateObjectiveById(
             id,
-            ObjectiveModel(null, value, name, data, UserTeste(Session.userId))
+            ObjectiveModel(null, value, name, date, UserTeste(Session.userId))
         )
 
         call.enqueue(object : Callback<ObjectiveModel> {

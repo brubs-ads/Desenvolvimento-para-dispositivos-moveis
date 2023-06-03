@@ -11,7 +11,7 @@ class CreateObjectiveController {
     fun createObjective(
         name: String,
         value: Double,
-        data: String,
+        date: String,
         onSuccess: () -> Unit,
         onFailure: (message: String) -> Unit
     ) {
@@ -19,7 +19,7 @@ class CreateObjectiveController {
             repository.createObjective(
                 value = value,
                 name = name,
-                data = data,
+                date = date,
                 object : ApiListener<ObjectiveModel> {
                     override fun onSuccess(result: ObjectiveModel) {
                         onSuccess.invoke()
@@ -38,7 +38,7 @@ class CreateObjectiveController {
         id: Long,
         name: String,
         value: Double,
-        data: String,
+        date: String,
         onSuccess: () -> Unit,
         onFailure: (message: String) -> Unit
     ) {
@@ -47,7 +47,7 @@ class CreateObjectiveController {
                 id = id,
                 value = value,
                 name = name,
-                data = data,
+                date = date,
                 object : ApiListener<ObjectiveModel> {
                     override fun onSuccess(result: ObjectiveModel) {
                         onSuccess.invoke()
@@ -58,7 +58,7 @@ class CreateObjectiveController {
                     }
                 })
         } else {
-            onFailure("parâmetros inconsistentes.")
+            onFailure("Erro ao atualizar Objetivo.")
         }
     }
 }

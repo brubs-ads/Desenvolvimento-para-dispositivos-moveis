@@ -37,20 +37,6 @@ class ObjectiveController {
         })
     }
 
-    fun getObjectiveById(id: Long, onSuccess: (objective: ObjectiveModel) -> Unit, onFailure: (message: String) -> Unit) {
-        repository.getObjectiveById(id, object : ApiListener<List<ObjectiveModel>> {
-            override fun onSuccess(result: List<ObjectiveModel>) {
-                if (result.isNotEmpty()) {
-                    onSuccess.invoke(result[0]) // Retorna o primeiro objetivo encontrado
-                } else {
-                    onFailure("Objetivo não encontrado")
-                }
-            }
 
-            override fun onFailure(message: String) {
-                onFailure(message)
-            }
-        })
-    }
 
 }

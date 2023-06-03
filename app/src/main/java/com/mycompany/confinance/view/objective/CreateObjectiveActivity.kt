@@ -16,7 +16,7 @@ import java.util.Calendar
 class CreateObjectiveActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     private lateinit var binding: ActivityCreateObjectiveBinding
     private val controller = CreateObjectiveController()
-    private var isEditing = false // Indica se está editando um objetivo
+    private var isEditing = false
     @SuppressLint("SimpleDateFormat")
     private val dateFormat = SimpleDateFormat("yyyy-MM-dd")
 
