@@ -4,6 +4,6 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class UserTeste(
+data class UserResponse(
     val id: Long?= null
 ) : Parcelable

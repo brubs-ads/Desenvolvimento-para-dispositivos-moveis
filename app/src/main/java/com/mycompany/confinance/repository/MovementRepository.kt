@@ -5,7 +5,7 @@ import com.mycompany.confinance.model.movement.CreateMovementModel
 import com.mycompany.confinance.model.movement.GetMovementModel
 import com.mycompany.confinance.model.movement.MovementResponse
 import com.mycompany.confinance.model.movement.MovementTotalsModel
-import com.mycompany.confinance.model.user.UserTeste
+import com.mycompany.confinance.model.user.UserResponse
 import com.mycompany.confinance.repository.listener.ApiListener
 import com.mycompany.confinance.repository.service.MovementService
 import com.mycompany.confinance.util.Session
@@ -48,12 +48,12 @@ class MovementRepository {
         value: Double,
         description: String,
         date: String,
-        user: UserTeste,
+        user: UserResponse,
         listener: ApiListener<CreateMovementModel>
     ) {
         val movement = CreateMovementModel(
             null, type_movement = type_movement, value = value,
-            description = description, date = date, user = UserTeste(Session.userId)
+            description = description, date = date, user = UserResponse(Session.userId)
         )
         val call = remote.createMovement(movement)
         call.enqueue(object : Callback<CreateMovementModel> {
@@ -174,7 +174,7 @@ class MovementRepository {
         listener: ApiListener<GetMovementModel>
     ) {
         val call = remote.updateMovementById(id,
-            GetMovementModel(null,type_movement,value,description,date,UserTeste(Session.userId))
+            GetMovementModel(null,type_movement,value,description,date,UserResponse(Session.userId))
         )
         call.enqueue(object : Callback<GetMovementModel> {
             override fun onResponse(

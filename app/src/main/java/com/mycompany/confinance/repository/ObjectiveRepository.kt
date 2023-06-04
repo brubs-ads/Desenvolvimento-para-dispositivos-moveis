@@ -3,7 +3,7 @@ package com.mycompany.confinance.repository
 import com.google.gson.Gson
 import com.mycompany.confinance.model.objective.ObjectiveModel
 import com.mycompany.confinance.model.objective.ObjectiveResponse
-import com.mycompany.confinance.model.user.UserTeste
+import com.mycompany.confinance.model.user.UserResponse
 import com.mycompany.confinance.repository.listener.ApiListener
 import com.mycompany.confinance.repository.service.ObjectiveService
 import com.mycompany.confinance.util.Session
@@ -20,7 +20,7 @@ class ObjectiveRepository {
     fun createObjective(value:Double,name:String,date: String, listener: ApiListener<ObjectiveModel>){
         val call= remote.createObjective(
             ObjectiveModel(null, value = value, name = name, date = date, user =
-        UserTeste(Session.userId))
+        UserResponse(Session.userId))
         )
 
         call.enqueue(object : Callback<ObjectiveModel> {
@@ -103,7 +103,7 @@ class ObjectiveRepository {
     ) {
         val call = remote.updateObjectiveById(
             id,
-            ObjectiveModel(null, value, name, date, UserTeste(Session.userId))
+            ObjectiveModel(null, value, name, date, UserResponse(Session.userId))
         )
 
         call.enqueue(object : Callback<ObjectiveModel> {
