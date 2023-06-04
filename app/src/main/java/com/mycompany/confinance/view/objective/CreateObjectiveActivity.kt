@@ -10,6 +10,9 @@ import android.widget.Toast
 import com.mycompany.confinance.controller.CreateObjectiveController
 import com.mycompany.confinance.databinding.ActivityCreateObjectiveBinding
 import com.mycompany.confinance.model.objective.ObjectiveModel
+import com.mycompany.confinance.util.Constants.TEXT.EDIT_OBJECTIVE
+import com.mycompany.confinance.util.Constants.TEXT.OBJECTIVE
+import com.mycompany.confinance.util.Constants.TEXT.SAVE
 import java.text.SimpleDateFormat
 import java.util.Calendar
 
@@ -27,14 +30,14 @@ class CreateObjectiveActivity : AppCompatActivity(), DatePickerDialog.OnDateSetL
         handleClick()
         getObjectiveFromIntent()
 
-        val selectedObjective = intent.getParcelableExtra<ObjectiveModel>("objective")
+        val selectedObjective = intent.getParcelableExtra<ObjectiveModel>(OBJECTIVE)
         if (selectedObjective != null) {
             isEditing = true
             binding.edittextNameMeta.setText(selectedObjective.name)
             binding.edittextValueObject.setText(selectedObjective.value.toString())
             binding.buttonDate.text = selectedObjective.date
-            binding.button.text = "Salvar"
-            binding.textviewNewObject.text = "Editar Objetivos"
+            binding.button.text = SAVE
+            binding.textviewNewObject.text = EDIT_OBJECTIVE
         }
     }
 
@@ -64,7 +67,7 @@ class CreateObjectiveActivity : AppCompatActivity(), DatePickerDialog.OnDateSetL
         val date = binding.buttonDate.text.toString()
 
         if (isEditing) {
-            val selectedObjective = intent.getParcelableExtra<ObjectiveModel>("objective")
+            val selectedObjective = intent.getParcelableExtra<ObjectiveModel>(OBJECTIVE)
             selectedObjective?.let {
                 it.id?.let { it1 ->
                     controller.updateObjective(it1, name, value, date, onSuccess = {
@@ -89,7 +92,7 @@ class CreateObjectiveActivity : AppCompatActivity(), DatePickerDialog.OnDateSetL
     }
 
     private fun getObjectiveFromIntent() {
-        val objective = intent.getParcelableExtra<ObjectiveModel>("objective")
+        val objective = intent.getParcelableExtra<ObjectiveModel>(OBJECTIVE)
         objective?.let {
             binding.edittextNameMeta.setText(it.name)
             binding.edittextValueObject.setText(it.value.toString())

@@ -43,4 +43,15 @@ class Constants {
         const val REVENUE: String = "receita"
         const val EXPENSE: String = "despesa"
     }
+
+    object TEXT{
+        const val MOVEMENT : String = "movement"
+        const val OBJECTIVE : String = "objective"
+        const val SAVE : String = "Salvar"
+        const val EDIT_EXPENSE : String = "Editar Despesa"
+        const val EDIT_REVENUE: String = "Editar Receita"
+        const val EDIT_OBJECTIVE : String = "Editar Objetivo"
+
+    }
+
 }

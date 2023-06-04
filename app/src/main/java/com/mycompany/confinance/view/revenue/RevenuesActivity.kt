@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mycompany.confinance.controller.RevenueController
 import com.mycompany.confinance.databinding.ActivityRevenuesBinding
 import com.mycompany.confinance.model.movement.GetMovementModel
+import com.mycompany.confinance.util.Constants
 import com.mycompany.confinance.view.OnMovementListener
 import com.mycompany.confinance.view.adapter.RevenueAdapter
 import com.mycompany.confinance.view.main.InitialActivity
@@ -70,8 +71,8 @@ class RevenuesActivity : AppCompatActivity() {
                 val intent = Intent(this@RevenuesActivity, NewRevenueActivity::class.java)
                 val selectedMovement = listRevenue.firstOrNull { it.id == id }
                 selectedMovement?.let {
-                    isEditing = true // Indica que está editando o movimento
-                    intent.putExtra("movement", it)
+                    isEditing = true
+                    intent.putExtra(Constants.TEXT.MOVEMENT, it)
                     startActivity(intent)
                     finish()
                 }

@@ -10,6 +10,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.mycompany.confinance.controller.NewRevenueController
 import com.mycompany.confinance.databinding.ActivityNewRevenueBinding
 import com.mycompany.confinance.model.movement.GetMovementModel
+import com.mycompany.confinance.util.Constants
+import com.mycompany.confinance.util.Constants.TEXT.EDIT_REVENUE
+import com.mycompany.confinance.util.Constants.TEXT.SAVE
 import java.text.SimpleDateFormat
 import java.util.Calendar
 
@@ -17,7 +20,7 @@ class NewRevenueActivity : AppCompatActivity(),
     DatePickerDialog.OnDateSetListener {
     private lateinit var binding: ActivityNewRevenueBinding
     private val controller = NewRevenueController()
-    private var isEditing = false // Indica se está editando uma movimentação
+    private var isEditing = false
     @SuppressLint("SimpleDateFormat")
     private val dateformat = SimpleDateFormat("yyyy-MM-dd")
 
@@ -26,17 +29,8 @@ class NewRevenueActivity : AppCompatActivity(),
         binding = ActivityNewRevenueBinding.inflate(layoutInflater)
         setContentView(binding.root)
         handleClick()
-        getMovementFromIntent()
-
-        val selectedMovement = intent.getParcelableExtra<GetMovementModel>("movement")
-        if (selectedMovement != null) {
-            isEditing = true
-            binding.textRevenueValue.setText(selectedMovement.value.toString())
-            binding.edittextDescription.setText(selectedMovement.description)
-            binding.buttonDate.text = selectedMovement.date
-            binding.button.text = "Salvar"
-            binding.textNewMovement.text = "Editar Receita"
-        }
+        getMovement()
+        editRevenue()
     }
 
     private fun handleClick() {
@@ -52,6 +46,19 @@ class NewRevenueActivity : AppCompatActivity(),
         }
     }
 
+    private fun editRevenue(){
+        val selectedMovement = intent.getParcelableExtra<GetMovementModel>(Constants.TEXT.MOVEMENT)
+        if (selectedMovement != null) {
+            isEditing = true
+            binding.textRevenueValue.setText(selectedMovement.value.toString())
+            binding.edittextDescription.setText(selectedMovement.description)
+            binding.buttonDate.text = selectedMovement.date
+            binding.button.text = SAVE
+            binding.textNewMovement.text = EDIT_REVENUE
+        }
+
+    }
+
     override fun onDateSet(view: DatePicker, year: Int, month: Int, dayOfMonth: Int) {
         val calendar = Calendar.getInstance()
         calendar.set(year, month, dayOfMonth)
@@ -65,7 +72,7 @@ class NewRevenueActivity : AppCompatActivity(),
         val date = binding.buttonDate.text.toString()
 
         if (isEditing) {
-            val selectedMovement = intent.getParcelableExtra<GetMovementModel>("movement")
+            val selectedMovement = intent.getParcelableExtra<GetMovementModel>(Constants.TEXT.MOVEMENT)
             selectedMovement?.let {
                 it.id?.let { it1 ->
                     controller.updateMovement(it1,value, description,date, onSuccess = {
@@ -96,8 +103,8 @@ class NewRevenueActivity : AppCompatActivity(),
         }
     }
 
-    private fun getMovementFromIntent() {
-        val movement = intent.getParcelableExtra<GetMovementModel>("movement")
+    private fun getMovement() {
+        val movement = intent.getParcelableExtra<GetMovementModel>(Constants.TEXT.MOVEMENT)
         movement?.let {
             binding.textRevenueValue.setText(it.value.toString())
             binding.edittextDescription.setText(it.description)

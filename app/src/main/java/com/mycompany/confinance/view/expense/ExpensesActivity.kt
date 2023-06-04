@@ -7,14 +7,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mycompany.confinance.controller.ExpenseController
-import com.mycompany.confinance.controller.RevenueController
 import com.mycompany.confinance.databinding.ActivityExpensesBinding
 import com.mycompany.confinance.model.movement.GetMovementModel
+import com.mycompany.confinance.util.Constants
 import com.mycompany.confinance.view.OnMovementListener
 import com.mycompany.confinance.view.adapter.ExpenseAdapter
-import com.mycompany.confinance.view.adapter.RevenueAdapter
 import com.mycompany.confinance.view.main.InitialActivity
-import com.mycompany.confinance.view.revenue.NewRevenueActivity
 
 class ExpensesActivity : AppCompatActivity() {
 
@@ -22,21 +20,15 @@ class ExpensesActivity : AppCompatActivity() {
     private val controller = ExpenseController()
     private val adapter = ExpenseAdapter()
     private var listExpense: ArrayList<GetMovementModel> = arrayListOf()
-
+    private var isEditing = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityExpensesBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         handleClick()
         getMovement()
     }
-
-    override fun onResume() {
-        super.onResume()
-    }
-
 
     private fun handleClick() {
         binding.imageAddExpenses.setOnClickListener {
@@ -59,7 +51,7 @@ class ExpensesActivity : AppCompatActivity() {
             })
     }
 
-    private fun updateMovements(id: Long) {
+    private fun updateMovement(id: Long) {
         var position = 0
         var movement: GetMovementModel? = null
         for (i in 0 until listExpense.size) {
@@ -75,20 +67,26 @@ class ExpensesActivity : AppCompatActivity() {
     private fun handleMovement() {
         val listener = object : OnMovementListener {
             override fun onClick(id: Long) {
-                Toast.makeText(applicationContext, "clicooouu", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this@ExpensesActivity, NewExpenseActivity::class.java)
+                val selectedMovement = listExpense.firstOrNull { it.id == id }
+                selectedMovement?.let {
+                    isEditing = true
+                    intent.putExtra(Constants.TEXT.MOVEMENT, it)
+                    startActivity(intent)
+                    finish()
+                }
             }
 
             override fun onDelete(id: Long) {
-                controller.deleteMovementById(id, result = { message, status ->
+                controller.deleteMovementById(id) { message, status ->
                     if (status) {
                         Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
-                        updateMovements(id)
+                        updateMovement(id)
                     } else {
                         Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
                     }
-                })
+                }
             }
-
         }
         adapter.movementClick(listener)
     }
@@ -97,9 +95,9 @@ class ExpensesActivity : AppCompatActivity() {
         binding.imageView.visibility = View.GONE
         binding.textExpenses.visibility = View.GONE
         binding.textInformative.visibility = View.GONE
+
         binding.recyclerAllExpenses.layoutManager = LinearLayoutManager(applicationContext)
         binding.recyclerAllExpenses.adapter = adapter
-
         adapter.updateExpense(listExpense)
         handleMovement()
     }

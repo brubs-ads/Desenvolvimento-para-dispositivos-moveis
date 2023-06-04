@@ -3,12 +3,14 @@ package com.mycompany.confinance.view.objective
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.SyncStateContract.Constants
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mycompany.confinance.controller.ObjectiveController
 import com.mycompany.confinance.databinding.ActivityObjectiveBinding
 import com.mycompany.confinance.model.objective.ObjectiveModel
+import com.mycompany.confinance.util.Constants.TEXT.OBJECTIVE
 import com.mycompany.confinance.view.OnMovementListener
 import com.mycompany.confinance.view.adapter.ObjectiveAdapter
 import com.mycompany.confinance.view.main.InitialActivity
@@ -72,8 +74,8 @@ class ObjectiveActivity : AppCompatActivity() {
                 val intent = Intent(this@ObjectiveActivity, CreateObjectiveActivity::class.java)
                 val selectedObjective = listObjective.firstOrNull { it.id == id }
                 selectedObjective?.let {
-                    isEditing = true // Indica que está editando o objetivo
-                    intent.putExtra("objective", it)
+                    isEditing = true
+                    intent.putExtra(OBJECTIVE, it)
                     startActivity(intent)
                     finish()
                 }
