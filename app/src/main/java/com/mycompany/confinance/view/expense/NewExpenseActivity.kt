@@ -23,7 +23,7 @@ class NewExpenseActivity : AppCompatActivity(),  DatePickerDialog.OnDateSetListe
     private val controller = NewExpenseController()
     private var isEditing = false
     @SuppressLint("SimpleDateFormat")
-    private val dateformat = SimpleDateFormat("yyyy-MM-dd")
+    private val dateformat = SimpleDateFormat("dd/MM/yyyy")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -22,7 +22,7 @@ class NewRevenueActivity : AppCompatActivity(),
     private val controller = NewRevenueController()
     private var isEditing = false
     @SuppressLint("SimpleDateFormat")
-    private val dateformat = SimpleDateFormat("yyyy-MM-dd")
+    private val dateformat = SimpleDateFormat("dd/MM/yyyy")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

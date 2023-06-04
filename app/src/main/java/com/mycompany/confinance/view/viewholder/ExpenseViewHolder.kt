@@ -16,7 +16,15 @@ class ExpenseViewHolder(
         bind.textValue.text = "$ ${movement.value}"
 
         bind.viewRecycler.setOnClickListener {
-            listener.onClick(movement.id!!)
+            AlertDialog.Builder(itemView.context)
+                .setTitle("Edição da movimentação")
+                .setMessage("Você deseja editar a movimentação?")
+                .setPositiveButton("Sim") { dialog, which ->
+                    listener.onClick(movement.id!!)
+                }
+                .setNegativeButton("Cancelar",null)
+                .create()
+                .show()
         }
         bind.viewRecycler.setOnLongClickListener {
             AlertDialog.Builder(itemView.context)
