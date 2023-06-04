@@ -79,8 +79,8 @@ class NewRevenueActivity : AppCompatActivity(),
                         Toast.makeText(this, "Atualizado com sucesso.", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this, RevenuesActivity::class.java))
                         finish()
-                    }, onFailure = {
-                        Toast.makeText(baseContext, "Atualizado com sucesso.", Toast.LENGTH_SHORT)
+                    }, onFailure = {message ->
+                        Toast.makeText(this, message, Toast.LENGTH_SHORT)
                             .show()
 
                     })
