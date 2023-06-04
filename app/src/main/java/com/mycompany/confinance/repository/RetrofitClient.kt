@@ -14,7 +14,7 @@ class RetrofitClient private constructor() {
             if (!::INSTANCE.isInitialized) {
                 synchronized(RetrofitClient::class) {
                     INSTANCE =
-                        Retrofit.Builder().baseUrl(Constants.HTTP.URL.URL_JOAO).client(http)
+                        Retrofit.Builder().baseUrl(Constants.HTTP.URL.URL_LUCAS).client(http)
                             .addConverterFactory(GsonConverterFactory.create()).build()
                 }
             }

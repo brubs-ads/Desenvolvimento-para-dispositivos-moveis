@@ -21,7 +21,8 @@ class CreateObjectiveActivity : AppCompatActivity(), DatePickerDialog.OnDateSetL
     private val controller = CreateObjectiveController()
     private var isEditing = false
     @SuppressLint("SimpleDateFormat")
-    private val dateFormat = SimpleDateFormat("yyyy-MM-dd")
+    private var dateFormat = SimpleDateFormat("dd/MM/yyyy")
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +30,11 @@ class CreateObjectiveActivity : AppCompatActivity(), DatePickerDialog.OnDateSetL
         setContentView(binding.root)
         handleClick()
         getObjectiveFromIntent()
+        editObjective()
 
+    }
+
+    private fun editObjective(){
         val selectedObjective = intent.getParcelableExtra<ObjectiveModel>(OBJECTIVE)
         if (selectedObjective != null) {
             isEditing = true
@@ -41,12 +46,13 @@ class CreateObjectiveActivity : AppCompatActivity(), DatePickerDialog.OnDateSetL
         }
     }
 
-    override fun onDateSet(view: DatePicker, year: Int, month: Int, dayOfMonth: Int) {
+     override fun onDateSet(view: DatePicker, year: Int, month: Int, dayOfMonth: Int) {
         val calendar = Calendar.getInstance()
         calendar.set(year, month, dayOfMonth)
         val date = dateFormat.format(calendar.time)
         binding.buttonDate.text = date
     }
+
 
     private fun handleClick() {
         binding.button.setOnClickListener {
@@ -82,7 +88,7 @@ class CreateObjectiveActivity : AppCompatActivity(), DatePickerDialog.OnDateSetL
             }
         } else {
             controller.createObjective(name, value, date, onSuccess = {
-                Toast.makeText(this, "Adicionado com sucesso.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Objetivo Adicionado com sucesso.", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, ObjectiveActivity::class.java))
                 finish()
             }, onFailure = {
