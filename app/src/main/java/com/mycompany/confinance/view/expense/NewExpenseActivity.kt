@@ -14,6 +14,7 @@ import com.mycompany.confinance.util.Constants
 import com.mycompany.confinance.util.Constants.TEXT.EDIT_EXPENSE
 import com.mycompany.confinance.util.Constants.TEXT.SAVE
 import com.mycompany.confinance.view.main.InitialActivity
+import com.mycompany.confinance.view.revenue.RevenuesActivity
 import java.text.SimpleDateFormat
 import java.util.Calendar
 
@@ -42,7 +43,7 @@ class NewExpenseActivity : AppCompatActivity(),  DatePickerDialog.OnDateSetListe
             handleDate()
         }
         binding.imageFecharXExpense.setOnClickListener {
-            startActivity(Intent(this, InitialActivity::class.java))
+            startActivity(Intent(this, ExpensesActivity::class.java))
             finish()
         }
     }
