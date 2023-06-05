@@ -18,31 +18,6 @@ class MovementRepository {
 
     private val remote = RetrofitClient.getService(MovementService::class.java)
 
-
-    fun getMovementById(id: Long, listener: ApiListener<GetMovementModel>) {
-        val call = remote.getMovementById(id)
-        call.enqueue(object : Callback<GetMovementModel> {
-            override fun onResponse(
-                call: Call<GetMovementModel>, response: Response<GetMovementModel>
-            ) {
-                if (response.code() == HttpURLConnection.HTTP_OK) {
-                    response.body()?.let {
-                        listener.onSuccess(it)
-                    }
-                } else {
-                    val error = Gson().fromJson(
-                        response.errorBody()?.string(), MovementResponse::class.java
-                    )
-                    listener.onFailure(error.message)
-                }
-            }
-
-            override fun onFailure(call: Call<GetMovementModel>, t: Throwable) {
-                listener.onFailure("ERRO, ENTRA EM CONTATO COM O DESENVOLVEDOR")
-            }
-        })
-    }
-
     fun createMovement(
         type_movement: String,
         value: Double,
