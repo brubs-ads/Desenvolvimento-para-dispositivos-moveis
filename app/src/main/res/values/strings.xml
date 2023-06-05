@@ -15,11 +15,7 @@
     <string name="terms_of_Use">Termos de uso</string>
     <string name="privacy_policies">políticas de privacidade</string>
     <string name="about_us">Sobre Nós</string>
-    <string name="about_the_company">Bem-vindo ao nosso aplicativo de anotações financeiras! Nós acreditamos que a gestão financeira é uma parte crucial da vida moderna e que todo mundo deveria ter acesso a ferramentas  eficazes para controlar suas finanças pessoais.É por isso que  criamos este aplicativo simples e fácil de usar.
-        Nosso aplicativo permite que você registre facilmente suas  despesas e créditos diários, permitindo que você monitore o seu dinheiro e mantenha o controle de seus gastos. Ao registrar suas transações, você terá uma visão clara de suas finanças, o que o ajudará a tomar melhores decisões financeiras no futuro.
-        O aplicativo também realiza cálculos automaticamente, permitindo que você saiba exatamente quanto dinheiro você tem disponível para gastar em cada mês. E para ajudar ainda mais, fornecemos  gráficos e relatórios detalhados para que você possa ver  exatamente onde está gastando o seu dinheiro e onde pode  reduzir suas despesas.
-        Nós entendemos que a gestão financeira pode ser desafiadora,  mas nosso objetivo é torná-la o mais fácil possível para você. Se  você tiver alguma dúvida ou precisar de ajuda, nossa equipe de  suporte está sempre à disposição para ajudá-lo.
-        Obrigado por escolher nosso aplicativo para ajudá-lo a alcançar seus objetivos financeiros. Estamos ansiosos para acompanhá-lo em sua jornada de controle financeiro.</string>
+    <string name="about_the_company">Bem-vindo ao nosso aplicativo de anotações financeiras! Acreditamos na importância da gestão financeira e criamos um aplicativo simples e fácil de usar. Com ele, você pode registrar suas despesas e créditos diários, ter uma visão clara de suas finanças e tomar melhores decisões financeiras. O aplicativo realiza cálculos automáticos, fornece gráficos e relatórios detalhados, e nossa equipe de suporte está pronta para ajudar. Obrigado por escolher nosso aplicativo e estamos ansiosos para acompanhá-lo em sua jornada de controle financeiro.</string>
     <string name="info">Acesse sua conta para começar a organizar suas finanças!</string>
 
 
@@ -43,17 +39,7 @@
     dos seus dados muito a sério. Nós nunca compartilharemos suas informações pessoais com
     terceiros sem sua permissão. No entanto, não podemos garantir a
     segurança completa dos dados transmitidos pela Internet.</string>
-    <string name="Changes_to_the_terms_of_use">Alterações nos Termos de Uso</string>
-    <string name="text_about_terms_of_use_part_six">O Confinance se reserva o direito de modificar ou
-    atualizar estes termos de uso a qualquer momento, sem aviso prévio. É sua responsabilidade
-    verificar periodicamente os termos de uso e estar ciente de quaisquer alterações feitas.</string>
-    <string name="account_closure">Encerramento da Conta</string>
-    <string name="text_about_terms_of_use_part_seven">Você pode encerrar sua conta a qualquer momento.
-    Se você encerrar sua conta, o Confinance irá excluir todos os seus dados e informações
-    associadas a ela.</string>
-    <string name="text_about_terms_of_use_part_eight">Ao criar uma conta no Confinance, você concorda
-    com estes termos de uso e com a política de privacidade do aplicativo. Se tiver alguma dúvida,
-    entre em contato conosco através do e-mail suporte@confinance.com. Obrigado por usar o Confinance!</string>
+
 
 
     <string name="text_about_privacy_polices_part_one">A política de privacidade é um documento essencial para qualquer aplicativo que colete informações de seus usuários. No caso do Confiance, um aplicativo que coleta informações sensíveis, como nome, email, senha, despesas e receitas do mês do usuário, é ainda mais importante garantir a segurança e a privacidade dos dados coletados.</string>
@@ -61,7 +47,6 @@
     <string name="Text_about_privacy_tree">O Confiance coleta informações do usuário com o objetivo de fornecer um serviço personalizado e eficiente. As informações coletadas são utilizadas para calcular os gastos do mês do usuário e fornecer dicas e sugestões para ajudá-lo a economizar dinheiro. O aplicativo também pode utilizar as informações coletadas para melhorar seus serviços e produtos, além de enviar comunicações sobre promoções, atualizações e novidades relacionadas ao Confiance.</string>
     <string name="Text_about_privacy_four">É importante ressaltar que o Confiance não compartilha as informações coletadas com terceiros sem o consentimento prévio do usuário, exceto quando necessário para atender a exigências legais ou regulatórias. O aplicativo também não vende, aluga ou troca informações pessoais dos usuários.</string>
     <string name="Text_about_privacy_five">Caso o usuário deseje, é possível optar por não fornecer algumas informações, como nome, email e senha. No entanto, algumas funcionalidades do aplicativo podem ser limitadas sem esses dados. Além disso, é possível solicitar a exclusão das informações coletadas a qualquer momento, basta entrar em contato com o suporte do aplicativo.</string>
-    <string name="Text_about_privacy_six">Em resumo, a política de privacidade do Confiance garante a segurança e a privacidade das informações dos usuários. O aplicativo utiliza medidas de segurança para proteger as informações coletadas e não compartilha esses dados com terceiros sem o consentimento prévio do usuário. A transparência e o comprometimento com a privacidade dos usuários são valores fundamentais do Confiance.</string>
     <string name="welcome_back">Bem vindo de volta!</string>
     <string name="access_your_account">Acesse sua conta para começar a organizar suas finanças</string>
     <string name="to_enter">Entrar</string>

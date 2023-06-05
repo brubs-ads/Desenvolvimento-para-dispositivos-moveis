@@ -39,151 +39,124 @@
         app:layout_constraintStart_toEndOf="@id/image_arrow_back_terms_of_use"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_terms_of_use"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/terms_of_Use"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view"
-        >
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        app:layout_constraintTop_toBottomOf="@id/view" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/terms_of_Use"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:gravity="start"
-                android:padding="8dp"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/text_about_terms_of_use_part_one"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_terms_of_use" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_about_terms_of_use_part_one"
-                android:gravity="start"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/accepted_terms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/accepted_the_terms_of_use"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_welcome" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/accepted_the_terms_of_use"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:gravity="start"
-                android:padding="8dp"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_accepted_terms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/text_about_terms_of_use_part_two"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/accepted_terms" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_about_terms_of_use_part_two"
-                android:gravity="start"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/text_information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:padding="8dp"
+        android:text="@string/information_terms_of_use"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/text_accepted_terms" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/information_terms_of_use"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:gravity="start"
-                android:padding="8dp"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_create_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/text_about_terms_of_use_part_tree"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_information" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_about_terms_of_use_part_tree"
-                android:gravity="start"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:padding="8dp"
+        android:text="@string/Use_of_service"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_create_account" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Use_of_service"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:gravity="start"
-                android:padding="8dp"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_user_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/text_about_terms_of_use_part_four"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_service" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_about_terms_of_use_part_four"
-                android:gravity="start"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_privacy_polices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:padding="8dp"
+        android:text="@string/privacy_service"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_user_service" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/privacy_service"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:gravity="start"
-                android:padding="8dp"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/text_about_terms_of_use_part_five"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_privacy_polices" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_about_terms_of_use_part_five"
-                android:gravity="start"/>
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Changes_to_the_terms_of_use"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:gravity="start"
-                android:padding="8dp"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_about_terms_of_use_part_six"
-                android:gravity="start"/>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/account_closure"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:gravity="start"
-                android:padding="8dp"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_about_terms_of_use_part_seven"
-                android:gravity="start"/>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_about_terms_of_use_part_eight"
-                android:gravity="start"/>
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

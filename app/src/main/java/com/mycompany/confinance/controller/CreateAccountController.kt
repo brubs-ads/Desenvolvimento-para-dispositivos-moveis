@@ -15,7 +15,6 @@ class CreateAccountController {
             repository.createAccount(name,email,password, object : ApiListener<UserModel>{
                 override fun onSuccess(result: UserModel) {
                     Session.userId = result.id
-                    Session.userName = result.name
                     onSuccess.invoke()
                 }
                 override fun onFailure(message: String) {

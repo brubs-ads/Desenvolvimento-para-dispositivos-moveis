@@ -70,7 +70,7 @@
         android:padding="8dp"
         android:gravity="center"
         android:textColor="@color/black"
-        android:textSize="14sp"
+        android:textSize="18sp"
         tools:ignore="VisualLintLongText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

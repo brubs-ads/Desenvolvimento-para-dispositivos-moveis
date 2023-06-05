@@ -78,7 +78,6 @@ class UserRepository {
                 if (response.code() == HttpURLConnection.HTTP_OK) {
                     response.body()?.let {
                         listener.onSuccess(it)
-                        Session.userName = it.name
                     }
                 } else {
                     val error = Gson().fromJson(response.errorBody()?.string(), ResponseUserModel::class.java)

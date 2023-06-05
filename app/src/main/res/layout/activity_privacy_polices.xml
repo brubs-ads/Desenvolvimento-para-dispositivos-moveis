@@ -39,19 +39,6 @@
         app:layout_constraintStart_toEndOf="@id/image_arrow_back_privacy_polices"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view"
-        android:paddingBottom="64dp">
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_one"
@@ -59,7 +46,10 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/text_about_privacy_polices_part_one"
-                tools:ignore="VisualLintLongText" />
+                tools:ignore="VisualLintLongText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_two"
@@ -67,7 +57,10 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/text_about_privacy_polices_part_two"
-                tools:ignore="VisualLintLongText" />
+                tools:ignore="VisualLintLongText"
+                app:layout_constraintTop_toBottomOf="@id/text_one"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_tree"
@@ -75,7 +68,10 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/Text_about_privacy_tree"
-                tools:ignore="VisualLintLongText" />
+                tools:ignore="VisualLintLongText"
+                app:layout_constraintTop_toBottomOf="@id/text_two"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_four"
@@ -83,7 +79,10 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/Text_about_privacy_four"
-                tools:ignore="VisualLintLongText" />
+                tools:ignore="VisualLintLongText"
+                app:layout_constraintTop_toBottomOf="@id/text_tree"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_five"
@@ -91,19 +90,12 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/Text_about_privacy_five"
-                tools:ignore="VisualLintLongText" />
+                tools:ignore="VisualLintLongText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_four"/>
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_six"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/Text_about_privacy_six"
-                tools:ignore="VisualLintLongText" />
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
