@@ -80,8 +80,8 @@ class CreateObjectiveActivity : AppCompatActivity(), DatePickerDialog.OnDateSetL
                         Toast.makeText(this, "Atualizado com sucesso.", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this, ObjectiveActivity::class.java))
                         finish()
-                    }, onFailure = {
-                        Toast.makeText(baseContext, "Atualizado com sucesso.", Toast.LENGTH_SHORT).show()
+                    }, onFailure = { message ->
+                        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 
                     })
                 }
@@ -91,8 +91,8 @@ class CreateObjectiveActivity : AppCompatActivity(), DatePickerDialog.OnDateSetL
                 Toast.makeText(this, "Objetivo Adicionado com sucesso.", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, ObjectiveActivity::class.java))
                 finish()
-            }, onFailure = {
-                Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+            }, onFailure = {message ->
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
             })
         }
     }

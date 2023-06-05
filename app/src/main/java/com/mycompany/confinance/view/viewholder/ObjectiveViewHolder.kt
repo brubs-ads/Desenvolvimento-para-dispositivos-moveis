@@ -15,8 +15,16 @@ class ObjectiveViewHolder(
         binding.textValue.text = "R$ ${objective.value}"
         binding.textInformation.text = "${objective.name} - ${objective.date}"
 
-        binding.viewRecycler.setOnClickListener{
-            listener.onClick(objective.id!!)
+        binding.viewRecycler.setOnClickListener {
+            AlertDialog.Builder(itemView.context)
+                .setTitle("Edição do objetivo")
+                .setMessage("Você deseja editar o objetivo?")
+                .setPositiveButton("Sim") { dialog, which ->
+                    listener.onClick(objective.id!!)
+                }
+                .setNegativeButton("Cancelar",null)
+                .create()
+                .show()
         }
         binding.viewRecycler.setOnLongClickListener {
             AlertDialog.Builder(itemView.context)
