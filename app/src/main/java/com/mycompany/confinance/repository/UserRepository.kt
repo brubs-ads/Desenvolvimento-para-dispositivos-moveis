@@ -1,12 +1,12 @@
 package com.mycompany.confinance.repository
 
 import com.google.gson.Gson
-import com.mycompany.confinance.model.user.CreateUserModel
-import com.mycompany.confinance.model.user.GetUserModel
+import com.mycompany.confinance.model.user.UserModel
 import com.mycompany.confinance.model.user.LoginUser
 import com.mycompany.confinance.model.user.ResponseUserModel
 import com.mycompany.confinance.repository.listener.ApiListener
 import com.mycompany.confinance.repository.service.UserService
+import com.mycompany.confinance.util.Session
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -46,13 +46,13 @@ class UserRepository {
         name: String,
         email: String,
         password: String,
-        listener: ApiListener<CreateUserModel>
+        listener: ApiListener<UserModel>
     ) {
-        val user = CreateUserModel(0, name, email, password)
+        val user = UserModel(0, name, email, password)
         val call = remote.create(user)
-        call.enqueue(object : Callback<CreateUserModel> {
+        call.enqueue(object : Callback<UserModel> {
             override fun onResponse(
-                call: Call<CreateUserModel>, response: Response<CreateUserModel>
+                call: Call<UserModel>, response: Response<UserModel>
             ) {
                 if (response.code() == HttpURLConnection.HTTP_CREATED) {
                     response.body()?.let {
@@ -64,20 +64,21 @@ class UserRepository {
                 }
             }
 
-            override fun onFailure(call: Call<CreateUserModel>, t: Throwable) {
+            override fun onFailure(call: Call<UserModel>, t: Throwable) {
                 listener.onFailure("ERRO, ENTRA EM CONTATO COM O DESENVOLVEDOR")
             }
 
         })
     }
 
-    fun getUserById(id: Long, listener: ApiListener<GetUserModel>) {
+    fun getUserById(id: Long, listener: ApiListener<UserModel>) {
         val user = remote.getUserById(id)
-        user.enqueue(object : Callback<GetUserModel> {
-            override fun onResponse(call: Call<GetUserModel>, response: Response<GetUserModel>) {
+        user.enqueue(object : Callback<UserModel> {
+            override fun onResponse(call: Call<UserModel>, response: Response<UserModel>) {
                 if (response.code() == HttpURLConnection.HTTP_OK) {
                     response.body()?.let {
                         listener.onSuccess(it)
+                        Session.userName = it.name
                     }
                 } else {
                     val error = Gson().fromJson(response.errorBody()?.string(), ResponseUserModel::class.java)
@@ -85,7 +86,7 @@ class UserRepository {
                 }
             }
 
-            override fun onFailure(call: Call<GetUserModel>, t: Throwable) {
+            override fun onFailure(call: Call<UserModel>, t: Throwable) {
                 listener.onFailure("ERRO, ENTRA EM CONTATO COM O DESENVOLVEDOR")
             }
         })

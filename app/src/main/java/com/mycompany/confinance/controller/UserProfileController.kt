@@ -1,7 +1,7 @@
 package com.mycompany.confinance.controller
 
-import com.mycompany.confinance.model.user.GetUserModel
 import com.mycompany.confinance.model.user.ResponseUserModel
+import com.mycompany.confinance.model.user.UserModel
 import com.mycompany.confinance.repository.UserRepository
 import com.mycompany.confinance.repository.listener.ApiListener
 import com.mycompany.confinance.util.Session
@@ -11,8 +11,8 @@ import java.net.HttpURLConnection
 class UserProfileController {
     private var userRepository = UserRepository()
     fun getUser(onSuccess: (name: String, email: String) -> Unit,onFailure: (message: String) -> Unit){
-        userRepository.getUserById(id= Session.userId!!, object : ApiListener<GetUserModel>{
-            override fun onSuccess(result: GetUserModel) {
+        userRepository.getUserById(id= Session.userId!!, object : ApiListener<UserModel>{
+            override fun onSuccess(result: UserModel) {
                 onSuccess.invoke(result.name, result.email)
             }
 

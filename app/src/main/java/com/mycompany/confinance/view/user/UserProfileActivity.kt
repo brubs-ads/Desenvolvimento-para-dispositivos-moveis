@@ -39,8 +39,8 @@ class UserProfileActivity : AppCompatActivity() {
 
     private fun handleUser() {
         controller.getUser(onSuccess = { name, email ->
-            binding.edittextName.setText(name)
-            binding.edittextEmail.setText(email)
+            binding.textName.text = name
+            binding.textEmail.text = email
         }, onFailure = {message ->
             Toast.makeText(this,message,Toast.LENGTH_LONG).show()
         })

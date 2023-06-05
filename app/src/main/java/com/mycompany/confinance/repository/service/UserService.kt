@@ -1,7 +1,6 @@
 package com.mycompany.confinance.repository.service
 
-import com.mycompany.confinance.model.user.CreateUserModel
-import com.mycompany.confinance.model.user.GetUserModel
+import com.mycompany.confinance.model.user.UserModel
 import com.mycompany.confinance.model.user.LoginUser
 import com.mycompany.confinance.model.user.ResponseUserModel
 import com.mycompany.confinance.util.Constants
@@ -21,13 +20,13 @@ interface UserService {
 
     @POST(Constants.HTTP.URL.URL_CREATE_USER)
     fun create(
-        @Body user: CreateUserModel
-    ): Call<CreateUserModel>
+        @Body user: UserModel
+    ): Call<UserModel>
 
     @GET(Constants.HTTP.URL.URL_RETURN_USER)
     fun getUserById(
         @Path("id") id: Long
-    ): Call<GetUserModel>
+    ): Call<UserModel>
 
     @DELETE(Constants.HTTP.URL.URL_DELETE_USER)
     fun deleteUser(

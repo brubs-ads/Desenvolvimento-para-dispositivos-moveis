@@ -28,7 +28,7 @@
 
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_name_app"
+        android:id="@+id/text_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"

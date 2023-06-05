@@ -5,8 +5,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mycompany.confinance.databinding.ActivityMenuBinding
 import com.mycompany.confinance.util.Constants
+import com.mycompany.confinance.util.Session
 import com.mycompany.confinance.view.company.AboutUsActivity
-import com.mycompany.confinance.view.company.PrivacyPolicesActivity
 import com.mycompany.confinance.view.company.TermsOfUseActivity
 import com.mycompany.confinance.view.expense.ExpensesActivity
 import com.mycompany.confinance.view.objective.ObjectiveActivity
@@ -22,6 +22,8 @@ class MenuActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         handleClick()
+        handleNameUser()
+
     }
 
     private fun handleClick() {
@@ -61,6 +63,10 @@ class MenuActivity : AppCompatActivity() {
             startActivity(Intent(this, UserProfileActivity::class.java))
             finish()
         }
+    }
+
+    private fun handleNameUser(){
+        binding.textName.text = Session.userName
     }
 }
 

@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class CreateUserModel(
+data class UserModel(
     var id: Long? = null,
     val name:String,
     val email:String,
