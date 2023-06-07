@@ -1,12 +1,11 @@
 package com.mycompany.confinance.repository
 
 import com.google.gson.Gson
-import com.mycompany.confinance.model.user.UserModel
 import com.mycompany.confinance.model.user.LoginUser
 import com.mycompany.confinance.model.user.ResponseUserModel
+import com.mycompany.confinance.model.user.UserModel
 import com.mycompany.confinance.repository.listener.ApiListener
 import com.mycompany.confinance.repository.service.UserService
-import com.mycompany.confinance.util.Session
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,10 +28,8 @@ class UserRepository {
                         listener.onSuccess(it)
                     }
                 } else {
-                    response.let {
                         val error = Gson().fromJson(response.errorBody()?.string(), ResponseUserModel::class.java)
                         listener.onFailure(error.message + " Code: ${error.status} ")
-                    }
                 }
             }
 
