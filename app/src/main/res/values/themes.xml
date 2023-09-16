@@ -16,5 +16,15 @@
 
     <style name="Theme.Confinance.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="BoldTextTermsOfUseAndPrivacy">
+        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 
+    <style name="ContentTextTermsOfUseAndPrivacy">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/black_opacity_50</item>
+    </style>
 </resources>

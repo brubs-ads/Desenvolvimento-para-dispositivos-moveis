@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activity.TermsOfUseActivity">
+    tools:context=".view.activity.PrivacyActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:fontFamily="@font/poppins_semibold"
-                android:text="@string/terms_of_use"
+                android:text="políticas De Privacidade"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
         </androidx.appcompat.widget.Toolbar>
@@ -38,148 +38,139 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/appBarLayout">
-        
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_importance_of_privacy_policy"
+                style="@style/BoldTextTermsOfUseAndPrivacy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/BoldTextTermsOfUseAndPrivacy"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="8dp"
-                android:text="@string/acceptance_of_terms_of_use" />
+                android:text="@string/importance_of_privacy_policy" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_Definition_of_privacy_policy"
+                style="@style/ContentTextTermsOfUseAndPrivacy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/ContentTextTermsOfUseAndPrivacy"
                 android:layout_below="@id/text_importance_of_privacy_policy"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:padding="2dp"
-                android:text="@string/acceptance_of_terms_of_use_item" />
+                android:text="@string/Definition_of_privacy_policy" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_Commitment_to_Privacy"
+                style="@style/BoldTextTermsOfUseAndPrivacy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/BoldTextTermsOfUseAndPrivacy"
                 android:layout_below="@id/text_Definition_of_privacy_policy"
                 android:layout_alignStart="@id/text_importance_of_privacy_policy"
                 android:layout_alignEnd="@id/text_importance_of_privacy_policy"
-                android:layout_marginTop="10dp"
-                android:text="@string/information_account"
-
-                />
+                android:layout_marginTop="8dp"
+                android:text="@string/Commitment_to_Privacy" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_important_to_make_clear"
+                style="@style/ContentTextTermsOfUseAndPrivacy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/ContentTextTermsOfUseAndPrivacy"
                 android:layout_below="@id/text_Commitment_to_Privacy"
                 android:layout_alignStart="@id/text_Definition_of_privacy_policy"
                 android:layout_alignEnd="@id/text_Definition_of_privacy_policy"
                 android:layout_marginTop="8dp"
                 android:padding="2dp"
-                android:text="@string/information_account_item" />
+                android:text="@string/important_to_make_clear" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_Use_of_User_Information"
+                style="@style/BoldTextTermsOfUseAndPrivacy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/BoldTextTermsOfUseAndPrivacy"
                 android:layout_below="@id/text_important_to_make_clear"
                 android:layout_alignStart="@id/text_importance_of_privacy_policy"
                 android:layout_alignEnd="@id/text_importance_of_privacy_policy"
                 android:layout_marginTop="10dp"
-                android:text="@string/use_service"
+                android:text="@string/Use_of_User_Information"
 
                 />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_Confiance_collects_user_information"
+                style="@style/ContentTextTermsOfUseAndPrivacy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/ContentTextTermsOfUseAndPrivacy"
                 android:layout_below="@id/text_Use_of_User_Information"
                 android:layout_alignStart="@id/text_important_to_make_clear"
                 android:layout_alignEnd="@id/text_important_to_make_clear"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="6dp"
                 android:padding="2dp"
-                android:text="@string/use_service_item" />
+                android:text="@string/Confiance_collects_user_information" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_Confidentiality_and_NonSharing"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/BoldTextTermsOfUseAndPrivacy"
+                android:layout_width="wrap_content"
+                android:layout_height="19dp"
                 android:layout_below="@id/text_Confiance_collects_user_information"
                 android:layout_alignStart="@id/text_importance_of_privacy_policy"
-                android:layout_alignEnd="@id/text_importance_of_privacy_policy"
                 android:layout_marginTop="10dp"
-                android:text="@string/privacy_security"
-
-                />
+                android:text="@string/Confidentiality_and_NonSharing" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_important_to_highlight"
+                style="@style/ContentTextTermsOfUseAndPrivacy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/ContentTextTermsOfUseAndPrivacy"
                 android:layout_below="@id/text_Confidentiality_and_NonSharing"
                 android:layout_alignStart="@id/text_Confiance_collects_user_information"
                 android:layout_alignEnd="@id/text_Confiance_collects_user_information"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="6dp"
                 android:padding="2dp"
-                android:text="@string/privacy_security_item" />
+                android:text="@string/important_to_highlight" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_Do_not_provide_information"
+                style="@style/BoldTextTermsOfUseAndPrivacy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/BoldTextTermsOfUseAndPrivacy"
                 android:layout_below="@id/text_important_to_highlight"
                 android:layout_alignStart="@id/text_importance_of_privacy_policy"
-                android:layout_alignEnd="@id/text_importance_of_privacy_policy"
                 android:layout_marginTop="12dp"
-                android:text="@string/finish_account"
+                android:text="@string/Do_not_provide_information"
 
                 />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_If_the_user_wishes"
+                style="@style/ContentTextTermsOfUseAndPrivacy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/ContentTextTermsOfUseAndPrivacy"
                 android:layout_below="@id/text_Do_not_provide_information"
                 android:layout_alignStart="@id/text_important_to_highlight"
                 android:layout_alignEnd="@id/text_important_to_highlight"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="6dp"
                 android:padding="2dp"
-                android:text="@string/finish_account_item"
-
-                />
+                android:text="@string/If_the_user_wishes" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                style="@style/BoldTextTermsOfUseAndPrivacy"
-                android:layout_width="246dp"
-                android:layout_height="21dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/text_If_the_user_wishes"
-                android:layout_alignStart="@id/text_importance_of_privacy_policy"
-                android:layout_alignEnd="@id/text_importance_of_privacy_policy"
-                android:layout_marginTop="-20dp"
-                android:layout_marginEnd="-59dp"
-                android:text="@string/tank_you" />
+                android:layout_alignStart="@id/text_If_the_user_wishes"
+                android:layout_alignEnd="@id/text_If_the_user_wishes"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/We_value_trust"
+                android:textColor="@color/black_opacity_80" />
 
         </RelativeLayout>
-        
-    </androidx.core.widget.NestedScrollView>
 
+    </androidx.core.widget.NestedScrollView>
 
 </RelativeLayout>

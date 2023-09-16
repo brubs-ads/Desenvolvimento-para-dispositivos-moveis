@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -14,56 +15,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Confinance"
-        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".view.user.UserProfileActivity"
+            android:name=".view.activity.PrivacyActivity"
             android:exported="false" />
         <activity
-            android:name=".view.objective.CreateObjectiveActivity"
+            android:name=".view.activity.TermsOfUseActivity"
             android:exported="false" />
         <activity
-            android:name=".view.expense.NewExpenseActivity"
+            android:name=".view.activity.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".view.objective.ObjectiveActivity"
+            android:name=".view.activity.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".view.main.MenuActivity"
+            android:name=".view.activity.CreateAccountActivity"
             android:exported="false" />
         <activity
-            android:name=".view.company.PrivacyPolicesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.company.TermsOfUseActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.user.CreateAccountActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.company.AboutUsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.user.LoginActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".view.revenue.RevenuesActivity"
-            android:exported="false"/>
-
-        <activity
-            android:name=".view.revenue.NewRevenueActivity"
-            android:exported="false"/>
-
-        <activity
-            android:name=".view.expense.ExpensesActivity"
-            android:exported="false"/>
-
-        <activity android:name=".view.main.InitialActivity"
-            android:exported="false"/>
-
-        <activity
-            android:name=".MainActivity"
+            android:name=".view.activity.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -71,6 +40,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
