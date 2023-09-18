@@ -42,5 +42,10 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.editPasswordLogin.text.toString()
             viewModel.login(email = email, password = password)
         }
+
+        binding.textForgotPassword.setOnClickListener {
+            startActivity(Intent(applicationContext,ForgotPasswordActivity::class.java))
+            finish()
+        }
     }
 }

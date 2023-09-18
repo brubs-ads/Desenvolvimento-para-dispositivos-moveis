@@ -65,4 +65,11 @@
     <string name="access_your_account">Acesse sua conta para começar a organizar suas finanças</string>
     <string name="forgot_password">Esqueceu a senha ?</string>
     <string name="login">Login</string>
+    <string name="recover_your_password">Para recuperar a sua senha, informe seu endereço de e-mail que nós enviaremos um codigo para a alteração da senha.</string>
+    <string name="Continue">Continuar</string>
+    <string name="check_your_email">Por favor verifique o seu e-mail para mais instruções.</string>
+    <string name="enter_the_sent_code">Digite o Codigo Enviado</string>
+    <string name="resend_the_email_with_instructions">Para reenviar o e-mail com instruções para “------------------” em 28s.</string>
+    <string name="send_email_again">Enviar e-mail novamente</string>
+    <string name="Send_email">O E-mail foi enviado</string>
 </resources>
