@@ -1,4 +1,4 @@
-package com.mycompany.confinance.view.activity
+package com.mycompany.confinance.view.activity.user
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,7 +10,10 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityCreateAccountBinding
-import com.mycompany.confinance.viewmodel.CreateAccountViewModel
+import com.mycompany.confinance.view.activity.MainActivity
+import com.mycompany.confinance.view.company.PrivacyActivity
+import com.mycompany.confinance.view.company.TermsOfUseActivity
+import com.mycompany.confinance.viewmodel.user.CreateAccountViewModel
 
 class CreateAccountActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCreateAccountBinding

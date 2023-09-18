@@ -1,8 +1,7 @@
-package com.mycompany.confinance.view.activity
+package com.mycompany.confinance.view.activity.user
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityForgotPasswordBinding
 
 class ForgotPasswordActivity : AppCompatActivity() {

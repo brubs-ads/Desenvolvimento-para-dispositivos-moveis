@@ -1,11 +1,12 @@
-package com.mycompany.confinance.view.activity
+package com.mycompany.confinance.view.activity.user
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.mycompany.confinance.databinding.ActivityLoginBinding
-import com.mycompany.confinance.viewmodel.LoginViewModel
+import com.mycompany.confinance.view.activity.MainActivity
+import com.mycompany.confinance.viewmodel.user.LoginViewModel
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -44,7 +45,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.textForgotPassword.setOnClickListener {
-            startActivity(Intent(applicationContext,ForgotPasswordActivity::class.java))
+            startActivity(Intent(applicationContext, ForgotPasswordActivity::class.java))
             finish()
         }
     }

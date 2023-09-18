@@ -1,4 +1,4 @@
-package com.mycompany.confinance.view.activity
+package com.mycompany.confinance.view.company
 
 import android.graphics.fonts.FontFamily
 import android.os.Bundle

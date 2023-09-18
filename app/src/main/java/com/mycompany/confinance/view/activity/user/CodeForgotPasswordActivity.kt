@@ -1,4 +1,4 @@
-package com.mycompany.confinance.view.activity
+package com.mycompany.confinance.view.activity.user
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

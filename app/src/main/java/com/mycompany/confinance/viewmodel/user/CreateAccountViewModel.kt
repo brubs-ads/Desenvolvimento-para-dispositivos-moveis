@@ -1,4 +1,4 @@
-package com.mycompany.confinance.viewmodel
+package com.mycompany.confinance.viewmodel.user
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
