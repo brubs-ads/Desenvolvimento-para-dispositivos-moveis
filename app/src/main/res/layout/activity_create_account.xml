@@ -11,6 +11,7 @@
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:layout_marginTop="36dp"
+        app:srcCompat="@drawable/perfil_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,7 +33,7 @@
         android:id="@+id/text_important_to_make_clear"
         android:layout_width="204dp"
         android:layout_height="36dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:fontFamily="@font/roboto_medium"
         android:textSize="14sp"
@@ -53,11 +54,11 @@
         android:text="@string/what_your_name"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/edit_email"
+        app:layout_constraintBottom_toTopOf="@id/edit_name"
         app:layout_constraintTop_toBottomOf="@id/text_important_to_make_clear" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edit_email"
+        android:id="@+id/edit_name"
         android:layout_width="326dp"
         android:layout_height="56dp"
         android:layout_marginStart="16dp"
@@ -84,7 +85,7 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@id/edit_email_create_account"
         app:layout_constraintStart_toStartOf="@id/text_whats_your_name"
-        app:layout_constraintTop_toBottomOf="@id/edit_email" />
+        app:layout_constraintTop_toBottomOf="@id/edit_name" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edit_email_create_account"
@@ -97,8 +98,8 @@
         android:paddingStart="20dp"
         android:hint="@string/Type_your_email"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@id/edit_email"
-        app:layout_constraintStart_toStartOf="@id/edit_email"
+        app:layout_constraintEnd_toEndOf="@id/edit_name"
+        app:layout_constraintStart_toStartOf="@id/edit_name"
         app:layout_constraintTop_toBottomOf="@id/text_whats_your_email"
         tools:ignore="RtlSymmetry" />
 
@@ -130,10 +131,12 @@
         tools:ignore="RtlSymmetry,VisualLintTextFieldSize" />
     
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_eye"
         android:layout_width="18dp"
         android:layout_height="18dp"
         android:layout_margin="18dp"
-        android:src="@drawable/ic_launcher_background"
+        android:translationZ="1000dp"
+        android:src="@drawable/olho_aberto"
         app:layout_constraintEnd_toEndOf="@id/edit_Password_create_account"
         app:layout_constraintTop_toTopOf="@id/edit_Password_create_account"
         app:layout_constraintBottom_toBottomOf="@id/edit_Password_create_account"/>

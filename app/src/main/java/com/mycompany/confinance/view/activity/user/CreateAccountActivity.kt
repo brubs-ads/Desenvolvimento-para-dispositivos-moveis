@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.method.LinkMovementMethod
+import android.text.method.PasswordTransformationMethod
 import android.text.style.ClickableSpan
 import android.view.View
 import androidx.activity.viewModels
@@ -25,16 +26,12 @@ class CreateAccountActivity : AppCompatActivity() {
 
         handleCreateAccount()
         handleClick()
+        handleTerms()
         observe()
 
     }
 
-    private fun handleClick() {
-        binding.textHaveAccount.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
-        }
-
+    private fun handleTerms() {
         val spannableString = SpannableString(getString(R.string.you_agree_terms))
 
         val termsOfUseClickableSpan = object : ClickableSpan() {
@@ -68,6 +65,25 @@ class CreateAccountActivity : AppCompatActivity() {
         textView.text = spannableString
         textView.movementMethod = LinkMovementMethod.getInstance()
 
+    }
+
+    private fun handleClick() {
+        binding.textHaveAccount.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
+
+        binding.imageEye.setOnClickListener {
+            val edit = binding.editPasswordCreateAccount
+            if (edit.transformationMethod == PasswordTransformationMethod.getInstance()) {
+                edit.transformationMethod = null
+                binding.imageEye.setImageResource(R.drawable.olho_fechado)
+            } else {
+                edit.transformationMethod = PasswordTransformationMethod.getInstance()
+                binding.imageEye.setImageResource(R.drawable.olho_aberto)
+            }
+
+        }
     }
 
     private fun handleCreateAccount() {

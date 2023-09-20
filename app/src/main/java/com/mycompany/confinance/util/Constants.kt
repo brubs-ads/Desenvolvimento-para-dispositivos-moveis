@@ -2,23 +2,9 @@ package com.mycompany.confinance.util
 
 
 class Constants {
-    companion object REDIRECTION {
-        object KEY {
-            const val ACCOUNT: String = "Activity_Account"
-            const val LOGIN: String = "Activity_Login"
-            const val MENU: String = "Activity_Menu"
-        }
-
-        object VALUE {
-            const val ACCOUNT: Boolean = true
-            const val LOGIN: Boolean = true
-            const val MENU: Boolean = true
-        }
-    }
-
     object HTTP {
         object URL {
-            const val URL_SELTON: String = "http://192.168.13.104:8080/"
+            const val URL_SELTON: String = "http://192.168.13.107:8080/"
             const val URL_JOAO: String = "http://172.20.10.3:8080/"
             const val URL_LUCAS: String = "http://192.168.1.10:8080/"
             const val URL_THAMYRES: String = "http://192.168.1.15:8080/"
@@ -38,20 +24,4 @@ class Constants {
             const val URL_DELETE_OBJECTIVE: String = "objective/{id}"
         }
     }
-
-    object MOVEMENT{
-        const val REVENUE: String = "receita"
-        const val EXPENSE: String = "despesa"
-    }
-
-    object TEXT{
-        const val MOVEMENT : String = "movement"
-        const val OBJECTIVE : String = "objective"
-        const val SAVE : String = "Salvar"
-        const val EDIT_EXPENSE : String = "Editar Despesa"
-        const val EDIT_REVENUE: String = "Editar Receita"
-        const val EDIT_OBJECTIVE : String = "Editar Objetivo"
-
-    }
-
 }

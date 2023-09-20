@@ -10,5 +10,13 @@ class PrivacyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPrivacyBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        handleClick()
+    }
+
+    private fun handleClick() {
+        binding.imgBack.setOnClickListener {
+            finish()
+        }
     }
 }

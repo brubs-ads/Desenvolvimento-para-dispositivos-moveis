@@ -16,7 +16,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
     }
 
     private fun handleCredential() {
-        val email = binding.editEmail.text.toString()
+        val email = binding.editEmailForgot.text.toString()
 
 
     }

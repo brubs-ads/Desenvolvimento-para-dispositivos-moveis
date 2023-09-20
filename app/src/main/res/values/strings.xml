@@ -1,4 +1,4 @@
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<resources>
 
     <string name="app_name">Confinance</string>
     <string name="copyright">© 2023 Five Tech, inc.️️</string>
@@ -72,4 +72,7 @@
     <string name="resend_the_email_with_instructions">Para reenviar o e-mail com instruções para “------------------” em 28s.</string>
     <string name="send_email_again">Enviar e-mail novamente</string>
     <string name="Send_email">O E-mail foi enviado</string>
+    <string name="error_parameter">Parâmetros Incosistes, Verifique-os. A Senha Deve Conter pelo menos 6 Caracteres!</string>
+    <string name="error_no_connection">erro, sem conexão!</string>
+    <string name="error_generic">erro estamos verificando, breve estará no ar.</string>
 </resources>
