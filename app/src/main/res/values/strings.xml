@@ -75,4 +75,6 @@
     <string name="error_parameter">Parâmetros Incosistes, Verifique-os. A Senha Deve Conter pelo menos 6 Caracteres!</string>
     <string name="error_no_connection">erro, sem conexão!</string>
     <string name="error_generic">erro estamos verificando, breve estará no ar.</string>
+    <string name="no_connection">Sem Conexão!</string>
+    <string name="check_connection">Verifique sua conexão e tente novamente.</string>
 </resources>

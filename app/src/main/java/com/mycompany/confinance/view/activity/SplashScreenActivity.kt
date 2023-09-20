@@ -3,9 +3,14 @@ package com.mycompany.confinance.view.activity
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
+import android.os.Handler
+import android.os.Looper
+import android.view.LayoutInflater
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivitySplashScreenBinding
+import com.mycompany.confinance.databinding.CustomDialogNoConnectionBinding
 import com.mycompany.confinance.view.activity.user.CreateAccountActivity
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
@@ -19,6 +24,7 @@ import java.net.Socket
 @SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashScreenBinding
+    private lateinit var dialog: AlertDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,12 +49,22 @@ class SplashScreenActivity : AppCompatActivity() {
                     )
                     finish()
                 } else {
-                    binding.progressBar.visibility = View.GONE
-                    binding.cardInformation.visibility = View.VISIBLE
-                    binding.buttonCardInformation.setOnClickListener {
-                        binding.cardInformation.visibility = View.GONE
-                        checkInternetConnectivity()
+                    val build = AlertDialog.Builder(this@SplashScreenActivity, R.style.ThemeCustomDialog)
+                    val dialogBinding =
+                        CustomDialogNoConnectionBinding.inflate(
+                            LayoutInflater.from(this@SplashScreenActivity)
+                        )
+                    dialogBinding.buttonOk.setOnClickListener{
+                        dialog.dismiss()
+                        Handler(Looper.getMainLooper()).postDelayed({
+                            checkInternetConnectivity()
+                        },3000)
                     }
+
+                    build.setView(dialogBinding.root)
+                    dialog = build.create()
+                    dialog.show()
+
                 }
             }
         }
