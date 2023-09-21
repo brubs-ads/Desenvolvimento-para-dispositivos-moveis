@@ -12,7 +12,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.IOException
+import java.net.HttpURLConnection.HTTP_BAD_METHOD
 import java.net.HttpURLConnection.HTTP_OK
+import java.net.HttpURLConnection.HTTP_SERVER_ERROR
 
 class UserRepository(private val context: Context) {
 
@@ -29,15 +31,15 @@ class UserRepository(private val context: Context) {
                 } else {
                     val error =
                         Gson().fromJson(response.errorBody()?.string(), ResponseModel::class.java)
-                    listener.onFailure(error.message)
+                    listener.onFailure(context.getString(R.string.error_failure_login),error.status)
                 }
             }
 
             override fun onFailure(call: Call<ResponseModel>, t: Throwable) {
                 if (t is IOException) {
-                    listener.onFailure(context.getString(R.string.error_no_connection))
+                    listener.onFailure(context.getString(R.string.error_no_connection), 500)
                 } else {
-                    listener.onFailure(context.getString(R.string.error_generic))
+                    listener.onFailure(context.getString(R.string.error_generic), 500)
                 }
             }
 

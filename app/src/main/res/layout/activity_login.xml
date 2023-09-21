@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.activity.user.LoginActivity">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -67,7 +66,7 @@
         android:textColor="@color/gray"
         android:hint="@string/Type_your_email"
         android:textColorHint="@color/black_opacity_80"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:paddingStart="20dp"
         tools:ignore="RtlSymmetry" />
 
@@ -95,7 +94,7 @@
         android:hint="@string/Type_your_email"
         android:textColorHint="@color/black_opacity_80"
         android:inputType="textPassword"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:paddingStart="20dp"
         tools:ignore="RtlSymmetry"
         android:layout_below="@id/text_whats_your_password"/>

@@ -5,18 +5,20 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mycompany.confinance.R
+import android.content.Context
 import com.mycompany.confinance.model.ResponseModel
 import com.mycompany.confinance.repository.UserRepository
 import com.mycompany.confinance.request.ApiListener
+import com.mycompany.confinance.util.ResponseDialogCustom
 import java.net.HttpURLConnection.HTTP_OK
 
-class LoginViewModel(application: Application) : AndroidViewModel(application) {
+class LoginViewModel(private val application: Application) : AndroidViewModel(application) {
 
     private val repository = UserRepository(application)
     private var _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
-    private var _error = MutableLiveData<String>()
-    val error: LiveData<String> = _error
+    private var _error = MutableLiveData<ResponseDialogCustom>()
+    val error: LiveData<ResponseDialogCustom> = _error
 
     fun login(email: String?, password: String?) {
         if (email!!.matches(Regex("[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")) && password!!.length >= 6) {
@@ -30,20 +32,26 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
                             _isLoading.value = true
                         } else {
                             _isLoading.value = false
-                            _error.value = result.message
+                            _error.value = ResponseDialogCustom(result.message, result.status)
                         }
                     }
 
-                    override fun onFailure(message: String) {
+                    override fun onFailure(message: String, code: Int) {
                         _isLoading.value = false
-                        _error.value = message
+                        _error.value = ResponseDialogCustom(
+                            message
+                            ,code
+                        )
                     }
 
                 })
 
         } else {
             _isLoading.value = false
-            _error.value = R.string.error_parameter.toString()
+            _error.value = ResponseDialogCustom(
+                application.getString(R.string.error_parameters_login),
+                600
+            )
         }
     }
 }

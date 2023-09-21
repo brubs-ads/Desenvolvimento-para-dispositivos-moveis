@@ -2,18 +2,19 @@ package com.mycompany.confinance.view.activity.user
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.InputType
 import android.text.SpannableString
-import android.text.method.HideReturnsTransformationMethod
 import android.text.method.LinkMovementMethod
 import android.text.method.PasswordTransformationMethod
 import android.text.style.ClickableSpan
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityLoginBinding
+import com.mycompany.confinance.databinding.CustomDialogLoginAuthenticationBinding
+import com.mycompany.confinance.databinding.CustomDialogNoConnectionLoginCreateAccountBinding
 import com.mycompany.confinance.view.activity.MainActivity
 import com.mycompany.confinance.view.company.PrivacyActivity
 import com.mycompany.confinance.view.company.TermsOfUseActivity
@@ -21,12 +22,15 @@ import com.mycompany.confinance.viewmodel.user.LoginViewModel
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
+    private var dialogNoConnection: AlertDialog? = null
+    private var dialogNoAuthentication: AlertDialog? = null
+
     private val viewModel: LoginViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        
+
         handleClick()
         handleTerms()
         observe()
@@ -75,8 +79,54 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(Intent(applicationContext, MainActivity::class.java))
                 finish()
             } else {
-                viewModel.error.observe(this){
-                    Toast.makeText(applicationContext,it.toString(),Toast.LENGTH_LONG).show()
+                viewModel.error.observe(this) { response ->
+                    if (response.code == 500){
+                        if (dialogNoConnection != null && dialogNoConnection?.isShowing == true) {
+                            dialogNoConnection?.dismiss()
+                        }
+
+                        val build = AlertDialog.Builder(this, R.style.ThemeCustomDialog)
+                        val dialogBinding =
+                            CustomDialogNoConnectionLoginCreateAccountBinding.inflate(
+                                LayoutInflater.from(this)
+                            )
+                        dialogBinding.textDescription.text = response.message
+                        dialogBinding.textAgain.setOnClickListener {
+                            dialogNoConnection?.dismiss()
+                        }
+                        dialogBinding.view.setOnClickListener {
+                            dialogNoConnection?.dismiss()
+                        }
+
+                        dialogNoConnection = build.setView(dialogBinding.root).create()
+                        dialogNoConnection?.show()
+
+                    }
+                    else{
+                        if (dialogNoAuthentication != null && dialogNoAuthentication?.isShowing == true) {
+                            dialogNoAuthentication?.dismiss()
+                        }
+
+                        val build = AlertDialog.Builder(this, R.style.ThemeCustomDialog)
+                        val dialogBinding =
+                            CustomDialogLoginAuthenticationBinding.inflate(
+                                LayoutInflater.from(
+                                    this
+                                )
+                            )
+
+                        dialogBinding.textInformationAuthentication.text = response.message
+
+                        dialogBinding.view.setOnClickListener {
+                            dialogNoAuthentication?.dismiss()
+                        }
+                        dialogBinding.textOk.setOnClickListener {
+                            dialogNoAuthentication?.dismiss()
+                        }
+                        build.setView(dialogBinding.root)
+                        dialogNoAuthentication = build.create()
+                        dialogNoAuthentication?.show()
+                    }
                 }
             }
         }

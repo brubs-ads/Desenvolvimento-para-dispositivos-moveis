@@ -72,9 +72,13 @@
     <string name="resend_the_email_with_instructions">Para reenviar o e-mail com instruções para “------------------” em 28s.</string>
     <string name="send_email_again">Enviar e-mail novamente</string>
     <string name="Send_email">O E-mail foi enviado</string>
-    <string name="error_parameter">Parâmetros Incosistes, Verifique-os. A Senha Deve Conter pelo menos 6 Caracteres!</string>
-    <string name="error_no_connection">erro, sem conexão!</string>
+    <string name="error_failure_login">Oh, tentativa de senha e e-mail incrivelmente errada! Quase ganhou um prêmio pelo erro mais criativo, mas não é hoje. Tente novamente!</string>
+    <string name="error_no_connection">Verifique sua conexão para continuar \n navegando.</string>
     <string name="error_generic">erro estamos verificando, breve estará no ar.</string>
     <string name="no_connection">Sem Conexão!</string>
     <string name="check_connection">Verifique sua conexão e tente novamente.</string>
+    <string name="try_Again">Tente Novamente</string>
+    <string name="error_parameters_login">E-mail e senha não estão dançando no mesmo ritmo. Vamos acertar esses passos e entrar no Confinance.</string>
+    <string name="no_have_connection">Parece que não há internet</string>
+    <string name="access_denied">Acesso Negado</string>
 </resources>
