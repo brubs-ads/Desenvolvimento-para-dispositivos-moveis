@@ -81,4 +81,7 @@
     <string name="error_parameters_login">E-mail e senha não estão dançando no mesmo ritmo. Vamos acertar esses passos e entrar no Confinance.</string>
     <string name="no_have_connection">Parece que não há internet</string>
     <string name="access_denied">Acesso Negado</string>
+    <string name="incomplete_data">Dados Incompletos</string>
+    <string name="something_seems_to_be_missing">Algo parece estar faltando aqui. Complete os campos necessários e junte-se à revolução financeira com o aplicativo Confinance.</string>
+    <string name="looks_like_you_left_some_data">Quase lá! Parece que você deixou alguns dados voando por aí. Complete o que falta e prepare-se para a grande estreia no confinance</string>
 </resources>

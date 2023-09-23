@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.mycompany.confinance.R
 import com.mycompany.confinance.model.LoginModel
 import com.mycompany.confinance.model.ResponseModel
+import com.mycompany.confinance.model.UserModel
 import com.mycompany.confinance.request.ApiListener
 import com.mycompany.confinance.request.Retrofit
 import com.mycompany.confinance.service.UserService
@@ -12,9 +13,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.IOException
-import java.net.HttpURLConnection.HTTP_BAD_METHOD
+import java.net.HttpURLConnection.HTTP_CREATED
+import java.net.HttpURLConnection.HTTP_FORBIDDEN
 import java.net.HttpURLConnection.HTTP_OK
-import java.net.HttpURLConnection.HTTP_SERVER_ERROR
 
 class UserRepository(private val context: Context) {
 
@@ -47,5 +48,34 @@ class UserRepository(private val context: Context) {
 
     }
 
+    fun createAccount(
+        name: String,
+        email: String,
+        password: String,
+        listener: ApiListener<ResponseModel>
+    ) {
+        val call = remote.createAccount(UserModel(null, name, email, password))
+
+        call.enqueue(object : Callback<ResponseModel> {
+            override fun onResponse(call: Call<ResponseModel>, response: Response<ResponseModel>) {
+                if (response.code() == HTTP_CREATED) {
+                    response.body()?.let {
+                        listener.onSuccess(it)
+                    }
+                } else if (response.code() == HTTP_FORBIDDEN) {
+                    listener.onFailure("ERRO", response.code())
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseModel>, t: Throwable) {
+                if (t is IOException) {
+                    listener.onFailure(context.getString(R.string.error_no_connection), 500)
+                } else {
+                    listener.onFailure(context.getString(R.string.error_generic), 500)
+                }
+            }
+
+        })
+    }
 
 }

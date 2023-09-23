@@ -10,7 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivitySplashScreenBinding
-import com.mycompany.confinance.databinding.CustomDialogNoConnectionBinding
+import com.mycompany.confinance.databinding.CustomDialogNoConnectionSplashBinding
 import com.mycompany.confinance.view.activity.user.CreateAccountActivity
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
@@ -51,7 +51,7 @@ class SplashScreenActivity : AppCompatActivity() {
                 } else {
                     val build = AlertDialog.Builder(this@SplashScreenActivity, R.style.ThemeCustomDialog)
                     val dialogBinding =
-                        CustomDialogNoConnectionBinding.inflate(
+                        CustomDialogNoConnectionSplashBinding.inflate(
                             LayoutInflater.from(this@SplashScreenActivity)
                         )
                     dialogBinding.buttonOk.setOnClickListener{

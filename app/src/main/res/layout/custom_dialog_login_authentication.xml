@@ -24,7 +24,7 @@
 
         <TextView
             android:id="@+id/text_access_denied"
-            android:layout_width="106dp"
+            android:layout_width="wrap_content"
             android:layout_height="19dp"
             android:layout_alignTop="@id/image"
             android:layout_centerHorizontal="true"
