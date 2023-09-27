@@ -78,4 +78,33 @@ class UserRepository(private val context: Context) {
         })
     }
 
+    fun forgotPassword(email: String, listener: ApiListener<ResponseModel>) {
+        val call = remote.emailSending(email = email)
+        call.enqueue(object : Callback<ResponseModel> {
+            override fun onResponse(call: Call<ResponseModel>, response: Response<ResponseModel>) {
+                if (response.code() == HTTP_OK) {
+                    response.body()?.let {
+                        listener.onSuccess(it)
+                    }
+                } else {
+                    val error =
+                        Gson().fromJson(response.errorBody()?.string(), ResponseModel::class.java)
+                    listener.onFailure("Email Não Existem, PorFavor Verifique.", code = error.status)
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseModel>, t: Throwable) {
+                if (t is IOException) {
+                    listener.onFailure(context.getString(R.string.error_no_connection), 500)
+                } else {
+                    listener.onFailure(context.getString(R.string.error_generic), 500)
+                }
+            }
+
+        })
+    }
+
+    fun reviewCode(){
+
+    }
 }
