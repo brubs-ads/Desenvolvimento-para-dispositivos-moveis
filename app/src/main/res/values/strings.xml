@@ -84,4 +84,11 @@
     <string name="incomplete_data">Dados Incompletos</string>
     <string name="something_seems_to_be_missing">Algo parece estar faltando aqui. Complete os campos necessários e junte-se à revolução financeira com o aplicativo Confinance.</string>
     <string name="looks_like_you_left_some_data">Quase lá! Parece que você deixou alguns dados voando por aí. Complete o que falta e prepare-se para a grande estreia no confinance</string>
+    <string name="It_looks_like_you_entered_an_incorrect_email">Oops! Parece que você digitou um email incorreto.</string>
+    <string name="incorrect_code_or_blank_fields">Código incorreto ou campos em branco</string>
+    <string name="wrong_verification_code">Código de verificação errado.</string>
+    <string name="email_Exist_Please_Check">Email Não Existe, PorFavor Verifique.</string>
+    <string name="email_already_linked">Email já Vinculado, com Outra Conta.</string>
+    <string name="wait_for_the_time_to_end">Espere o Tempo Finalizar!</string>
+    <string name="time_ended">Tempo encerrado!</string>
 </resources>

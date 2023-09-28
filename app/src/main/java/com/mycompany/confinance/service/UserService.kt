@@ -2,6 +2,7 @@ package com.mycompany.confinance.service
 
 import com.mycompany.confinance.model.LoginModel
 import com.mycompany.confinance.model.ResponseModel
+import com.mycompany.confinance.model.ReviewCoding
 import com.mycompany.confinance.model.UserModel
 import com.mycompany.confinance.util.Constants
 import retrofit2.Call
@@ -23,4 +24,6 @@ interface UserService {
 
     @POST(Constants.HTTP.URL.URL_EMAIL_SENDING)
     fun emailSending(@Path("email") email: String): Call<ResponseModel>
+    @POST(Constants.HTTP.URL.URL_EMAIL_VERIFICATION_CODE)
+    fun verificationCode(@Body code : ReviewCoding) : Call<ResponseModel>
 }

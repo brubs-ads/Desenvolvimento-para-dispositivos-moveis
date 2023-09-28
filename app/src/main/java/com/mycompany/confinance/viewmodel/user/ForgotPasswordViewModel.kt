@@ -4,13 +4,14 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.mycompany.confinance.R
 import com.mycompany.confinance.model.ResponseModel
 import com.mycompany.confinance.repository.UserRepository
 import com.mycompany.confinance.request.ApiListener
 import com.mycompany.confinance.util.ResponseDialogCustom
 import java.net.HttpURLConnection
 
-class ForgotPasswordViewModel(application: Application) : AndroidViewModel(application) {
+class ForgotPasswordViewModel(private val application: Application) : AndroidViewModel(application) {
 
     private val repository = UserRepository(context = application)
 
@@ -44,7 +45,7 @@ class ForgotPasswordViewModel(application: Application) : AndroidViewModel(appli
 
         } else {
             _isLoading.value = false
-            _error.value = ResponseDialogCustom("Oops! Parece que você digitou um email incorreto.", 600)
+            _error.value = ResponseDialogCustom(application.getString(R.string.It_looks_like_you_entered_an_incorrect_email), 600)
         }
     }
 }

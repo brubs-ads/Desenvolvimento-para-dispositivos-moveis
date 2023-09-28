@@ -6,23 +6,48 @@ import android.os.CountDownTimer
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.KeyEvent
+import android.view.LayoutInflater
+import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityCodeForgotPasswordBinding
+import com.mycompany.confinance.databinding.CustomDialogNoConnectionLoginCreateAccountBinding
+import com.mycompany.confinance.databinding.DialogCustomForgotPasswordBinding
+import com.mycompany.confinance.util.Constants
 import com.mycompany.confinance.viewmodel.user.CodeForgotPasswordViewModel
 
 class CodeForgotPasswordActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCodeForgotPasswordBinding
     private val viewModel: CodeForgotPasswordViewModel by viewModels()
+    private var email: String? = null
+    private var dialogNoConnection: AlertDialog? = null
+    private var dialogNoAuthentication: AlertDialog? = null
+    private var button: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCodeForgotPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        email = intent.getStringExtra(Constants.KEY.KEY_EMAIL)
+
         setEditTextListeners()
         handleEmailForwarding()
         handleClick()
         observe()
+    }
+
+    private fun maskEmail(email: String?): String {
+        return if (email?.isNotEmpty()!! && email.contains("@")!!) {
+            val arroba = email.indexOf('@')
+            val visiblePart = email.substring(0, minOf(3, arroba))
+            val maskPart = "x".repeat(arroba - minOf(3, arroba))
+            val domain = email.substring(arroba)
+            visiblePart + maskPart + domain
+        } else {
+            email
+        }
     }
 
     private fun handleEmailForwarding() {
@@ -31,18 +56,19 @@ class CodeForgotPasswordActivity : AppCompatActivity() {
 
         val totalTimeMillis = 3 * 60 * 1000
 
-       val countDownTimer = object : CountDownTimer(totalTimeMillis.toLong(), 1000) {
+        val countDownTimer = object : CountDownTimer(totalTimeMillis.toLong(), 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 val seconds = millisUntilFinished / 1000
-                val countdownText = "Para reenviar o e-mail com instruções para “------------------” em ${seconds}s."
-
+                val countdownText =
+                    "Para reenviar o e-mail com instruções para ${maskEmail(email)} em ${seconds}s."
                 runOnUiThread {
                     textViewCountdown.text = countdownText
                 }
             }
 
             override fun onFinish() {
-                textViewCountdown.text = "Tempo encerrado!"
+                textViewCountdown.text = getString(R.string.time_ended)
+                button = true
             }
         }
 
@@ -52,16 +78,51 @@ class CodeForgotPasswordActivity : AppCompatActivity() {
     }
 
     private fun observe() {
-        viewModel.isLoading.observe(this) { it ->
-            if (it) {
-                startActivity(Intent(this, NewPasswordActivity::class.java))
+        viewModel.isLoading.observe(this) { loading ->
+            if (loading) {
+                val intent = Intent(this, NewPasswordActivity::class.java)
+                intent.putExtra("email",email)
+                startActivity(intent)
                 finish()
             } else {
-                viewModel.error.observe(this) {
-                    if (it.code == 500) {
+                viewModel.error.observe(this) { response ->
+                    if (response.code == 500) {
+                        if (dialogNoConnection != null && dialogNoConnection?.isShowing == true) {
+                            dialogNoConnection?.dismiss()
+                        }
+
+                        val build = AlertDialog.Builder(this, R.style.ThemeCustomDialog)
+                        val dialogBinding = CustomDialogNoConnectionLoginCreateAccountBinding.inflate(
+                            LayoutInflater.from(this)
+                        )
+                        dialogBinding.textDescription.text = response.message
+                        dialogBinding.textAgain.setOnClickListener {
+                            dialogNoConnection?.dismiss()
+                        }
+                        dialogBinding.view.setOnClickListener {
+                            dialogNoConnection?.dismiss()
+                        }
+
+                        dialogNoConnection = build.setView(dialogBinding.root).create()
+                        dialogNoConnection?.show()
 
                     } else {
+                        if (dialogNoAuthentication != null && dialogNoAuthentication?.isShowing == true) {
+                            dialogNoAuthentication?.dismiss()
+                        }
 
+                        val build = AlertDialog.Builder(this, R.style.ThemeCustomDialogBottom)
+                        val dialogBinding = DialogCustomForgotPasswordBinding.inflate(LayoutInflater.from(this))
+
+                        dialogBinding.textError.text = response.message
+
+                        dialogBinding.textTryAgain.setOnClickListener {
+                            dialogNoAuthentication?.dismiss()
+                        }
+
+                        build.setView(dialogBinding.root)
+                        dialogNoAuthentication = build.create()
+                        dialogNoAuthentication?.show()
                     }
                 }
             }
@@ -81,9 +142,17 @@ class CodeForgotPasswordActivity : AppCompatActivity() {
             val codeFour = binding.editCode4.text.toString()
 
             viewModel.reviewCode(
-                codeOne = codeOne,
-                codeTwo = codeTwo, codeTree = codeTree, codeFour = codeFour
+                email = email,
+                codeOne = codeOne, codeTwo = codeTwo, codeTree = codeTree, codeFour = codeFour
             )
+        }
+
+        binding.buttonSendEmailAgain.setOnClickListener {
+            if (button) {
+                viewModel.forgotPassword(email = email)
+            } else {
+                Toast.makeText(applicationContext, getString(R.string.wait_for_the_time_to_end), Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

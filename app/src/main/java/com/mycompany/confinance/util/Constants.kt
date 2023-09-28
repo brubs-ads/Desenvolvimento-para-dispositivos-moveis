@@ -2,6 +2,11 @@ package com.mycompany.confinance.util
 
 
 class Constants {
+
+    object KEY{
+        const val KEY_EMAIL: String = "email"
+    }
+
     object HTTP {
         object URL {
             const val URL_SELTON: String = "http://192.168.13.107:8080/"
@@ -20,6 +25,7 @@ class Constants {
             const val URL_RETURN_OBJECTIVE_ID_USER: String = "objective/user/{id}"
             const val URL_DELETE_OBJECTIVE: String = "objective/{id}"
             const val URL_EMAIL_SENDING: String = "user/recover-password/{email}"
+            const val URL_EMAIL_VERIFICATION_CODE :String = "user/validate-password"
         }
     }
 }

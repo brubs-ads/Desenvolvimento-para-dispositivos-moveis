@@ -10,6 +10,7 @@ import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityForgotPasswordBinding
 import com.mycompany.confinance.databinding.CustomDialogNoConnectionLoginCreateAccountBinding
 import com.mycompany.confinance.databinding.DialogCustomForgotPasswordBinding
+import com.mycompany.confinance.util.Constants
 import com.mycompany.confinance.viewmodel.user.ForgotPasswordViewModel
 
 class ForgotPasswordActivity : AppCompatActivity() {
@@ -36,8 +37,10 @@ class ForgotPasswordActivity : AppCompatActivity() {
     private fun observe() {
         viewModel.isLoading.observe(this) { loading ->
             if (loading) {
-                val email = binding.editEmailForgot.text.toString()
-                startActivity(Intent(this, CodeForgotPasswordActivity::class.java))
+                val intent = Intent(this, CodeForgotPasswordActivity::class.java)
+                intent.putExtra(Constants.KEY.KEY_EMAIL,binding.editEmailForgot.text.toString())
+                startActivity(intent)
+                finish()
             }
             else {
                 viewModel.error.observe(this) { response ->
@@ -68,7 +71,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
                                 dialogNoAuthentication?.dismiss()
                             }
 
-                            val build = AlertDialog.Builder(this, R.style.ThemeCustomDialog)
+                            val build = AlertDialog.Builder(this, R.style.ThemeCustomDialogBottom)
                             val dialogBinding  = DialogCustomForgotPasswordBinding.inflate(LayoutInflater.from(this))
 
                             dialogBinding.textError.text = response.message
