@@ -39,7 +39,7 @@ class CodeForgotPasswordActivity : AppCompatActivity() {
     }
 
     private fun maskEmail(email: String?): String {
-        return if (email?.isNotEmpty()!! && email.contains("@")!!) {
+        return if (email?.isNotEmpty()!! && email.contains("@")) {
             val arroba = email.indexOf('@')
             val visiblePart = email.substring(0, minOf(3, arroba))
             val maskPart = "x".repeat(arroba - minOf(3, arroba))

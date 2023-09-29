@@ -26,6 +26,7 @@ class Constants {
             const val URL_DELETE_OBJECTIVE: String = "objective/{id}"
             const val URL_EMAIL_SENDING: String = "user/recover-password/{email}"
             const val URL_EMAIL_VERIFICATION_CODE :String = "user/validate-password"
+            const val URL_RESET_PASSWORD:String = "user/reset-password"
         }
     }
 }

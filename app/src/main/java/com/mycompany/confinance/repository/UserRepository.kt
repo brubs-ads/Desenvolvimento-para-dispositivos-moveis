@@ -3,10 +3,7 @@ package com.mycompany.confinance.repository
 import android.content.Context
 import com.google.gson.Gson
 import com.mycompany.confinance.R
-import com.mycompany.confinance.model.LoginModel
-import com.mycompany.confinance.model.ResponseModel
-import com.mycompany.confinance.model.ReviewCoding
-import com.mycompany.confinance.model.UserModel
+import com.mycompany.confinance.model.*
 import com.mycompany.confinance.request.ApiListener
 import com.mycompany.confinance.request.Retrofit
 import com.mycompany.confinance.service.UserService
@@ -121,6 +118,32 @@ class UserRepository(private val context: Context) {
                 } else {
                     val error = Gson().fromJson(response.errorBody()?.string(), ResponseModel::class.java)
                     listener.onFailure(context.getString(R.string.wrong_verification_code), code = error.status)
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseModel>, t: Throwable) {
+                if (t is IOException) {
+                    listener.onFailure(context.getString(R.string.error_no_connection), 500)
+                } else {
+                    listener.onFailure(context.getString(R.string.error_generic), 500)
+                }
+            }
+
+        })
+    }
+
+    fun resetPassword(email: String, password: String, listener: ApiListener<ResponseModel>) {
+        val call = remote.resetPassword(ResetPasswordModel(email = email, newPassword = password))
+
+        call.enqueue(object : Callback<ResponseModel> {
+            override fun onResponse(call: Call<ResponseModel>, response: Response<ResponseModel>) {
+                if (response.code() == HTTP_OK) {
+                    response.body()?.let {
+                        listener.onSuccess(it)
+                    }
+                } else {
+                    val error = Gson().fromJson(response.errorBody()?.string(), ResponseModel::class.java)
+                    listener.onFailure(message = error.message, code = error.status)
                 }
             }
 
