@@ -134,7 +134,7 @@
     </string>
     <string name="It_looks_like_you_entered_an_incorrect_email">Oops! Parece que você digitou um email incorreto.
     </string>
-    <string name="incorrect_code_or_blank_fields">Código incorreto ou campos em branco</string>
+    <string name="incorrect_code_or_blank_fields">Código incorreto ou campos em branco.</string>
     <string name="wrong_verification_code">Código de verificação errado.</string>
     <string name="email_Exist_Please_Check">Email Não Existe, PorFavor Verifique.</string>
     <string name="email_already_linked">Email já Vinculado, com Outra Conta.</string>
@@ -143,4 +143,8 @@
     <string name="password_does_not_work" tools:ignore="ExtraTranslation">Senha não atende aos
         requisitos mínimos.\n Por favor, escolha uma senha válida
     </string>
+    <string name="input_error">Erro de Entrada</string>
+    <string name="confirm_the_password">Confirme a senha</string>
+    <string name="enter_your_new_password">Digite sua nova senha</string>
+    <string name="new_password">Nova Senha</string>
 </resources>

@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityCodeForgotPasswordBinding
 import com.mycompany.confinance.databinding.CustomDialogNoConnectionLoginCreateAccountBinding
-import com.mycompany.confinance.databinding.DialogCustomForgotPasswordBinding
+import com.mycompany.confinance.databinding.DialogCustomCodeForgotPasswordBinding
 import com.mycompany.confinance.util.Constants
 import com.mycompany.confinance.viewmodel.user.CodeForgotPasswordViewModel
 
@@ -81,7 +81,7 @@ class CodeForgotPasswordActivity : AppCompatActivity() {
         viewModel.isLoading.observe(this) { loading ->
             if (loading) {
                 val intent = Intent(this, NewPasswordActivity::class.java)
-                intent.putExtra("email",email)
+                intent.putExtra(Constants.KEY.KEY_EMAIL,email)
                 startActivity(intent)
                 finish()
             } else {
@@ -112,9 +112,9 @@ class CodeForgotPasswordActivity : AppCompatActivity() {
                         }
 
                         val build = AlertDialog.Builder(this, R.style.ThemeCustomDialogBottom)
-                        val dialogBinding = DialogCustomForgotPasswordBinding.inflate(LayoutInflater.from(this))
+                        val dialogBinding = DialogCustomCodeForgotPasswordBinding.inflate(LayoutInflater.from(this))
 
-                        dialogBinding.textError.text = response.message
+                        dialogBinding.textInformation.text = response.message
 
                         dialogBinding.textTryAgain.setOnClickListener {
                             dialogNoAuthentication?.dismiss()
@@ -131,6 +131,7 @@ class CodeForgotPasswordActivity : AppCompatActivity() {
 
     private fun handleClick() {
         binding.imageBack.setOnClickListener {
+            startActivity(Intent(this,ForgotPasswordActivity::class.java))
             finish()
         }
 

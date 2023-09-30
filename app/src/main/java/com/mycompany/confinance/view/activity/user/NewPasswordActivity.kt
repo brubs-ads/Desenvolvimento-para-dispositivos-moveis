@@ -9,8 +9,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityNewPasswordBinding
+import com.mycompany.confinance.databinding.CustomDialogNewPasswordForgotBinding
 import com.mycompany.confinance.databinding.CustomDialogNoConnectionLoginCreateAccountBinding
-import com.mycompany.confinance.databinding.DialogCustomForgotPasswordBinding
 import com.mycompany.confinance.util.Constants
 import com.mycompany.confinance.viewmodel.user.NewPasswordViewModel
 
@@ -62,7 +62,7 @@ class NewPasswordActivity : AppCompatActivity() {
                         }
 
                         val build = AlertDialog.Builder(this, R.style.ThemeCustomDialogBottom)
-                        val dialogBinding = DialogCustomForgotPasswordBinding.inflate(LayoutInflater.from(this))
+                        val dialogBinding = CustomDialogNewPasswordForgotBinding.inflate(LayoutInflater.from(this))
 
                         dialogBinding.textError.text = response.message
 
@@ -110,5 +110,9 @@ class NewPasswordActivity : AppCompatActivity() {
 
         }
 
+        binding.imageBack.setOnClickListener {
+            startActivity(Intent(this,ForgotPasswordActivity::class.java))
+            finish()
+        }
     }
 }

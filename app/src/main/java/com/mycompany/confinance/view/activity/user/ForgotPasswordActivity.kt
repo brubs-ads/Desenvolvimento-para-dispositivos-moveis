@@ -32,6 +32,10 @@ class ForgotPasswordActivity : AppCompatActivity() {
         binding.buttonContinue.setOnClickListener {
             handleCredential()
         }
+        binding.imgBack.setOnClickListener {
+            startActivity(Intent(this,LoginActivity::class.java))
+            finish()
+        }
     }
 
     private fun observe() {

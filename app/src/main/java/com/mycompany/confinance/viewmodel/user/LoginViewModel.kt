@@ -5,7 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mycompany.confinance.R
-import android.content.Context
 import com.mycompany.confinance.model.ResponseModel
 import com.mycompany.confinance.repository.UserRepository
 import com.mycompany.confinance.request.ApiListener
