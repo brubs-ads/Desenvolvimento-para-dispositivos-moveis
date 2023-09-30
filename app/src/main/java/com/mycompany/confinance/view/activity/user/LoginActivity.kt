@@ -1,16 +1,20 @@
 package com.mycompany.confinance.view.activity.user
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.SpannableString
+import android.text.TextPaint
 import android.text.method.LinkMovementMethod
 import android.text.method.PasswordTransformationMethod
 import android.text.style.ClickableSpan
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityLoginBinding
 import com.mycompany.confinance.databinding.CustomDialogLoginAuthenticationBinding
@@ -37,6 +41,7 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
+    @SuppressLint("ResourceAsColor")
     private fun handleTerms() {
         val spannableString = SpannableString(getString(R.string.you_agree_terms))
 
@@ -56,7 +61,7 @@ class LoginActivity : AppCompatActivity() {
 
         spannableString.setSpan(
             termsOfUseClickableSpan,
-            45,
+            46,
             62,
             SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
         )
@@ -72,7 +77,6 @@ class LoginActivity : AppCompatActivity() {
         textView.movementMethod = LinkMovementMethod.getInstance()
 
     }
-
     private fun observe() {
         viewModel.isLoading.observe(this) { loading ->
             if (loading) {
@@ -131,7 +135,6 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
-
     private fun handleClick() {
         binding.textAccount.setOnClickListener {
             startActivity(Intent(applicationContext, CreateAccountActivity::class.java))

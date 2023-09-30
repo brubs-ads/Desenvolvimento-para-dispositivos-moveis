@@ -13,9 +13,12 @@
 
         <ImageView
             android:id="@+id/image_logo"
-            android:layout_width="44dp"
+            android:layout_width="38dp"
             android:layout_height="18dp"
-            android:src="@drawable/ic_launcher_background" />
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/logo_sem_nome"
+        android:scaleType="centerInside"/>
 
         <TextView
             android:id="@+id/text_no_have_connection"

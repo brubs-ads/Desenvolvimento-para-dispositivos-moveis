@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/gradient_splash_screen"
-    android:orientation="vertical"
-    tools:context=".view.activity.SplashScreenActivity">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:background="@drawable/gradient_splash_screen"
+                android:orientation="vertical"
+                tools:context=".view.activity.SplashScreenActivity">
 
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/image_logo"
         android:layout_width="222dp"
         android:layout_height="129dp"
+        android:scaleType="centerCrop"
         android:layout_centerInParent="true"
         android:src="@drawable/logo_sem_nome" />
 
@@ -22,7 +23,7 @@
         android:layout_below="@id/image_logo"
         android:layout_alignBottom="@id/text_copyright"
         android:layout_centerHorizontal="true"
-        android:indeterminateTint="@color/purple_1" />
+        android:indeterminateDrawable="@drawable/progressbarcustom" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_copyright"

@@ -56,7 +56,7 @@ class CreateAccountActivity : AppCompatActivity() {
 
         spannableString.setSpan(
             termsOfUseClickableSpan,
-            45,
+            46,
             62,
             SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
         )
