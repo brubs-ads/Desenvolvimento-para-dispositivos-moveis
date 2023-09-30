@@ -50,7 +50,8 @@ class UserRepositoryTest {
         val response = Response.success(responseModel)
 
         // Chame a função de ‘login’ e capture o Callback passado para call.enqueue
-        userRepository.login("brunacamilly.ads@gmail.com", "12345678", apiListener)
+        userRepository.login("brunacamilly.ads@gmail.com", "12345678" +
+                "", apiListener)
         Mockito.verify(call).enqueue(callbackCaptor.capture())
 
         // Chame manualmente o método onResponse no Callback capturado
