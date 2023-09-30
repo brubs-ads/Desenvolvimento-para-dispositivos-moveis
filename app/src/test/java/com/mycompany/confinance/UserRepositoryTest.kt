@@ -50,8 +50,7 @@ class UserRepositoryTest {
         val response = Response.success(responseModel)
 
         // Chame a função de ‘login’ e capture o Callback passado para call.enqueue
-        userRepository.login("brunacamilly.ads@gmail.com", "12345678" +
-                "", apiListener)
+        userRepository.login("brunacamilly.ads@gmail.com", "12345678", apiListener)
         Mockito.verify(call).enqueue(callbackCaptor.capture())
 
         // Chame manualmente o método onResponse no Callback capturado
@@ -78,7 +77,7 @@ class UserRepositoryTest {
         Mockito.`when`(context.getString(R.string.error_failure_login)).thenReturn("Erro de login")
 
         // Chame a função de ‘login’ e verifique se ela chama onFailure do ApiListener com a mensagem de erro esperada
-        userRepository.login("email", "senha", apiListener)
+        userRepository.login("brunacamily.ads@gmail.com", "123456789", apiListener)
 
         Mockito.verify(apiListener).onFailure("Erro de login", 400)
     }
