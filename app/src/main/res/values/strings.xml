@@ -147,4 +147,12 @@
     <string name="confirm_the_password">Confirme a senha</string>
     <string name="enter_your_new_password">Digite sua nova senha</string>
     <string name="new_password">Nova Senha</string>
+    <string name="plan">PLANEJAR</string>
+    <string name="start">Início</string>
+    <string name="objectives">Objetivos</string>
+    <string name="revenues">Receitas</string>
+    <string name="analyze">ANALIZAR</string>
+    <string name="graphic">Gráficos</string>
+    <string name="about_us">Sobre Nós</string>
+    <string name="exit">Sair</string>
 </resources>

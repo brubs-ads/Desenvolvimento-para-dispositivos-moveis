@@ -44,7 +44,7 @@ class SplashScreenActivity : AppCompatActivity() {
                     startActivity(
                         Intent(
                             this@SplashScreenActivity,
-                            CreateAccountActivity::class.java
+                            MainActivity::class.java
                         )
                     )
                     finish()
