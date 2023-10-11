@@ -1,23 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray_3"
     tools:context=".view.fragment.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:text="home"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_overview"
+        android:layout_width="355dp"
+        android:layout_height="178dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="22dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" tools:ignore="UselessLeaf">
+
+            <TextView
+                android:id="@+id/text_overview"
+                android:layout_width="143dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="17dp"
+                android:layout_marginStart="20dp"
+                android:text="@string/Month_overview"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="14.71sp"
+                android:textColor="@color/black"
+            />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_revenue"
+                android:layout_width="5dp"
+                android:layout_height="40dp"
+                android:layout_below="@id/text_overview"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="20dp"
+                android:backgroundTint="@color/green_4"
+            />
+
+            <TextView
+                android:id="@+id/text_revenue"
+                android:layout_width="54dp"
+                android:layout_height="16dp"
+                android:layout_toEndOf="@id/card_revenue"
+                android:layout_alignTop="@id/card_revenue"
+                android:layout_alignBottom="@id/card_revenue"
+                android:layout_marginTop="11dp"
+                android:text="@string/revenue"
+                android:fontFamily="@font/roboto"
+                android:textSize="14sp"
+                android:layout_marginStart="9dp"
+                android:textColor="@color/black"
+                android:layout_marginBottom="13dp"/>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_expense"
+                android:layout_width="5dp"
+                android:layout_height="40dp"
+                android:layout_below="@id/card_revenue"
+                android:layout_marginTop="21dp"
+                android:layout_marginStart="20dp"
+                android:backgroundTint="@color/red"
+            />
+
+            <TextView
+                android:id="@+id/text_expense"
+                android:layout_width="54dp"
+                android:layout_height="16dp"
+                android:layout_toEndOf="@id/card_expense"
+                android:layout_alignTop="@id/card_expense"
+                android:layout_alignBottom="@id/card_expense"
+                android:layout_marginTop="11dp"
+                android:text="@string/expense"
+                android:fontFamily="@font/roboto"
+                android:textSize="14sp"
+                android:layout_marginStart="9dp"
+                android:textColor="@color/black"
+                android:layout_marginBottom="13dp"/>
+
+
+            <TextView
+                android:id="@+id/text_total"
+                android:layout_width="33dp"
+                android:layout_height="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:text="Total"
+                android:layout_marginEnd="45dp"
+                android:layout_marginTop="19dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="13sp"
+                android:textColor="@color/black"
+            />
+
+            <TextView
+                android:id="@+id/text_total_revenue"
+                android:layout_width="52dp"
+                android:layout_height="18dp"
+                android:text="R$ 0,00"
+                android:fontFamily="@font/roboto"
+                android:textSize="15sp"
+                android:layout_marginTop="19dp"
+                android:textColor="@color/green_5"
+                android:layout_below="@id/text_total"
+                android:layout_alignStart="@id/text_total"
+            />
+
+            <TextView
+                android:id="@+id/text_total_expense"
+                android:layout_width="52dp"
+                android:layout_height="18dp"
+                android:text="R$ 0,00"
+                android:fontFamily="@font/roboto"
+                android:textSize="15sp"
+                android:textColor="@color/red"
+               android:layout_below="@id/text_total_revenue"
+                android:layout_marginTop="44dp"
+                android:layout_alignStart="@id/text_total_revenue"
+            />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

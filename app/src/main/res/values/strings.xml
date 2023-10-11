@@ -155,4 +155,8 @@
     <string name="graphic">Gráficos</string>
     <string name="about_us">Sobre Nós</string>
     <string name="exit">Sair</string>
+    <string name="balance">saldo</string>
+    <string name="Month_overview">Visão geral do mês</string>
+    <string name="revenue">Receitas</string>
+    <string name="expense">Despesa</string>
 </resources>
