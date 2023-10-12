@@ -43,7 +43,7 @@
 
 
             <ImageView
-                android:id="@+id/arrow_left"
+                android:id="@+id/arrow_back"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_alignParentStart="true"
@@ -58,9 +58,8 @@
                 android:id="@+id/text_month"
                 android:layout_width="wrap_content"
                 android:layout_height="38dp"
-                android:layout_toEndOf="@id/arrow_left"
-                android:layout_toStartOf="@id/arrow_start"
-                android:text="Março"
+                android:layout_toEndOf="@id/arrow_back"
+                android:layout_toStartOf="@id/arrow_next"
                 android:layout_alignBottom="@id/toolbar"
                 android:gravity="top|center"
                 android:fontFamily="@font/poppins_semibold"
@@ -70,7 +69,7 @@
             />
 
             <ImageView
-                android:id="@+id/arrow_start"
+                android:id="@+id/arrow_next"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginBottom="32dp"
@@ -90,7 +89,7 @@
         app:layout_constraintTop_toBottomOf="@id/appbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="-20dp"
+        android:layout_marginTop="-30dp"
         android:translationZ="1000dp"
         android:layout_width="350dp"
         android:layout_height="100dp">

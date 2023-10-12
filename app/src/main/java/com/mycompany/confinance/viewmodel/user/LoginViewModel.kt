@@ -29,6 +29,7 @@ class LoginViewModel(private val application: Application) : AndroidViewModel(ap
                     override fun onSuccess(result: ResponseModel) {
                         if (result.status == HTTP_OK) {
                             _isLoading.value = true
+
                         } else {
                             _isLoading.value = false
                             _error.value = ResponseDialogCustom(result.message, result.status)

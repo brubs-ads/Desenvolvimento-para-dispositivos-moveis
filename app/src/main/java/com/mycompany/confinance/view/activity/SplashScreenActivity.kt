@@ -1,6 +1,7 @@
 package com.mycompany.confinance.view.activity
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -25,11 +26,15 @@ import java.net.Socket
 class SplashScreenActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashScreenBinding
     private lateinit var dialog: AlertDialog
-
+    private var acess: Boolean? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+
+        acess = sharedPreferences.getBoolean("http_connected", false)
 
         checkInternetConnectivity()
 
@@ -41,24 +46,34 @@ class SplashScreenActivity : AppCompatActivity() {
             val isConnected = isInternetConnected()
             runOnUiThread {
                 if (isConnected) {
-                    startActivity(
-                        Intent(
-                            this@SplashScreenActivity,
-                            MainActivity::class.java
+                    if (acess == true){
+                        startActivity(
+                            Intent(
+                                this@SplashScreenActivity,
+                                MainActivity::class.java
+                            )
                         )
-                    )
-                    finish()
+                        finish()
+                    }else{
+                        startActivity(
+                            Intent(
+                                this@SplashScreenActivity,
+                                CreateAccountActivity::class.java
+                            )
+                        )
+                        finish()
+                    }
                 } else {
                     val build = AlertDialog.Builder(this@SplashScreenActivity, R.style.ThemeCustomDialog)
                     val dialogBinding =
                         CustomDialogNoConnectionSplashBinding.inflate(
                             LayoutInflater.from(this@SplashScreenActivity)
                         )
-                    dialogBinding.buttonOk.setOnClickListener{
+                    dialogBinding.buttonOk.setOnClickListener {
                         dialog.dismiss()
                         Handler(Looper.getMainLooper()).postDelayed({
                             checkInternetConnectivity()
-                        },3000)
+                        }, 3000)
                     }
 
                     build.setView(dialogBinding.root)

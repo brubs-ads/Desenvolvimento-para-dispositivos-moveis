@@ -18,6 +18,15 @@ import java.net.HttpURLConnection.HTTP_OK
 class UserRepository(private val context: Context) {
 
     private val remote = Retrofit.getService(UserService::class.java)
+
+    private fun saveState(isConnected: Boolean) {
+        val sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("http_connected", isConnected)
+        editor.apply()
+    }
+
+
     fun login(email: String, password: String, listener: ApiListener<ResponseModel>) {
         val call = remote.login(LoginModel(email, password))
 
@@ -26,6 +35,7 @@ class UserRepository(private val context: Context) {
                 if (response.code() == HTTP_OK) {
                     response.body()?.let {
                         listener.onSuccess(it)
+                        saveState(true)
                     }
                 } else {
                     val error = Gson().fromJson(response.errorBody()?.string(), ResponseModel::class.java)
@@ -55,6 +65,7 @@ class UserRepository(private val context: Context) {
                 if (response.code() == HTTP_CREATED) {
                     response.body()?.let {
                         listener.onSuccess(it)
+                        saveState(true)
                     }
                 } else if (response.code() == HTTP_FORBIDDEN) {
                     listener.onFailure(context.getString(R.string.email_already_linked), response.code())
@@ -157,4 +168,5 @@ class UserRepository(private val context: Context) {
 
         })
     }
+
 }

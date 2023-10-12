@@ -150,13 +150,57 @@
     <string name="plan">PLANEJAR</string>
     <string name="start">Início</string>
     <string name="objectives">Objetivos</string>
-    <string name="revenues">Receitas</string>
     <string name="analyze">ANALIZAR</string>
-    <string name="graphic">Gráficos</string>
+    <string name="graphics">Gráficos</string>
     <string name="about_us">Sobre Nós</string>
     <string name="exit">Sair</string>
     <string name="balance">saldo</string>
     <string name="Month_overview">Visão geral do mês</string>
-    <string name="revenue">Receitas</string>
+    <string name="revenues">Receitas</string>
+    <string name="expenses">Despesas</string>
+    <string name="total">Total</string>
+    <string name="revenue">Receita</string>
+    <string name="create_revenue">criar receita</string>
     <string name="expense">Despesa</string>
+    <string name="create_expense">CRIAR DESPESA</string>
+    <string name="graphic">Gráfico</string>
+    <string name="Plan_and_monitor_your_income">Planeje e monitore suas receitas financeiras \n para uma gestão
+        financeira eficaz.
+    </string>
+    <string name="Control_and_evaluate_your_expenses">Controle e avalie suas despesas financeiras \n para uma gestão
+        financeira sólida.
+    </string>
+    <string name="Explore_your_charts_and_track_your_progress">Explore seus gráficos e acompanhe seu \nprogresso, para
+        uma visão de suas finanças.
+    </string>
+
+    <string-array name="months">
+        <item>Janeiro</item>
+        <item>Fevereiro</item>
+        <item>Março</item>
+        <item>Abril</item>
+        <item>Maio</item>
+        <item>Junho</item>
+        <item>Julho</item>
+        <item>Agosto</item>
+        <item>Setembro</item>
+        <item>Outubro</item>
+        <item>Novembro</item>
+        <item>Dezembro</item>
+    </string-array>
+
+    <string-array name="month_abbreviations">
+        <item>Jan</item>
+        <item>Fev</item>
+        <item>Mar</item>
+        <item>Abr</item>
+        <item>Mai</item>
+        <item>Jun</item>
+        <item>Jul</item>
+        <item>Ago</item>
+        <item>Set</item>
+        <item>Out</item>
+        <item>Nov</item>
+        <item>Dez</item>
+    </string-array>
 </resources>
