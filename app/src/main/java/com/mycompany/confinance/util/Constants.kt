@@ -4,6 +4,7 @@ package com.mycompany.confinance.util
 class Constants {
 
     object KEY{
+       const val KEY_USER_ID: String = "id"
         const val KEY_EMAIL: String = "email"
     }
 
@@ -27,6 +28,7 @@ class Constants {
             const val URL_EMAIL_SENDING: String = "user/recover-password/{email}"
             const val URL_EMAIL_VERIFICATION_CODE :String = "user/validate-password"
             const val URL_RESET_PASSWORD:String = "user/reset-password"
+            const val QUERY_MONTH_AND_YEAR: String = "movement/user/{userId}/month/{month}/year/{year}"
         }
     }
 }

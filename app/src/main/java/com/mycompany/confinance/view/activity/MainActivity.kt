@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.TextAppearanceSpan
+import androidx.activity.viewModels
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -12,19 +13,16 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityMainBinding
-import com.mycompany.confinance.view.activity.user.ForgotPasswordActivity
-import com.mycompany.confinance.view.activity.user.LoginActivity
-import java.text.SimpleDateFormat
+import com.mycompany.confinance.viewmodel.HomeViewModel
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private val viewModel : HomeViewModel by viewModels()
     private val calendar = Calendar.getInstance()
 
 
@@ -49,9 +47,10 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+
         styleFontMenu(navView)
 
-        navView.setNavigationItemSelectedListener {menuItem ->
+        navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_renevue -> {
                     startActivity(Intent(this, CreateRevenueActivity::class.java))
@@ -167,17 +166,17 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
     private fun checkMonthAndYear() {
-         binding.appBarMain.arrowBack.setOnClickListener {
+        binding.appBarMain.arrowBack.setOnClickListener {
             if (calendar.get(Calendar.MONTH) == Calendar.JANUARY) {
                 calendar.add(Calendar.YEAR, -1)
                 calendar.set(Calendar.MONTH, Calendar.DECEMBER)
             } else {
                 calendar.add(Calendar.MONTH, -1)
             }
-             updateMonthYearText()
-         }
+            updateMonthYearText()
+            handleQuery()
+        }
 
         binding.appBarMain.arrowNext.setOnClickListener {
             if (calendar.get(Calendar.MONTH) == Calendar.DECEMBER) {
@@ -187,6 +186,7 @@ class MainActivity : AppCompatActivity() {
                 calendar.add(Calendar.MONTH, 1)
             }
             updateMonthYearText()
+            handleQuery()
         }
     }
 
@@ -209,5 +209,36 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.appBarMain.textMonth.text = formattedDate
+        handleQuery()
     }
+
+    private fun handleQuery() {
+        val displayedDate = binding.appBarMain.textMonth.text.toString()
+        if (displayedDate.isNotEmpty()) {
+            val monthAbbreviationsArray = resources.getStringArray(R.array.month_abbreviations)
+            val currentYear = Calendar.getInstance().get(Calendar.YEAR)
+
+            val monthIndex = monthAbbreviationsArray.indexOfFirst {
+                it.equals(displayedDate.substring(0, 3), ignoreCase = true)
+            }
+
+            if (monthIndex >= 0) {
+                val yearString = if (displayedDate.length == 7) {
+                    displayedDate.substring(4)
+                } else {
+                    currentYear.toString()
+                }
+
+                val year = try {
+                    yearString.toInt()
+                } catch (e: NumberFormatException) {
+                    currentYear
+                }
+
+                val month = monthIndex + 1
+                val yearatt = year
+            }
+        }
+    }
+
 }

@@ -7,6 +7,7 @@ import com.mycompany.confinance.model.*
 import com.mycompany.confinance.request.ApiListener
 import com.mycompany.confinance.request.Retrofit
 import com.mycompany.confinance.service.UserService
+import com.mycompany.confinance.util.Constants
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,14 +20,6 @@ class UserRepository(private val context: Context) {
 
     private val remote = Retrofit.getService(UserService::class.java)
 
-    private fun saveState(isConnected: Boolean) {
-        val sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putBoolean("http_connected", isConnected)
-        editor.apply()
-    }
-
-
     fun login(email: String, password: String, listener: ApiListener<ResponseModel>) {
         val call = remote.login(LoginModel(email, password))
 
@@ -36,6 +29,7 @@ class UserRepository(private val context: Context) {
                     response.body()?.let {
                         listener.onSuccess(it)
                         saveState(true)
+                        saveUserIdToSharedPreferences(context, it.userId!!)
                     }
                 } else {
                     val error = Gson().fromJson(response.errorBody()?.string(), ResponseModel::class.java)
@@ -55,6 +49,7 @@ class UserRepository(private val context: Context) {
 
     }
 
+
     fun createAccount(
         name: String, email: String, password: String, listener: ApiListener<ResponseModel>
     ) {
@@ -64,8 +59,9 @@ class UserRepository(private val context: Context) {
             override fun onResponse(call: Call<ResponseModel>, response: Response<ResponseModel>) {
                 if (response.code() == HTTP_CREATED) {
                     response.body()?.let {
-                        listener.onSuccess(it)
                         saveState(true)
+                        listener.onSuccess(it)
+                        saveUserIdToSharedPreferences(context, it.userId!!)
                     }
                 } else if (response.code() == HTTP_FORBIDDEN) {
                     listener.onFailure(context.getString(R.string.email_already_linked), response.code())
@@ -169,4 +165,45 @@ class UserRepository(private val context: Context) {
         })
     }
 
+    fun queryMonthAndYear(month: Int, year: Int, listener: ApiListener<QueryResponse>) {
+        val sharedPreferences = context.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
+        val id = sharedPreferences.getLong(Constants.KEY.KEY_USER_ID, -1)
+
+        val call = remote.queryMonthAndYear(userId = id, month = month, year = year)
+        call.enqueue(object : Callback<QueryResponse> {
+            override fun onResponse(call: Call<QueryResponse>, response: Response<QueryResponse>) {
+                if (response.code() == HTTP_OK) {
+                    response.body()?.let {
+                        listener.onSuccess(it)
+                    }
+                } else {
+                    val error = Gson().fromJson(response.errorBody()?.string(), ResponseModel::class.java)
+                    listener.onFailure(message = error.message, code = error.status)
+                }
+            }
+
+            override fun onFailure(call: Call<QueryResponse>, t: Throwable) {
+                if (t is IOException) {
+                    listener.onFailure(context.getString(R.string.error_no_connection), 500)
+                } else {
+                    listener.onFailure(context.getString(R.string.error_generic), 500)
+                }
+            }
+
+        })
+    }
+
+    private fun saveState(isConnected: Boolean) {
+        val sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("http_connected", isConnected)
+        editor.apply()
+    }
+
+    fun saveUserIdToSharedPreferences(context: Context, userId: Long) {
+        val sharedPreferences = context.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putLong(Constants.KEY.KEY_USER_ID, userId)
+        editor.apply()
+    }
 }
