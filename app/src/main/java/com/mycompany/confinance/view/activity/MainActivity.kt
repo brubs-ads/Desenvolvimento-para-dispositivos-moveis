@@ -16,13 +16,15 @@ import androidx.appcompat.app.AppCompatActivity
 import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityMainBinding
 import com.mycompany.confinance.viewmodel.HomeViewModel
+import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-    private val viewModel : HomeViewModel by viewModels()
+    private val viewModel: HomeViewModel by viewModels()
     private val calendar = Calendar.getInstance()
 
 
@@ -61,8 +63,22 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        observe()
         updateMonthYearText()
         checkMonthAndYear()
+    }
+
+    private fun formatarNumero(numero: Double): String {
+        val formato = DecimalFormat("#,##0.00", DecimalFormatSymbols.getInstance(Locale("pt", "BR")))
+        return "R$" + formato.format(numero)
+    }
+
+    private fun observe() {
+        viewModel.total.observe(this) { total ->
+            if (total != null) {
+                binding.appBarMain.textTotal.text = formatarNumero(total)
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -236,7 +252,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 val month = monthIndex + 1
-                val yearatt = year
+                viewModel.queryMonthAndYear(month, year)
             }
         }
     }

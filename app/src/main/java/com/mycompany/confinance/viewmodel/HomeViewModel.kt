@@ -10,24 +10,30 @@ import com.mycompany.confinance.request.ApiListener
 import com.mycompany.confinance.util.ResponseDialogCustom
 
 class HomeViewModel(private val application: Application) : AndroidViewModel(application) {
-//    private val repository = UserRepository(application)
-//    private val _result = MutableLiveData<QueryResponse>()
-//    val result: LiveData<QueryResponse> = _result
-//    private val _erro = MutableLiveData<ResponseDialogCustom>()
-//    val erro: LiveData<ResponseDialogCustom> = _erro
-//    fun queryMonthAndYear(month: Int, yearatt: Int) {
-//        repository.queryMonthAndYear(month = month, year = yearatt,
-//            listener = object : ApiListener<QueryResponse> {
-//                override fun onSuccess(result: QueryResponse) {
-//                    _result.value = result
-//                }
-//
-//                override fun onFailure(message: String, code: Int) {
-//                    _erro.value = ResponseDialogCustom(message, code)
-//                }
-//
-//            })
-//    }
+    private val repository = UserRepository(application)
+    private val _total = MutableLiveData<Double>()
+    val total: LiveData<Double> = _total
+    private val _totalRevenue = MutableLiveData<QueryResponse>()
+    val totalRevenue: LiveData<QueryResponse> = _totalRevenue
+    private val _erro = MutableLiveData<ResponseDialogCustom>()
+    val erro: LiveData<ResponseDialogCustom> = _erro
+    fun queryMonthAndYear(month: Int, year: Int) {
+        repository.queryMonthAndYear(month = month, year = year,
+            listener = object : ApiListener<QueryResponse> {
+                override fun onSuccess(result: QueryResponse) {
+                    _total.value = result.total
+                    _totalRevenue.value = QueryResponse(
+                        0.0, result.totalExpenses, result.totalRevenues,
+                        result.userId
+                    )
+                }
+
+                override fun onFailure(message: String, code: Int) {
+                    _erro.value = ResponseDialogCustom(message, code)
+                }
+
+            })
+    }
 
 
 }
