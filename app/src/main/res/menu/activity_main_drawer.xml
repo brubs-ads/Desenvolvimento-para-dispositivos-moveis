@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/inicio__menu"
+            android:title="@string/start"
+        />
+
+        <item android:title="@string/plan" android:id="@+id/plan">
+            <menu>
+<!--                    <item-->
+<!--                        android:id="@+id/nav_objective"-->
+<!--                        android:icon="@drawable/objetivo__menu"-->
+<!--                        android:title="@string/objectives"-->
+<!--                    />-->
+
+                    <item
+                        android:id="@+id/nav_renevue"
+                        android:icon="@drawable/receitas__menu"
+                        android:title="@string/revenues"/>
+
+                    <item
+                        android:id="@+id/nav_expense"
+                        android:title="Despesas"
+                        android:icon="@drawable/despesa__menu"
+                    />
+
+            </menu>
+
+        </item>
+
+        <item android:title="@string/analyze" android:id="@+id/analyze">
+            <menu>
+                <item
+                    android:id="@+id/nav_graphic"
+                    android:icon="@drawable/grafico"
+                    android:title="@string/graphics"/>
+            </menu>
+        </item>
+
+        <item tools:ignore="MenuTitle">
+            <menu>
+                    <item
+                        android:id="@+id/nav_about_us"
+                        android:icon="@drawable/sobre"
+                        android:title="@string/about_us"/>
+
+                    <item
+                        android:id="@+id/nav_terms_of_use"
+                        android:icon="@drawable/termo_de_uso"
+                        android:title="@string/terms_of_use"
+                    />
+                    <item
+                        android:id="@+id/nav_exit"
+                        android:icon="@drawable/sair"
+                        android:title="@string/exit"/>
+            </menu>
+        </item>
+
+</menu>

@@ -1,3 +1,207 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
     <string name="app_name">Confinance</string>
+    <string name="copyright">© 2023 Five Tech, inc.️️</string>
+    <string name="no_internet_connection">Sem Conexão à Internet, Verifique Sua Conexão.</string>
+    <string name="create_account_information">É hora de começar a sua jornada.</string>
+    <string name="create_account_for_start">Crie sua conta para começar a organizar suas finanças</string>
+    <string name="what_your_name">Qual o seu Nome?</string>
+    <string name="whats_your_email">Qual o seu E-mail?</string>
+    <string name="whats_your_password">Qual é a Senha?</string>
+    <string name="create_account">Criar Conta</string>
+    <string name="have_to_account">Já tenho uma conta</string>
+    <string name="type_your_name">Digite Seu Nome</string>
+    <string name="Type_your_email">Digite Seu Email</string>
+    <string name="type_your_password">Digite Sua Senha</string>
+    <string name="you_agree_terms">Ao continuar você concorda que leu e aceita \n os Termos de uso e a Políticas de
+        privacidade
+    </string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="without_internet">Sem Internet</string>
+    <string name="check_your_internet">Verifique sua conexão e tente novamente</string>
+    <string name="ok">Ok</string>
+    <string name="terms_of_use">Termos de Uso</string>
+    <string name="acceptance_of_terms_of_use">Aceitação dos Termos de Uso</string>
+    <string name="acceptance_of_terms_of_use_item">
+        Ao criar uma conta no Confinance, você concorda com os termos de uso aqui descritos. Se você não concordar com
+        esses termos, por favor, não utilize o serviço.
+    </string>
+    <string name="information_account">Informações da Conta</string>
+    <string name="information_account_item">
+        Ao criar uma conta, você será solicitado a fornecer seu nome completo, endereço de e-mail e senha. É de sua
+        responsabilidade manter sua senha segura e confidencial. O Confinance não se responsabiliza por quaisquer perdas
+        ou danos resultantes do uso não autorizado de sua conta.
+    </string>
+    <string name="use_service">Uso do Serviço</string>
+    <string name="use_service_item">
+        O Confinance permite que você gerencie suas finanças pessoais, incluindo o registro de débitos e créditos
+        mensais. Você é o único responsável pela precisão e integridade dos dados inseridos no aplicativo.
+    </string>
+    <string name="privacy_security">Privacidade e Segurança</string>
+    <string name="privacy_security_item">
+        No Confinance, levamos a privacidade e a segurança de seus dados muito a sério. Nunca compartilharemos suas
+        informações pessoais com terceiros sem sua permissão. No entanto, não podemos garantir a segurança completa dos
+        dados transmitidos pela Internet.
+    </string>
+    <string name="finish_account">Encerramento da Conta</string>
+    <string name="finish_account_item">
+        Você pode encerrar sua conta a qualquer momento. Ao fazê-lo, o Confinance excluirá todos os seus dados e
+        informações associadas à conta. Se você tiver alguma dúvida ou precisar de assistência, nossa equipe de suporte
+        está à disposição para ajudá-lo. Entre em contato conosco através do e-mail suporte.confinance@gmail.com.
+        \n
+        \n
+    </string>
+    <string name="tank_you">Obrigado por usar o Confinance!</string>
+    <string name="importance_of_privacy_policy">Importância da Política de Privacidade</string>
+    <string name="Definition_of_privacy_policy">A política de privacidade é um documento essencial para qualquer
+        aplicativo que colete informações de seus usuários. No caso do Confiance, um aplicativo que coleta informações
+        sensíveis, como nome, email, senha, despesas e receitas do mês do usuário, é ainda mais importante garantir a
+        segurança e a privacidade dos dados coletados.
+    </string>
+    <string name="Commitment_to_Privacy">Compromisso com a Privacidade</string>
+    <string name="important_to_make_clear">Primeiramente, é importante deixar claro que o Confiance respeita a
+        privacidade de seus usuários e está comprometido em proteger suas informações pessoais. Para isso, o aplicativo
+        utiliza medidas de segurança físicas, técnicas e administrativas para garantir a confidencialidade e a
+        integridade dos dados coletados.
+    </string>
+    <string name="Use_of_User_Information">Uso de Informações do Usuário</string>
+    <string name="Confiance_collects_user_information">O Confiance coleta informações do usuário com o objetivo de
+        fornecer um serviço personalizado e eficiente. As informações coletadas são utilizadas para calcular os gastos
+        do mês do usuário e fornecer dicas e sugestões para ajudá-lo a economizar dinheiro. O aplicativo também pode
+        utilizar as informações coletadas para melhorar seus serviços e produtos.
+    </string>
+    <string name="Confidentiality_and_NonSharing">Confidencialidade e Não Compartilhamento de Dados</string>
+    <string name="important_to_highlight">É importante ressaltar que o Confiance não compartilha as informações
+        coletadas com terceiros sem o consentimento prévio do usuário, exceto quando necessário para atender a
+        exigências legais ou regulatórias. O aplicativo também não vende, aluga ou troca informações pessoais dos
+        usuários.
+    </string>
+    <string name="Do_not_provide_information">Opção de Não Fornecer Informações e Exclusão de Dados</string>
+    <string name="If_the_user_wishes">Caso o usuário deseje, é possível optar por não fornecer algumas informações, como
+        nome, email e senha. No entanto, algumas funcionalidades do aplicativo podem ser limitadas sem esses dados. Além
+        disso, é possível solicitar a exclusão das informações coletadas a qualquer momento, basta entrar em contato com
+        o suporte do aplicativo.
+    </string>
+    <string name="We_value_trust">Na Confiance, valorizamos a confiança que você deposita em nosso aplicativo e estamos
+        aqui para garantir a segurança e privacidade de suas informações pessoais. Se tiver alguma dúvida ou precisar de
+        assistência, não hesite em contatar nossa equipe de suporte.
+    </string>
+    <string name="welcome_to_back">Bem Vindo De Volta!</string>
+    <string name="access_your_account">Acesse sua conta para começar a organizar suas finanças</string>
+    <string name="forgot_password">Esqueceu a senha ?</string>
+    <string name="login">Login</string>
+    <string name="recover_your_password">Para recuperar a sua senha, informe seu endereço de e-mail que nós enviaremos
+        um codigo para a alteração da senha.
+    </string>
+    <string name="Continue">Continuar</string>
+    <string name="check_your_email">Por favor verifique o seu e-mail para mais instruções.</string>
+    <string name="enter_the_sent_code">Digite o Codigo Enviado</string>
+    <string name="resend_the_email_with_instructions">Para reenviar o e-mail com instruções para “------------------” em
+        28s.
+    </string>
+    <string name="send_email_again">Enviar e-mail novamente</string>
+    <string name="Send_email">O E-mail foi enviado</string>
+    <string name="error_failure_login">Oh, tentativa de senha e e-mail incrivelmente errada! Quase ganhou um prêmio pelo
+        erro mais criativo, mas não é hoje. Tente novamente!
+    </string>
+    <string name="error_no_connection">Verifique sua conexão para continuar \n navegando.</string>
+    <string name="error_generic">erro estamos verificando, breve estará no ar.</string>
+    <string name="no_connection">Sem Conexão!</string>
+    <string name="check_connection">Verifique sua conexão e tente novamente.</string>
+    <string name="try_Again">Tente Novamente</string>
+    <string name="error_parameters_login">E-mail e senha não estão dançando no mesmo ritmo. Vamos acertar esses passos e
+        entrar no Confinance.
+    </string>
+    <string name="no_have_connection">Parece que não há internet</string>
+    <string name="access_denied">Acesso Negado</string>
+    <string name="incomplete_data">Dados Incompletos</string>
+    <string name="something_seems_to_be_missing">Algo parece estar faltando aqui. Complete os campos necessários e
+        junte-se à revolução financeira com o aplicativo Confinance.
+    </string>
+    <string name="looks_like_you_left_some_data">Quase lá! Parece que você deixou alguns dados voando por aí. Complete o
+        que falta e prepare-se para a grande estreia no confinance
+    </string>
+    <string name="It_looks_like_you_entered_an_incorrect_email">Oops! Parece que você digitou um email incorreto.
+    </string>
+    <string name="incorrect_code_or_blank_fields">Código incorreto ou campos em branco.</string>
+    <string name="wrong_verification_code">Código de verificação errado.</string>
+    <string name="email_Exist_Please_Check">Email Não Existe, PorFavor Verifique.</string>
+    <string name="email_already_linked">Email já Vinculado, com Outra Conta.</string>
+    <string name="wait_for_the_time_to_end">Espere o Tempo Finalizar!</string>
+    <string name="time_ended">Tempo encerrado!</string>
+    <string name="password_does_not_work" tools:ignore="ExtraTranslation">Senha não atende aos
+        requisitos mínimos.\n Por favor, escolha uma senha válida
+    </string>
+    <string name="input_error">Erro de Entrada</string>
+    <string name="confirm_the_password">Confirme a senha</string>
+    <string name="enter_your_new_password">Digite sua nova senha</string>
+    <string name="new_password">Nova Senha</string>
+    <string name="plan">PLANEJAR</string>
+    <string name="start">Início</string>
+    <string name="objectives">Objetivos</string>
+    <string name="analyze">ANALIZAR</string>
+    <string name="graphics">Gráficos</string>
+    <string name="about_us">Sobre Nós</string>
+    <string name="exit">Sair</string>
+    <string name="balance">saldo</string>
+    <string name="Month_overview">Visão geral do mês</string>
+    <string name="revenues">Receitas</string>
+    <string name="expenses">Despesas</string>
+    <string name="total">Total</string>
+    <string name="revenue">Receita</string>
+    <string name="create_revenue">criar receita</string>
+    <string name="expense">Despesa</string>
+    <string name="create_expense">CRIAR DESPESA</string>
+    <string name="graphic">Gráfico</string>
+    <string name="Plan_and_monitor_your_income">Planeje e monitore suas receitas financeiras \n para uma gestão
+        financeira eficaz.
+    </string>
+    <string name="Control_and_evaluate_your_expenses">Controle e avalie suas despesas financeiras \n para uma gestão
+        financeira sólida.
+    </string>
+    <string name="Explore_your_charts_and_track_your_progress">Explore seus gráficos e acompanhe seu \nprogresso, para
+        uma visão de suas finanças.
+    </string>
+    <string name="total_default">R$ 0,00</string>
+
+    <string-array name="months">
+        <item>Janeiro</item>
+        <item>Fevereiro</item>
+        <item>Março</item>
+        <item>Abril</item>
+        <item>Maio</item>
+        <item>Junho</item>
+        <item>Julho</item>
+        <item>Agosto</item>
+        <item>Setembro</item>
+        <item>Outubro</item>
+        <item>Novembro</item>
+        <item>Dezembro</item>
+    </string-array>
+
+    <string-array name="month_abbreviations">
+        <item>Jan</item>
+        <item>Fev</item>
+        <item>Mar</item>
+        <item>Abr</item>
+        <item>Mai</item>
+        <item>Jun</item>
+        <item>Jul</item>
+        <item>Ago</item>
+        <item>Set</item>
+        <item>Out</item>
+        <item>Nov</item>
+        <item>Dez</item>
+    </string-array>
 </resources>

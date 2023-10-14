@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="276dp"
+    android:layout_height="138.73dp"
+    app:cardCornerRadius="10dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/image_no_conection"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_gravity="top"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/sem_internet" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/image_no_conection"
+        android:layout_alignBottom="@id/image_no_conection"
+        android:layout_toEndOf="@id/image_no_conection"
+        android:fontFamily="@font/roboto_medium"
+        android:gravity="center"
+        android:layout_marginStart="11dp"
+        android:text="@string/no_connection"
+        android:textColor="@color/black_opacity_50" />
+
+    <TextView
+        android:id="@+id/text_no_have_connection"
+        android:layout_width="wrap_content"
+        android:layout_height="13dp"
+        android:layout_below="@id/image_no_conection"
+        android:layout_toEndOf="@id/image_no_conection"
+        android:fontFamily="@font/roboto"
+        android:textSize="11sp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black_opacity_50"
+        android:text="@string/check_connection" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/text_no_have_connection"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/rounded_dialog" />
+
+    <Button
+        android:id="@+id/button_ok"
+        android:layout_width="103dp"
+        android:layout_height="41dp"
+        android:layout_alignTop="@id/view"
+        android:layout_alignEnd="@id/view"
+        android:layout_alignBottom="@id/view"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/inter_semibold"
+        android:gravity="center"
+        android:text="@string/ok"
+        android:textColor="@color/black_opacity_50"
+        android:textSize="12sp"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
