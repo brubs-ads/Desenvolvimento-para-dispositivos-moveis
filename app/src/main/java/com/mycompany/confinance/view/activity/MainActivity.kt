@@ -69,13 +69,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun formatarNumero(numero: Double): String {
-        val formato = DecimalFormat("#,##0.00", DecimalFormatSymbols.getInstance(Locale("pt", "BR")))
-        return "R$" + formato.format(numero)
+        val formato = DecimalFormat("#,##0.00", DecimalFormatSymbols(Locale("pt", "BR")))
+        formato.isGroupingUsed = true
+        formato.groupingSize = 3
+
+        return "R$ " + formato.format(numero)
     }
 
     private fun observe() {
-        viewModel.total.observe(this) { total ->
-            if (total != null) {
+        viewModel.isLoading.observe(this) { isLoading ->
+            if (isLoading) {
+                binding.appBarMain.shimmerLayoutTextTotal.shimmerColor = 0
+            } else {
+                binding.appBarMain.textTotal.text = baseContext.getString(R.string.total_default)
+                binding.appBarMain.shimmerLayoutTextTotal.startLayoutAnimation()
+            }
+
+            viewModel.totalBalance.observe(this) { total ->
                 binding.appBarMain.textTotal.text = formatarNumero(total)
             }
         }

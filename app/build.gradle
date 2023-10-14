@@ -37,6 +37,7 @@ android {
 }
 
 dependencies {
+    implementation 'xyz.peridy.shimmer:shimmerlayout:1.1'
     implementation 'org.chromium.net:cronet-embedded:113.5672.61'
     testImplementation 'androidx.arch.core:core-testing:2.2.0'
     implementation 'androidx.test:core-ktx:1.5.0'
@@ -57,6 +58,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation 'org.mindrot:jbcrypt:0.4'
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
 
 }
 
