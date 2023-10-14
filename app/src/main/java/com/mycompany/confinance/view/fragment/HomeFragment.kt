@@ -7,13 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
+import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.FragmentHomeBinding
 import com.mycompany.confinance.view.activity.CreateRevenueActivity
 import com.mycompany.confinance.viewmodel.HomeViewModel
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
-import java.text.NumberFormat
 import java.util.*
 
 class HomeFragment : Fragment() {
@@ -54,10 +53,19 @@ class HomeFragment : Fragment() {
     }
 
     private fun observe() {
-        viewModel.totalRevenue.observe(viewLifecycleOwner) {
-            binding.textTotalExpense.text = formatarNumero(it.totalExpenses)
-            binding.textTotalRevenue.text = formatarNumero(it.totalRevenues)
-        }
-    }
+        viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
+            if (isLoading) {
+                binding.shimmerLayoutTextTotals.shimmerColor = 0
+            } else {
+                binding.textTotalRevenue.text = context?.getString(R.string.total_default)
+                binding.shimmerLayoutTextTotals.startLayoutAnimation()
+            }
 
+            viewModel.totalMovement.observe(viewLifecycleOwner) {
+                binding.textTotalExpense.text = formatarNumero(it.totalExpenses)
+                binding.textTotalRevenue.text = formatarNumero(it.totalRevenues)
+            }
+        }
+
+    }
 }

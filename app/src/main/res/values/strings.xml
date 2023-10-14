@@ -173,6 +173,7 @@
     <string name="Explore_your_charts_and_track_your_progress">Explore seus gráficos e acompanhe seu \nprogresso, para
         uma visão de suas finanças.
     </string>
+    <string name="total_default">R$ 0,00</string>
 
     <string-array name="months">
         <item>Janeiro</item>

@@ -11,24 +11,29 @@ import com.mycompany.confinance.util.ResponseDialogCustom
 
 class HomeViewModel(private val application: Application) : AndroidViewModel(application) {
     private val repository = UserRepository(application)
-    private val _total = MutableLiveData<Double>()
-    val total: LiveData<Double> = _total
-    private val _totalRevenue = MutableLiveData<QueryResponse>()
-    val totalRevenue: LiveData<QueryResponse> = _totalRevenue
+    private val _totalBalance = MutableLiveData<Double>()
+    val totalBalance: LiveData<Double> = _totalBalance
+    private val _totalMovement = MutableLiveData<QueryResponse>()
+    val totalMovement: LiveData<QueryResponse> = _totalMovement
     private val _erro = MutableLiveData<ResponseDialogCustom>()
     val erro: LiveData<ResponseDialogCustom> = _erro
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading :LiveData<Boolean> = _isLoading
     fun queryMonthAndYear(month: Int, year: Int) {
+        _isLoading.value = false
         repository.queryMonthAndYear(month = month, year = year,
             listener = object : ApiListener<QueryResponse> {
                 override fun onSuccess(result: QueryResponse) {
-                    _total.value = result.total
-                    _totalRevenue.value = QueryResponse(
+                    _totalBalance.value = result.total
+                    _totalMovement.value = QueryResponse(
                         0.0, result.totalExpenses, result.totalRevenues,
                         result.userId
                     )
+                    _isLoading.value = true
                 }
 
                 override fun onFailure(message: String, code: Int) {
+                    _isLoading.value = false
                     _erro.value = ResponseDialogCustom(message, code)
                 }
 
