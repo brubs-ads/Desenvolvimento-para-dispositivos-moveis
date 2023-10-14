@@ -7,7 +7,9 @@ import org.junit.Assert.*
 import org.junit.runner.RunWith
 
 
-class ExampleUnitTest(MockitoJUnitRunner: Any) {
+class ExampleUnitTest {
+    constructor(MockitoJUnitRunner: Any)
+
     @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)

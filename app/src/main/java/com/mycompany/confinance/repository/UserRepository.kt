@@ -1,6 +1,8 @@
 package com.mycompany.confinance.repository
 
 import android.content.Context
+import org.junit.Test
+import org.junit.Before
 import com.google.gson.Gson
 import com.mycompany.confinance.R
 import com.mycompany.confinance.model.*
