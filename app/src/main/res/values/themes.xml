@@ -68,4 +68,8 @@
     <style name="MyDrawerArrowToggle" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="color">@color/white</item>
     </style>
+
+    <style name="NoBorderEditText">
+        <item name="android:background">@null</item>
+    </style>
 </resources>
