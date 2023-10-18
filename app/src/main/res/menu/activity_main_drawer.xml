@@ -11,12 +11,6 @@
 
         <item android:title="@string/plan" android:id="@+id/plan">
             <menu>
-<!--                    <item-->
-<!--                        android:id="@+id/nav_objective"-->
-<!--                        android:icon="@drawable/objetivo__menu"-->
-<!--                        android:title="@string/objectives"-->
-<!--                    />-->
-
                     <item
                         android:id="@+id/nav_renevue"
                         android:icon="@drawable/receitas__menu"
@@ -41,7 +35,7 @@
             </menu>
         </item>
 
-        <item tools:ignore="MenuTitle">
+        <item android:title="MAIS OPÇÕES">
             <menu>
                     <item
                         android:id="@+id/nav_about_us"

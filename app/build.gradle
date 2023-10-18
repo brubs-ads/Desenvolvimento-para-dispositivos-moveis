@@ -31,7 +31,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    viewBinding{
+    viewBinding {
         enabled = true
     }
 }
@@ -59,6 +59,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation 'org.mindrot:jbcrypt:0.4'
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    implementation 'me.abhinay.input:currency-edittext:1.1'
 
 
 }
