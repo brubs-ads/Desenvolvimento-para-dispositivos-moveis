@@ -7,6 +7,7 @@ import android.text.TextWatcher
 import androidx.activity.viewModels
 import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityCreateRevenueBinding
+import com.mycompany.confinance.util.DatePickerFragment
 import com.mycompany.confinance.viewmodel.CreateRevenueViewModel
 import com.mycompany.confinance.viewmodel.HomeViewModel
 import java.text.DecimalFormat
@@ -21,6 +22,20 @@ class CreateRevenueActivity : AppCompatActivity() {
 
         handleRepetitions()
         handleSave()
+        handleDate()
+    }
+
+
+
+    private fun handleDate() {
+        binding.textData.setOnClickListener {
+            val datePicker = DatePickerFragment{day, month, year -> onDateSelect(day,month,year) }
+            datePicker.show(supportFragmentManager,"datePicker")
+        }
+    }
+
+    private fun onDateSelect(day: Int, mounth: Int, year: Int) {
+        binding.textData.text = "$day/$mounth/$year"
     }
 
     private fun handleSave() {

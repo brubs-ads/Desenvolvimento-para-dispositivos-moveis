@@ -176,6 +176,25 @@
     <string name="total_default">R$ 0,00</string>
     <string name="new_renevue">Nova receita</string>
     <string name="value_revenue">Valor da receita</string>
+    <string name="Personal_Finance_Manager">Gestor de Finanças Pessoal</string>
+    <string name="Five_Tech_Confinance_is_a_tool">O Confinance da Five Tech é uma ferramenta de gestão financeira que
+        ajuda você a monitorar seus gasto, mantendo o controle necessário para alcançar suas mestas financeiras.
+    </string>
+    <string name="about_five_tech">Sobre a Five Tech</string>
+    <string name="founded_in_2022">A Five Tech é uma empresa fundada em 2022 por cinco amigos apaixonados por
+        tecnologia. Nosso objetivo é tornar a tecnologia acessível e benéfica para todos. Com um compromisso com a
+        responsabilidade social, buscamos melhorar a vida das pessoas. Na Five Tech, a simplicidade é a nossa
+        assinatura.
+    </string>
+    <string name="Contact">Entre em contato</string>
+    <string name="you_have_any_questions">Se você tiver alguma dúvida ou precisar de ajuda, nossa equipe de suporte está
+        sempre à disposição para ajudá-lo. suporte.confinance@gmail.com
+    </string>
+    <string name="Thank_you_for_choosing_our_app">Obrigado por escolher nosso aplicativo para ajudá-lo a alcançar seus
+        objetivos financeiros. Estamos ansiosos para acompanhá-lo em sua jornada de controle financeiro.
+    </string>
+    <string name="Five_Tech_inc">© Five Tech, inc.️️</string>
+    <string name="version">1.1.1</string>
 
     <string-array name="months">
         <item>Janeiro</item>

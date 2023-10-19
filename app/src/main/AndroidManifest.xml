@@ -6,56 +6,58 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
-        android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.Confinance"
-        android:usesCleartextTraffic="true"
-        tools:targetApi="31">
+            android:allowBackup="true"
+            android:dataExtractionRules="@xml/data_extraction_rules"
+            android:fullBackupContent="@xml/backup_rules"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/Theme.Confinance"
+            android:usesCleartextTraffic="true"
+            tools:targetApi="31">
         <activity
-            android:name=".view.activity.CreateRevenueActivity"
-            android:exported="false"/>
+                android:name=".view.company.AboutUsActivity"
+                android:exported="false"/>
         <activity
-            android:name=".view.activity.user.NewPasswordActivity"
-            android:exported="false"
-            android:theme="@style/ThemeForActivityUser"/>
+                android:name=".view.activity.CreateRevenueActivity"
+                android:exported="false"/>
         <activity
-            android:name=".view.activity.user.CodeForgotPasswordActivity"
-            android:exported="false"
-            android:theme="@style/ThemeForActivityUser"/>
+                android:name=".view.activity.user.NewPasswordActivity"
+                android:exported="false"
+                android:theme="@style/ThemeForActivityUser"/>
         <activity
-            android:name=".view.activity.user.ForgotPasswordActivity"
-            android:exported="false"
-            android:theme="@style/ThemeForActivityUser"/>
+                android:name=".view.activity.user.CodeForgotPasswordActivity"
+                android:exported="false"
+                android:theme="@style/ThemeForActivityUser"/>
         <activity
-            android:name=".view.company.PrivacyActivity"
-            android:exported="false"
-            android:theme="@style/ThemeForActivityCompany"/>
+                android:name=".view.activity.user.ForgotPasswordActivity"
+                android:exported="false"
+                android:theme="@style/ThemeForActivityUser"/>
         <activity
-            android:name=".view.company.TermsOfUseActivity"
-            android:exported="false"
-            android:theme="@style/ThemeForActivityCompany"/>
+                android:name=".view.company.PrivacyActivity"
+                android:exported="false"
+                android:theme="@style/ThemeForActivityCompany"/>
         <activity
-            android:name=".view.activity.user.LoginActivity"
-            android:exported="false"
-            android:theme="@style/ThemeForActivityUser"/>
+                android:name=".view.company.TermsOfUseActivity"
+                android:exported="false"
+                android:theme="@style/ThemeForActivityCompany"/>
         <activity
-            android:name=".view.activity.MainActivity"
-            android:exported="false"
-            android:theme="@style/ThemeForActivityCompany"
-        />
+                android:name=".view.activity.user.LoginActivity"
+                android:exported="false"
+                android:theme="@style/ThemeForActivityUser"/>
         <activity
-            android:name=".view.activity.user.CreateAccountActivity"
-            android:exported="false"
-            android:theme="@style/ThemeForActivityUser"/>
+                android:name=".view.activity.MainActivity"
+                android:exported="false"
+                android:theme="@style/ThemeForActivityCompany"/>
         <activity
-            android:name=".view.activity.SplashScreenActivity"
-            android:exported="true"
-            android:theme="@style/ThemeForSplash">
+                android:name=".view.activity.user.CreateAccountActivity"
+                android:exported="false"
+                android:theme="@style/ThemeForActivityUser"/>
+        <activity
+                android:name=".view.activity.SplashScreenActivity"
+                android:exported="true"
+                android:theme="@style/ThemeForSplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -64,8 +66,8 @@
         </activity>
 
         <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts"/>
+                android:name="preloaded_fonts"
+                android:resource="@array/preloaded_fonts"/>
     </application>
 
 </manifest>

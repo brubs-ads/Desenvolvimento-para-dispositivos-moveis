@@ -152,6 +152,7 @@
                             android:layout_alignBottom="@id/image_calendar"
                             android:fontFamily="@font/roboto_medium"
                             android:text="Data"
+                            android:layout_marginTop="3dp"
                             android:textSize="16dp"
                     />
 
