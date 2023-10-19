@@ -95,323 +95,303 @@
             >
 
                 <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
                     <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/image_description"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginTop="35dp"
-                            android:layout_marginStart="6dp"
-                            app:srcCompat="@drawable/salario_mensal"
-                    />
+                        android:id="@+id/image_description"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="35dp"
+                        app:srcCompat="@drawable/salario_mensal" />
 
                     <androidx.appcompat.widget.AppCompatEditText
-                            android:id="@+id/edit_text_description"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:hint="Descrição"
-                            style="@style/NoBorderEditText"
-                            android:layout_toEndOf="@id/image_description"
-                            android:layout_alignTop="@id/image_description"
-                            android:layout_alignBottom="@id/image_description"
-                            android:layout_marginStart="14dp"
-                    />
+                        android:id="@+id/edit_text_description"
+                        style="@style/NoBorderEditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/image_description"
+                        android:layout_alignBottom="@id/image_description"
+                        android:layout_marginStart="14dp"
+                        android:layout_toEndOf="@id/image_description"
+                        android:hint="Descrição" />
 
                     <View
-                            android:id="@+id/view"
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/gray_2"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentEnd="true"
-                            android:layout_below="@id/edit_text_description"
-                            android:layout_marginTop="20dp"
-                    />
+                        android:id="@+id/view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@id/edit_text_description"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/gray_2" />
 
                     <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/image_calendar"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_below="@id/view"
-                            android:layout_marginTop="21dp"
-                            android:layout_marginStart="6dp"
-                            app:srcCompat="@drawable/data"
-                    />
+                        android:id="@+id/image_calendar"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_below="@id/view"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="21dp"
+                        app:srcCompat="@drawable/data" />
 
                     <androidx.appcompat.widget.AppCompatTextView
-                            android:id="@+id/text_data"
-                            android:layout_width="wrap_content"
-                            android:layout_height="19dp"
-                            android:layout_alignStart="@id/edit_text_description"
-                            android:layout_below="@id/view"
-                            android:layout_alignTop="@id/image_calendar"
-                            android:layout_alignBottom="@id/image_calendar"
-                            android:fontFamily="@font/roboto_medium"
-                            android:text="Data"
-                            android:layout_marginTop="3dp"
-                            android:textSize="16dp"
-                    />
+                        android:id="@+id/text_data"
+                        android:layout_width="wrap_content"
+                        android:layout_height="19dp"
+                        android:layout_below="@id/view"
+                        android:layout_alignStart="@id/edit_text_description"
+                        android:layout_alignTop="@id/image_calendar"
+                        android:layout_alignBottom="@id/image_calendar"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Data"
+                        android:textSize="16dp" />
 
                     <View
-                            android:id="@+id/view_2"
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/gray_2"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentEnd="true"
-                            android:layout_below="@id/text_data"
-                            android:layout_marginTop="26dp"
-                    />
+                        android:id="@+id/view_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@id/text_data"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="26dp"
+                        android:background="@color/gray_2" />
 
 
                     <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/image_fixed_income"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_below="@id/view_2"
-                            android:layout_marginTop="26dp"
-                            android:layout_marginStart="6dp"
-                            app:srcCompat="@drawable/fixar"
-                    />
+                        android:id="@+id/image_fixed_income"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_below="@id/view_2"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="26dp"
+                        app:srcCompat="@drawable/fixar" />
 
                     <androidx.appcompat.widget.SwitchCompat
-                            android:id="@+id/switch_revenue"
-                            android:layout_width="160dp"
-                            android:layout_height="20dp"
-                            android:layout_alignTop="@id/image_fixed_income"
-                            android:layout_toEndOf="@id/image_fixed_income"
-                            android:text="Receita Fixa"
-                            android:layout_marginStart="16dp"
-                    />
+                        android:id="@+id/switch_revenue"
+                        android:layout_width="160dp"
+                        android:layout_height="20dp"
+                        android:layout_alignTop="@id/image_fixed_income"
+                        android:layout_marginStart="16dp"
+                        android:layout_toEndOf="@id/image_fixed_income"
+                        android:text="Receita Fixa" />
 
                     <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/image_repetition"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_toEndOf="@id/switch_revenue"
-                            app:srcCompat="@drawable/repeti__o"
-                            android:layout_alignTop="@id/view_2"
-                            android:layout_marginStart="62dp"
-                            android:layout_marginTop="30dp"
-                    />
+                        android:id="@+id/image_repetition"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignTop="@id/view_2"
+                        android:layout_marginStart="62dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_toEndOf="@id/switch_revenue"
+                        app:srcCompat="@drawable/repeti__o" />
 
                     <NumberPicker
-                            android:id="@+id/number_picker"
-                            android:layout_width="123dp"
-                            android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/image_repetition"
-                            android:layout_alignBottom="@id/image_repetition"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginStart="-4dp"/>
+                        android:id="@+id/number_picker"
+                        android:layout_width="123dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/image_repetition"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="-4dp"
+                        android:layout_toEndOf="@id/image_repetition" />
 
                     <View
-                            android:id="@+id/view_3"
-                            android:layout_width="189dp"
-                            android:layout_height="1dp"
-                            android:background="@color/gray_2"
-                            android:layout_alignParentStart="true"
-                            android:layout_below="@id/image_fixed_income"
-                            android:layout_marginTop="26dp"
-                    />
+                        android:id="@+id/view_3"
+                        android:layout_width="189dp"
+                        android:layout_height="1dp"
+                        android:layout_below="@id/image_fixed_income"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="26dp"
+                        android:background="@color/gray_2" />
 
                     <View
-                            android:id="@+id/view_4"
-                            android:layout_width="134dp"
-                            android:layout_height="1dp"
-                            android:background="@color/gray_2"
-                            android:layout_alignParentEnd="true"
-                            android:layout_below="@id/image_fixed_income"
-                            android:layout_marginTop="26dp"
-                    />
+                        android:id="@+id/view_4"
+                        android:layout_width="134dp"
+                        android:layout_height="1dp"
+                        android:layout_below="@id/image_fixed_income"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="26dp"
+                        android:background="@color/gray_2" />
 
                     <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/image_category"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            app:srcCompat="@drawable/categoria"
-                            android:layout_alignTop="@id/view_4"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginTop="29dp"
-                            android:layout_marginStart="6dp"
+                        android:id="@+id/image_category"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignTop="@id/view_4"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="29dp"
+                        app:srcCompat="@drawable/categoria"
 
-                    />
+                        />
 
                     <androidx.appcompat.widget.AppCompatTextView
-                            android:id="@+id/text_category"
-                            android:layout_width="wrap_content"
-                            android:layout_height="19dp"
-                            android:layout_alignTop="@id/image_category"
-                            android:layout_toEndOf="@id/image_category"
-                            android:text="Categorias"
-                            android:layout_alignBottom="@id/image_category"
-                            android:textSize="16dp"
-                            android:fontFamily="@font/roboto_medium"
-                            android:textColor="@color/black_opacity_50"
-                            android:layout_marginStart="13dp"
-                    />
+                        android:id="@+id/text_category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="19dp"
+                        android:layout_alignTop="@id/image_category"
+                        android:layout_alignBottom="@id/image_category"
+                        android:layout_marginStart="13dp"
+                        android:layout_toEndOf="@id/image_category"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Categorias"
+                        android:textColor="@color/black_opacity_50"
+                        android:textSize="16dp" />
 
                     <androidx.cardview.widget.CardView
-                            android:id="@+id/card_salary"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/text_category"
-                            android:layout_marginTop="37dp"
-                            android:layout_alignParentStart="true"
-                            app:cardElevation="0dp"
-                            android:layout_marginStart="52dp"
-                    >
+                        android:id="@+id/card_salary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/text_category"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="52dp"
+                        android:layout_marginTop="37dp"
+                        app:cardElevation="0dp">
 
                         <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
 
                             <androidx.appcompat.widget.AppCompatImageView
-                                    android:layout_width="42dp"
-                                    android:layout_height="42dp"
-                                    app:srcCompat="@drawable/salario"
-                                    android:layout_gravity="center"
-                            />
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/salario" />
 
                             <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Salário"
-                                    android:textColor="@color/black"
-                                    android:textSize="13sp"
-                                    android:fontFamily="@font/roboto_medium"
-                            />
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/roboto_medium"
+                                android:text="Salário"
+                                android:textColor="@color/black"
+                                android:textSize="13sp" />
 
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                            android:id="@+id/card_investi"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:cardElevation="0dp"
-                            android:layout_alignTop="@id/card_salary"
-                            android:layout_toEndOf="@id/card_salary"
-                            android:layout_marginStart="68dp"
-                    >
+                        android:id="@+id/card_investi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/card_salary"
+                        android:layout_marginStart="45dp"
+                        android:layout_toEndOf="@id/card_salary"
+                        app:cardElevation="0dp">
 
                         <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
 
                             <androidx.appcompat.widget.AppCompatImageView
-                                    android:layout_width="42dp"
-                                    android:layout_height="42dp"
-                                    app:srcCompat="@drawable/investimento"
-                                    android:layout_gravity="center"
-                            />
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/investimento" />
 
                             <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Investimentos"
-                                    android:textColor="@color/black"
-                                    android:textSize="13sp"
-                                    android:fontFamily="@font/roboto_medium"
-                            />
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:fontFamily="@font/roboto_medium"
+                                android:text="Investimentos"
+                                android:textColor="@color/black"
+                                android:textSize="13sp" />
 
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                            android:id="@+id/card_service"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:cardElevation="0dp"
-                            android:layout_alignTop="@id/card_investi"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginEnd="44dp"
+                        android:id="@+id/card_service"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/card_investi"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="52dp"
+                        app:cardElevation="0dp"
 
-                    >
+                        >
 
                         <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
 
                             <androidx.appcompat.widget.AppCompatImageView
-                                    android:layout_width="42dp"
-                                    android:layout_height="42dp"
-                                    app:srcCompat="@drawable/servi_os"
-                                    android:layout_gravity="center"
-                            />
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/servi_os" />
 
                             <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Serviços"
-                                    android:textColor="@color/black"
-                                    android:textSize="13sp"
-                                    android:fontFamily="@font/roboto_medium"
-                            />
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_medium"
+                                android:layout_gravity="center"
+                                android:text="Serviços"
+                                android:textColor="@color/black"
+                                android:textSize="13sp" />
 
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                            android:id="@+id/card_outro"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:cardElevation="0dp"
-                            android:layout_alignParentStart="true"
-                            android:layout_below="@id/card_salary"
-                            android:layout_marginTop="26dp"
-                            android:layout_marginStart="50dp"
-                    >
+                        android:id="@+id/card_outro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/card_salary"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="26dp"
+                        app:cardElevation="0dp">
 
                         <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
 
                             <androidx.appcompat.widget.AppCompatImageView
-                                    android:layout_width="42dp"
-                                    android:layout_height="42dp"
-                                    app:srcCompat="@drawable/outros_1"
-                                    android:layout_gravity="center"
-                            />
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/outros_1" />
 
                             <TextView
-                                    android:id="@+id/cardtf"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Serviços"
-                                    android:textColor="@color/black"
-                                    android:textSize="13sp"
-                                    android:fontFamily="@font/roboto_medium"
-                            />
+                                android:id="@+id/cardtf"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_medium"
+                                android:layout_gravity="center"
+                                android:text="Serviços"
+                                android:textColor="@color/black"
+                                android:textSize="13sp" />
 
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
 
                     <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/button_create"
-                            android:layout_width="192dp"
-                            android:layout_height="41dp"
-                            android:layout_alignParentBottom="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginBottom="85dp"
-                            android:text="Criar"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/lato"
-                            android:textSize="15sp"
-                            android:background="@drawable/rounded_button_movement"
-                            android:elevation="8dp"
-                    />
+                        android:id="@+id/button_create"
+                        android:layout_width="192dp"
+                        android:layout_height="41dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="41dp"
+                        android:background="@drawable/rounded_button_movement"
+                        android:elevation="8dp"
+                        android:fontFamily="@font/lato"
+                        android:text="Criar"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
 
                 </RelativeLayout>
 
@@ -422,6 +402,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+
     <View android:layout_width="match_parent"
           android:layout_height="40dp"
           app:layout_constraintStart_toStartOf="parent"
@@ -430,5 +411,7 @@
           android:background="@color/white"
           android:translationZ="10000dp"
     />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
