@@ -11,5 +11,14 @@ class AboutUsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAboutUsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        handleClick()
+
+    }
+
+    private fun handleClick() {
+        binding.imageBack.setOnClickListener {
+            finish()
+        }
     }
 }

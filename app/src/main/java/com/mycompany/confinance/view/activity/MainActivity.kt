@@ -15,6 +15,8 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityMainBinding
+import com.mycompany.confinance.view.company.AboutUsActivity
+import com.mycompany.confinance.view.company.TermsOfUseActivity
 import com.mycompany.confinance.viewmodel.HomeViewModel
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols

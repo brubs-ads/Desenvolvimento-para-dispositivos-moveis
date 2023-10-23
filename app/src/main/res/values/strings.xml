@@ -195,6 +195,22 @@
     </string>
     <string name="Five_Tech_inc">© Five Tech, inc.️️</string>
     <string name="version">1.1.1</string>
+    <string name="description">Descrição</string>
+    <string name="date">Data</string>
+    <string name="fixed_income">Receita Fixa</string>
+    <string name="repetition">Repetições</string>
+    <string name="category">Categorias</string>
+    <string name="salary">Salário</string>
+    <string name="Investments">Investimentos</string>
+    <string name="service">Serviços</string>
+    <string name="other">Outros</string>
+    <string name="Configure_repeat">Configurar repetição</string>
+    <string name="amount">Quantidade</string>
+    <string name="period">Período</string>
+    <string name="monthly">Mensal</string>
+    <string name="daily">Diário</string>
+    <string name="weekly">Semanal</string>
+    <string name="annual">Anual</string>
 
     <string-array name="months">
         <item>Janeiro</item>

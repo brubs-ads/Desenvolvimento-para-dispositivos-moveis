@@ -1,8 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Confinance" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="drawerArrowStyle">@style/MyDrawerArrowToggle</item>
     </style>
 
@@ -71,5 +69,14 @@
 
     <style name="NoBorderEditText">
         <item name="android:background">@null</item>
+    </style>
+
+    <style name="PopupMenuStyle" parent="@style/Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@drawable/rounded_menu_popup</item>
+        <item name="android:textAppearance">@style/CenteredTextAppearance</item>
+    </style>
+
+    <style name="CenteredTextAppearance">
+        <item name="android:gravity">center</item>
     </style>
 </resources>
