@@ -11,7 +11,9 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
-    repositories { maven { url "https://jcenter.bintray.com" } }
+    repositories { maven { url "https://jcenter.bintray.com" }
+        maven { url 'https://jitpack.io' }
+    }
 }
 rootProject.name = "Confinance"
 include ':app'

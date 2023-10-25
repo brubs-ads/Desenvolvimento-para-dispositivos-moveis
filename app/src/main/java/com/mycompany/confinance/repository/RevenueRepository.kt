@@ -1,7 +1,10 @@
 package com.mycompany.confinance.repository
 
 import android.content.Context
+import com.google.gson.Gson
+import com.mycompany.confinance.R
 import com.mycompany.confinance.model.MovementModel
+import com.mycompany.confinance.model.ResponseModel
 import com.mycompany.confinance.model.User
 import com.mycompany.confinance.request.ApiListener
 import com.mycompany.confinance.request.Retrofit
@@ -10,12 +13,14 @@ import com.mycompany.confinance.util.Constants
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.IOException
+import java.net.HttpURLConnection
 
 class RevenueRepository {
 
     private val remote = Retrofit.getService(MovementService::class.java)
 
-    fun getUserIdFromSharedPreferences(context: Context): Long {
+    private fun getUserIdFromSharedPreferences(context: Context): Long {
         val sharedPreferences = context.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
         return sharedPreferences.getLong(Constants.KEY.KEY_USER_ID, -1)
     }
@@ -30,16 +35,37 @@ class RevenueRepository {
         fixedIncome: Boolean?,
         repetitions: String?,
         category: Int?,
-        listener: ApiListener<MovementModel>,
+        listener: ApiListener<ResponseModel>,
         context: Context
     ) {
-        val part = repetitions?.split("x")
+        val part = repetitions?.split("x ")
         val recurrenceIntervals = part?.get(0)?.toInt()
-        val recurrenceFrequency = part?.get(1)
+        var recurrenceFrequency = part?.get(1)
+        when (recurrenceFrequency) {
+            "Semanal" -> {
+                recurrenceFrequency = "weekly"
+            }
+
+            "Diário" -> {
+                recurrenceFrequency = "daily"
+            }
+
+            "Mensal" -> {
+                recurrenceFrequency = "monthly"
+            }
+
+            "Anual" -> {
+                recurrenceFrequency = "annually"
+            }
+
+            else -> {
+                recurrenceFrequency = null
+            }
+        }
 
         val userId = getUserIdFromSharedPreferences(context = context)
 
-        var call: Call<MovementModel>? = null
+        var call: Call<ResponseModel>? = null
 
 
         if (codeType == 1) {
@@ -58,12 +84,25 @@ class RevenueRepository {
                 )
             )
 
-            call.enqueue(object : Callback<MovementModel> {
-                override fun onResponse(call: Call<MovementModel>, response: Response<MovementModel>) {
-
+            call.enqueue(object : Callback<ResponseModel> {
+                override fun onResponse(call: Call<ResponseModel>, response: Response<ResponseModel>) {
+                    if (response.code() == HttpURLConnection.HTTP_CREATED) {
+                        response.body()?.let {
+                            listener.onSuccess(it)
+                        }
+                    } else {
+                        val error =
+                            Gson().fromJson(response.errorBody()?.string(), ResponseModel::class.java)
+                        listener.onFailure(error.message, code = error.status)
+                    }
                 }
 
-                override fun onFailure(call: Call<MovementModel>, t: Throwable) {
+                override fun onFailure(call: Call<ResponseModel>, t: Throwable) {
+                    if (t is IOException) {
+                        listener.onFailure(context.getString(R.string.error_no_connection), 500)
+                    } else {
+                        listener.onFailure(context.getString(R.string.error_generic), 500)
+                    }
                 }
 
             })
@@ -79,19 +118,20 @@ class RevenueRepository {
                     fixedIncome = fixedIncome,
                     recurrenceFrequency = recurrenceFrequency,
                     recurrenceIntervals = recurrenceIntervals,
-                    user = User(id = 7)
+                    user = User(id = userId)
                 )
             )
 
-            call.enqueue(object : Callback<MovementModel> {
-                override fun onResponse(call: Call<MovementModel>, response: Response<MovementModel>) {
-
+            call.enqueue(object : Callback<ResponseModel> {
+                override fun onResponse(call: Call<ResponseModel>, response: Response<ResponseModel>) {
                 }
 
-                override fun onFailure(call: Call<MovementModel>, t: Throwable) {
+                override fun onFailure(call: Call<ResponseModel>, t: Throwable) {
+                    TODO("Not yet implemented")
                 }
 
             })
+
         }
 
     }

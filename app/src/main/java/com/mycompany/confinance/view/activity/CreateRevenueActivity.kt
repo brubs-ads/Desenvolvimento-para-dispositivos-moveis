@@ -139,13 +139,16 @@ class CreateRevenueActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun onDateSelect(day: Int, mounth: Int, year: Int) {
-        binding.textData.text = "$day/$mounth/$year"
+        if (mounth <= 9){
+            binding.textData.text = "$day/0$mounth/$year"
+        }else{
+            binding.textData.text = "$day/$mounth/$year"
+        }
     }
 
 
     fun save() {
-        binding.buttonCreate.setOnClickListener {
-            val value = binding.editBalanceRevenue.text.toString().toLong()
+            val value = binding.editBalanceRevenue.cleanDoubleValue.toLong()
             val description = binding.editTextDescription.text.toString()
             val date = binding.textData.text.toString()
             val fixed = binding.switchRevenue.isChecked
@@ -160,7 +163,6 @@ class CreateRevenueActivity : AppCompatActivity() {
                 repetitions = repetition,
                 category = category!!
             )
-        }
     }
 
     @SuppressLint("ResourceAsColor")

@@ -2,7 +2,7 @@ package com.mycompany.confinance.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import com.mycompany.confinance.model.MovementModel
+import com.mycompany.confinance.model.ResponseModel
 import com.mycompany.confinance.repository.RevenueRepository
 import com.mycompany.confinance.request.ApiListener
 
@@ -21,21 +21,22 @@ class CreateRevenueViewModel(private val application: Application) : AndroidView
         if (value != 0.0.toLong() && description != "" && data != null) {
             if (fixedIncome == false) {
                 repository.createMovement(
-                    context= application,
+                    context = application,
                     codeType = 1,
                     value = value,
                     description = description,
-                    fixedIncome = fixedIncome,
+                    fixedIncome = null,
                     data = data,
-                    repetitions = null,
+                    repetitions = repetitions,
                     category = category,
-                    listener = object : ApiListener<MovementModel>{
-                        override fun onSuccess(result: MovementModel) {
-                            TODO("Not yet implemented")
+                    listener = object : ApiListener<ResponseModel> {
+                        override fun onSuccess(result: ResponseModel) {
+                            val s = result
                         }
 
                         override fun onFailure(message: String, code: Int) {
-                            TODO("Not yet implemented")
+                            val s = message
+                            val t = code
                         }
 
                     }
@@ -47,23 +48,22 @@ class CreateRevenueViewModel(private val application: Application) : AndroidView
                     value = value,
                     description = description,
                     data = data,
-                    fixedIncome = null,
-                    repetitions = repetitions,
+                    fixedIncome = fixedIncome,
+                    repetitions = null,
                     category = category,
-                    listener = object : ApiListener<MovementModel>{
-                        override fun onSuccess(result: MovementModel) {
-                            TODO("Not yet implemented")
+                    listener = object : ApiListener<ResponseModel> {
+                        override fun onSuccess(result: ResponseModel) {
+                            val s = result
                         }
 
                         override fun onFailure(message: String, code: Int) {
-                            TODO("Not yet implemented")
+                            val s = message
+                            val t = code
                         }
 
                     }
                 )
             }
-        } else {
-
         }
     }
 }

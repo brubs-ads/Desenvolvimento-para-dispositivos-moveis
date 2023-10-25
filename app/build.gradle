@@ -62,5 +62,6 @@ dependencies {
     implementation 'me.abhinay.input:currency-edittext:1.1'
 
 
+    implementation 'com.github.sung2063:AndroidTableauLibrary:1.0-rc-2'
 }
 
