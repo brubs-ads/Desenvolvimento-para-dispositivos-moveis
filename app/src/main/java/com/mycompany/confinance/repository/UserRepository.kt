@@ -8,6 +8,7 @@ import com.mycompany.confinance.request.ApiListener
 import com.mycompany.confinance.request.Retrofit
 import com.mycompany.confinance.service.UserService
 import com.mycompany.confinance.util.Constants
+import com.mycompany.confinance.util.SharedPreferencesUtil
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,8 +29,8 @@ class UserRepository(private val context: Context) {
                 if (response.code() == HTTP_OK) {
                     response.body()?.let {
                         listener.onSuccess(it)
-                        saveState(true)
-                        saveUserIdToSharedPreferences(context, it.userId!!)
+                        SharedPreferencesUtil.saveState(true,context)
+                        SharedPreferencesUtil.saveUserId(context = context, userId = it.userId!!)
                     }
                 } else {
                     val error = Gson().fromJson(response.errorBody()?.string(), ResponseModel::class.java)
@@ -59,9 +60,9 @@ class UserRepository(private val context: Context) {
             override fun onResponse(call: Call<ResponseModel>, response: Response<ResponseModel>) {
                 if (response.code() == HTTP_CREATED) {
                     response.body()?.let {
-                        saveState(true)
                         listener.onSuccess(it)
-                        saveUserIdToSharedPreferences(context, it.userId!!)
+                        SharedPreferencesUtil.saveState(true,context)
+                        SharedPreferencesUtil.saveUserId(context = context, userId = it.userId!!)
                     }
                 } else if (response.code() == HTTP_FORBIDDEN) {
                     listener.onFailure(context.getString(R.string.email_already_linked), response.code())
@@ -193,17 +194,17 @@ class UserRepository(private val context: Context) {
         })
     }
 
-    private fun saveState(isConnected: Boolean) {
-        val sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putBoolean("http_connected", isConnected)
-        editor.apply()
-    }
-
-    fun saveUserIdToSharedPreferences(context: Context, userId: Long) {
-        val sharedPreferences = context.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putLong(Constants.KEY.KEY_USER_ID, userId)
-        editor.apply()
-    }
+//    private fun saveState(isConnected: Boolean) {
+//        val sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+//        val editor = sharedPreferences.edit()
+//        editor.putBoolean("http_connected", isConnected)
+//        editor.apply()
+//    }
+//
+//    fun saveUserIdToSharedPreferences(context: Context, userId: Long) {
+//        val sharedPreferences = context.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
+//        val editor = sharedPreferences.edit()
+//        editor.putLong(Constants.KEY.KEY_USER_ID, userId)
+//        editor.apply()
+//    }
 }

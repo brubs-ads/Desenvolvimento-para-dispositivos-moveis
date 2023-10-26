@@ -1,20 +1,25 @@
 package com.mycompany.confinance.view.activity
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.TextAppearanceSpan
 import androidx.activity.viewModels
-import com.google.android.material.navigation.NavigationView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.navigation.NavigationView
 import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityMainBinding
+import com.mycompany.confinance.util.SharedPreferencesUtil
+import com.mycompany.confinance.view.activity.user.CreateAccountActivity
 import com.mycompany.confinance.view.company.AboutUsActivity
 import com.mycompany.confinance.view.company.TermsOfUseActivity
 import com.mycompany.confinance.viewmodel.HomeViewModel
@@ -28,13 +33,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val viewModel: HomeViewModel by viewModels()
     private val calendar = Calendar.getInstance()
-
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
@@ -57,7 +64,29 @@ class MainActivity : AppCompatActivity() {
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_renevue -> {
-                    startActivity(Intent(this, CreateRevenueActivity::class.java))
+                    startActivity(Intent(this, MovementActivity::class.java))
+                    true
+                }
+
+                R.id.nav_graphic -> {
+                    startActivity(Intent(this, GraphicActivity::class.java))
+                    true
+                }
+
+                R.id.nav_about_us -> {
+                    startActivity(Intent(this, AboutUsActivity::class.java))
+                    true
+                }
+
+                R.id.nav_terms_of_use -> {
+                    startActivity(Intent(this, TermsOfUseActivity::class.java))
+                    true
+                }
+
+                R.id.nav_exit -> {
+                    SharedPreferencesUtil.getUserId(context = this)
+                    startActivity(
+                        Intent(this,CreateAccountActivity::class.java))
                     true
                 }
 
@@ -68,6 +97,18 @@ class MainActivity : AppCompatActivity() {
         observe()
         updateMonthYearText()
         checkMonthAndYear()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        closeMenuIfOpen()
+    }
+
+    private fun closeMenuIfOpen() {
+        val drawerLayout: DrawerLayout = binding.drawerLayout
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START)
+        }
     }
 
     private fun formatarNumero(numero: Double): String {

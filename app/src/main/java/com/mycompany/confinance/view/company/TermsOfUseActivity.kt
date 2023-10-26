@@ -2,6 +2,9 @@ package com.mycompany.confinance.view.company
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityTermsOfUseBinding
 
 

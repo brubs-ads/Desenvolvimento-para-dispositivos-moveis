@@ -1,9 +1,11 @@
 package com.mycompany.confinance.view.activity
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuInflater
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
@@ -29,6 +31,18 @@ class CreateRevenueActivity : AppCompatActivity() {
         handleDate()
         handleClick()
         handleRepetition()
+        observe()
+    }
+
+    private fun observe() {
+        viewModel.isLoading.observe(this) {
+            if (it) {
+                startActivity(Intent(this, MovementActivity::class.java))
+                finish()
+            } else {
+                Toast.makeText(this, "erro", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
     private fun handleClick() {
@@ -147,7 +161,7 @@ class CreateRevenueActivity : AppCompatActivity() {
     }
 
 
-    fun save() {
+    private fun save() {
             val value = binding.editBalanceRevenue.cleanDoubleValue.toLong()
             val description = binding.editTextDescription.text.toString()
             val date = binding.textData.text.toString()

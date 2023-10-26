@@ -16,7 +16,7 @@ import retrofit2.Response
 import java.io.IOException
 import java.net.HttpURLConnection
 
-class RevenueRepository {
+class MovementRepository (private val context: Context){
 
     private val remote = Retrofit.getService(MovementService::class.java)
 
@@ -65,7 +65,7 @@ class RevenueRepository {
 
         val userId = getUserIdFromSharedPreferences(context = context)
 
-        var call: Call<ResponseModel>? = null
+        val call: Call<ResponseModel>?
 
 
         if (codeType == 1) {
@@ -124,10 +124,23 @@ class RevenueRepository {
 
             call.enqueue(object : Callback<ResponseModel> {
                 override fun onResponse(call: Call<ResponseModel>, response: Response<ResponseModel>) {
+                    if (response.code() == HttpURLConnection.HTTP_CREATED) {
+                        response.body()?.let {
+                            listener.onSuccess(it)
+                        }
+                    } else {
+                        val error =
+                            Gson().fromJson(response.errorBody()?.string(), ResponseModel::class.java)
+                        listener.onFailure(error.message, code = error.status)
+                    }
                 }
 
                 override fun onFailure(call: Call<ResponseModel>, t: Throwable) {
-                    TODO("Not yet implemented")
+                    if (t is IOException) {
+                        listener.onFailure(context.getString(R.string.error_no_connection), 500)
+                    } else {
+                        listener.onFailure(context.getString(R.string.error_generic), 500)
+                    }
                 }
 
             })
@@ -136,5 +149,63 @@ class RevenueRepository {
 
     }
 
+    fun getMovement(typeMovement: String, listener: ApiListener<List<MovementModel>>) {
+        val userId = getUserIdFromSharedPreferences(context = context)
+        val call = remote.getMovement(id = userId, typeMovement)
 
+        call.enqueue(object :Callback<List<MovementModel>>{
+            override fun onResponse(call: Call<List<MovementModel>>, response: Response<List<MovementModel>>) {
+                if (response.code() == HttpURLConnection.HTTP_OK){
+                    response.body()?.let {
+                        listener.onSuccess(it)
+                    }
+                }else if (response.code() == HttpURLConnection.HTTP_NOT_FOUND){
+                    val error =
+                        Gson().fromJson(response.errorBody()?.string(), ResponseModel::class.java)
+                    listener.onFailure(error.message, code = error.status)
+                }
+
+            }
+
+            override fun onFailure(call: Call<List<MovementModel>>, t: Throwable) {
+                if (t is IOException) {
+                    listener.onFailure(context.getString(R.string.error_no_connection), 500)
+                } else {
+                    listener.onFailure(context.getString(R.string.error_generic), 500)
+                }
+            }
+
+        })
+    }
+
+    fun deleteMovement(idMovement:Long, listener: ApiListener<ResponseModel>){
+        val call = remote.deleteMovement(id = idMovement)
+
+        call.enqueue(object :Callback<ResponseModel>{
+            override fun onResponse(call: Call<ResponseModel>, response: Response<ResponseModel>) {
+                if (response.code() == HttpURLConnection.HTTP_OK){
+                    response.body()?.let {
+                        listener.onSuccess(it)
+                    }
+                }else{
+                    val error =
+                        Gson().fromJson(response.errorBody()?.string(), ResponseModel::class.java)
+                    listener.onFailure(error.message, code = error.status)
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseModel>, t: Throwable) {
+                if (t is IOException) {
+                    listener.onFailure(context.getString(R.string.error_no_connection), 500)
+                } else {
+                    listener.onFailure(context.getString(R.string.error_generic), 500)
+                }
+            }
+
+        })
+    }
+
+    fun updateMovement(idMovement: Long){
+
+    }
 }

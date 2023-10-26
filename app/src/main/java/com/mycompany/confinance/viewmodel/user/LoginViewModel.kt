@@ -9,6 +9,7 @@ import com.mycompany.confinance.model.ResponseModel
 import com.mycompany.confinance.repository.UserRepository
 import com.mycompany.confinance.request.ApiListener
 import com.mycompany.confinance.util.ResponseDialogCustom
+import java.net.HttpURLConnection.HTTP_CREATED
 import java.net.HttpURLConnection.HTTP_OK
 
 class LoginViewModel(private val application: Application) : AndroidViewModel(application) {
@@ -27,7 +28,7 @@ class LoginViewModel(private val application: Application) : AndroidViewModel(ap
                 password = password,
                 listener = object : ApiListener<ResponseModel> {
                     override fun onSuccess(result: ResponseModel) {
-                        if (result.status == HTTP_OK) {
+                        if (result.status == HTTP_CREATED) {
                             _isLoading.value = true
 
                         } else {

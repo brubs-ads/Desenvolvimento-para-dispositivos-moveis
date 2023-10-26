@@ -95,21 +95,24 @@
             android:layout_marginTop="49dp"
             android:text="@string/Personal_Finance_Manager"
             android:fontFamily="@font/poppins_semibold"
-            android:textSize="12dp"
+            android:textSize="12sp"
             android:textColor="@color/black"
             android:layout_marginStart="17dp"
     />
 
     <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_Five_Tech_Confinance_is_a_tool"
-            android:layout_width="325dp"
-            android:layout_height="56dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/text_Personal_Finance_Manager"
             app:layout_constraintStart_toStartOf="@+id/text_Personal_Finance_Manager"
+            app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/Five_Tech_Confinance_is_a_tool"
             android:fontFamily="@font/roboto_medium"
             android:layout_marginTop="5.8dp"
             android:textSize="12sp"
+            android:layout_marginStart="17dp"
+            android:layout_marginEnd="18dp"
     />
 
 
@@ -119,23 +122,26 @@
             android:layout_height="18dp"
             android:text="@string/about_five_tech"
             android:fontFamily="@font/poppins_semibold"
-            android:textSize="12dp"
+            android:textSize="12sp"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@id/text_Five_Tech_Confinance_is_a_tool"
             android:layout_marginTop="13dp"
-            app:layout_constraintStart_toStartOf="@+id/text_Five_Tech_Confinance_is_a_tool"/>
+            app:layout_constraintStart_toStartOf="@id/text_Personal_Finance_Manager"/>
 
-    <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/text_founded_in_2022"
-            android:layout_width="318.59dp"
-            android:layout_height="84dp"
-            android:fontFamily="@font/roboto_medium"
-            android:layout_marginTop="4.3dp"
-            android:textSize="12sp"
-            app:layout_constraintTop_toBottomOf="@id/text_about_five_tech"
-            app:layout_constraintStart_toStartOf="@+id/text_about_five_tech"
-            android:text="@string/founded_in_2022"
-    />
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_founded_in_2022"
+                android:layout_width="match_parent"
+                android:layout_height="84dp"
+                android:fontFamily="@font/roboto_medium"
+                android:layout_marginTop="4.3dp"
+                android:textSize="12sp"
+                app:layout_constraintTop_toBottomOf="@id/text_about_five_tech"
+                app:layout_constraintStart_toStartOf="@+id/text_about_five_tech"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/founded_in_2022"
+                android:layout_marginStart="17dp"
+                android:layout_marginEnd="18dp"
+        />
 
     <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_Contact"
@@ -143,15 +149,15 @@
             android:layout_height="18dp"
             android:text="@string/Contact"
             android:fontFamily="@font/poppins_semibold"
-            android:textSize="12dp"
+            android:textSize="12sp"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@id/text_founded_in_2022"
             android:layout_marginTop="15dp"
-            app:layout_constraintStart_toStartOf="@+id/text_founded_in_2022"/>
+            app:layout_constraintStart_toStartOf="@id/text_Personal_Finance_Manager"/>
 
     <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_you_have_any_questions"
-            android:layout_width="319.51dp"
+            android:layout_width="match_parent"
             android:layout_height="42dp"
             android:fontFamily="@font/roboto_medium"
             android:textSize="12sp"
@@ -159,6 +165,8 @@
             app:layout_constraintStart_toStartOf="@+id/text_Contact"
             android:layout_marginTop="5.03dp"
             android:text="@string/you_have_any_questions"
+            android:layout_marginEnd="18dp"
+            android:layout_marginStart="17dp"
     />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -174,6 +182,8 @@
             android:textSize="12sp"
             android:textColor="@color/black"
             android:layout_marginTop="48.97dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
     />
 
     <androidx.appcompat.widget.AppCompatTextView

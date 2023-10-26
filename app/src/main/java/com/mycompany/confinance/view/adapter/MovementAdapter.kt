@@ -1,4 +1,4 @@
-package com.mycompany.confinance.view.Adapter
+package com.mycompany.confinance.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

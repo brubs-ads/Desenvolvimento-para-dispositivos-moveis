@@ -2,13 +2,18 @@ package com.mycompany.confinance.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.mycompany.confinance.model.ResponseModel
-import com.mycompany.confinance.repository.RevenueRepository
+import com.mycompany.confinance.repository.MovementRepository
 import com.mycompany.confinance.request.ApiListener
+import java.net.HttpURLConnection
 
 class CreateRevenueViewModel(private val application: Application) : AndroidViewModel(application) {
 
-    private val repository = RevenueRepository()
+    private val repository = MovementRepository(application)
+    private var _isLoading = MutableLiveData<Boolean>()
+    val isLoading :LiveData<Boolean> = _isLoading
 
     fun createRevenue(
         value: Long,
@@ -31,12 +36,15 @@ class CreateRevenueViewModel(private val application: Application) : AndroidView
                     category = category,
                     listener = object : ApiListener<ResponseModel> {
                         override fun onSuccess(result: ResponseModel) {
-                            val s = result
+                            if (result.status == HttpURLConnection.HTTP_CREATED) {
+                                _isLoading.value = true
+                            }else{
+                                _isLoading.value = false
+                            }
                         }
 
                         override fun onFailure(message: String, code: Int) {
-                            val s = message
-                            val t = code
+                            _isLoading.value = false
                         }
 
                     }
@@ -53,12 +61,15 @@ class CreateRevenueViewModel(private val application: Application) : AndroidView
                     category = category,
                     listener = object : ApiListener<ResponseModel> {
                         override fun onSuccess(result: ResponseModel) {
-                            val s = result
+                            if (result.status == HttpURLConnection.HTTP_CREATED) {
+                                _isLoading.value = true
+                            }else{
+                                _isLoading.value = false
+                            }
                         }
 
                         override fun onFailure(message: String, code: Int) {
-                            val s = message
-                            val t = code
+                            _isLoading.value = false
                         }
 
                     }

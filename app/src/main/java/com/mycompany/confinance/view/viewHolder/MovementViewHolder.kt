@@ -1,5 +1,6 @@
 package com.mycompany.confinance.view.viewHolder
 
+import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.mycompany.confinance.databinding.RowMovementBinding
 import com.mycompany.confinance.model.MovementModel
@@ -8,5 +9,6 @@ class MovementViewHolder(private val item: RowMovementBinding) : RecyclerView.Vi
     fun bind(movementModel: MovementModel) {
         item.textValueMovement.text = "R$ ${movementModel.value}"
         item.textDate.text = movementModel.date
+        item.imageIcon.visibility = View.VISIBLE
     }
 }

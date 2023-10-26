@@ -1,5 +1,6 @@
 package com.mycompany.confinance.view.activity
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mycompany.confinance.databinding.ActivityGraphicBinding
@@ -10,5 +11,8 @@ class GraphicActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityGraphicBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+
     }
 }
