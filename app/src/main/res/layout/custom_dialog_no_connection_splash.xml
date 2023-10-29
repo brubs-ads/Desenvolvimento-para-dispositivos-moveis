@@ -45,7 +45,7 @@
         android:text="@string/check_connection" />
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/view_card_revenue"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_alignParentEnd="true"
@@ -58,9 +58,9 @@
         android:id="@+id/button_ok"
         android:layout_width="103dp"
         android:layout_height="41dp"
-        android:layout_alignTop="@id/view"
-        android:layout_alignEnd="@id/view"
-        android:layout_alignBottom="@id/view"
+        android:layout_alignTop="@id/view_card_revenue"
+        android:layout_alignEnd="@id/view_card_revenue"
+        android:layout_alignBottom="@id/view_card_revenue"
         android:layout_marginTop="9dp"
         android:layout_marginEnd="18dp"
         android:layout_marginBottom="5dp"

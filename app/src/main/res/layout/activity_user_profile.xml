@@ -38,8 +38,7 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_alignParentStart="true"
-                        android:src="@drawable/seta_esquerda"
-                        android:scaleType="centerCrop"
+                        android:src="@drawable/voltar_telas"
                         android:importantForAccessibility="no"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="15dp"
@@ -58,10 +57,10 @@
 
 
                 <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="11dp"
+                        android:layout_width="20dp"
+                        android:layout_height="16dp"
                         android:layout_alignParentEnd="true"
-                        android:src="@drawable/seta_esquerda"
+                        android:src="@drawable/confirma_perfil"
                         android:scaleType="centerCrop"
                         android:importantForAccessibility="no"
                         android:layout_centerVertical="true"
@@ -72,7 +71,6 @@
             </RelativeLayout>
 
         </com.google.android.material.appbar.AppBarLayout>
-
 
         <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/image_perfil"
@@ -90,12 +88,25 @@
                 android:id="@+id/edit_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:inputType="textPersonName"
                 app:layout_constraintStart_toEndOf="@id/image_perfil"
                 app:layout_constraintBottom_toBottomOf="@id/image_perfil"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="18dp"
                 android:layout_marginBottom="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:focusable="false"
+        />
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/edit_text_name"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                app:layout_constraintTop_toTopOf="@id/edit_name"
+                app:layout_constraintEnd_toEndOf="@id/edit_name"
+                app:layout_constraintBottom_toBottomOf="@id/edit_name"
+                app:srcCompat="@drawable/lapis"
+                android:layout_marginBottom="8dp"
         />
 
         <androidx.appcompat.widget.AppCompatEditText
@@ -108,16 +119,33 @@
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:focusable="false"
+        />
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/edit_text_email"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                app:layout_constraintTop_toTopOf="@id/edit_email"
+                app:layout_constraintEnd_toEndOf="@id/edit_email"
+                app:layout_constraintBottom_toBottomOf="@id/edit_email"
+                app:srcCompat="@drawable/lapis"
+                android:layout_marginBottom="8dp"
         />
 
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_delete"
-                android:layout_width="282dp"
-                android:layout_height="29.32dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/edit_email"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="49.5dp"
+                android:layout_marginStart="34dp"
+                android:layout_marginEnd="44dp"
+                android:text="excluir CONTA"
+                android:fontFamily="@font/lato"
+                android:textSize="16sp"
         />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -156,7 +184,6 @@
                 android:layout_marginStart="18dp"
                 app:layout_constraintEnd_toEndOf="parent"
         />
-
 
         <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/edit_new_password"

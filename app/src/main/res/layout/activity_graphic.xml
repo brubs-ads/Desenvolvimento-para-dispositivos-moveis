@@ -67,14 +67,14 @@
             <TextView
                     android:id="@+id/text_month"
                     android:layout_width="wrap_content"
-                    android:layout_height="38dp"
+                    android:layout_height="23dp"
                     android:layout_toEndOf="@id/arrow_back"
                     android:layout_toStartOf="@id/arrow_next"
                     android:layout_alignBottom="@id/toolbar"
-                    android:gravity="top|center"
+                    android:gravity="center"
                     android:fontFamily="@font/poppins_semibold"
                     android:textColor="@color/white"
-                    android:textSize="24sp"
+                    android:textSize="15sp"
                     android:layout_marginBottom="16dp"
             />
 
@@ -93,4 +93,197 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
+    <ir.mahozad.android.PieChart
+            android:id="@+id/pieChart"
+            android:layout_width="255dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/appbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="50dp"
+    />
+
+
+    <View
+            android:id="@+id/view_1"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="#68B3A2"
+            app:layout_constraintTop_toBottomOf="@id/pieChart"
+            app:layout_constraintStart_toStartOf="@id/pieChart"
+            android:layout_marginTop="18dp"
+    />
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_revenue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Receitas 75%"
+            android:fontFamily="@font/roboto"
+            android:textSize="10sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="@id/view_1"
+            app:layout_constraintStart_toEndOf="@id/view_1"
+            app:layout_constraintBottom_toBottomOf="@id/view_1"
+            android:layout_marginStart="5dp"
+    />
+
+
+    <View
+            android:id="@+id/view_2"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="#FF5733"
+            app:layout_constraintTop_toBottomOf="@id/pieChart"
+            app:layout_constraintStart_toEndOf="@id/text_revenue"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="100dp"
+    />
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_expense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Despesa 75%"
+            android:fontFamily="@font/roboto"
+            android:textSize="10sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="@id/view_2"
+            app:layout_constraintStart_toEndOf="@id/view_2"
+            app:layout_constraintBottom_toBottomOf="@id/view_2"
+            android:layout_marginStart="5dp"
+    />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_total"
+            android:layout_width="34dp"
+            android:layout_height="18dp"
+            app:layout_constraintTop_toBottomOf="@id/text_expense"
+            android:layout_marginTop="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="53dp"
+            android:text="@string/total"
+            android:fontFamily="@font/roboto"
+            android:textSize="15sp"
+            android:textColor="@color/black_opacity_80"
+    />
+
+    <View
+            android:id="@+id/view_card_revenue"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@id/text_total"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="14dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
+            android:background="@drawable/rounded_card_graphic"
+            android:elevation="10dp"
+    />
+
+    <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="@id/view_card_revenue"
+            app:layout_constraintBottom_toBottomOf="@id/view_card_revenue"
+            app:layout_constraintStart_toStartOf="@id/view_card_revenue"
+            app:layout_constraintEnd_toEndOf="@id/view_card_revenue"
+            android:translationZ="10dp"
+    >
+
+        <View
+                android:id="@+id/view_card"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_gravity="center_vertical"
+                android:background="#68B3A2"
+                android:layout_marginStart="13dp"
+                android:layout_centerVertical="true"
+        />
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="60dp"
+                android:layout_height="18dp"
+                android:layout_toEndOf="@id/view_card"
+                android:layout_centerVertical="true"
+                android:text="@string/revenues"
+                android:layout_marginStart="18dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="15sp"
+        />
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_card_revenue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="17dp"
+                android:text="10.000,00"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto"
+                android:textSize="15sp"
+        />
+    </RelativeLayout>
+
+    <View
+            android:id="@+id/view_card_expense"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@id/view_card_revenue"
+            app:layout_constraintEnd_toEndOf="@id/view_card_revenue"
+            app:layout_constraintStart_toStartOf="@id/view_card_revenue"
+            android:layout_marginTop="49dp"
+            android:background="@drawable/rounded_card_graphic"
+            android:elevation="10dp"
+    />
+
+    <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="@id/view_card_expense"
+            app:layout_constraintBottom_toBottomOf="@id/view_card_expense"
+            app:layout_constraintStart_toStartOf="@id/view_card_expense"
+            app:layout_constraintEnd_toEndOf="@id/view_card_expense"
+            android:translationZ="10dp"
+    >
+
+        <View
+                android:id="@+id/view_card_2"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_gravity="center_vertical"
+                android:background="#FF5733"
+                android:layout_marginStart="13dp"
+                android:layout_centerVertical="true"
+        />
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_toEndOf="@id/view_card_2"
+                android:layout_centerVertical="true"
+                android:text="@string/expenses"
+                android:layout_marginStart="18dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="15sp"
+        />
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_card_expense"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="17dp"
+                android:text="10.000,00"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto"
+                android:textSize="15sp"
+        />
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

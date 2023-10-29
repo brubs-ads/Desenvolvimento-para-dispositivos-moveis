@@ -4,6 +4,7 @@ import com.mycompany.confinance.model.*
 import com.mycompany.confinance.util.Constants
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
@@ -36,4 +37,9 @@ interface UserService {
         @Path("month") month: Int,
         @Path("year") year: Int) : Call<QueryResponse>
 
+    @DELETE(Constants.HTTP.URL.URL_DELETE_USER)
+    fun deleteUser(@Path("id") id: Long): Call<ResponseModel>
+
+    @GET(Constants.HTTP.URL.URL_RETURN_USER)
+    fun getUser(@Path("id") id: Long):Call<UserModel>
 }

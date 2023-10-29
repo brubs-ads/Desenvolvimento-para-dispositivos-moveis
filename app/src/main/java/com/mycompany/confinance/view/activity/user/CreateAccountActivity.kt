@@ -147,7 +147,7 @@ class CreateAccountActivity : AppCompatActivity() {
 
                             dialogBinding.textInformationAuthentication.text = response.message
 
-                            dialogBinding.view.setOnClickListener {
+                            dialogBinding.viewCard.setOnClickListener {
                                 dialogNoAuthentication?.dismiss()
                             }
                             dialogBinding.textOk.setOnClickListener {
