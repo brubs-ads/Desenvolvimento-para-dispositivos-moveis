@@ -106,8 +106,8 @@
 
     <View
             android:id="@+id/view_1"
-            android:layout_width="10dp"
-            android:layout_height="10dp"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
             android:background="#68B3A2"
             app:layout_constraintTop_toBottomOf="@id/pieChart"
             app:layout_constraintStart_toStartOf="@id/pieChart"
@@ -120,7 +120,7 @@
             android:layout_height="wrap_content"
             android:text="Receitas 75%"
             android:fontFamily="@font/roboto"
-            android:textSize="10sp"
+            android:textSize="13sp"
             android:textColor="@color/black"
             app:layout_constraintTop_toTopOf="@id/view_1"
             app:layout_constraintStart_toEndOf="@id/view_1"
@@ -131,8 +131,8 @@
 
     <View
             android:id="@+id/view_2"
-            android:layout_width="10dp"
-            android:layout_height="10dp"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
             android:background="#FF5733"
             app:layout_constraintTop_toBottomOf="@id/pieChart"
             app:layout_constraintStart_toEndOf="@id/text_revenue"
@@ -146,7 +146,7 @@
             android:layout_height="wrap_content"
             android:text="Despesa 75%"
             android:fontFamily="@font/roboto"
-            android:textSize="10sp"
+            android:textSize="13sp"
             android:textColor="@color/black"
             app:layout_constraintTop_toTopOf="@id/view_2"
             app:layout_constraintStart_toEndOf="@id/view_2"
