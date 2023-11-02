@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.TextAppearanceSpan
+import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -20,6 +21,7 @@ import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityMainBinding
 import com.mycompany.confinance.util.SharedPreferencesUtil
 import com.mycompany.confinance.view.activity.user.CreateAccountActivity
+import com.mycompany.confinance.view.activity.user.UserProfileActivity
 import com.mycompany.confinance.view.company.AboutUsActivity
 import com.mycompany.confinance.view.company.TermsOfUseActivity
 import com.mycompany.confinance.viewmodel.HomeViewModel
@@ -97,6 +99,17 @@ class MainActivity : AppCompatActivity() {
         observe()
         updateMonthYearText()
         checkMonthAndYear()
+        handleClick()
+    }
+
+    private fun handleClick() {
+        val navView: NavigationView = binding.navView
+        val imageViewHeader = navView.getHeaderView(0).findViewById<ImageView>(R.id.imageView)
+
+        imageViewHeader.setOnClickListener {
+            startActivity(Intent(this,UserProfileActivity::class.java))
+        }
+
     }
 
     override fun onResume() {

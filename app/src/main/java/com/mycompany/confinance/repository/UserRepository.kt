@@ -221,7 +221,7 @@ class UserRepository(private val context: Context) {
     }
 
     fun getUser(listener: ApiListener<UserModel>) {
-        val call = remote.getUser(1)
+        val call = remote.getUser(SharedPreferencesUtil.getUserId(context))
         call.enqueue(object : Callback<UserModel> {
             override fun onResponse(call: Call<UserModel>, response: Response<UserModel>) {
                 if (response.code() == HTTP_OK) {

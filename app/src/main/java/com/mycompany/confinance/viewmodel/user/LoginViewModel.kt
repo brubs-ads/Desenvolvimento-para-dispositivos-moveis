@@ -28,7 +28,7 @@ class LoginViewModel(private val application: Application) : AndroidViewModel(ap
                 password = password,
                 listener = object : ApiListener<ResponseModel> {
                     override fun onSuccess(result: ResponseModel) {
-                        if (result.status == HTTP_CREATED) {
+                        if (result.status == HTTP_OK) {
                             _isLoading.value = true
 
                         } else {

@@ -44,11 +44,23 @@ class UserProfileActivity : AppCompatActivity() {
                 Toast.makeText(this, "ocorreu algun erro", Toast.LENGTH_LONG).show()
             }
         }
+        viewModel.resultDeleteUser.observe(this){
+            if (it){
+                startActivity(Intent(this,CreateAccountActivity::class.java))
+                finish()
+            }else{
+                Toast.makeText(this, "ocorreu algun erro", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
     private fun handleClick() {
+        binding.arrowBack.setOnClickListener {
+            finish()
+        }
+
         binding.buttonDelete.setOnClickListener {
-                    viewModel.deleteUser()
+            viewModel.deleteUser()
 
         }
 
