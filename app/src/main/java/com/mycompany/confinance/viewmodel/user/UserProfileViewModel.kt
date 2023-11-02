@@ -12,20 +12,21 @@ import java.net.HttpURLConnection
 
 class UserProfileViewModel(private val application: Application) : AndroidViewModel(application) {
     private val repository = UserRepository(application)
-    private var _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> = _isLoading
-    private var _result = MutableLiveData<UserModel>()
-    val result :LiveData<UserModel> = _result
-
+    private var _resultDeleteUser = MutableLiveData<Boolean>()
+    val resultDeleteUser: LiveData<Boolean> = _resultDeleteUser
+    private var _user = MutableLiveData<UserModel>()
+    val user: LiveData<UserModel> = _user
+    private var _isLoadingUpdate = MutableLiveData<Boolean>()
+    val isLoadingUpdate: LiveData<Boolean> = _isLoadingUpdate
 
     fun deleteUser() {
         repository.deleteUser(listener = object : ApiListener<ResponseModel> {
             override fun onSuccess(result: ResponseModel) {
-                _isLoading.value = result.status == HttpURLConnection.HTTP_OK
+                _resultDeleteUser.value = result.status == HttpURLConnection.HTTP_OK
             }
 
             override fun onFailure(message: String, code: Int) {
-                _isLoading.value = false
+                _resultDeleteUser.value = false
             }
 
         })
@@ -33,17 +34,46 @@ class UserProfileViewModel(private val application: Application) : AndroidViewMo
     }
 
     fun getUser() {
-        repository.getUser(listener = object :ApiListener<UserModel>{
+        repository.getUser(listener = object : ApiListener<UserModel> {
             override fun onSuccess(result: UserModel) {
-                _result.value = UserModel(id = result.id, name = result.name, email = result.email, password = "")
+                _user.value = UserModel(id = result.id, name = result.name, email = result.email, password = "")
             }
 
             override fun onFailure(message: String, code: Int) {
 
-
             }
 
         })
+    }
+
+    fun updateNameAndEmail(email: String, name: String, user: UserModel) {
+        if (name != user.name){
+            if (email !=user.email){
+                repository.uptadeForNameAndEmail(name,email, listener =  object :ApiListener<ResponseModel>{
+                    override fun onSuccess(result: ResponseModel) {
+                        if (result.status == HttpURLConnection.HTTP_OK){
+                            _isLoadingUpdate.value = true
+                        }
+                    }
+
+                    override fun onFailure(message: String, code: Int) {
+                        _isLoadingUpdate.value = false
+                    }
+
+                })
+            }else{
+                repository.uptadeForNameAndEmail(name,null, listener =  object :ApiListener<ResponseModel>{
+                    override fun onSuccess(result: ResponseModel) {
+                        _isLoadingUpdate.value = true
+                    }
+
+                    override fun onFailure(message: String, code: Int) {
+                        _isLoadingUpdate.value = false
+                    }
+
+                })
+            }
+        }
     }
 
 

@@ -13,7 +13,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.IOException
-import java.net.HttpURLConnection
 import java.net.HttpURLConnection.*
 
 class UserRepository(private val context: Context) {
@@ -200,6 +199,8 @@ class UserRepository(private val context: Context) {
                 if (response.code() == HTTP_OK) {
                     response.body()?.let {
                         listener.onSuccess(it)
+                        SharedPreferencesUtil.saveState(false,context)
+                        SharedPreferencesUtil.saveUserId(context,0)
                     }
                 } else {
                     val error = Gson().fromJson(response.errorBody()?.string(), ResponseModel::class.java)
@@ -220,10 +221,10 @@ class UserRepository(private val context: Context) {
     }
 
     fun getUser(listener: ApiListener<UserModel>) {
-        val call = remote.getUser(SharedPreferencesUtil.getUserId(context))
-        call.enqueue(object :Callback<UserModel>{
+        val call = remote.getUser(1)
+        call.enqueue(object : Callback<UserModel> {
             override fun onResponse(call: Call<UserModel>, response: Response<UserModel>) {
-                if (response.code() == HTTP_OK){
+                if (response.code() == HTTP_OK) {
                     response.body()?.let {
                         listener.onSuccess(it)
                     }
@@ -239,6 +240,58 @@ class UserRepository(private val context: Context) {
             }
 
         })
+    }
+
+    fun uptadeForNameAndEmail(name: String, email: String?, listener: ApiListener<ResponseModel>) {
+        if (email == null) {
+            val call = remote.uptadeUser(
+                id = SharedPreferencesUtil.getUserId(context),
+                user = UserModel(null, name, null, null)
+            )
+
+            call.enqueue(object : Callback<ResponseModel> {
+                override fun onResponse(call: Call<ResponseModel>, response: Response<ResponseModel>) {
+                    if (response.code() == HTTP_OK){
+                        response.body()?.let {
+                            listener.onSuccess(it)
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseModel>, t: Throwable) {
+                    if (t is IOException) {
+                        listener.onFailure(context.getString(R.string.error_no_connection), 500)
+                    } else {
+                        listener.onFailure(context.getString(R.string.error_generic), 500)
+                    }
+                }
+
+            })
+        } else {
+            val call = remote.uptadeUser(
+                id = SharedPreferencesUtil.getUserId(context),
+                user = UserModel(null, name, email, null)
+            )
+
+            call.enqueue(object : Callback<ResponseModel> {
+                override fun onResponse(call: Call<ResponseModel>, response: Response<ResponseModel>) {
+                    if (response.code() == HTTP_OK){
+                        response.body()?.let {
+                            listener.onSuccess(it)
+                        }
+                    }
+                }
+                override fun onFailure(call: Call<ResponseModel>, t: Throwable) {
+                    if (t is IOException) {
+                        listener.onFailure(context.getString(R.string.error_no_connection), 500)
+                    } else {
+                        listener.onFailure(context.getString(R.string.error_generic), 500)
+                    }
+                }
+
+            })
+
+        }
     }
 
 }

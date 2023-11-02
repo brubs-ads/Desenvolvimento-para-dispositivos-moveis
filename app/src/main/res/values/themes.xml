@@ -51,6 +51,9 @@
         <item name="colorPrimaryDark">@color/purple_2</item>
     </style>
 
+    <style name="tes" parent="Theme.AppCompat">
+    </style>
+
     <style name="NavigationItemAppearance">
         <item name="android:textColor">#B3808080</item>
         <item name="android:textSize">12.9sp</item>

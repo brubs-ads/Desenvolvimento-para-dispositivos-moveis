@@ -212,6 +212,13 @@
     <string name="weekly">Semanal</string>
     <string name="annual">Anual</string>
     <string name="create_revenues">Criar Receitas</string>
+    <string name="user_profile">Perfil do usuário</string>
+    <string name="name">Nome</string>
+    <string name="email">Email</string>
+    <string name="delete_account">Excluir CONTA</string>
+    <string name="Change_password">ALTERAÇÃO DA SENHA</string>
+    <string name="Leave_passwords_empty">Deixe as senhas vazias , quando você não quiser mudá-lás.</string>
+    <string name="change_account">ALTERAR A SENHA</string>
 
     <string-array name="months">
         <item>Janeiro</item>

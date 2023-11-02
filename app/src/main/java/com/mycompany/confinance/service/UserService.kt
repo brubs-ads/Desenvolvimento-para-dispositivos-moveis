@@ -3,11 +3,7 @@ package com.mycompany.confinance.service
 import com.mycompany.confinance.model.*
 import com.mycompany.confinance.util.Constants
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.DELETE
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface UserService {
 
@@ -35,11 +31,15 @@ interface UserService {
     fun queryMonthAndYear(
         @Path("userId") userId: Long,
         @Path("month") month: Int,
-        @Path("year") year: Int) : Call<QueryResponse>
+        @Path("year") year: Int
+    ): Call<QueryResponse>
 
     @DELETE(Constants.HTTP.URL.URL_DELETE_USER)
     fun deleteUser(@Path("id") id: Long): Call<ResponseModel>
 
     @GET(Constants.HTTP.URL.URL_RETURN_USER)
-    fun getUser(@Path("id") id: Long):Call<UserModel>
+    fun getUser(@Path("id") id: Long): Call<UserModel>
+
+    @PATCH(Constants.HTTP.URL.URL_UPTADE_USER)
+    fun uptadeUser(@Path("id") id: Long, @Body user: UserModel): Call<ResponseModel>
 }
