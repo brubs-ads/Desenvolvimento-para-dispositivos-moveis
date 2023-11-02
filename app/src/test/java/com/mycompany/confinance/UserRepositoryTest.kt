@@ -41,6 +41,7 @@ class UserRepositoryTest {
     fun setup() {
         MockitoAnnotations.initMocks(this)
         userRepository = UserRepository(ApplicationProvider.getApplicationContext())
+        userRepository = UserRepository(context, remote)
     }
 
     @Test
@@ -80,6 +81,37 @@ class UserRepositoryTest {
         userRepository.login("brunacamily.ads@gmail.com", "123456789", apiListener)
 
         Mockito.verify(apiListener).onFailure("Erro de login", 400)
+    }
+    fun testCreateAccountSuccess() {
+        val name = "John"
+        val email = "john@example.com"
+        val password = "password"
+
+        val responseModel = ResponseModel("Conta criada com sucesso!",200, 123)
+        val response = Response.success(responseModel)
+
+        Mockito.`when`(remote.createAccount(Mockito.any())).thenReturn(response)
+        Mockito.`when`(context.getString(R.string.error_failure_login)).thenReturn("Erro de login")
+
+        userRepository.createAccount(name, email, password, apiListener)
+
+        Mockito.verify(apiListener).onSuccess(responseModel)
+    }
+
+    @Test
+    fun testCreateAccountFailure() {
+        val name = "John"
+        val email = "john@example.com"
+        val password = "password"
+
+        val response = Response.error<ResponseModel>(400, Mockito.mock(okhttp3.ResponseBody::class.java))
+
+        Mockito.`when`(remote.createAccount(Mockito.any())).thenReturn(response)
+        Mockito.`when`(context.getString(R.string.email_already_linked)).thenReturn("Email já vinculado")
+
+        userRepository.createAccount(name, email, password, apiListener)
+
+        Mockito.verify(apiListener).onFailure("Email já vinculado", 400)
     }
 }
 

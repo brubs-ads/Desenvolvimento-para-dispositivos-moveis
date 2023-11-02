@@ -16,7 +16,7 @@ import java.io.IOException
 import java.net.HttpURLConnection
 import java.net.HttpURLConnection.*
 
-class UserRepository(private val context: Context) {
+class UserRepository(private val context: Context, remote: UserService) {
 
     private val remote = Retrofit.getService(UserService::class.java)
 
