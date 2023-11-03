@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mycompany.confinance.databinding.ActivityMovementBinding
 import com.mycompany.confinance.model.MovementModel
+import com.mycompany.confinance.util.OnClickMovementListener
 import com.mycompany.confinance.view.adapter.MovementAdapter
 import com.mycompany.confinance.viewmodel.MovementViewModel
 
@@ -26,10 +27,31 @@ class MovementActivity : AppCompatActivity() {
 
     }
 
-    private fun observe() {
-        viewModel.list.observe(this){
-            recycler(it)
+   private fun handleMovement() {
+        val listener = object :OnClickMovementListener{
+            override fun onClick(id: Long) {
+
+            }
+
+            override fun delete(id: Long) {
+            }
         }
+       adapter.setListener(listener)
+    }
+    private fun observe() {
+        viewModel.isLoading.observe(this) {
+            if (it == true) {
+                recycler()
+                adapter.startShimmerAnimation()
+            }else if (it == false){
+                recycler()
+                adapter.stopShimmerAnimation()
+                viewModel.list.observe(this){ list->
+                    adapter.setList(list)
+                }
+            }
+        }
+
     }
 
     private fun handleClick() {
@@ -40,15 +62,14 @@ class MovementActivity : AppCompatActivity() {
     }
 
 
-    private fun recycler(listRevenue:List<MovementModel>) {
-        binding.imageCreateRevenue.visibility = View.GONE
-        binding.textCreateRevenues.visibility = View.GONE
+    private fun recycler() {
         binding.textGuia.visibility = View.GONE
-
+        binding.textCreateRevenues.visibility = View.GONE
+        binding.imageCreateRevenue.visibility = View.GONE
+        binding.recycler.visibility = View.VISIBLE
         binding.recycler.layoutManager = LinearLayoutManager(applicationContext)
         binding.recycler.adapter = adapter
-        adapter.setList(listRevenue)
+        handleMovement()
     }
-
 
 }

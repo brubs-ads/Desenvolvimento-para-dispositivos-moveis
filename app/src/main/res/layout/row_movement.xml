@@ -8,6 +8,7 @@
         android:layout_marginBottom="10dp"
 >
     <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
@@ -17,6 +18,7 @@
 
 
         <androidx.cardview.widget.CardView
+                android:id="@+id/card_movement"
                 android:layout_width="324.5dp"
                 android:layout_height="91.41dp"
                 app:cardElevation="0dp"
@@ -51,6 +53,7 @@
                 />
 
                 <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/trash"
                         android:layout_width="17.37dp"
                         android:layout_height="17.37dp"
                         android:layout_alignParentEnd="true"
@@ -75,6 +78,7 @@
                 />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/text_period"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
@@ -96,7 +100,6 @@
                         android:layout_marginBottom="9dp"
                         android:fontFamily="@font/roboto_medium"
                         android:textSize="12.8sp"
-                        android:textColor="@color/green_4"
                 />
 
             </RelativeLayout>

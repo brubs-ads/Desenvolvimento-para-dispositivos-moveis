@@ -34,7 +34,7 @@ class MovementRepository (private val context: Context){
         data: String,
         fixedIncome: Boolean?,
         repetitions: String?,
-        category: Int?,
+        photo: Int,
         listener: ApiListener<ResponseModel>,
         context: Context
     ) {
@@ -76,7 +76,7 @@ class MovementRepository (private val context: Context){
                     value = value,
                     description = description,
                     date = data,
-                    Photo = category!!,
+                    Photo = photo,
                     fixedIncome = fixedIncome,
                     recurrenceFrequency = recurrenceFrequency,
                     recurrenceIntervals = recurrenceIntervals,
@@ -114,7 +114,7 @@ class MovementRepository (private val context: Context){
                     value = value,
                     description = description,
                     date = data,
-                    Photo = category!!,
+                    Photo = photo!!,
                     fixedIncome = fixedIncome,
                     recurrenceFrequency = recurrenceFrequency,
                     recurrenceIntervals = recurrenceIntervals,

@@ -21,7 +21,7 @@ class CreateRevenueViewModel(private val application: Application) : AndroidView
         data: String,
         fixedIncome: Boolean?,
         repetitions: String?,
-        category: Int
+        photo: Int
     ){
         if (value != 0.0.toLong() && description != "" && data != null) {
             if (fixedIncome == false) {
@@ -33,7 +33,7 @@ class CreateRevenueViewModel(private val application: Application) : AndroidView
                     fixedIncome = null,
                     data = data,
                     repetitions = repetitions,
-                    category = category,
+                    photo = photo,
                     listener = object : ApiListener<ResponseModel> {
                         override fun onSuccess(result: ResponseModel) {
                             if (result.status == HttpURLConnection.HTTP_CREATED) {
@@ -58,7 +58,7 @@ class CreateRevenueViewModel(private val application: Application) : AndroidView
                     data = data,
                     fixedIncome = fixedIncome,
                     repetitions = null,
-                    category = category,
+                    photo = photo,
                     listener = object : ApiListener<ResponseModel> {
                         override fun onSuccess(result: ResponseModel) {
                             if (result.status == HttpURLConnection.HTTP_CREATED) {

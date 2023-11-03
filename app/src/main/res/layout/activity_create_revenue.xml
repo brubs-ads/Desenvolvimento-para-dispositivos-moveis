@@ -87,7 +87,7 @@
                     android:layout_below="@id/text_balance_revenue"
                     android:hint="0,00"
                     android:textSize="32sp"
-                    android:inputType="numberDecimal"
+                    android:inputType="number"
                     android:fontFamily="@font/roboto_medium"
                     android:layout_marginTop="6dp"
                     android:textColor="@color/white"
