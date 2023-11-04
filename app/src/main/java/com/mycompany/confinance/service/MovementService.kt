@@ -16,4 +16,7 @@ interface MovementService {
     @DELETE(Constants.HTTP.URL.URL_DELETE_MOVEMENT)
     fun deleteMovement(@Path("id") id: Long): Call<ResponseModel>
 
+    @GET(Constants.HTTP.URL.URL_RETURN_MOVEMENT_ID)
+    fun getMovementById(@Path("id") id: Long):Call<MovementModel>
+
 }

@@ -76,5 +76,14 @@ class UserProfileViewModel(private val application: Application) : AndroidViewMo
         }
     }
 
+    fun uptadePassword(password: String, newPassword: String, newPasswordAgain: String) {
+        if (password != null && newPassword != "" && newPasswordAgain != ""){
+                repository.upgradePassword()
+        }else{
+
+        }
+
+    }
+
 
 }

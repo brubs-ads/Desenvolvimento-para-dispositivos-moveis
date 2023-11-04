@@ -44,11 +44,11 @@ class UserProfileActivity : AppCompatActivity() {
                 Toast.makeText(this, "ocorreu algun erro", Toast.LENGTH_LONG).show()
             }
         }
-        viewModel.resultDeleteUser.observe(this){
-            if (it){
-                startActivity(Intent(this,CreateAccountActivity::class.java))
+        viewModel.resultDeleteUser.observe(this) {
+            if (it) {
+                startActivity(Intent(this, CreateAccountActivity::class.java))
                 finish()
-            }else{
+            } else {
                 Toast.makeText(this, "ocorreu algun erro", Toast.LENGTH_LONG).show()
             }
         }
@@ -124,6 +124,14 @@ class UserProfileActivity : AppCompatActivity() {
             val email = binding.editEmail.text.toString()
             val name = binding.editName.text.toString()
             viewModel.updateNameAndEmail(email, name, user)
+        }
+
+        binding.buttonUpdatePassword.setOnClickListener {
+            val password = binding.editPassword.text.toString()
+            val newPassword = binding.editNewPassword.text.toString()
+            val newPasswordAgain = binding.editNewPasswordAgain.text.toString()
+
+            viewModel.uptadePassword(password,newPassword,newPasswordAgain)
         }
     }
 

@@ -294,4 +294,8 @@ class UserRepository(private val context: Context) {
         }
     }
 
+    fun upgradePassword() {
+
+    }
+
 }
