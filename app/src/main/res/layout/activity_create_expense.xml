@@ -41,9 +41,9 @@
 
             <TextView
                     android:id="@+id/text_new_revenue"
-                    android:layout_width="130dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:text="@string/new_renevue"
+                    android:text="@string/new_expense"
                     android:textColor="@color/white"
                     android:fontFamily="@font/poppins_semibold"
                     android:textSize="20sp"

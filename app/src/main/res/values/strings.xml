@@ -225,6 +225,7 @@
     <string name="home">Casa</string>
     <string name="health">Saúde</string>
     <string name="education">Educação</string>
+    <string name="new_expense">Nova Despesa</string>
 
     <string-array name="months">
         <item>Janeiro</item>
