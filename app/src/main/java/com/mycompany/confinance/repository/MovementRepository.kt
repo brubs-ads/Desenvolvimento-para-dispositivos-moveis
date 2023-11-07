@@ -1,5 +1,6 @@
 package com.mycompany.confinance.repository
 
+import android.annotation.SuppressLint
 import android.content.Context
 import com.google.gson.Gson
 import com.mycompany.confinance.R
@@ -26,6 +27,7 @@ class MovementRepository(private val context: Context) {
     }
 
 
+    @SuppressLint("SuspiciousIndentation")
     fun createMovement(
         codeType: Int,
         value: Long,
@@ -73,7 +75,7 @@ class MovementRepository(private val context: Context) {
 
 
         if (codeType == 1) {
-            val call = remote.createMoviment(
+            var call = remote.createMoviment(
                 MovementModel(
                     id = null,
                     type_movement = "receita",

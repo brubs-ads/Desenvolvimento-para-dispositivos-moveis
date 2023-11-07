@@ -317,7 +317,6 @@ class MainActivity : AppCompatActivity() {
                     if (displayedDate.substring(0, 3).equals(currentMonthAbbreviation, ignoreCase = true)) {
                         currentYear.toString()
                     } else {
-                        // The selected month is different from the current month, so capture the selected year.
                         displayedDate.substring(4)
                     }
                 }

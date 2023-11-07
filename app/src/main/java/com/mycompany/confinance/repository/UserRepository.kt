@@ -242,7 +242,7 @@ class UserRepository(private val context: Context) {
         })
     }
 
-    fun uptadeForNameAndEmail(name: String, email: String?, listener: ApiListener<ResponseModel>) {
+    fun uptadeForNameAndEmail(name: String?, email: String?, listener: ApiListener<ResponseModel>) {
         if (email == null) {
             val call = remote.uptadeUser(
                 id = SharedPreferencesUtil.getUserId(context),
@@ -267,7 +267,33 @@ class UserRepository(private val context: Context) {
                 }
 
             })
-        } else {
+        } else if(name == null) {
+            val call = remote.uptadeUser(
+                id = SharedPreferencesUtil.getUserId(context),
+                user = UserModel(null, null, email, null)
+            )
+
+            call.enqueue(object : Callback<ResponseModel> {
+                override fun onResponse(call: Call<ResponseModel>, response: Response<ResponseModel>) {
+                    if (response.code() == HTTP_OK) {
+                        response.body()?.let {
+                            listener.onSuccess(it)
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseModel>, t: Throwable) {
+                    if (t is IOException) {
+                        listener.onFailure(context.getString(R.string.error_no_connection), 500)
+                    } else {
+                        listener.onFailure(context.getString(R.string.error_generic), 500)
+                    }
+                }
+
+            })
+
+        }
+        else{
             val call = remote.uptadeUser(
                 id = SharedPreferencesUtil.getUserId(context),
                 user = UserModel(null, name, email, null)
@@ -291,7 +317,6 @@ class UserRepository(private val context: Context) {
                 }
 
             })
-
         }
     }
 

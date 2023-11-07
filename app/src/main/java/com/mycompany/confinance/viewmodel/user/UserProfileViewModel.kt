@@ -49,31 +49,38 @@ class UserProfileViewModel(private val application: Application) : AndroidViewMo
 
     fun updateNameAndEmail(email: String, name: String, user: UserModel) {
         if (name != user.name) {
-            if (email != user.email) {
-                repository.uptadeForNameAndEmail(name, email, listener = object : ApiListener<ResponseModel> {
-                    override fun onSuccess(result: ResponseModel) {
-                        if (result.status == HTTP_OK) {
-                            _isLoadingUpdate.value = true
-                        }
-                    }
+            repository.uptadeForNameAndEmail(name, null, listener = object : ApiListener<ResponseModel> {
+                override fun onSuccess(result: ResponseModel) {
+                    _isLoadingUpdate.value = result.status == HTTP_OK
+                }
 
-                    override fun onFailure(message: String, code: Int) {
-                        _isLoadingUpdate.value = false
-                    }
+                override fun onFailure(message: String, code: Int) {
+                    _isLoadingUpdate.value = false
+                }
 
-                })
-            } else {
-                repository.uptadeForNameAndEmail(name, null, listener = object : ApiListener<ResponseModel> {
-                    override fun onSuccess(result: ResponseModel) {
-                        _isLoadingUpdate.value = result.status == HTTP_OK
-                    }
+            })
+            } else if (email != user.email) {
+            repository.uptadeForNameAndEmail(null, email, listener = object : ApiListener<ResponseModel> {
+                override fun onSuccess(result: ResponseModel) {
+                    _isLoadingUpdate.value = result.status == HTTP_OK
+                }
 
-                    override fun onFailure(message: String, code: Int) {
-                        _isLoadingUpdate.value = false
-                    }
+                override fun onFailure(message: String, code: Int) {
+                    _isLoadingUpdate.value = false
+                }
 
-                })
-            }
+            })
+            }else if (email != user.email && name != user.name){
+            repository.uptadeForNameAndEmail(name, email, listener = object : ApiListener<ResponseModel> {
+                override fun onSuccess(result: ResponseModel) {
+                    _isLoadingUpdate.value = result.status == HTTP_OK
+                }
+
+                override fun onFailure(message: String, code: Int) {
+                    _isLoadingUpdate.value = false
+                }
+
+            })
         }
     }
 

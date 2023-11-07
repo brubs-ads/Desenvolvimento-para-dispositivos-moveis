@@ -151,26 +151,42 @@ class GraphicActivity : AppCompatActivity() {
         if (displayedDate.isNotEmpty()) {
             val monthAbbreviationsArray = resources.getStringArray(R.array.month_abbreviations)
             val currentYear = Calendar.getInstance().get(Calendar.YEAR)
-
+            val currentMonthAbbreviation = monthAbbreviationsArray[Calendar.getInstance().get(Calendar.MONTH)]
             val monthIndex = monthAbbreviationsArray.indexOfFirst {
                 it.equals(displayedDate.substring(0, 3), ignoreCase = true)
             }
 
             if (monthIndex >= 0) {
                 val yearString = if (displayedDate.length == 7) {
-                    displayedDate.substring(4)
+                    val selectedYear = displayedDate.substring(4)
+                    val formattedYear = if (selectedYear.length == 2) {
+                        "20$selectedYear"
+                    } else {
+                        selectedYear
+                    }
+                    formattedYear
                 } else {
-                    currentYear.toString()
+                    if (displayedDate.substring(0, 3).equals(currentMonthAbbreviation, ignoreCase = true)) {
+                        currentYear.toString()
+                    } else {
+                        displayedDate.substring(4)
+                    }
                 }
 
                 val year = try {
-                    yearString.toInt()
+                    if (yearString.length == 2){
+                        val yw ="20${yearString}"
+                        yw.toInt()
+
+                    } else {
+                        yearString.toInt()
+                    }
                 } catch (e: NumberFormatException) {
                     currentYear
                 }
 
                 val month = monthIndex + 1
-                viewModel.queryMonthAndYear(month = month, year = year)
+                viewModel.queryMonthAndYear(month, year)
             }
         }
     }
