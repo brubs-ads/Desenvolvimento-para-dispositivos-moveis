@@ -66,6 +66,10 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        val toggle = ActionBarDrawerToggle(this, drawerLayout, binding.appBarMain.toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
 
         styleFontMenu(navView)
 
@@ -110,6 +114,11 @@ class MainActivity : AppCompatActivity() {
         updateMonthYearText()
         checkMonthAndYear()
         handleClick()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        closeMenuIfOpen()
     }
 
     private fun handleClick() {
