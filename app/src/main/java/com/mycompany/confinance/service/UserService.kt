@@ -42,4 +42,7 @@ interface UserService {
 
     @PATCH(Constants.HTTP.URL.URL_UPTADE_USER)
     fun uptadeUser(@Path("id") id: Long, @Body user: UserModel): Call<ResponseModel>
+
+    @PUT(Constants.HTTP.URL.URL_RESET_PASSWORD_USER)
+    fun uptadePassword(@Path("id") id: Long,@Body password: PasswordResetRequest):Call<ResponseModel>
 }

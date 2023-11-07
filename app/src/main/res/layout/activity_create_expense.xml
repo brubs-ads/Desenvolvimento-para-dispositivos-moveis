@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.activity.revenue.CreateRevenueActivity">
+        tools:context=".view.activity.expense.CreateExpenseActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-            android:background="@color/green_4"
+            android:background="@color/red"
             android:id="@+id/appbar"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -197,7 +197,7 @@
                             android:layout_toEndOf="@id/image_fixed_income"
                             android:text="@string/fixed_income"
                             android:thumb="@drawable/thumber"
-                            app:track="@drawable/track"
+                            app:track="@drawable/track_expense"
                             android:textColor="@color/gray_4"
                     />
 
@@ -223,7 +223,7 @@
                             android:layout_alignTop="@id/image_repetition"
                             android:textColor="@color/gray_4"
                     />
-                    
+
 
                     <View
                             android:id="@+id/view_3"
@@ -269,7 +269,7 @@
                             android:textSize="16dp"/>
 
                     <androidx.cardview.widget.CardView
-                            android:id="@+id/card_salary"
+                            android:id="@+id/card_food"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/text_category"
@@ -284,18 +284,18 @@
                                 android:orientation="vertical">
 
                             <androidx.appcompat.widget.AppCompatImageView
-                                    android:id="@+id/img_salary"
+                                    android:id="@+id/img_food"
                                     android:layout_width="70dp"
                                     android:layout_height="50dp"
                                     android:layout_gravity="center"
-                                    app:srcCompat="@drawable/salario"/>
+                                    app:srcCompat="@drawable/alimenta__o"/>
 
                             <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:fontFamily="@font/roboto_medium"
-                                    android:text="@string/salary"
+                                    android:text="@string/food"
                                     android:textColor="@color/black"
                                     android:textSize="13sp"/>
 
@@ -304,12 +304,12 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                            android:id="@+id/card_investi"
+                            android:id="@+id/card_home"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignTop="@id/card_salary"
+                            android:layout_alignTop="@id/card_food"
                             android:layout_marginStart="45dp"
-                            android:layout_toEndOf="@id/card_salary"
+                            android:layout_toEndOf="@id/card_food"
                             app:cardElevation="0dp">
 
                         <LinearLayout
@@ -318,30 +318,32 @@
                                 android:orientation="vertical">
 
                             <androidx.appcompat.widget.AppCompatImageView
-                                    android:id="@+id/img_investy"
+                                    android:id="@+id/img_home"
                                     android:layout_width="70dp"
                                     android:layout_height="50dp"
                                     android:layout_gravity="center"
-                                    app:srcCompat="@drawable/investimento"/>
+                                    app:srcCompat="@drawable/casa"/>
 
                             <TextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:textAlignment="center"
                                     android:fontFamily="@font/roboto_medium"
-                                    android:text="@string/Investments"
+                                    android:text="@string/home"
                                     android:textColor="@color/black"
-                                    android:textSize="13sp"/>
+                                    android:textSize="13sp"
+                                    android:gravity="center"
+                            />
 
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                            android:id="@+id/card_service"
+                            android:id="@+id/card_health"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignTop="@id/card_investi"
+                            android:layout_alignTop="@id/card_home"
                             android:layout_alignParentEnd="true"
                             android:layout_marginEnd="52dp"
                             app:cardElevation="0dp"
@@ -354,18 +356,18 @@
                                 android:orientation="vertical">
 
                             <androidx.appcompat.widget.AppCompatImageView
-                                    android:id="@+id/img_service"
+                                    android:id="@+id/img_health"
                                     android:layout_width="70dp"
                                     android:layout_height="50dp"
                                     android:layout_gravity="center"
-                                    app:srcCompat="@drawable/servi_os"/>
+                                    app:srcCompat="@drawable/saude"/>
 
                             <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/roboto_medium"
                                     android:layout_gravity="center"
-                                    android:text="@string/service"
+                                    android:text="@string/health"
                                     android:textColor="@color/black"
                                     android:textSize="13sp"/>
 
@@ -374,12 +376,46 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                            android:id="@+id/card_outro"
+                            android:id="@+id/card_education"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/card_salary"
+                            android:layout_below="@id/card_food"
                             android:layout_alignParentStart="true"
                             android:layout_marginStart="50dp"
+                            android:layout_marginTop="26dp"
+                            app:cardElevation="0dp">
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_education"
+                                    android:layout_width="70dp"
+                                    android:layout_height="50dp"
+                                    android:layout_gravity="center"
+                                    app:srcCompat="@drawable/educa__o"/>
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto_medium"
+                                    android:layout_gravity="center"
+                                    android:text="@string/education"
+                                    android:textColor="@color/black"
+                                    android:textSize="13sp"/>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                            android:id="@+id/card_outher_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/card_home"
+                            android:layout_alignStart="@id/card_home"
                             android:layout_marginTop="26dp"
                             app:cardElevation="0dp">
 
@@ -415,7 +451,7 @@
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
                             android:layout_marginBottom="41dp"
-                            android:background="@drawable/rounded_button_movement"
+                            android:background="@drawable/rounded_button_expense"
                             android:elevation="8dp"
                             android:fontFamily="@font/lato"
                             android:text="Criar"
@@ -440,6 +476,5 @@
           android:background="@color/white"
           android:translationZ="10000dp"
     />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

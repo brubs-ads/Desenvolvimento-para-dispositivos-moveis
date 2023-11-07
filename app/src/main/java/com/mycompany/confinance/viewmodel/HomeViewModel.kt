@@ -26,7 +26,7 @@ class HomeViewModel(private val application: Application) : AndroidViewModel(app
                 override fun onSuccess(result: QueryResponse) {
                     _totalBalance.value = result.total
                     _totalMovement.value = QueryResponse(
-                        0.0, result.totalExpenses, result.totalRevenues,
+                        result.total, result.totalExpenses, result.totalRevenues,
                         result.userId
                     )
                     _isLoading.value = true

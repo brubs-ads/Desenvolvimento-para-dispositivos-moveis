@@ -26,9 +26,10 @@ class Constants {
             const val URL_UPDATE_OBJECTIVE: String = "objective/{id}"
             const val URL_RETURN_OBJECTIVE_ID_USER: String = "objective/user/{id}"
             const val URL_DELETE_OBJECTIVE: String = "objective/{id}"
-            const val URL_EMAIL_SENDING: String = "user/recover-password/{email}"
-            const val URL_EMAIL_VERIFICATION_CODE :String = "user/validate-password"
+            const val URL_EMAIL_SENDING: String = "user/send-mail/{email}"
+            const val URL_EMAIL_VERIFICATION_CODE :String = "user/validate-code"
             const val URL_RESET_PASSWORD:String = "user/reset-password"
+            const val URL_RESET_PASSWORD_USER: String ="user/{id}/reset-password"
             const val QUERY_MONTH_AND_YEAR: String = "movement/user/{userId}/month/{month}/year/{year}"
         }
     }

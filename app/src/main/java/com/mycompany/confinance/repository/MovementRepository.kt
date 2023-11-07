@@ -69,19 +69,20 @@ class MovementRepository (private val context: Context){
 
 
         if (codeType == 1) {
+            val teste = MovementModel(
+                id = null,
+                type_movement = "receita",
+                value = value,
+                description = description,
+                date = data,
+                photo = photo,
+                fixedIncome = fixedIncome,
+                recurrenceFrequency = recurrenceFrequency,
+                recurrenceIntervals = recurrenceIntervals,
+                user = User(userId)
+            )
             call = remote.createMoviment(
-                MovementModel(
-                    id = null,
-                    type_movement = "receita",
-                    value = value,
-                    description = description,
-                    date = data,
-                    Photo = photo,
-                    fixedIncome = fixedIncome,
-                    recurrenceFrequency = recurrenceFrequency,
-                    recurrenceIntervals = recurrenceIntervals,
-                    user = User(userId)
-                )
+                teste
             )
 
             call.enqueue(object : Callback<ResponseModel> {
@@ -107,19 +108,20 @@ class MovementRepository (private val context: Context){
 
             })
         } else {
+            val teste = MovementModel(
+                id = null,
+                type_movement = "despesa",
+                value = value,
+                description = description,
+                date = data,
+                photo = photo,
+                fixedIncome = fixedIncome,
+                recurrenceFrequency = recurrenceFrequency,
+                recurrenceIntervals = recurrenceIntervals,
+                user = User(id = userId)
+            )
             call = remote.createMoviment(
-                MovementModel(
-                    id = null,
-                    type_movement = "despesa",
-                    value = value,
-                    description = description,
-                    date = data,
-                    Photo = photo!!,
-                    fixedIncome = fixedIncome,
-                    recurrenceFrequency = recurrenceFrequency,
-                    recurrenceIntervals = recurrenceIntervals,
-                    user = User(id = userId)
-                )
+                teste
             )
 
             call.enqueue(object : Callback<ResponseModel> {
@@ -203,10 +205,6 @@ class MovementRepository (private val context: Context){
             }
 
         })
-    }
-
-    fun updateMovement(idMovement: Long){
-
     }
 
     fun getMovementById(idMovement: Long, listener: ApiListener<MovementModel>) {

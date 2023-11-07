@@ -27,13 +27,15 @@ class MovementViewModel(application: Application) : AndroidViewModel(application
                 if (result.isNotEmpty()) {
                     _isLoading.value = false
                     _list.value = result
-                }else{
-                    _isLoading.value = null
                 }
             }
 
             override fun onFailure(message: String, code: Int) {
-                _isLoading.value = true
+                if (code == 404){
+                    _isLoading.value = null
+                }else{
+                    _isLoading.value = true
+                }
             }
 
         })
@@ -56,21 +58,21 @@ class MovementViewModel(application: Application) : AndroidViewModel(application
         })
     }
 
-    fun getMovementId(id: Long) {
-        repository.getMovementById(idMovement = id, object :ApiListener<MovementModel>{
-            override fun onSuccess(result: MovementModel) {
-                if (result.id != null){
-                    _isLoadingGetMovement.value = true
-                }else{
-                    _isLoadingGetMovement.value = false
-                }
-            }
-
-            override fun onFailure(message: String, code: Int) {
-                _isLoadingGetMovement.value = false
-            }
-
-        })
-    }
+//    fun getMovementId(id: Long) {
+//        repository.getMovementById(idMovement = id, object :ApiListener<MovementModel>{
+//            override fun onSuccess(result: MovementModel) {
+//                if (result.id != null){
+//                    _isLoadingGetMovement.value = true
+//                }else{
+//                    _isLoadingGetMovement.value = false
+//                }
+//            }
+//
+//            override fun onFailure(message: String, code: Int) {
+//                _isLoadingGetMovement.value = false
+//            }
+//
+//        })
+//    }
 
 }

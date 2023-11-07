@@ -101,8 +101,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="50dp"
+            android:visibility="gone"
     />
-
 
     <View
             android:id="@+id/view_1"
@@ -112,6 +112,7 @@
             app:layout_constraintTop_toBottomOf="@id/pieChart"
             app:layout_constraintStart_toStartOf="@id/pieChart"
             android:layout_marginTop="18dp"
+            android:visibility="gone"
     />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -126,8 +127,9 @@
             app:layout_constraintStart_toEndOf="@id/view_1"
             app:layout_constraintBottom_toBottomOf="@id/view_1"
             android:layout_marginStart="5dp"
-    />
+            android:visibility="gone"
 
+    />
 
     <View
             android:id="@+id/view_2"
@@ -137,7 +139,9 @@
             app:layout_constraintTop_toBottomOf="@id/pieChart"
             app:layout_constraintStart_toEndOf="@id/text_revenue"
             android:layout_marginTop="18dp"
-            android:layout_marginStart="100dp"
+            android:layout_marginStart="25dp"
+            android:visibility="gone"
+
     />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -152,8 +156,8 @@
             app:layout_constraintStart_toEndOf="@id/view_2"
             app:layout_constraintBottom_toBottomOf="@id/view_2"
             android:layout_marginStart="5dp"
+            android:visibility="gone"
     />
-
 
     <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_total"
@@ -167,6 +171,8 @@
             android:fontFamily="@font/roboto"
             android:textSize="15sp"
             android:textColor="@color/black_opacity_80"
+            android:visibility="gone"
+
     />
 
     <View
@@ -181,6 +187,7 @@
             android:layout_marginEnd="22dp"
             android:background="@drawable/rounded_card_graphic"
             android:elevation="10dp"
+            android:visibility="gone"
     />
 
     <RelativeLayout
@@ -190,8 +197,7 @@
             app:layout_constraintBottom_toBottomOf="@id/view_card_revenue"
             app:layout_constraintStart_toStartOf="@id/view_card_revenue"
             app:layout_constraintEnd_toEndOf="@id/view_card_revenue"
-            android:translationZ="10dp"
-    >
+            android:translationZ="10dp">
 
         <View
                 android:id="@+id/view_card"
@@ -239,6 +245,7 @@
             android:layout_marginTop="49dp"
             android:background="@drawable/rounded_card_graphic"
             android:elevation="10dp"
+            android:visibility="gone"
     />
 
     <RelativeLayout
@@ -249,7 +256,7 @@
             app:layout_constraintStart_toStartOf="@id/view_card_expense"
             app:layout_constraintEnd_toEndOf="@id/view_card_expense"
             android:translationZ="10dp"
-    >
+            >
 
         <View
                 android:id="@+id/view_card_2"
@@ -286,4 +293,42 @@
                 android:textSize="15sp"
         />
     </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_graphics"
+            android:layout_width="253dp"
+            android:layout_height="198dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/graphic"
+            android:visibility="gone"
+    />
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_graphics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/image_graphics"
+            app:layout_constraintStart_toStartOf="@id/image_graphics"
+            app:layout_constraintEnd_toEndOf="@id/image_graphics"
+            android:text="Ops! Você não tem lançamentos\n cadastrados esse mês"
+            android:textAlignment="center"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="17sp"
+            android:layout_marginTop="14dp"
+            android:visibility="gone"
+    />
+
+    <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:indeterminateDrawable="@drawable/progressbarcustomgraphic"
+    />
 </androidx.constraintlayout.widget.ConstraintLayout>

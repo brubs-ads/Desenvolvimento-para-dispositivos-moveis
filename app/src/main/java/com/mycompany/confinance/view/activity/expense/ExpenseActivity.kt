@@ -1,45 +1,45 @@
-package com.mycompany.confinance.view.activity
+package com.mycompany.confinance.view.activity.expense
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mycompany.confinance.databinding.ActivityMovementBinding
+import com.mycompany.confinance.databinding.ActivityExpenseBinding
 import com.mycompany.confinance.model.MovementModel
 import com.mycompany.confinance.util.OnClickMovementListener
+import com.mycompany.confinance.view.activity.MainActivity
 import com.mycompany.confinance.view.adapter.MovementAdapter
 import com.mycompany.confinance.viewmodel.MovementViewModel
 
-class MovementActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMovementBinding
+class ExpenseActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityExpenseBinding
     private val viewModel: MovementViewModel by viewModels()
     private var listRevenue: ArrayList<MovementModel> = arrayListOf()
     private var id: Long? = null
     private val adapter = MovementAdapter()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMovementBinding.inflate(layoutInflater)
+        binding = ActivityExpenseBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel.getMovement("receita")
+        viewModel.getMovement("despesa")
         observe()
         handleClick()
-
     }
 
     private fun handleMovement() {
         val listener = object : OnClickMovementListener {
             override fun onClick(id: Long) {
-                this@MovementActivity.id = id
-                viewModel.getMovementId(id= this@MovementActivity.id!!)
+                this@ExpenseActivity.id = id
+//                viewModel.getMovementId(id= this@ExpenseActivity.id!!)
             }
 
             override fun delete(id: Long) {
-                this@MovementActivity.id = id
-                viewModel.deleteMovement(id = this@MovementActivity.id!!)
+                this@ExpenseActivity.id = id
+                viewModel.deleteMovement(id = this@ExpenseActivity.id!!)
             }
         }
         adapter.setListener(listener)
@@ -83,6 +83,9 @@ class MovementActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
+        binding.buttonCreateRevenue.setOnClickListener {
+            startActivity(Intent(this, CreateExpenseActivity::class.java))
+        }
     }
 
     private fun recycler() {
@@ -107,5 +110,4 @@ class MovementActivity : AppCompatActivity() {
         listRevenue.remove(movement)
         adapter.notifyItemRemoved(position)
     }
-
 }

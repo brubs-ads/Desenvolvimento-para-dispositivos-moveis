@@ -10,7 +10,7 @@ data class MovementModel(
     val value: Long,
     val description: String,
     val date: String,
-    val Photo: Int,
+    val photo: Int,
     val fixedIncome: Boolean?,
     val recurrenceFrequency: String?,
     val recurrenceIntervals: Int?,

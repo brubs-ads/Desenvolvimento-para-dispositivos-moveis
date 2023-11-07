@@ -1,5 +1,6 @@
 package com.mycompany.confinance.view.activity
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -8,6 +9,7 @@ import android.text.SpannableString
 import android.text.style.TextAppearanceSpan
 import android.widget.ImageView
 import androidx.activity.viewModels
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -20,6 +22,8 @@ import com.google.android.material.navigation.NavigationView
 import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityMainBinding
 import com.mycompany.confinance.util.SharedPreferencesUtil
+import com.mycompany.confinance.view.activity.expense.ExpenseActivity
+import com.mycompany.confinance.view.activity.revenue.RevenueActivity
 import com.mycompany.confinance.view.activity.user.CreateAccountActivity
 import com.mycompany.confinance.view.activity.user.UserProfileActivity
 import com.mycompany.confinance.view.company.AboutUsActivity
@@ -37,6 +41,7 @@ class MainActivity : AppCompatActivity() {
     private val calendar = Calendar.getInstance()
     private lateinit var sharedPreferences: SharedPreferences
 
+    @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -49,6 +54,7 @@ class MainActivity : AppCompatActivity() {
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
+
         navView.itemIconTintList = null
         val navController = findNavController(R.id.nav_host_fragment_content_main)
 
@@ -66,7 +72,7 @@ class MainActivity : AppCompatActivity() {
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_renevue -> {
-                    startActivity(Intent(this, MovementActivity::class.java))
+                    startActivity(Intent(this, RevenueActivity::class.java))
                     true
                 }
 
@@ -79,6 +85,10 @@ class MainActivity : AppCompatActivity() {
                     startActivity(Intent(this, AboutUsActivity::class.java))
                     true
                 }
+                R.id.nav_expense ->{
+                    startActivity(Intent(this, ExpenseActivity::class.java))
+                    true
+                }
 
                 R.id.nav_terms_of_use -> {
                     startActivity(Intent(this, TermsOfUseActivity::class.java))
@@ -86,7 +96,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.nav_exit -> {
-                    SharedPreferencesUtil.getUserId(context = this)
+                    SharedPreferencesUtil.saveUserId(this,0)
                     startActivity(
                         Intent(this,CreateAccountActivity::class.java))
                     true
@@ -112,10 +122,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onResume() {
-        super.onResume()
-        closeMenuIfOpen()
-    }
 
     private fun closeMenuIfOpen() {
         val drawerLayout: DrawerLayout = binding.drawerLayout

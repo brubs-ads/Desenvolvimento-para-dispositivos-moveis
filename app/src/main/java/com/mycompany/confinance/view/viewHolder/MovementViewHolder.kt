@@ -2,6 +2,7 @@ package com.mycompany.confinance.view.viewHolder
 
 import android.annotation.SuppressLint
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.RowMovementBinding
@@ -17,63 +18,49 @@ class MovementViewHolder(
     @SuppressLint("ResourceAsColor", "SetTextI18n")
     fun bind(movementModel: MovementModel) {
         if (movementModel.type_movement == "receita") {
-            when (movementModel.Photo) {
+            when (movementModel.photo) {
                 1 -> {
-                    binding.imageIcon.setImageResource(R.drawable.ob__1)
+                    binding.imageIcon.setImageResource(R.drawable.salario_verde)
                 }
 
                 2 -> {
-                    binding.imageIcon.setImageResource(R.drawable.ob__1)
+                    binding.imageIcon.setImageResource(R.drawable.investimento_verde)
                 }
 
                 3 -> {
-                    binding.imageIcon.setImageResource(R.drawable.ob__1)
+                    binding.imageIcon.setImageResource(R.drawable.servi_os_verde)
                 }
 
                 4 -> {
-                    binding.imageIcon.setImageResource(R.drawable.ob__1)
+                    binding.imageIcon.setImageResource(R.drawable.outros_verde)
                 }
             }
-            binding.textValueMovement.setTextColor(R.color.green_4)
+            binding.textValueMovement.setTextColor(ContextCompat.getColor(binding.root.context, R.color.green_4))
         }
         else {
-            when (movementModel.Photo) {
+            when (movementModel.photo) {
                 1 -> {
-                    binding.imageIcon.setImageResource(R.drawable.ob__1)
+                    binding.imageIcon.setImageResource(R.drawable.alimen_vermelho)
                 }
 
                 2 -> {
-                    binding.imageIcon.setImageResource(R.drawable.ob__1)
+                    binding.imageIcon.setImageResource(R.drawable.edu_vermelho)
                 }
 
                 3 -> {
-                    binding.imageIcon.setImageResource(R.drawable.ob__1)
+                    binding.imageIcon.setImageResource(R.drawable.sude_vermelho)
                 }
 
                 4 -> {
-                    binding.imageIcon.setImageResource(R.drawable.ob__1)
+                    binding.imageIcon.setImageResource(R.drawable.outro_vermelho)
+                }
+                5 ->{
+                    binding.imageIcon.setImageResource(R.drawable.casa_vermelha)
+
                 }
             }
-            binding.textValueMovement.setTextColor(R.color.red)
+            binding.textValueMovement.setTextColor(ContextCompat.getColor(binding.root.context, R.color.red))
         }
-        when (movementModel.recurrenceFrequency) {
-            "weekly" -> {
-                binding.textPeriod.text = "${movementModel.recurrenceIntervals}x Semanal"
-            }
-
-            "daily" -> {
-                binding.textPeriod.text = "${movementModel.recurrenceIntervals}x Diário"
-            }
-
-            "monthly" -> {
-                binding.textPeriod.text = "${movementModel.recurrenceIntervals}x Mensal"
-            }
-
-            "annually" -> {
-                binding.textPeriod.text = "${movementModel.recurrenceIntervals}x Anual"
-            }
-        }
-
         binding.textTypeMovement.text = movementModel.description
         binding.textDate.text = movementModel.date
         binding.textValueMovement.text = formatarNumero(movementModel.value)

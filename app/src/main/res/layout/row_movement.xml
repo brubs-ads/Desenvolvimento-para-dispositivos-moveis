@@ -38,6 +38,7 @@
                         android:layout_alignParentStart="true"
                         android:layout_marginTop="8dp"
                         android:layout_marginStart="16dp"
+                        android:translationZ="1000000000dp"
                 />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -77,18 +78,7 @@
                         android:textColor="@color/gray_4"
                 />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/text_period"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentBottom="true"
-                        android:fontFamily="@font/roboto_medium"
-                        android:textSize="8.43sp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginBottom="7dp"
-                        android:textColor="@color/black_opacity_50"
-                />
+
 
                 <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/text_value_movement"

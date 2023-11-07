@@ -2,6 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Confinance" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="drawerArrowStyle">@style/MyDrawerArrowToggle</item>
+
     </style>
 
     <style name="Theme.Confinance" parent="Base.Theme.Confinance" />
@@ -54,6 +55,11 @@
     <style name="ThemeForActivityRevenue" parent="Base.Theme.Confinance">
         <item name="colorPrimaryDark">@color/green_4</item>
     </style>
+
+    <style name="ThemeForActivityExpense" parent="Base.Theme.Confinance">
+        <item name="colorPrimaryDark">@color/red</item>
+
+    </style>
     <style name="NavigationItemAppearance">
         <item name="android:textColor">#B3808080</item>
         <item name="android:textSize">12.9sp</item>
@@ -82,4 +88,23 @@
     <style name="CenteredTextAppearance">
         <item name="android:gravity">center</item>
     </style>
+
+    <style name="DatePickRevenue" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:colorAccent">@color/green_4</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/YourDialogButtonStyle</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/YourDialogButtonStyle</item>
+    </style>
+
+    <style name="DatePickExpense" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:colorAccent">@color/red</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/YourDialogButtonStyle</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/YourDialogButtonStyle</item>
+    </style>
+    <style name="YourDialogButtonStyle" parent="android:Widget.Material.Button">
+        <item name="android:textColor">@color/black</item>
+        <item name="backgroundTintMode">add</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+
+
 </resources>
