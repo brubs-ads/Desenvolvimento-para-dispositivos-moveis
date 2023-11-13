@@ -18,7 +18,7 @@ class CreateExpenseViewModel(private val application: Application) : AndroidView
     fun createExpense(
         value: Long,
         description: String,
-        data: String,
+        data: String?,
         fixedIncome: Boolean?,
         repetitions: String?,
         photo: Int

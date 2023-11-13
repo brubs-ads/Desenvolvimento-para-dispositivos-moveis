@@ -151,13 +151,13 @@ class MainActivity : AppCompatActivity() {
         viewModel.isLoading.observe(this) { isLoading ->
             if (isLoading) {
                 binding.appBarMain.shimmerLayoutTextTotal.shimmerColor = 0
-                viewModel.totalBalance.observe(this) { total ->
-                    binding.appBarMain.textTotal.text = formatarNumero(total)
-                }
             } else {
                 binding.appBarMain.textTotal.text = baseContext.getString(R.string.total_default)
                 binding.appBarMain.shimmerLayoutTextTotal.startLayoutAnimation()
             }
+        }
+        viewModel.totalBalance.observe(this) { total ->
+            binding.appBarMain.textTotal.text = formatarNumero(total)
         }
     }
 

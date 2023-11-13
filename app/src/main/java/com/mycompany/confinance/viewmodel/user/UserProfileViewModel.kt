@@ -85,7 +85,7 @@ class UserProfileViewModel(private val application: Application) : AndroidViewMo
     }
 
     fun uptadePassword(password: String, newPassword: String, newPasswordAgain: String) {
-        if (password != null && newPassword != "" && newPasswordAgain != "") {
+        if (password != "" && newPassword != "" && newPasswordAgain != "") {
             if (newPassword.contentEquals(newPasswordAgain)) {
                 repository.upgradePassword(
                     password = password,

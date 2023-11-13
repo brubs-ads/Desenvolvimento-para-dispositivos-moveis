@@ -215,7 +215,7 @@
     <string name="user_profile">Perfil do usuário</string>
     <string name="name">Nome</string>
     <string name="email">Email</string>
-    <string name="delete_account">Excluir CONTA</string>
+    <string name="delete_account">Excluir Conta</string>
     <string name="Change_password">ALTERAÇÃO DA SENHA</string>
     <string name="Leave_passwords_empty">Deixe as senhas vazias , quando você não quiser mudá-lás.</string>
     <string name="change_account">ALTERAR A SENHA</string>
@@ -226,6 +226,7 @@
     <string name="health">Saúde</string>
     <string name="education">Educação</string>
     <string name="new_expense">Nova Despesa</string>
+    <string name="create_objective">Criar Objetivos</string>
 
     <string-array name="months">
         <item>Janeiro</item>

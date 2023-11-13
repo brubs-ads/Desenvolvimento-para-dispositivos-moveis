@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="317dp"
+        android:layout_height="139dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_delete"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                app:srcCompat="@drawable/ic_launcher_background"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="26dp"
+                android:layout_marginStart="83dp"
+        />
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/img_delete"
+                android:layout_alignBottom="@id/img_delete"
+                android:layout_alignTop="@id/img_delete"
+                android:text="@string/delete_account"
+                android:layout_marginStart="13dp"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="15sp"
+                android:textColor="@color/black_opacity_80"
+        />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_information_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/img_delete"
+                android:layout_centerHorizontal="true"
+                android:text="Tem certeza de que deseja excluir a sua conta?"
+                android:layout_marginTop="13dp"
+                android:fontFamily="@font/roboto"
+                android:textSize="11.27sp"
+                android:textColor="@color/black_opacity_80"
+        />
+
+        <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:background="@color/gray"
+                android:layout_below="@id/text_information_card"
+                android:layout_marginTop="30.24dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+        />
+
+        
+        <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/button_yes_delete"
+                android:layout_alignBottom="@id/button_yes_delete"
+                android:layout_toStartOf="@id/button_yes_delete"
+                android:text="Não"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="13sp"
+                android:textColor="@color/purple_2"
+                android:layout_marginEnd="30dp"
+        />
+        
+        
+        <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_yes_delete"
+                android:layout_width="55dp"
+                android:layout_height="22dp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/view"
+                android:text="Sim"
+                android:textAllCaps="false"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="11sp"
+                android:textColor="@color/white"
+                android:layout_marginEnd="11dp"
+                android:background="@drawable/rounded_button_delete_dialog"
+                android:layout_marginTop="8.76dp"
+                android:layout_centerVertical="true"
+        />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
