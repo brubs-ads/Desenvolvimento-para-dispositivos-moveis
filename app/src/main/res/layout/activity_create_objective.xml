@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.activity.objective.CreateObjectiveActivity">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:background="@color/blue_3"
+            android:id="@+id/appbar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="142dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            />
+
+            <ImageView
+                    android:id="@+id/arrow_close"
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:src="@drawable/fechar_x"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginStart="21dp"
+            />
+
+            <TextView
+                    android:id="@+id/text_new_objective"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="@string/create_objective"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="20sp"
+                    android:layout_toEndOf="@id/arrow_close"
+                    android:layout_alignTop="@id/arrow_close"
+                    android:layout_alignBottom="@id/arrow_close"
+                    android:layout_marginStart="10dp"
+            />
+
+            <TextView
+                    android:id="@+id/text_balance_revenue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/text_new_objective"
+                    android:text="valor de Objetivo"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="16.28sp"
+                    android:textColor="@color/white"
+                    android:layout_toEndOf="@id/arrow_close"
+                    android:layout_marginTop="19dp"
+            />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_rs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/text_balance_revenue"
+                    android:layout_alignTop="@id/edit_balance_objective"
+                    android:text="R$"
+                    android:textSize="34sp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textColor="@color/white"
+            />
+
+            <me.abhinay.input.CurrencyEditText
+                    android:id="@+id/edit_balance_objective"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/text_rs"
+                    android:layout_below="@id/text_balance_revenue"
+                    android:hint="0,00"
+                    android:textSize="34sp"
+                    android:inputType="number"
+                    android:fontFamily="@font/roboto_medium"
+                    android:layout_marginTop="6dp"
+                    android:textColor="@color/white"
+                    style="@style/NoBorderEditText"
+                    android:textColorHint="@color/white"
+                    android:layout_marginStart="8dp"
+            />
+
+            <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_below="@id/edit_balance_objective"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    app:cardCornerRadius="30dp"
+                    android:layout_marginTop="18dp">
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <View android:layout_width="match_parent"
+          android:layout_height="40dp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent"
+          android:background="@color/white"
+          android:translationZ="10000dp"
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

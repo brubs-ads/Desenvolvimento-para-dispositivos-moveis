@@ -17,15 +17,18 @@
             android:usesCleartextTraffic="true"
             tools:targetApi="31">
         <activity
+                android:name=".view.activity.objective.ObjectiveActivity"
+                android:exported="false"
+                android:theme="@style/ThemeForActivityObjective"
+        />
+        <activity
                 android:name=".view.activity.expense.ExpenseActivity"
                 android:exported="false"
-                android:theme="@style/ThemeForActivityExpense"
-        />
+                android:theme="@style/ThemeForActivityExpense"/>
         <activity
                 android:name=".view.activity.expense.CreateExpenseActivity"
                 android:exported="false"
-                android:theme="@style/ThemeForActivityExpense"
-        />
+                android:theme="@style/ThemeForActivityExpense"/>
         <activity
                 android:name=".view.activity.revenue.RevenueActivity"
                 android:exported="false"

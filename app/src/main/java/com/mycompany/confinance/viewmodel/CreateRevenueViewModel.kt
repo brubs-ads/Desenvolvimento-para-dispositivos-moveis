@@ -18,7 +18,7 @@ class CreateRevenueViewModel(private val application: Application) : AndroidView
     fun createRevenue(
         value: Long,
         description: String,
-        data: String,
+        data: String?,
         fixedIncome: Boolean?,
         repetitions: String?,
         photo: Int

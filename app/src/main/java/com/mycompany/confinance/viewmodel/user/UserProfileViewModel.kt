@@ -17,8 +17,8 @@ class UserProfileViewModel(private val application: Application) : AndroidViewMo
     val resultDeleteUser: LiveData<Boolean> = _resultDeleteUser
     private var _user = MutableLiveData<UserModel>()
     val user: LiveData<UserModel> = _user
-    private var _isLoadingUpdate = MutableLiveData<Boolean>()
-    val isLoadingUpdate: LiveData<Boolean> = _isLoadingUpdate
+    private var _isLoadingUpdate = MutableLiveData<Boolean?>()
+    val isLoadingUpdate: LiveData<Boolean?> = _isLoadingUpdate
 
     fun deleteUser() {
         repository.deleteUser(listener = object : ApiListener<ResponseModel> {
@@ -85,7 +85,7 @@ class UserProfileViewModel(private val application: Application) : AndroidViewMo
     }
 
     fun uptadePassword(password: String, newPassword: String, newPasswordAgain: String) {
-        if (password != null && newPassword != "" && newPasswordAgain != "") {
+        if (password != "" && newPassword != "" && newPasswordAgain != "") {
             if (newPassword.contentEquals(newPasswordAgain)) {
                 repository.upgradePassword(
                     password = password,
@@ -96,7 +96,11 @@ class UserProfileViewModel(private val application: Application) : AndroidViewMo
                         }
 
                         override fun onFailure(message: String, code: Int) {
-                            _isLoadingUpdate.value = false
+                            if (code == HTTP_UNAUTHORIZED){
+                                _isLoadingUpdate.value = null
+                            }else{
+                                _isLoadingUpdate.value = false
+                            }
 
                         }
 

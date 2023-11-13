@@ -7,20 +7,22 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.TextAppearanceSpan
+import android.view.LayoutInflater
 import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityMainBinding
+import com.mycompany.confinance.databinding.CustomDialogExitAccountBinding
 import com.mycompany.confinance.util.SharedPreferencesUtil
 import com.mycompany.confinance.view.activity.expense.ExpenseActivity
 import com.mycompany.confinance.view.activity.revenue.RevenueActivity
@@ -37,9 +39,10 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private lateinit var sharedPreferences: SharedPreferences
     private val viewModel: HomeViewModel by viewModels()
     private val calendar = Calendar.getInstance()
-    private lateinit var sharedPreferences: SharedPreferences
+    private var dialog: AlertDialog? = null
 
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,12 +70,37 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        val toggle = ActionBarDrawerToggle(this, drawerLayout, binding.appBarMain.toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        val toggle = ActionBarDrawerToggle(
+            this,
+            drawerLayout,
+            binding.appBarMain.toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
+        )
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
         styleFontMenu(navView)
+        handleView(navView)
+        observe()
+        updateMonthYearText()
+        checkMonthAndYear()
+        handleClick()
+    }
 
+    override fun onResume() {
+        super.onResume()
+        closeMenuIfOpen()
+    }
+
+    private fun closeMenuIfOpen() {
+        val drawerLayout: DrawerLayout = binding.drawerLayout
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START)
+        }
+    }
+
+    private fun handleView(navView: NavigationView) {
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_renevue -> {
@@ -89,7 +117,8 @@ class MainActivity : AppCompatActivity() {
                     startActivity(Intent(this, AboutUsActivity::class.java))
                     true
                 }
-                R.id.nav_expense ->{
+
+                R.id.nav_expense -> {
                     startActivity(Intent(this, ExpenseActivity::class.java))
                     true
                 }
@@ -100,43 +129,48 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.nav_exit -> {
-                    SharedPreferencesUtil.saveUserId(this,0)
-                    startActivity(
-                        Intent(this,CreateAccountActivity::class.java))
+                    handleDialogCustom()
                     true
                 }
 
                 else -> false
             }
         }
-
-        observe()
-        updateMonthYearText()
-        checkMonthAndYear()
-        handleClick()
     }
 
-    override fun onResume() {
-        super.onResume()
-        closeMenuIfOpen()
+    private fun handleDialogCustom() {
+        if (dialog != null && dialog?.isShowing == true) {
+            dialog?.dismiss()
+        }
+        val build = AlertDialog.Builder(this, R.style.ThemeCustomDialog)
+        val dialogBinding = CustomDialogExitAccountBinding.inflate(LayoutInflater.from(this))
+
+        dialogBinding.buttonYesExit.setOnClickListener {
+            dialog?.dismiss()
+            SharedPreferencesUtil.saveUserId(this, 0)
+            startActivity(
+                Intent(this, CreateAccountActivity::class.java)
+            )
+        }
+
+        dialogBinding.buttonNo.setOnClickListener {
+            dialog?.dismiss()
+        }
+
+        dialog = build.setView(dialogBinding.root).create()
+        dialog?.show()
+
     }
+
 
     private fun handleClick() {
         val navView: NavigationView = binding.navView
         val imageViewHeader = navView.getHeaderView(0).findViewById<ImageView>(R.id.imageView)
 
         imageViewHeader.setOnClickListener {
-            startActivity(Intent(this,UserProfileActivity::class.java))
+            startActivity(Intent(this, UserProfileActivity::class.java))
         }
 
-    }
-
-
-    private fun closeMenuIfOpen() {
-        val drawerLayout: DrawerLayout = binding.drawerLayout
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START)
-        }
     }
 
     private fun formatarNumero(numero: Double): String {
@@ -151,13 +185,13 @@ class MainActivity : AppCompatActivity() {
         viewModel.isLoading.observe(this) { isLoading ->
             if (isLoading) {
                 binding.appBarMain.shimmerLayoutTextTotal.shimmerColor = 0
-                viewModel.totalBalance.observe(this) { total ->
-                    binding.appBarMain.textTotal.text = formatarNumero(total)
-                }
             } else {
                 binding.appBarMain.textTotal.text = baseContext.getString(R.string.total_default)
                 binding.appBarMain.shimmerLayoutTextTotal.startLayoutAnimation()
             }
+        }
+        viewModel.totalBalance.observe(this) { total ->
+            binding.appBarMain.textTotal.text = formatarNumero(total)
         }
     }
 
@@ -331,8 +365,8 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 val year = try {
-                    if (yearString.length == 2){
-                        val yw ="20${yearString}"
+                    if (yearString.length == 2) {
+                        val yw = "20${yearString}"
                         yw.toInt()
 
                     } else {

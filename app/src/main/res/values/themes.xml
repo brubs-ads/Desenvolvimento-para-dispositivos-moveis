@@ -58,8 +58,12 @@
 
     <style name="ThemeForActivityExpense" parent="Base.Theme.Confinance">
         <item name="colorPrimaryDark">@color/red</item>
-
     </style>
+
+    <style name="ThemeForActivityObjective" parent="Base.Theme.Confinance">
+        <item name="colorPrimaryDark">@color/blue_3</item>
+    </style>
+
     <style name="NavigationItemAppearance">
         <item name="android:textColor">#B3808080</item>
         <item name="android:textSize">12.9sp</item>
