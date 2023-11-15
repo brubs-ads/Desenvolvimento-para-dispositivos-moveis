@@ -64,6 +64,7 @@ class MovementViewHolder(
         binding.textTypeMovement.text = movementModel.description
         binding.textDate.text = movementModel.date
         binding.textValueMovement.text = formatarNumero(movementModel.value)
+        binding.imgEdit.visibility = View.VISIBLE
         binding.trash.visibility = View.VISIBLE
         binding.shimmerLayout.hideShimmer()
         binding.shimmerLayout.stopShimmer()
@@ -71,7 +72,7 @@ class MovementViewHolder(
         binding.trash.setOnClickListener {
             listener.delete(movementModel.id!!)
         }
-        binding.cardMovement.setOnClickListener {
+        binding.imgEdit.setOnClickListener {
             listener.onClick(movementModel.id!!)
         }
 

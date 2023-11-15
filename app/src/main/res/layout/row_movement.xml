@@ -54,6 +54,18 @@
                 />
 
                 <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_Edit"
+                        android:layout_width="17.37dp"
+                        android:layout_height="17.37dp"
+                        android:layout_toStartOf="@id/trash"
+                        android:layout_alignTop="@id/trash"
+                        android:layout_alignBottom="@id/trash"
+                        app:srcCompat="@drawable/ic_launcher_background"
+                        android:layout_marginEnd="9.63dp"
+                        android:visibility="gone"
+                />
+
+                <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/trash"
                         android:layout_width="17.37dp"
                         android:layout_height="17.37dp"
@@ -77,7 +89,6 @@
                         android:layout_marginTop="3dp"
                         android:textColor="@color/gray_4"
                 />
-
 
 
                 <androidx.appcompat.widget.AppCompatTextView

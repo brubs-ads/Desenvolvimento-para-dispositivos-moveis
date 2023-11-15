@@ -1,13 +1,18 @@
 package com.mycompany.confinance.view.activity.expense
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityExpenseBinding
+import com.mycompany.confinance.databinding.CustomDialogDeleteExpenseBinding
+import com.mycompany.confinance.databinding.CustomDialogEditExpenseBinding
 import com.mycompany.confinance.model.MovementModel
 import com.mycompany.confinance.util.OnClickMovementListener
 import com.mycompany.confinance.view.activity.MainActivity
@@ -18,8 +23,10 @@ class ExpenseActivity : AppCompatActivity() {
     private lateinit var binding: ActivityExpenseBinding
     private val viewModel: MovementViewModel by viewModels()
     private var listRevenue: ArrayList<MovementModel> = arrayListOf()
-    private var id: Long? = null
     private val adapter = MovementAdapter()
+    private var id: Long? = null
+    private var dialogDelete: AlertDialog? = null
+    private var dialogEdit: AlertDialog? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityExpenseBinding.inflate(layoutInflater)
@@ -33,14 +40,14 @@ class ExpenseActivity : AppCompatActivity() {
     private fun handleMovement() {
         val listener = object : OnClickMovementListener {
             override fun onClick(id: Long) {
-                this@ExpenseActivity.id = id
-//                viewModel.getMovementId(id= this@ExpenseActivity.id!!)
+                dialogEdit()
             }
 
             override fun delete(id: Long) {
                 this@ExpenseActivity.id = id
-                viewModel.deleteMovement(id = this@ExpenseActivity.id!!)
+                dialogDelete(this@ExpenseActivity.id!!)
             }
+
         }
         adapter.setListener(listener)
     }
@@ -67,14 +74,6 @@ class ExpenseActivity : AppCompatActivity() {
                 Toast.makeText(this, "erro ai paizão", Toast.LENGTH_SHORT).show()
             }
         }
-
-//        viewModel.isLoadingGetMovement.observe(this){
-//            if (it){
-//                startActivity(Intent(this,CreateRevenueActivity::class.java))
-//            }else{
-//
-//            }
-//        }
 
     }
 
@@ -109,5 +108,44 @@ class ExpenseActivity : AppCompatActivity() {
         }
         listRevenue.remove(movement)
         adapter.notifyItemRemoved(position)
+    }
+
+    private fun dialogEdit() {
+        if (dialogEdit != null && dialogEdit?.isShowing == true) {
+            dialogEdit?.dismiss()
+        }
+
+        val build = AlertDialog.Builder(applicationContext, R.style.ThemeCustomDialog)
+        val dialogBinding =
+            CustomDialogEditExpenseBinding.inflate(LayoutInflater.from(applicationContext))
+        dialogBinding.buttonYesEdit.setOnClickListener {
+            dialogEdit?.dismiss()
+        }
+        dialogBinding.buttonCancell.setOnClickListener {
+            dialogEdit?.dismiss()
+        }
+        dialogEdit = build.setView(dialogBinding.root).create()
+        dialogEdit?.show()
+    }
+
+    private fun dialogDelete(id: Long){
+        if (dialogDelete != null && dialogDelete?.isShowing == true) {
+            dialogDelete?.dismiss()
+        }
+
+        val build = AlertDialog.Builder(applicationContext, R.style.ThemeCustomDialog)
+        val dialogBinding =
+            CustomDialogDeleteExpenseBinding.inflate(LayoutInflater.from(applicationContext))
+
+        dialogBinding.buttonYesDelete.setOnClickListener {
+            dialogDelete?.dismiss()
+            viewModel.deleteMovement(id)
+        }
+        dialogBinding.buttonCancell.setOnClickListener {
+            dialogDelete?.dismiss()
+        }
+
+        dialogDelete = build.setView(dialogBinding.root).create()
+        dialogDelete?.show()
     }
 }

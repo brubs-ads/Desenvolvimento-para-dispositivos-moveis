@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.activity.MovementActivity"
+        tools:context=".view.activity.revenue.RevenueActivity"
         android:background="#EDEBEB"
 >
 
@@ -25,7 +25,7 @@
             <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="72dp"
+                    android:layout_height="133dp"
                     app:title=" "
                     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                     app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
@@ -33,26 +33,66 @@
 
             <ImageView
                     android:id="@+id/arrow_back"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_alignParentStart="true"
                     android:src="@drawable/voltar_telas"
                     android:importantForAccessibility="no"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="15dp"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="13dp"
                     android:scaleType="centerInside"
             />
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/revenues"
-                    android:layout_centerVertical="true"
+                    android:layout_alignTop="@id/arrow_back"
                     android:layout_toEndOf="@id/arrow_back"
                     android:textSize="20sp"
                     android:textColor="@color/white"
                     android:fontFamily="@font/poppins_semibold"
                     android:layout_marginStart="14dp"
             />
+
+            <ImageView
+                    android:id="@+id/arrow_back1"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignBottom="@id/toolbar"
+                    android:src="@drawable/seta_esquerda"
+                    android:scaleType="centerCrop"
+                    android:layout_marginBottom="14dp"
+                    android:layout_marginStart="89dp"
+                    android:importantForAccessibility="no"/>
+
+            <TextView
+                    android:id="@+id/text_month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:layout_toEndOf="@id/arrow_back1"
+                    android:layout_toStartOf="@id/arrow_next"
+                    android:layout_alignBottom="@id/toolbar"
+                    android:gravity="center"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:layout_alignTop="@id/arrow_back1"
+                    android:layout_marginBottom="14dp"
+            />
+
+            <ImageView
+                    android:id="@+id/arrow_next"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginBottom="14dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignBottom="@id/toolbar"
+                    android:src="@drawable/seta_direita"
+                    android:layout_marginEnd="90dp"
+                    android:importantForAccessibility="no"/>
+
+
         </RelativeLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
