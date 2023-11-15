@@ -3,9 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="317dp"
         android:layout_height="139dp"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:cardCornerRadius="10dp"
->
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
             android:layout_width="match_parent"
@@ -18,7 +16,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="26dp"
-                android:layout_marginStart="77dp"
+                android:layout_marginStart="68dp"
                 app:srcCompat="@drawable/ic_launcher_background"
         />
 
@@ -27,8 +25,8 @@
                 android:layout_height="18dp"
                 android:layout_alignTop="@id/img"
                 android:layout_toEndOf="@id/img"
-                android:text="Excluir Receita"
-                android:layout_marginStart="14dp"
+                android:text="Excluir alterações"
+                android:layout_marginStart="13dp"
                 android:fontFamily="@font/roboto_medium"
                 android:textSize="15sp"
                 android:textColor="@color/black_opacity_80"
@@ -41,7 +39,8 @@
                 android:layout_below="@id/img"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="14dp"
-                android:text="Deseja realmente excluir esta receita?"
+                android:text="Tem certeza de que deseja descartar \n as alterações feitas?"
+                android:gravity="center"
                 android:fontFamily="@font/roboto"
                 android:textSize="11.27sp"
                 android:textColor="@color/black_opacity_80"
@@ -53,7 +52,7 @@
                 android:layout_height="0.5dp"
                 android:layout_below="@id/text_information_delete"
                 android:background="@color/gray"
-                android:layout_marginTop="30.24dp"
+                android:layout_marginTop="17.24dp"
         />
 
 
@@ -78,7 +77,7 @@
                 android:layout_height="22dp"
                 android:layout_alignParentEnd="true"
                 android:layout_below="@id/view"
-                android:text="Excluir"
+                android:text="Sim"
                 android:textAllCaps="false"
                 android:fontFamily="@font/roboto_bold"
                 android:textSize="13sp"

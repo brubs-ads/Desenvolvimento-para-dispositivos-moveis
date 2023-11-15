@@ -3,9 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="317dp"
         android:layout_height="139dp"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:cardCornerRadius="10dp"
->
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
             android:layout_width="match_parent"
@@ -18,7 +16,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="26dp"
-                android:layout_marginStart="77dp"
+                android:layout_marginStart="79dp"
                 app:srcCompat="@drawable/ic_launcher_background"
         />
 
@@ -27,8 +25,8 @@
                 android:layout_height="18dp"
                 android:layout_alignTop="@id/img"
                 android:layout_toEndOf="@id/img"
-                android:text="Excluir Receita"
-                android:layout_marginStart="14dp"
+                android:text="Editar Receita"
+                android:layout_marginStart="12dp"
                 android:fontFamily="@font/roboto_medium"
                 android:textSize="15sp"
                 android:textColor="@color/black_opacity_80"
@@ -41,7 +39,8 @@
                 android:layout_below="@id/img"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="14dp"
-                android:text="Deseja realmente excluir esta receita?"
+                android:text="Você deseja editar esta despesa?"
+                android:gravity="center"
                 android:fontFamily="@font/roboto"
                 android:textSize="11.27sp"
                 android:textColor="@color/black_opacity_80"
@@ -69,7 +68,7 @@
                 android:textAllCaps="false"
                 android:fontFamily="@font/roboto_bold"
                 android:textSize="13sp"
-                android:textColor="@color/green_4"
+                android:textColor="@color/red"
         />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -78,13 +77,13 @@
                 android:layout_height="22dp"
                 android:layout_alignParentEnd="true"
                 android:layout_below="@id/view"
-                android:text="Excluir"
+                android:text="Sim"
                 android:textAllCaps="false"
                 android:fontFamily="@font/roboto_bold"
                 android:textSize="13sp"
                 android:textColor="@color/white"
                 android:layout_marginEnd="11dp"
-                android:background="@drawable/rounded_button_revenue"
+                android:background="@drawable/rounded_button_delete_dialog"
                 android:layout_marginTop="8.76dp"
                 android:layout_centerVertical="true"
         />

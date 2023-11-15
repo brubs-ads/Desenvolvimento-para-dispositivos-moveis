@@ -3,9 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="317dp"
         android:layout_height="139dp"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:cardCornerRadius="10dp"
->
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
             android:layout_width="match_parent"
@@ -27,7 +25,7 @@
                 android:layout_height="18dp"
                 android:layout_alignTop="@id/img"
                 android:layout_toEndOf="@id/img"
-                android:text="Excluir Receita"
+                android:text="Editar Receita"
                 android:layout_marginStart="14dp"
                 android:fontFamily="@font/roboto_medium"
                 android:textSize="15sp"
@@ -35,13 +33,13 @@
         />
 
         <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_information_delete"
+                android:id="@+id/text_information_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/img"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="14dp"
-                android:text="Deseja realmente excluir esta receita?"
+                android:text="Você deseja editar esta receita?"
                 android:fontFamily="@font/roboto"
                 android:textSize="11.27sp"
                 android:textColor="@color/black_opacity_80"
@@ -51,7 +49,7 @@
                 android:id="@+id/view"
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:layout_below="@id/text_information_delete"
+                android:layout_below="@id/text_information_edit"
                 android:background="@color/gray"
                 android:layout_marginTop="30.24dp"
         />
@@ -60,9 +58,9 @@
         <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="60dp"
                 android:layout_height="15dp"
-                android:layout_toStartOf="@id/button_yes_exit"
-                android:layout_alignBottom="@id/button_yes_exit"
-                android:layout_alignTop="@id/button_yes_exit"
+                android:layout_toStartOf="@id/button_yes"
+                android:layout_alignBottom="@id/button_yes"
+                android:layout_alignTop="@id/button_yes"
                 android:layout_marginEnd="19dp"
                 android:background="@android:color/transparent"
                 android:text="Cancelar"
@@ -73,12 +71,12 @@
         />
 
         <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_yes_exit"
+                android:id="@+id/button_yes"
                 android:layout_width="wrap_content"
                 android:layout_height="22dp"
                 android:layout_alignParentEnd="true"
                 android:layout_below="@id/view"
-                android:text="Excluir"
+                android:text="Sim"
                 android:textAllCaps="false"
                 android:fontFamily="@font/roboto_bold"
                 android:textSize="13sp"
