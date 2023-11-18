@@ -166,7 +166,7 @@ class MovementRepository(private val context: Context) {
                 } else if (response.code() == HttpURLConnection.HTTP_NOT_FOUND) {
                     val error =
                         Gson().fromJson(response.errorBody()?.string(), ResponseModel::class.java)
-                    listener.onFailure("", code = error.status)
+                    listener.onFailure(message = error.message, code = error.status)
                 }
 
             }

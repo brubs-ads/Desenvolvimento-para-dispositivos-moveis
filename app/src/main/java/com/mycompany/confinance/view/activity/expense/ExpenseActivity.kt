@@ -57,17 +57,24 @@ class ExpenseActivity : AppCompatActivity() {
     }
 
     private fun observe() {
-        viewModel.isLoading.observe(this) {
-            if (it == true) {
+        viewModel.isLoading.observe(this) { loading ->
+            if (loading == true) {
                 recycler()
                 adapter.startShimmerAnimation()
-            } else if (it == false) {
+            } else if (loading == false) {
                 recycler()
                 adapter.stopShimmerAnimation()
                 viewModel.list.observe(this) { list ->
                     listRevenue = list as ArrayList
+                    listRevenue.sortedByDescending { it.fixedIncome == true }
                     adapter.setList(listRevenue)
                 }
+            }else{
+                listRevenue.clear()
+                binding.recycler.visibility= View.GONE
+                binding.imageCreateRevenue.visibility = View.VISIBLE
+                binding.textCreateRevenues.visibility = View.VISIBLE
+                binding.textGuia.visibility = View.VISIBLE
             }
         }
 

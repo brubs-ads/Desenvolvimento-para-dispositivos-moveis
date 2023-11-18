@@ -61,6 +61,41 @@ class MovementViewHolder(
             }
             binding.textValueMovement.setTextColor(ContextCompat.getColor(binding.root.context, R.color.red))
         }
+
+        if (movementModel.fixedIncome == true){
+            binding.imageFixedIncome.visibility = View.VISIBLE
+        }
+
+        if (movementModel.recurrenceFrequency != null && movementModel.recurrenceIntervals != null){
+            binding.imageFrequency.visibility = View.VISIBLE
+            binding.textFrequency.visibility = View.VISIBLE
+
+
+            var recurrenceFrequency =   when (movementModel.recurrenceFrequency) {
+                "weekly" -> {
+                    "Semanal"
+                }
+
+                "daily" -> {
+                    "Diário"
+                }
+
+                "monthly" -> {
+                    "Mensal"
+                }
+
+                "annually" -> {
+                     "Anual"
+                }
+
+                else -> {
+                    null
+                }
+            }
+
+            binding.textFrequency.text = "${movementModel.recurrenceIntervals}x $recurrenceFrequency "
+        }
+
         binding.textTypeMovement.text = movementModel.description
         binding.textDate.text = movementModel.date
         binding.textValueMovement.text = formatarNumero(movementModel.value)
