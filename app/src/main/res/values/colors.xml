@@ -20,14 +20,16 @@
     <color name="gray_6">#ABABAB</color>
     <color name="gray_7">#D7D7D7</color>
     <color name="gray_8">#B3B3B3</color>
+    <color name="Light_Gray">#D3D3D3</color>
     <color name="green">#14D9B5</color>
     <color name="green_2">#07F29C</color>
     <color name="green_3">#07F3B1</color>
     <color name="green_4">#27D227</color>
     <color name="green_5">#32CD32</color>
+    <color name="green_6">#3CB371</color>
     <color name="red">#FD001E</color>
-    <color name="Light_Gray">#D3D3D3</color>
     <color name="red_2">#EF3047</color>
     <color name="red_3">#F3364D</color>
+    <color name="red_4">#FF0000</color>
     <color name="orange">#FF5733</color>
 </resources>

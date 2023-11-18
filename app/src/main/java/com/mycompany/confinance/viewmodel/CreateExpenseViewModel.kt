@@ -43,7 +43,7 @@ class CreateExpenseViewModel(private val application: Application) : AndroidView
                             }
                         }
 
-                        override fun onFailure(message: String, code: Int) {
+                        override fun onFailure(message: String?, code: Int) {
                             _isLoading.value = false
                         }
 
@@ -68,7 +68,7 @@ class CreateExpenseViewModel(private val application: Application) : AndroidView
                             }
                         }
 
-                        override fun onFailure(message: String, code: Int) {
+                        override fun onFailure(message: String?, code: Int) {
                             _isLoading.value = false
                         }
 

@@ -19,7 +19,7 @@ class Constants {
             const val URL_CREATE_MOVEMENT: String = "movement/"
             const val URL_UPDATE_MOVEMENT: String = "movement/{id}"
             const val URL_RETURN_MOVEMENT_ID: String = "movement/{id}"
-            const val URL_RETURN_MOVEMENT_ID_USER: String = "movement/user/{id}/movements"
+            const val URL_RETURN_MOVEMENT_ID_USER_BY_PERIOD: String = "movement/user/{id}/revenues"
             const val URL_RETURN_MOVEMENT_TOTALS : String = "movement/totals/user/{userId}"
             const val URL_DELETE_MOVEMENT: String = "movement/{id}"
             const val URL_CREATE_OBJECTIVE: String = "objective"

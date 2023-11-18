@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="317dp"
-        android:layout_height="139dp"
+        android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
@@ -84,8 +84,9 @@
                 android:textColor="@color/white"
                 android:layout_marginEnd="11dp"
                 android:background="@drawable/rounded_button_revenue"
-                android:layout_marginTop="8.76dp"
                 android:layout_centerVertical="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
         />
 
 

@@ -71,11 +71,11 @@ class MovementRepository(private val context: Context) {
 
         val userId = getUserIdFromSharedPreferences(context = context)
 
-        val call: Call<ResponseModel>?
+        var call: Call<ResponseModel>?
 
 
         if (codeType == 1) {
-            var call = remote.createMoviment(
+            call = remote.createMoviment(
                 MovementModel(
                     id = null,
                     type_movement = "receita",
@@ -153,9 +153,9 @@ class MovementRepository(private val context: Context) {
 
     }
 
-    fun getMovement(typeMovement: String, listener: ApiListener<List<MovementModel>>) {
+    fun getMovement(month:Int,year:Int, listener: ApiListener<List<MovementModel>>) {
         val userId = getUserIdFromSharedPreferences(context = context)
-        val call = remote.getMovement(id = userId, typeMovement)
+        val call = remote.getMovement(id = userId, month = month , year= year)
 
         call.enqueue(object : Callback<List<MovementModel>> {
             override fun onResponse(call: Call<List<MovementModel>>, response: Response<List<MovementModel>>) {
@@ -166,7 +166,7 @@ class MovementRepository(private val context: Context) {
                 } else if (response.code() == HttpURLConnection.HTTP_NOT_FOUND) {
                     val error =
                         Gson().fromJson(response.errorBody()?.string(), ResponseModel::class.java)
-                    listener.onFailure(error.message, code = error.status)
+                    listener.onFailure("", code = error.status)
                 }
 
             }

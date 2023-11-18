@@ -32,9 +32,9 @@ class HomeViewModel(private val application: Application) : AndroidViewModel(app
                     )
                 }
 
-                override fun onFailure(message: String, code: Int) {
+                override fun onFailure(message: String?, code: Int) {
                     _isLoading.value = false
-                    _erro.value = ResponseDialogCustom(message, code)
+                    _erro.value = ResponseDialogCustom(message!!, code)
                 }
 
             })

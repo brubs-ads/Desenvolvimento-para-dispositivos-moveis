@@ -18,6 +18,8 @@ import com.mycompany.confinance.util.OnClickMovementListener
 import com.mycompany.confinance.view.activity.MainActivity
 import com.mycompany.confinance.view.adapter.MovementAdapter
 import com.mycompany.confinance.viewmodel.MovementViewModel
+import java.util.*
+import kotlin.collections.ArrayList
 
 class RevenueActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRevenueBinding
@@ -25,6 +27,7 @@ class RevenueActivity : AppCompatActivity() {
     private var listRevenue: ArrayList<MovementModel> = arrayListOf()
     private var id: Long? = null
     private val adapter = MovementAdapter()
+    private val calendar = Calendar.getInstance()
     private var dialogEdit: AlertDialog? = null
     private var dialogDelete: AlertDialog? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +35,8 @@ class RevenueActivity : AppCompatActivity() {
         binding = ActivityRevenueBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel.getMovement("receita")
+        updateMonthYearText()
+        checkMonthAndYear()
         observe()
         handleClick()
 
@@ -57,17 +61,20 @@ class RevenueActivity : AppCompatActivity() {
             dialogDelete?.dismiss()
         }
 
-        val build = AlertDialog.Builder(applicationContext, R.style.ThemeCustomDialog)
+        val build = AlertDialog.Builder(this, R.style.ThemeCustomDialog)
         val dialogBinding =
-            CustomDialogDeleteRevenueBinding.inflate(LayoutInflater.from(applicationContext))
+            CustomDialogDeleteRevenueBinding.inflate(LayoutInflater.from(this))
 
         dialogBinding.buttonYesExit.setOnClickListener {
             dialogDelete?.dismiss()
             viewModel.deleteMovement(id)
         }
+        dialogBinding.buttonCancell.setOnClickListener {
+            dialogDelete?.dismiss()
+        }
 
         dialogDelete = build.setView(dialogBinding.root).create()
-        dialogEdit?.show()
+        dialogDelete?.show()
 
     }
 
@@ -76,9 +83,9 @@ class RevenueActivity : AppCompatActivity() {
             dialogEdit?.dismiss()
         }
 
-        val build = AlertDialog.Builder(applicationContext, R.style.ThemeCustomDialog)
+        val build = AlertDialog.Builder(this, R.style.ThemeCustomDialog)
         val dialogBinding =
-            CustomDialogEditRevenueBinding.inflate(LayoutInflater.from(applicationContext))
+            CustomDialogEditRevenueBinding.inflate(LayoutInflater.from(this))
         dialogBinding.buttonYes.setOnClickListener {
             dialogEdit?.dismiss()
         }
@@ -145,5 +152,96 @@ class RevenueActivity : AppCompatActivity() {
         listRevenue.remove(movement)
         adapter.notifyItemRemoved(position)
     }
+
+
+    private fun checkMonthAndYear() {
+        binding.arrowBack1.setOnClickListener {
+            if (calendar.get(Calendar.MONTH) == Calendar.JANUARY) {
+                calendar.add(Calendar.YEAR, -1)
+                calendar.set(Calendar.MONTH, Calendar.DECEMBER)
+            } else {
+                calendar.add(Calendar.MONTH, -1)
+            }
+            updateMonthYearText()
+        }
+
+        binding.arrowNext.setOnClickListener {
+            if (calendar.get(Calendar.MONTH) == Calendar.DECEMBER) {
+                calendar.add(Calendar.YEAR, 1)
+                calendar.set(Calendar.MONTH, Calendar.JANUARY)
+            } else {
+                calendar.add(Calendar.MONTH, 1)
+            }
+            updateMonthYearText()
+        }
+    }
+
+
+    private fun updateMonthYearText() {
+        val currentDate = Calendar.getInstance()
+        val currentYear = currentDate.get(Calendar.YEAR)
+
+        val displayedYear = calendar.get(Calendar.YEAR)
+        val displayedMonth = calendar.get(Calendar.MONTH)
+
+        val monthArray = resources.getStringArray(R.array.months)
+        val monthAbbreviationsArray = resources.getStringArray(R.array.month_abbreviations)
+
+        val formattedDate = if (displayedYear != currentYear) {
+            "${monthAbbreviationsArray[displayedMonth]}/${displayedYear % 100}"
+        } else {
+            monthArray[displayedMonth]
+        }
+
+
+        binding.textMonth.text = formattedDate
+        handleQuery()
+    }
+
+    private fun handleQuery() {
+        val displayedDate = binding.textMonth.text.toString()
+        if (displayedDate.isNotEmpty()) {
+            val monthAbbreviationsArray = resources.getStringArray(R.array.month_abbreviations)
+            val currentYear = Calendar.getInstance().get(Calendar.YEAR)
+            val currentMonthAbbreviation = monthAbbreviationsArray[Calendar.getInstance().get(Calendar.MONTH)]
+            val monthIndex = monthAbbreviationsArray.indexOfFirst {
+                it.equals(displayedDate.substring(0, 3), ignoreCase = true)
+            }
+
+            if (monthIndex >= 0) {
+                val yearString = if (displayedDate.length == 7) {
+                    val selectedYear = displayedDate.substring(4)
+                    val formattedYear = if (selectedYear.length == 2) {
+                        "20$selectedYear"
+                    } else {
+                        selectedYear
+                    }
+                    formattedYear
+                } else {
+                    if (displayedDate.substring(0, 3).equals(currentMonthAbbreviation, ignoreCase = true)) {
+                        currentYear.toString()
+                    } else {
+                        displayedDate.substring(4)
+                    }
+                }
+
+                val year = try {
+                    if (yearString.length == 2) {
+                        val yw = "20${yearString}"
+                        yw.toInt()
+
+                    } else {
+                        yearString.toInt()
+                    }
+                } catch (e: NumberFormatException) {
+                    currentYear
+                }
+
+                val month = monthIndex + 1
+                viewModel.getMovement(month = month, year = year)
+            }
+        }
+    }
+
 
 }

@@ -37,10 +37,10 @@ class LoginViewModel(private val application: Application) : AndroidViewModel(ap
                         }
                     }
 
-                    override fun onFailure(message: String, code: Int) {
+                    override fun onFailure(message: String?, code: Int) {
                         _isLoading.value = false
                         _error.value = ResponseDialogCustom(
-                            message
+                            message!!
                             ,code
                         )
                     }

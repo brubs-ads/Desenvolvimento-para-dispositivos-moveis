@@ -26,7 +26,7 @@ class UserProfileViewModel(private val application: Application) : AndroidViewMo
                 _resultDeleteUser.value = result.status == HTTP_OK
             }
 
-            override fun onFailure(message: String, code: Int) {
+            override fun onFailure(message: String?, code: Int) {
                 _resultDeleteUser.value = false
             }
 
@@ -40,7 +40,7 @@ class UserProfileViewModel(private val application: Application) : AndroidViewMo
                 _user.value = UserModel(id = result.id, name = result.name, email = result.email, password = "")
             }
 
-            override fun onFailure(message: String, code: Int) {
+            override fun onFailure(message: String?, code: Int) {
 
             }
 
@@ -54,7 +54,7 @@ class UserProfileViewModel(private val application: Application) : AndroidViewMo
                     _isLoadingUpdate.value = result.status == HTTP_OK
                 }
 
-                override fun onFailure(message: String, code: Int) {
+                override fun onFailure(message: String?, code: Int) {
                     _isLoadingUpdate.value = false
                 }
 
@@ -65,7 +65,7 @@ class UserProfileViewModel(private val application: Application) : AndroidViewMo
                     _isLoadingUpdate.value = result.status == HTTP_OK
                 }
 
-                override fun onFailure(message: String, code: Int) {
+                override fun onFailure(message: String?, code: Int) {
                     _isLoadingUpdate.value = false
                 }
 
@@ -76,7 +76,7 @@ class UserProfileViewModel(private val application: Application) : AndroidViewMo
                     _isLoadingUpdate.value = result.status == HTTP_OK
                 }
 
-                override fun onFailure(message: String, code: Int) {
+                override fun onFailure(message: String?, code: Int) {
                     _isLoadingUpdate.value = false
                 }
 
@@ -95,7 +95,7 @@ class UserProfileViewModel(private val application: Application) : AndroidViewMo
                             _isLoadingUpdate.value = result.status == HTTP_OK
                         }
 
-                        override fun onFailure(message: String, code: Int) {
+                        override fun onFailure(message: String?, code: Int) {
                             if (code == HTTP_UNAUTHORIZED){
                                 _isLoadingUpdate.value = null
                             }else{

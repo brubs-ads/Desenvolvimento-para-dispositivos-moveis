@@ -59,7 +59,7 @@ class CreateExpenseActivity : AppCompatActivity() {
     }
 
     private fun handleRepetition() {
-        binding.switchRevenue.setOnCheckedChangeListener { _, isChecked ->
+        binding.switchExpense.setOnCheckedChangeListener { _, isChecked ->
             switchState = isChecked
         }
 
@@ -166,10 +166,10 @@ class CreateExpenseActivity : AppCompatActivity() {
 
 
     private fun save() {
-        val value = binding.editBalanceRevenue.cleanDoubleValue
+        val value = binding.editBalanceExpense.cleanDoubleValue
         val description = binding.editTextDescription.text.toString()
         val date = binding.textData.text.toString()
-        val fixed = binding.switchRevenue.isChecked
+        val fixed = binding.switchExpense.isChecked
         val repetition = binding.textRepetition.text.toString()
         val photo = selectedCardView
 

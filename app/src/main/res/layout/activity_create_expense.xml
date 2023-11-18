@@ -40,7 +40,7 @@
             />
 
             <TextView
-                    android:id="@+id/text_new_revenue"
+                    android:id="@+id/text_new_expense"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:text="@string/new_expense"
@@ -54,10 +54,10 @@
             />
 
             <TextView
-                    android:id="@+id/text_balance_revenue"
+                    android:id="@+id/text_balance_expense"
                     android:layout_width="113dp"
                     android:layout_height="21dp"
-                    android:layout_below="@id/text_new_revenue"
+                    android:layout_below="@id/text_new_expense"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="28dp"
                     android:layout_marginStart="28dp"
@@ -71,8 +71,8 @@
                     android:id="@+id/text_rs"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignStart="@id/text_balance_revenue"
-                    android:layout_alignTop="@id/edit_balance_revenue"
+                    android:layout_alignStart="@id/text_balance_expense"
+                    android:layout_alignTop="@id/edit_balance_expense"
                     android:text="R$"
                     android:textSize="32sp"
                     android:fontFamily="@font/roboto_medium"
@@ -80,11 +80,11 @@
             />
 
             <me.abhinay.input.CurrencyEditText
-                    android:id="@+id/edit_balance_revenue"
+                    android:id="@+id/edit_balance_expense"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@id/text_rs"
-                    android:layout_below="@id/text_balance_revenue"
+                    android:layout_below="@id/text_balance_expense"
                     android:hint="0,00"
                     android:textSize="32sp"
                     android:inputType="number"
@@ -99,7 +99,7 @@
             <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_below="@id/edit_balance_revenue"
+                    android:layout_below="@id/edit_balance_expense"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
@@ -135,7 +135,7 @@
                     />
 
                     <View
-                            android:id="@+id/view_card_revenue"
+                            android:id="@+id/view_card_expense"
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:layout_below="@id/edit_text_description"
@@ -148,7 +148,7 @@
                             android:id="@+id/image_calendar"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:layout_below="@id/view_card_revenue"
+                            android:layout_below="@id/view_card_expense"
                             android:layout_marginStart="6dp"
                             android:layout_marginTop="21dp"
                             app:srcCompat="@drawable/data"/>
@@ -157,7 +157,7 @@
                             android:id="@+id/text_data"
                             android:layout_width="wrap_content"
                             android:layout_height="19dp"
-                            android:layout_below="@id/view_card_revenue"
+                            android:layout_below="@id/view_card_expense"
                             android:layout_alignStart="@id/edit_text_description"
                             android:layout_alignTop="@id/image_calendar"
                             android:layout_alignBottom="@id/image_calendar"
@@ -189,7 +189,7 @@
                             app:srcCompat="@drawable/fixar"/>
 
                     <androidx.appcompat.widget.SwitchCompat
-                            android:id="@+id/switch_revenue"
+                            android:id="@+id/switch_expense"
                             android:layout_width="160dp"
                             android:layout_height="20dp"
                             android:layout_alignTop="@id/image_fixed_income"
@@ -208,7 +208,7 @@
                             android:layout_alignTop="@id/view_2"
                             android:layout_marginStart="62dp"
                             android:layout_marginTop="30dp"
-                            android:layout_toEndOf="@id/switch_revenue"
+                            android:layout_toEndOf="@id/switch_expense"
                             app:srcCompat="@drawable/repeti__o"/>
 
                     <androidx.appcompat.widget.AppCompatTextView

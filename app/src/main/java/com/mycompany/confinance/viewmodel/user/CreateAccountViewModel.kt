@@ -34,9 +34,9 @@ class CreateAccountViewModel(private val application: Application) : AndroidView
                         }
                     }
 
-                    override fun onFailure(message: String, code: Int) {
+                    override fun onFailure(message: String?, code: Int) {
                         _isLoading.value = false
-                        _error.value = ResponseDialogCustom(message, code)
+                        _error.value = ResponseDialogCustom(message!!, code)
                     }
 
                 })

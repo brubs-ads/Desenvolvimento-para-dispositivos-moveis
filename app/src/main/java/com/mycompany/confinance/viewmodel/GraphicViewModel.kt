@@ -35,9 +35,9 @@ class GraphicViewModel(application: Application) : AndroidViewModel(application)
                         totalExpenses = result.totalExpenses
                     ) }
 
-                override fun onFailure(message: String, code: Int) {
+                override fun onFailure(message: String?, code: Int) {
                     _isLoading.value = false
-                    _erro.value = ResponseDialogCustom(message, code)
+                    _erro.value = ResponseDialogCustom(message!!, code)
                 }
 
             })
