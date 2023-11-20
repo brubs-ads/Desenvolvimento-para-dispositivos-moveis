@@ -12,5 +12,14 @@ class IconActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityIconBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        handleClick()
+
+    }
+
+    private fun handleClick() {
+        binding.arrowBack.setOnClickListener {
+            finish()
+        }
     }
 }

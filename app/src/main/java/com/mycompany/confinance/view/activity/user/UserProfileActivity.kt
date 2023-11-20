@@ -171,6 +171,10 @@ class UserProfileActivity : AppCompatActivity() {
 
             viewModel.uptadePassword(password, newPassword, newPasswordAgain)
         }
+
+        binding.imagePerfil.setOnClickListener {
+            startActivity(Intent(this,IconActivity::class.java))
+        }
     }
 
     private fun handleDialogDelete() {
