@@ -245,7 +245,7 @@ class ExpenseActivity : AppCompatActivity() {
                 }
 
                 val month = monthIndex + 1
-                viewModel.getMovement(month = month , year = year)
+                viewModel.getExpense(month = month , year = year)
             }
         }
     }

@@ -186,7 +186,6 @@ class MainActivity : AppCompatActivity() {
             if (isLoading) {
                 binding.appBarMain.shimmerLayoutTextTotal.shimmerColor = 0
             } else {
-                binding.appBarMain.textTotal.text = baseContext.getString(R.string.total_default)
                 binding.appBarMain.shimmerLayoutTextTotal.startLayoutAnimation()
             }
         }

@@ -10,8 +10,15 @@ interface MovementService {
     @POST(Constants.HTTP.URL.URL_CREATE_MOVEMENT)
     fun createMoviment(@Body movement: MovementModel): Call<ResponseModel>
 
-    @GET(Constants.HTTP.URL.URL_RETURN_MOVEMENT_ID_USER_BY_PERIOD)
-    fun getMovement(
+    @GET(Constants.HTTP.URL.URL_RETURN_REVENUE_ID_USER_BY_PERIOD)
+    fun getRevenue(
+        @Path("id") id: Long,
+        @Query("month") month: Int,
+        @Query("year") year: Int
+    ): Call<List<MovementModel>>
+
+    @GET(Constants.HTTP.URL.URL_RETURN_EXPENSE_ID_USER_BY_PERIOD)
+    fun getExpense(
         @Path("id") id: Long,
         @Query("month") month: Int,
         @Query("year") year: Int

@@ -245,7 +245,7 @@ class RevenueActivity : AppCompatActivity() {
                 }
 
                 val month = monthIndex + 1
-                viewModel.getMovement(month = month, year = year)
+                viewModel.getRevenue(month = month, year = year)
             }
         }
     }
