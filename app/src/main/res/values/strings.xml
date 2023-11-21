@@ -227,6 +227,27 @@
     <string name="education">Educação</string>
     <string name="new_expense">Nova Despesa</string>
     <string name="create_objective">Criar Objetivos</string>
+    <string name="create">Criar</string>
+    <string name="delete_uptade">Excluir alterações</string>
+    <string name="discard_changes">Tem certeza de que deseja descartar \n as alterações feitas?</string>
+    <string name="no">Não</string>
+    <string name="delete">Excluir</string>
+    <string name="cancell">Cancelar</string>
+    <string name="yes">Sim</string>
+    <string name="invalid_data">Dados inválidos</string>
+    <string name="provided_is_not_valid">A senha atual que você forneceu não é válida. Por favor, verifique e tente
+        novamente.
+    </string>
+    <string name="want_to_delete_your_account">Tem certeza de que deseja excluir a sua conta?</string>
+    <string name="delete_objective">Excluir Objetivo</string>
+    <string name="you_really_delete_this_goal">Deseja realmente excluir esta Objetivo?</string>
+    <string name="think_about_how_much_you_fought_to_arrive">“Pense no quanto você lutou para chegar até aqui e \n
+        motive-se a não desistir agora.”
+    </string>
+    <string name="delete_revenue">Excluir Receita</string>
+    <string name="you_really_delete_this_recipe">Deseja realmente excluir esta receita?</string>
+    <string name="delete_expense">Excluir Despesa</string>
+    <string name="you_really_delete_this_expense">Deseja realmente excluir esta despesa?</string>
 
     <string-array name="months">
         <item>Janeiro</item>

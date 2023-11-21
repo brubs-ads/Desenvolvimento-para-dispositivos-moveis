@@ -3,7 +3,9 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="317dp"
         android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="10dp"
+>
 
     <RelativeLayout
             android:layout_width="match_parent"
@@ -25,7 +27,7 @@
                 android:layout_height="18dp"
                 android:layout_alignTop="@id/img"
                 android:layout_toEndOf="@id/img"
-                android:text="Excluir Despesa"
+                android:text="@string/delete_expense"
                 android:layout_marginStart="14.63dp"
                 android:fontFamily="@font/roboto_medium"
                 android:textSize="15sp"
@@ -39,7 +41,7 @@
                 android:layout_below="@id/img"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="14dp"
-                android:text="Deseja realmente excluir esta despesa?"
+                android:text="@string/you_really_delete_this_expense"
                 android:gravity="center"
                 android:fontFamily="@font/roboto"
                 android:textSize="11.27sp"
@@ -65,7 +67,7 @@
                 android:layout_alignTop="@id/button_yes_delete"
                 android:layout_marginEnd="19dp"
                 android:background="@android:color/transparent"
-                android:text="Cancelar"
+                android:text="@string/cancell"
                 android:textAllCaps="false"
                 android:fontFamily="@font/roboto_bold"
                 android:textSize="13sp"
@@ -78,7 +80,7 @@
                 android:layout_height="22dp"
                 android:layout_alignParentEnd="true"
                 android:layout_below="@id/view"
-                android:text="Sim"
+                android:text="@string/yes"
                 android:textAllCaps="false"
                 android:fontFamily="@font/roboto_bold"
                 android:textSize="13sp"

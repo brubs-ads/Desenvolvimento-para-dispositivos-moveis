@@ -1,46 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="317dp"
-        android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        android:layout_height="139dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+>
 
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/img"
+                android:id="@+id/img_delete"
                 android:layout_width="18dp"
                 android:layout_height="18dp"
+                app:srcCompat="@drawable/ic_launcher_background"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="26dp"
-                android:layout_marginStart="79dp"
-                app:srcCompat="@drawable/ic_launcher_background"
+                android:layout_marginStart="68dp"
         />
 
         <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
-                android:layout_height="18dp"
-                android:layout_alignTop="@id/img"
-                android:layout_toEndOf="@id/img"
-                android:text="Editar Despesa"
-                android:layout_marginStart="12dp"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/img_delete"
+                android:layout_alignBottom="@id/img_delete"
+                android:layout_alignTop="@id/img_delete"
+                android:text="@string/delete_uptade"
+                android:layout_marginStart="13dp"
                 android:fontFamily="@font/roboto_medium"
                 android:textSize="15sp"
                 android:textColor="@color/black_opacity_80"
         />
 
+
         <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_information_delete"
+                android:id="@+id/text_information_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/img"
+                android:layout_below="@id/img_delete"
                 android:layout_centerHorizontal="true"
+                android:text="@string/discard_changes"
+                android:textAlignment="center"
                 android:layout_marginTop="14dp"
-                android:text="Você deseja editar esta despesa?"
-                android:gravity="center"
                 android:fontFamily="@font/roboto"
                 android:textSize="11.27sp"
                 android:textColor="@color/black_opacity_80"
@@ -50,48 +55,45 @@
                 android:id="@+id/view"
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:layout_below="@id/text_information_delete"
                 android:background="@color/gray"
-                android:layout_marginTop="30.24dp"
+                android:layout_below="@id/text_information_card"
+                android:layout_marginTop="17.24dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
         />
 
 
-        <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_cancell"
-                android:layout_width="60dp"
-                android:layout_height="15dp"
-                android:layout_toStartOf="@id/button_yes_edit"
-                android:layout_alignBottom="@id/button_yes_edit"
-                android:layout_alignTop="@id/button_yes_edit"
-                android:layout_marginEnd="19dp"
-                android:background="@android:color/transparent"
-                android:text="Cancelar"
-                android:textAllCaps="false"
-                android:fontFamily="@font/roboto_bold"
-                android:textSize="13sp"
-                android:textColor="@color/red"
-        />
-
-        <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_yes_edit"
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/button_no"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/button_yes_delete"
+                android:layout_alignBottom="@id/button_yes_delete"
+                android:layout_toStartOf="@id/button_yes_delete"
+                android:text="@string/cancell"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="13sp"
+                android:textColor="@color/red_3"
+                android:layout_marginEnd="30dp"
+        />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_yes_delete"
+                android:layout_width="55dp"
                 android:layout_height="22dp"
                 android:layout_alignParentEnd="true"
                 android:layout_below="@id/view"
-                android:text="Sim"
+                android:text="@string/delete"
                 android:textAllCaps="false"
-                android:fontFamily="@font/roboto_bold"
+                android:fontFamily="@font/roboto_medium"
                 android:textSize="13sp"
                 android:textColor="@color/white"
                 android:layout_marginEnd="11dp"
                 android:background="@drawable/rounded_button_delete_dialog"
-                android:layout_centerVertical="true"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
+                android:layout_centerVertical="true"
         />
-
-
-
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

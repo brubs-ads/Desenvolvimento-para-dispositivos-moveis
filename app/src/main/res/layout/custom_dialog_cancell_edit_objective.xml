@@ -3,7 +3,9 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="317dp"
         android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="10dp"
+>
 
     <RelativeLayout
             android:layout_width="match_parent"
@@ -15,8 +17,8 @@
                 android:layout_height="18dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="26dp"
-                android:layout_marginStart="68dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="78dp"
                 app:srcCompat="@drawable/ic_launcher_background"
         />
 
@@ -25,68 +27,71 @@
                 android:layout_height="18dp"
                 android:layout_alignTop="@id/img"
                 android:layout_toEndOf="@id/img"
-                android:text="Excluir alterações"
-                android:layout_marginStart="13dp"
+                android:text="@string/delete_uptade"
+                android:layout_marginStart="11.63dp"
                 android:fontFamily="@font/roboto_medium"
                 android:textSize="15sp"
                 android:textColor="@color/black_opacity_80"
         />
 
         <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_information_delete"
+                android:id="@+id/text_question"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/img"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="14dp"
-                android:text="Tem certeza de que deseja descartar \n as alterações feitas?"
+                android:text="@string/discard_changes"
                 android:gravity="center"
                 android:fontFamily="@font/roboto"
                 android:textSize="11.27sp"
                 android:textColor="@color/black_opacity_80"
         />
 
+
         <View
                 android:id="@+id/view"
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:layout_below="@id/text_information_delete"
+                android:layout_below="@id/text_question"
                 android:background="@color/gray"
                 android:layout_marginTop="17.24dp"
         />
 
 
         <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_cancell"
                 android:layout_width="60dp"
                 android:layout_height="15dp"
-                android:layout_toStartOf="@id/button_yes_exit"
-                android:layout_alignBottom="@id/button_yes_exit"
-                android:layout_alignTop="@id/button_yes_exit"
+                android:layout_toStartOf="@id/button_yes_delete"
+                android:layout_alignBottom="@id/button_yes_delete"
+                android:layout_alignTop="@id/button_yes_delete"
                 android:layout_marginEnd="19dp"
                 android:background="@android:color/transparent"
-                android:text="Cancelar"
+                android:text="@string/cancell"
                 android:textAllCaps="false"
                 android:fontFamily="@font/roboto_bold"
                 android:textSize="13sp"
-                android:textColor="@color/green_4"
+                android:textColor="@color/green"
         />
 
         <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_yes_exit"
+                android:id="@+id/button_yes_delete"
                 android:layout_width="wrap_content"
                 android:layout_height="22dp"
                 android:layout_alignParentEnd="true"
                 android:layout_below="@id/view"
-                android:text="Sim"
+                android:text="@string/yes"
                 android:textAllCaps="false"
                 android:fontFamily="@font/roboto_bold"
                 android:textSize="13sp"
                 android:textColor="@color/white"
                 android:layout_marginEnd="11dp"
-                android:background="@drawable/rounded_button_revenue"
+                android:background="@drawable/rounded_button_dialog_objective"
                 android:layout_centerVertical="true"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
+                android:elevation="0dp"
         />
 
 
