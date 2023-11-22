@@ -104,6 +104,11 @@
         <item name="android:buttonBarPositiveButtonStyle">@style/YourDialogButtonStyle</item>
         <item name="android:buttonBarNegativeButtonStyle">@style/YourDialogButtonStyle</item>
     </style>
+    <style name="DatePickObjective" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:colorAccent">@color/green</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/YourDialogButtonStyle</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/YourDialogButtonStyle</item>
+    </style>
     <style name="YourDialogButtonStyle" parent="android:Widget.Material.Button">
         <item name="android:textColor">@color/black</item>
         <item name="backgroundTintMode">add</item>

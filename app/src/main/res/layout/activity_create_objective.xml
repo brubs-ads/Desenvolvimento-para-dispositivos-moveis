@@ -160,17 +160,19 @@
                             android:layout_marginTop="40dp"
                     />
 
-                    <androidx.appcompat.widget.AppCompatTextView
+                    <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/text_name_objective"
                             android:layout_width="wrap_content"
-                            android:layout_height="18dp"
+                            android:layout_height="wrap_content"
                             android:layout_alignTop="@id/image_name"
                             android:layout_alignStart="@id/edit_spared"
                             android:layout_alignBottom="@id/image_name"
-                            android:text="Nome do objetivo"
+                            android:hint="Nome do objetivo"
                             android:fontFamily="@font/roboto_bold"
                             android:textSize="15sp"
-                            android:textColor="@color/gray_6"
+                            android:textColorHint="@color/gray_6"
+                            style="@style/NoBorderEditText"
+                            android:inputType="text"
                     />
 
                     <View
@@ -243,7 +245,7 @@
                     />
 
                     <View
-                            android:id="@+id/card_health"
+                            android:id="@+id/card_health_1"
                             android:layout_width="60.34dp"
                             android:layout_height="51.99dp"
                             android:layout_below="@id/image_icon"
@@ -255,10 +257,10 @@
                     <androidx.appcompat.widget.AppCompatImageView
                             android:layout_width="37.13dp"
                             android:layout_height="37.13dp"
-                            android:layout_alignTop="@id/card_health"
-                            android:layout_alignBottom="@id/card_health"
-                            android:layout_alignEnd="@+id/card_health"
-                            android:layout_alignStart="@id/card_health"
+                            android:layout_alignTop="@id/card_health_1"
+                            android:layout_alignBottom="@id/card_health_1"
+                            android:layout_alignEnd="@+id/card_health_1"
+                            android:layout_alignStart="@id/card_health_1"
                             app:srcCompat="@drawable/ob__1"
                             android:elevation="3.71dp"
                             android:layout_marginTop="8dp"
@@ -269,11 +271,10 @@
                             android:id="@+id/card_shopping"
                             android:layout_width="60.34dp"
                             android:layout_height="51.99dp"
-                            android:layout_alignTop="@id/card_health"
-                            android:layout_alignBottom="@id/card_health"
-                            android:layout_toEndOf="@id/card_health"
+                            android:layout_alignTop="@id/card_health_1"
+                            android:layout_alignBottom="@id/card_health_1"
+                            android:layout_toEndOf="@id/card_health_1"
                             android:layout_marginStart="49.2dp"
-                            android:background="@drawable/background_rounded_card_objective"
                     />
 
                     <androidx.appcompat.widget.AppCompatImageView
@@ -335,9 +336,9 @@
                             android:id="@+id/card_gift"
                             android:layout_width="60.34dp"
                             android:layout_height="51.99dp"
-                            android:layout_below="@id/card_health"
-                            android:layout_alignStart="@id/card_health"
-                            android:layout_alignEnd="@id/card_health"
+                            android:layout_below="@id/card_health_1"
+                            android:layout_alignStart="@id/card_health_1"
+                            android:layout_alignEnd="@id/card_health_1"
                             android:layout_marginTop="17.64dp"
                     />
 
@@ -395,7 +396,7 @@
 
 
                     <View
-                            android:id="@+id/card_outher"
+                            android:id="@+id/card_outher_2"
                             android:layout_width="60.34dp"
                             android:layout_height="51.99dp"
                             android:layout_alignTop="@id/card_job"
@@ -410,13 +411,14 @@
                             app:srcCompat="@drawable/ob__1"
                             android:elevation="3.71dp"
                             android:layout_marginTop="8dp"
-                            android:layout_alignStart="@id/card_outher"
-                            android:layout_alignTop="@id/card_outher"
-                            android:layout_alignEnd="@id/card_outher"
+                            android:layout_alignStart="@id/card_outher_2"
+                            android:layout_alignTop="@id/card_outher_2"
+                            android:layout_alignEnd="@id/card_outher_2"
                     />
 
 
                     <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/button_create"
                             android:layout_width="192dp"
                             android:layout_height="41dp"
                             android:layout_alignParentBottom="true"
