@@ -19,7 +19,8 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="78dp"
-                app:srcCompat="@drawable/ic_launcher_background"
+                app:srcCompat="@drawable/lixeira"
+                app:tint="@color/green"
         />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -99,7 +100,7 @@
                 android:fontFamily="@font/roboto_bold"
                 android:textSize="13sp"
                 android:textColor="@color/white"
-                android:layout_marginEnd="11dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/rounded_button_dialog_objective"
                 android:layout_centerVertical="true"
                 android:layout_marginTop="5dp"

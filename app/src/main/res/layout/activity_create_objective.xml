@@ -119,7 +119,7 @@
                             android:layout_alignParentStart="true"
                             android:layout_marginStart="30dp"
                             android:layout_marginTop="60dp"
-                            android:src="@drawable/ic_launcher_background"
+                            android:src="@drawable/valor_poupado"
                     />
 
                     <me.abhinay.input.CurrencyEditText
@@ -156,7 +156,7 @@
                             android:layout_height="15.87dp"
                             android:layout_alignStart="@id/image_value"
                             android:layout_below="@id/view"
-                            android:src="@drawable/ic_launcher_background"
+                            android:src="@drawable/nome_do_obj_"
                             android:layout_marginTop="40dp"
                     />
 
@@ -192,7 +192,7 @@
                             android:layout_height="16.72dp"
                             android:layout_alignStart="@id/image_value"
                             android:layout_below="@id/view_2"
-                            android:src="@drawable/ic_launcher_background"
+                            android:src="@drawable/data_obj_"
                             android:layout_marginTop="41dp"
                     />
 
@@ -227,7 +227,7 @@
                             android:layout_height="15.71dp"
                             android:layout_alignStart="@id/image_value"
                             android:layout_below="@id/view_3"
-                            android:src="@drawable/ic_launcher_background"
+                            android:src="@drawable/quadrado_icones"
                             android:layout_marginTop="41dp"
                     />
 
@@ -268,7 +268,7 @@
                     />
 
                     <View
-                            android:id="@+id/card_shopping"
+                            android:id="@+id/card_house"
                             android:layout_width="60.34dp"
                             android:layout_height="51.99dp"
                             android:layout_alignTop="@id/card_health_1"
@@ -280,12 +280,12 @@
                     <androidx.appcompat.widget.AppCompatImageView
                             android:layout_width="37.13dp"
                             android:layout_height="37.13dp"
-                            app:srcCompat="@drawable/ob__1"
+                            app:srcCompat="@drawable/casa_obj_"
                             android:elevation="3.71dp"
-                            android:layout_alignTop="@id/card_shopping"
-                            android:layout_alignBottom="@id/card_shopping"
-                            android:layout_alignEnd="@+id/card_shopping"
-                            android:layout_alignStart="@id/card_shopping"
+                            android:layout_alignTop="@id/card_house"
+                            android:layout_alignBottom="@id/card_house"
+                            android:layout_alignEnd="@+id/card_house"
+                            android:layout_alignStart="@id/card_house"
                             android:layout_marginTop="8dp"
                     />
 
@@ -293,16 +293,16 @@
                             android:id="@+id/card_cell"
                             android:layout_width="60.34dp"
                             android:layout_height="51.99dp"
-                            android:layout_toEndOf="@id/card_shopping"
-                            android:layout_alignBottom="@id/card_shopping"
-                            android:layout_alignTop="@id/card_shopping"
-                            android:layout_marginStart="49.2dp"
+                            android:layout_toEndOf="@id/card_house"
+                            android:layout_alignBottom="@id/card_house"
+                            android:layout_alignTop="@id/card_house"
+                            android:layout_marginStart="36dp"
                     />
 
                     <androidx.appcompat.widget.AppCompatImageView
                             android:layout_width="37.13dp"
                             android:layout_height="37.13dp"
-                            app:srcCompat="@drawable/ob__1"
+                            app:srcCompat="@drawable/ob__3"
                             android:elevation="3.71dp"
                             android:layout_alignTop="@id/card_cell"
                             android:layout_alignBottom="@id/card_cell"
@@ -312,23 +312,24 @@
                     />
 
                     <View
-                            android:id="@+id/card_compras"
+                            android:id="@+id/card_Marketplace"
                             android:layout_width="60.34dp"
                             android:layout_height="51.99dp"
                             android:layout_alignBottom="@id/card_cell"
                             android:layout_alignTop="@id/card_cell"
                             android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="30dp"
                     />
 
                     <androidx.appcompat.widget.AppCompatImageView
                             android:layout_width="37.13dp"
                             android:layout_height="37.13dp"
-                            app:srcCompat="@drawable/ob__1"
+                            app:srcCompat="@drawable/ob__4"
                             android:elevation="3.71dp"
-                            android:layout_alignTop="@id/card_compras"
-                            android:layout_alignBottom="@id/card_compras"
-                            android:layout_alignEnd="@+id/card_compras"
-                            android:layout_alignStart="@id/card_compras"
+                            android:layout_alignTop="@id/card_Marketplace"
+                            android:layout_alignBottom="@id/card_Marketplace"
+                            android:layout_alignEnd="@+id/card_Marketplace"
+                            android:layout_alignStart="@id/card_Marketplace"
                             android:layout_marginTop="8dp"
                     />
 
@@ -345,7 +346,7 @@
                     <androidx.appcompat.widget.AppCompatImageView
                             android:layout_width="37.13dp"
                             android:layout_height="37.13dp"
-                            app:srcCompat="@drawable/ob__1"
+                            app:srcCompat="@drawable/ob__5"
                             android:elevation="3.71dp"
                             android:layout_marginTop="8dp"
                             android:layout_alignStart="@id/card_gift"
@@ -358,14 +359,14 @@
                             android:layout_width="60.34dp"
                             android:layout_height="51.99dp"
                             android:layout_alignTop="@id/card_gift"
-                            android:layout_alignStart="@id/card_shopping"
-                            android:layout_alignEnd="@id/card_shopping"
+                            android:layout_alignStart="@id/card_house"
+                            android:layout_alignEnd="@id/card_house"
                     />
 
                     <androidx.appcompat.widget.AppCompatImageView
                             android:layout_width="37.13dp"
                             android:layout_height="37.13dp"
-                            app:srcCompat="@drawable/ob__1"
+                            app:srcCompat="@drawable/ob__6"
                             android:elevation="3.71dp"
                             android:layout_marginTop="8dp"
                             android:layout_alignStart="@id/card_car"
@@ -386,7 +387,7 @@
                     <androidx.appcompat.widget.AppCompatImageView
                             android:layout_width="37.13dp"
                             android:layout_height="37.13dp"
-                            app:srcCompat="@drawable/ob__1"
+                            app:srcCompat="@drawable/ob__7"
                             android:elevation="3.71dp"
                             android:layout_marginTop="8dp"
                             android:layout_alignStart="@id/card_job"
@@ -400,15 +401,15 @@
                             android:layout_width="60.34dp"
                             android:layout_height="51.99dp"
                             android:layout_alignTop="@id/card_job"
-                            android:layout_alignStart="@id/card_compras"
-                            android:layout_alignEnd="@id/card_compras"
+                            android:layout_alignStart="@id/card_Marketplace"
+                            android:layout_alignEnd="@id/card_Marketplace"
                     />
 
 
                     <androidx.appcompat.widget.AppCompatImageView
                             android:layout_width="37.13dp"
                             android:layout_height="37.13dp"
-                            app:srcCompat="@drawable/ob__1"
+                            app:srcCompat="@drawable/estudo_obj_"
                             android:elevation="3.71dp"
                             android:layout_marginTop="8dp"
                             android:layout_alignStart="@id/card_outher_2"

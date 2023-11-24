@@ -25,6 +25,7 @@ import com.mycompany.confinance.databinding.ActivityMainBinding
 import com.mycompany.confinance.databinding.CustomDialogExitAccountBinding
 import com.mycompany.confinance.util.SharedPreferencesUtil
 import com.mycompany.confinance.view.activity.expense.ExpenseActivity
+import com.mycompany.confinance.view.activity.objective.ObjectiveActivity
 import com.mycompany.confinance.view.activity.revenue.RevenueActivity
 import com.mycompany.confinance.view.activity.user.CreateAccountActivity
 import com.mycompany.confinance.view.activity.user.UserProfileActivity
@@ -128,6 +129,11 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
 
+                R.id.nav_objective -> {
+                    startActivity(Intent(this, ObjectiveActivity::class.java))
+                    true
+                }
+
                 R.id.nav_exit -> {
                     handleDialogCustom()
                     true
@@ -226,6 +232,17 @@ class MainActivity : AppCompatActivity() {
             0
         )
         homeItem.title = sHome
+
+        val objectiveItem = myMenu.findItem(R.id.nav_objective)
+        val sObjective = SpannableString(objectiveItem.title)
+        sObjective.setSpan(
+            TextAppearanceSpan(this, R.style.NavigationSubTitleAppearance),
+            0,
+            sObjective.length,
+            0
+        )
+
+        objectiveItem.title = sObjective
 
 
         val revenueItem = myMenu.findItem(R.id.nav_renevue)

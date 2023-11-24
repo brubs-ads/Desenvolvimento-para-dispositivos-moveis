@@ -15,7 +15,7 @@ class ObjectiveAdapter: RecyclerView.Adapter<ObjectiveViewHolder>() {
     private var showShimmer = true
 
     private companion object {
-        private const val SHIMMER_ITEM_COUNT = 6
+        private const val SHIMMER_ITEM_COUNT = 5
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ObjectiveViewHolder {
         val item = RowObjectiveBinding.inflate(LayoutInflater.from(parent.context), parent, false)

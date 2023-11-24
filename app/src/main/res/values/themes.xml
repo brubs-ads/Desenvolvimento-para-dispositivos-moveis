@@ -115,5 +115,10 @@
         <item name="cardElevation">0dp</item>
     </style>
 
+    <style name="CustomProgressBar" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/teste</item>
+        <item name="android:indeterminateDrawable">@drawable/teste</item>
+    </style>
+
 
 </resources>

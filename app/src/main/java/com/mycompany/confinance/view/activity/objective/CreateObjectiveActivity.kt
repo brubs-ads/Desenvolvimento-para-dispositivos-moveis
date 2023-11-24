@@ -1,15 +1,20 @@
 package com.mycompany.confinance.view.activity.objective
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.R.*
+import com.google.android.material.R.color
 import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityCreateObjectiveBinding
 import com.mycompany.confinance.util.DatePickerFragment
+import com.mycompany.confinance.viewmodel.objective.CreateObjectiveViewModel
 
 class CreateObjectiveActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCreateObjectiveBinding
+    private val viewModel: CreateObjectiveViewModel by viewModels()
     private var selectedCardView: Int? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +23,18 @@ class CreateObjectiveActivity : AppCompatActivity() {
 
         handleClick()
         handleCategory()
+        observe()
+    }
 
+    private fun observe() {
+        viewModel.isLoading.observe(this){
+            if (it){
+                startActivity(Intent(this,ObjectiveActivity::class.java))
+                finish()
+            }else{
+                Toast.makeText(this,"erro", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun handleClick() {
@@ -40,6 +56,16 @@ class CreateObjectiveActivity : AppCompatActivity() {
         val squared = binding.editSpared.cleanDoubleValue
         val descripton = binding.textNameObjective.text.toString()
         val date = binding.textData.text.toString()
+        val photo = selectedCardView
+
+        viewModel.createObjective(
+            value = value,
+            savedValue = squared,
+            description = descripton,
+            date = date,
+            photo = photo
+        )
+
     }
 
     @SuppressLint("SetTextI18n")
@@ -59,8 +85,8 @@ class CreateObjectiveActivity : AppCompatActivity() {
             binding.cardCar,
             binding.cardJob,
             binding.cardGift,
-            binding.cardShopping,
-            binding.cardCompras,
+            binding.cardHouse,
+            binding.cardMarketplace,
             binding.cardOuther2
         )
 
@@ -75,87 +101,87 @@ class CreateObjectiveActivity : AppCompatActivity() {
                         binding.cardCar.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardGift.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardJob.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
-                        binding.cardCompras.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
-                        binding.cardShopping.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                        binding.cardMarketplace.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                        binding.cardHouse.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                     }
 
-                    R.id.card_cell ->{
+                    R.id.card_house -> {
                         selectedCardView = 2
+                        binding.cardHouse.setBackgroundResource(R.drawable.background_rounded_card_objective)
+                        binding.cardGift.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                        binding.cardJob.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                        binding.cardCell.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                        binding.cardHealth1.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                        binding.cardOuther2.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                        binding.cardCar.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                        binding.cardMarketplace.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                    }
+                    R.id.card_cell -> {
+                        selectedCardView = 3
                         binding.cardCell.setBackgroundResource(R.drawable.background_rounded_card_objective)
                         binding.cardHealth1.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardOuther2.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardCar.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardGift.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardJob.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
-                        binding.cardCompras.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
-                        binding.cardShopping.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                        binding.cardMarketplace.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                        binding.cardHouse.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                     }
-
-                    R.id.card_car ->{
-                        selectedCardView = 3
-                        binding.cardCar.setBackgroundResource(R.drawable.background_rounded_card_objective)
-                        binding.cardCell.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
-                        binding.cardHealth1.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
-                        binding.cardOuther2.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                    R.id.card_Marketplace -> {
+                        selectedCardView = 4
+                        binding.cardMarketplace.setBackgroundResource(R.drawable.background_rounded_card_objective)
+                        binding.cardHouse.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardGift.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardJob.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
-                        binding.cardCompras.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
-                        binding.cardShopping.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
-                    }
-
-                    R.id.card_job ->{
-                        selectedCardView = 3
-                        binding.cardJob.setBackgroundResource(R.drawable.background_rounded_card_objective)
                         binding.cardCell.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardHealth1.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardOuther2.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardCar.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
-                        binding.cardGift.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
-                        binding.cardCompras.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
-                        binding.cardShopping.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                     }
-
-                    R.id.card_gift ->{
-                        selectedCardView = 3
+                    R.id.card_gift -> {
+                        selectedCardView = 5
                         binding.cardGift.setBackgroundResource(R.drawable.background_rounded_card_objective)
                         binding.cardJob.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardCell.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardHealth1.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardOuther2.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardCar.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
-                        binding.cardCompras.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
-                        binding.cardShopping.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                        binding.cardMarketplace.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                        binding.cardHouse.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                     }
-
-                    R.id.card_shopping ->{
-                        selectedCardView = 3
-                        binding.cardShopping.setBackgroundResource(R.drawable.background_rounded_card_objective)
+                    R.id.card_car -> {
+                        selectedCardView = 6
+                        binding.cardCar.setBackgroundResource(R.drawable.background_rounded_card_objective)
+                        binding.cardCell.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                        binding.cardHealth1.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                        binding.cardOuther2.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardGift.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardJob.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                        binding.cardMarketplace.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                        binding.cardHouse.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                    }
+
+
+                    R.id.card_job -> {
+                        selectedCardView = 7
+                        binding.cardJob.setBackgroundResource(R.drawable.background_rounded_card_objective)
                         binding.cardCell.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardHealth1.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardOuther2.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardCar.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
-                        binding.cardCompras.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
-                    }
-
-                    R.id.card_compras ->{
-                        selectedCardView = 3
-                        binding.cardCompras.setBackgroundResource(R.drawable.background_rounded_card_objective)
-                        binding.cardShopping.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardGift.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
-                        binding.cardJob.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
-                        binding.cardCell.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
-                        binding.cardHealth1.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
-                        binding.cardOuther2.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
-                        binding.cardCar.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                        binding.cardMarketplace.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                        binding.cardHouse.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                     }
 
-                    R.id.card_outher_2 ->{
-                        selectedCardView = 3
+
+
+
+                    R.id.card_outher_2 -> {
+                        selectedCardView = 8
                         binding.cardOuther2.setBackgroundResource(R.drawable.background_rounded_card_objective)
-                        binding.cardCompras.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
-                        binding.cardShopping.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                        binding.cardMarketplace.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
+                        binding.cardHouse.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardGift.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardJob.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardCell.setBackgroundResource(color.mtrl_btn_transparent_bg_color)

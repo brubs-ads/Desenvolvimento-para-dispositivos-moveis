@@ -21,7 +21,7 @@
         <androidx.cardview.widget.CardView
                 android:id="@+id/card_movement"
                 android:layout_width="355dp"
-                android:layout_height="111dp"
+                android:layout_height="wrap_content"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="0dp"
         >
@@ -54,17 +54,18 @@
                         android:layout_toEndOf="@id/image_icon"
                 />
 
-                <!--                <androidx.appcompat.widget.AppCompatImageView-->
-                <!--                        android:id="@+id/img_Edit"-->
-                <!--                        android:layout_width="17.37dp"-->
-                <!--                        android:layout_height="17.37dp"-->
-                <!--                        android:layout_toStartOf="@id/trash"-->
-                <!--                        android:layout_alignTop="@id/trash"-->
-                <!--                        android:layout_alignBottom="@id/trash"-->
-                <!--                        app:srcCompat="@drawable/ic_launcher_background"-->
-                <!--                        android:layout_marginEnd="9.63dp"-->
-                <!--                        android:visibility="gone"-->
-                <!--                />-->
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_Edit"
+                        android:layout_width="17.37dp"
+                        android:layout_height="17.37dp"
+                        android:layout_toStartOf="@id/trash"
+                        android:layout_alignTop="@id/trash"
+                        android:layout_alignBottom="@id/trash"
+                        app:srcCompat="@drawable/lapis_novo"
+                        app:tint="@color/black_opacity_50"
+                        android:layout_marginEnd="9.63dp"
+                        android:visibility="gone"
+                />
 
                 <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/trash"
@@ -109,8 +110,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignTop="@id/text_value_spared"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="11dp"
+                        android:layout_alignEnd="@id/progress_bar_horizontal"
                         android:fontFamily="@font/inter_medium"
                         android:textSize="12sp"
                         android:textColor="@color/red_4"
@@ -121,9 +121,11 @@
                         android:id="@+id/progress_bar_horizontal"
                         android:layout_width="326dp"
                         android:layout_height="13dp"
-                        style="?android:attr/progressBarStyleHorizontal"
+                        style="@style/CustomProgressBar"
                         android:layout_below="@id/text_value_objective"
                         android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="6dp"
                 />
 
             </RelativeLayout>
