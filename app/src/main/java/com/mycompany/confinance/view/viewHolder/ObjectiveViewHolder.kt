@@ -9,6 +9,7 @@ import com.mycompany.confinance.util.OnClickMovementListener
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 import java.util.*
+import kotlin.math.roundToInt
 
 class ObjectiveViewHolder(private val binding: RowObjectiveBinding, private val listener: OnClickMovementListener) :
     RecyclerView.ViewHolder(binding.root) {
@@ -47,7 +48,7 @@ class ObjectiveViewHolder(private val binding: RowObjectiveBinding, private val 
             }
         }
 
-
+        binding.progressBarHorizontal.max = objective.value.roundToInt()
         binding.textTypeObjective.text = objective.name
         binding.textDate.text = objective.date
         binding.textValueObjective.text = "Poupado ${formatarNumero(objective.value)}"

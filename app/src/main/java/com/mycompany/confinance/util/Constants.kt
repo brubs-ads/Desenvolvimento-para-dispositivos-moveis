@@ -25,6 +25,7 @@ class Constants {
             const val URL_DELETE_MOVEMENT: String = "movement/{id}"
             const val URL_CREATE_OBJECTIVE: String = "objective/create"
             const val URL_RETURN_OBJECTIVE_ID_USER: String = "objective/user/{id}"
+            const val URL_RETURN_OBJECTIVE: String ="objective/{id}"
             const val URL_DELETE_OBJECTIVE: String = "objective/{id}"
             const val URL_UPDATE_OBJECTIVE: String = "objective/{id}"
             const val URL_EMAIL_SENDING: String = "user/send-mail/{email}"

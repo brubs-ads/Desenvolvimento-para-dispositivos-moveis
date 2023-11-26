@@ -2,6 +2,7 @@ package com.mycompany.confinance.view.activity.objective
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.R.color
 import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityCreateObjectiveBinding
+import com.mycompany.confinance.model.ObjectiveModel
 import com.mycompany.confinance.util.DatePickerFragment
 import com.mycompany.confinance.viewmodel.objective.CreateObjectiveViewModel
 
@@ -23,16 +25,17 @@ class CreateObjectiveActivity : AppCompatActivity() {
 
         handleClick()
         handleCategory()
+        editObjective()
         observe()
     }
 
     private fun observe() {
-        viewModel.isLoading.observe(this){
-            if (it){
-                startActivity(Intent(this,ObjectiveActivity::class.java))
+        viewModel.isLoading.observe(this) {
+            if (it) {
+                startActivity(Intent(this, ObjectiveActivity::class.java))
                 finish()
-            }else{
-                Toast.makeText(this,"erro", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "erro", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -116,6 +119,7 @@ class CreateObjectiveActivity : AppCompatActivity() {
                         binding.cardCar.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardMarketplace.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                     }
+
                     R.id.card_cell -> {
                         selectedCardView = 3
                         binding.cardCell.setBackgroundResource(R.drawable.background_rounded_card_objective)
@@ -127,6 +131,7 @@ class CreateObjectiveActivity : AppCompatActivity() {
                         binding.cardMarketplace.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardHouse.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                     }
+
                     R.id.card_Marketplace -> {
                         selectedCardView = 4
                         binding.cardMarketplace.setBackgroundResource(R.drawable.background_rounded_card_objective)
@@ -138,6 +143,7 @@ class CreateObjectiveActivity : AppCompatActivity() {
                         binding.cardOuther2.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardCar.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                     }
+
                     R.id.card_gift -> {
                         selectedCardView = 5
                         binding.cardGift.setBackgroundResource(R.drawable.background_rounded_card_objective)
@@ -149,6 +155,7 @@ class CreateObjectiveActivity : AppCompatActivity() {
                         binding.cardMarketplace.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                         binding.cardHouse.setBackgroundResource(color.mtrl_btn_transparent_bg_color)
                     }
+
                     R.id.card_car -> {
                         selectedCardView = 6
                         binding.cardCar.setBackgroundResource(R.drawable.background_rounded_card_objective)
@@ -175,8 +182,6 @@ class CreateObjectiveActivity : AppCompatActivity() {
                     }
 
 
-
-
                     R.id.card_outher_2 -> {
                         selectedCardView = 8
                         binding.cardOuther2.setBackgroundResource(R.drawable.background_rounded_card_objective)
@@ -192,6 +197,57 @@ class CreateObjectiveActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    @Suppress("DEPRECATION")
+    @SuppressLint("SetTextI18n")
+    private fun editObjective() {
+        val objective = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getParcelableExtra("objective", ObjectiveModel::class.java)
+        } else {
+            intent.getParcelableExtra("objective")
+        }
+
+        if (objective != null) {
+            binding.editBalanceObjective.setText("${objective.value}")
+            binding.editSpared.setText("${objective.savedValue}")
+            binding.textNameObjective.setText(objective.name)
+            binding.textData.text = objective.date
+            when (objective.photo) {
+                1 -> {
+                    binding.cardHealth1.setBackgroundResource(R.drawable.background_rounded_card_objective)
+                }
+
+                2 -> {
+                    binding.cardHouse.setBackgroundResource(R.drawable.background_rounded_card_objective)
+                }
+
+                3 -> {
+                    binding.cardCell.setBackgroundResource(R.drawable.background_rounded_card_objective)
+                }
+
+                4 -> {
+                    binding.cardMarketplace.setBackgroundResource(R.drawable.background_rounded_card_objective)
+                }
+
+                5 -> {
+                    binding.cardGift.setBackgroundResource(R.drawable.background_rounded_card_objective)
+                }
+
+                6 -> {
+                    binding.cardCar.setBackgroundResource(R.drawable.background_rounded_card_objective)
+                }
+
+                7 -> {
+                    binding.cardJob.setBackgroundResource(R.drawable.background_rounded_card_objective)
+                }
+
+                8 -> {
+                    binding.cardOuther2.setBackgroundResource(R.drawable.background_rounded_card_objective)
+                }
+            }
+            binding.buttonCreate.text = "Salvar"
+        }
     }
 
 

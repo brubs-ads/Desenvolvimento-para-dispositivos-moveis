@@ -1,7 +1,6 @@
 package com.mycompany.confinance.view.activity.objective
 
 import android.content.Intent
-import android.content.LocusId
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,10 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityObjectiveBinding
-import com.mycompany.confinance.databinding.CustomDialogDeleteExpenseBinding
 import com.mycompany.confinance.databinding.CustomDialogDeleteObjectiveBinding
 import com.mycompany.confinance.databinding.CustomDialogEditObjectiveBinding
-import com.mycompany.confinance.model.MovementModel
 import com.mycompany.confinance.model.ObjectiveModel
 import com.mycompany.confinance.util.OnClickMovementListener
 import com.mycompany.confinance.view.adapter.ObjectiveAdapter
@@ -72,10 +69,10 @@ class ObjectiveActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.isLoadingDelete.observe(this){
-            if (it){
+        viewModel.isLoadingDelete.observe(this) {
+            if (it) {
                 updateMovement(id!!)
-            }else{
+            } else {
                 Toast.makeText(this, "ERRO", Toast.LENGTH_SHORT).show()
             }
         }
@@ -89,13 +86,13 @@ class ObjectiveActivity : AppCompatActivity() {
         binding.recyclerObjective.visibility = View.VISIBLE
         binding.recyclerObjective.layoutManager = LinearLayoutManager(applicationContext)
         binding.recyclerObjective.adapter = adapter
-        handleMovement()
+        handleObjective()
     }
 
-    private fun handleMovement() {
+    private fun handleObjective() {
         val listener = object : OnClickMovementListener {
             override fun onClick(id: Long) {
-                dialogEdit()
+                dialogEdit(id)
             }
 
             override fun delete(id: Long) {
@@ -106,7 +103,7 @@ class ObjectiveActivity : AppCompatActivity() {
         adapter.setListener(listener)
     }
 
-    private fun dialogEdit() {
+    private fun dialogEdit(id: Long) {
         if (dialogEdit != null && dialogEdit?.isShowing == true) {
             dialogEdit?.dismiss()
         }
@@ -116,7 +113,14 @@ class ObjectiveActivity : AppCompatActivity() {
             CustomDialogEditObjectiveBinding.inflate(LayoutInflater.from(this))
         dialogBinding.buttonYes.setOnClickListener {
             dialogEdit?.dismiss()
-            startActivity(Intent(this, CreateObjectiveActivity::class.java))
+
+            val objectiveModel = listObjective.find { it.id == id }
+
+            if (objectiveModel != null) {
+                val intent = Intent(this, CreateObjectiveActivity::class.java)
+                intent.putExtra("objective",objectiveModel)
+                startActivity(intent)
+            }
         }
         dialogBinding.buttonCancell.setOnClickListener {
             dialogEdit?.dismiss()

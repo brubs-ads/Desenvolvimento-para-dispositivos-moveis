@@ -248,6 +248,11 @@
     <string name="you_really_delete_this_recipe">Deseja realmente excluir esta receita?</string>
     <string name="delete_expense">Excluir Despesa</string>
     <string name="you_really_delete_this_expense">Deseja realmente excluir esta despesa?</string>
+    <string name="classics">Clássicos</string>
+    <string name="person">Pessoas</string>
+    <string name="emojis">Emojis</string>
+    <string name="outher">Outros</string>
+    <string name="one">1</string>
 
     <string-array name="months">
         <item>Janeiro</item>

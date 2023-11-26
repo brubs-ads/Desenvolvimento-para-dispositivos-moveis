@@ -61,7 +61,7 @@
             android:id="@+id/text_classic"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:text="Clássicos"
+            android:text="@string/classics"
             app:layout_constraintTop_toBottomOf="@id/appbar"
             android:textSize="20sp"
             android:fontFamily="@font/poppins_semibold"
@@ -91,7 +91,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginStart="10dp"
-                    app:srcCompat="@drawable/ic_launcher_background"
+                    app:srcCompat="@drawable/perfil_5"
                     android:elevation="7.11dp"
             />
 
@@ -99,7 +99,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginStart="7dp"
-                    app:srcCompat="@drawable/ic_launcher_background"
+                    app:srcCompat="@drawable/perfil_4"
                     android:elevation="7.11dp"
             />
 
@@ -107,7 +107,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginStart="7dp"
-                    app:srcCompat="@drawable/ic_launcher_background"
+                    app:srcCompat="@drawable/perfil_3"
                     android:elevation="7.11dp"
             />
 
@@ -115,7 +115,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginStart="7dp"
-                    app:srcCompat="@drawable/ic_launcher_background"
+                    app:srcCompat="@drawable/perfil_2"
                     android:elevation="7.11dp"
             />
 
@@ -123,21 +123,21 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginStart="7dp"
-                    app:srcCompat="@drawable/ic_launcher_background"
+                    app:srcCompat="@drawable/perfil_1"
                     android:elevation="7.11dp"
             />
 
         </LinearLayout>
 
     </HorizontalScrollView>
-    
+
     <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_person"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             app:layout_constraintTop_toBottomOf="@id/srollview_classic"
             app:layout_constraintStart_toStartOf="@id/text_classic"
-            android:text="Pessoas"
+            android:text="@string/person"
             android:fontFamily="@font/poppins_semibold"
             android:textSize="20sp"
             android:textColor="@color/black_opacity_80"
@@ -164,7 +164,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginStart="10dp"
-                    app:srcCompat="@drawable/ic_launcher_background"
+                    app:srcCompat="@drawable/perfil_h1"
                     android:elevation="7.11dp"
             />
 
@@ -172,7 +172,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginStart="7dp"
-                    app:srcCompat="@drawable/ic_launcher_background"
+                    app:srcCompat="@drawable/perfil_m1"
                     android:elevation="7.11dp"
             />
 
@@ -180,7 +180,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginStart="7dp"
-                    app:srcCompat="@drawable/ic_launcher_background"
+                    app:srcCompat="@drawable/perfil_m2"
                     android:elevation="7.11dp"
             />
 
@@ -188,7 +188,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginStart="7dp"
-                    app:srcCompat="@drawable/ic_launcher_background"
+                    app:srcCompat="@drawable/perfil_h2"
                     android:elevation="7.11dp"
             />
 
@@ -196,7 +196,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginStart="7dp"
-                    app:srcCompat="@drawable/ic_launcher_background"
+                    app:srcCompat="@drawable/perfil_h3"
                     android:elevation="7.11dp"
             />
 
@@ -205,12 +205,12 @@
     </HorizontalScrollView>
 
     <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/text_animal"
+            android:id="@+id/text_emojis"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             app:layout_constraintTop_toBottomOf="@id/srollview_person"
             app:layout_constraintStart_toStartOf="@id/text_classic"
-            android:text="Animal"
+            android:text="@string/emojis"
             android:fontFamily="@font/poppins_semibold"
             android:textSize="20sp"
             android:textColor="@color/black_opacity_80"
@@ -221,7 +221,7 @@
             android:id="@+id/srollview_animal"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            app:layout_constraintTop_toBottomOf="@id/text_animal"
+            app:layout_constraintTop_toBottomOf="@id/text_emojis"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="21dp"
@@ -237,7 +237,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginStart="10dp"
-                    app:srcCompat="@drawable/ic_launcher_background"
+                    app:srcCompat="@drawable/perfil_6"
                     android:elevation="7.11dp"
             />
 
@@ -245,7 +245,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginStart="7dp"
-                    app:srcCompat="@drawable/ic_launcher_background"
+                    app:srcCompat="@drawable/perfil_7"
                     android:elevation="7.11dp"
             />
 
@@ -253,7 +253,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginStart="7dp"
-                    app:srcCompat="@drawable/ic_launcher_background"
+                    app:srcCompat="@drawable/perfil_8"
                     android:elevation="7.11dp"
             />
 
@@ -261,7 +261,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginStart="7dp"
-                    app:srcCompat="@drawable/ic_launcher_background"
+                    app:srcCompat="@drawable/perfil_9"
                     android:elevation="7.11dp"
             />
 
@@ -269,7 +269,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginStart="7dp"
-                    app:srcCompat="@drawable/ic_launcher_background"
+                    app:srcCompat="@drawable/perfil_10"
                     android:elevation="7.11dp"
             />
 
@@ -283,7 +283,7 @@
             android:layout_height="30dp"
             app:layout_constraintTop_toBottomOf="@id/srollview_animal"
             app:layout_constraintStart_toStartOf="@id/text_classic"
-            android:text="Outros"
+            android:text="@string/outher"
             android:fontFamily="@font/poppins_semibold"
             android:textSize="20sp"
             android:textColor="@color/black_opacity_80"
@@ -310,7 +310,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginStart="10dp"
-                    app:srcCompat="@drawable/ic_launcher_background"
+                    app:srcCompat="@drawable/perfil_11"
                     android:elevation="7.11dp"
             />
 
@@ -318,7 +318,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginStart="7dp"
-                    app:srcCompat="@drawable/ic_launcher_background"
+                    app:srcCompat="@drawable/perfil_12"
                     android:elevation="7.11dp"
             />
 
@@ -326,7 +326,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginStart="7dp"
-                    app:srcCompat="@drawable/ic_launcher_background"
+                    app:srcCompat="@drawable/perfil_13"
                     android:elevation="7.11dp"
             />
 
@@ -334,7 +334,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginStart="7dp"
-                    app:srcCompat="@drawable/ic_launcher_background"
+                    app:srcCompat="@drawable/perfil_14"
                     android:elevation="7.11dp"
             />
 
@@ -342,7 +342,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginStart="7dp"
-                    app:srcCompat="@drawable/ic_launcher_background"
+                    app:srcCompat="@drawable/perfil_15"
                     android:elevation="7.11dp"
             />
 
