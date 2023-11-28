@@ -98,7 +98,7 @@ class MovementViewHolder(
 
         binding.textTypeMovement.text = movementModel.description
         binding.textDate.text = movementModel.date
-        binding.textValueMovement.text = formatarNumero(movementModel.value)
+        binding.textValueMovement.text = formatNumber(movementModel.value)
         binding.imgEdit.visibility = View.VISIBLE
         binding.trash.visibility = View.VISIBLE
         binding.shimmerLayout.hideShimmer()
@@ -118,7 +118,7 @@ class MovementViewHolder(
         binding.textValueMovement.text = ""
     }
 
-    private fun formatarNumero(numero: Long): String {
+    private fun formatNumber(numero: Long): String {
         val formato = DecimalFormat("#,##0.00", DecimalFormatSymbols(Locale("pt", "BR")))
         formato.isGroupingUsed = true
         formato.groupingSize = 3

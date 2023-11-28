@@ -4,20 +4,28 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.R.color
 import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityCreateObjectiveBinding
+import com.mycompany.confinance.databinding.CustomDialogCancellEditObjectiveBinding
 import com.mycompany.confinance.model.ObjectiveModel
 import com.mycompany.confinance.util.DatePickerFragment
 import com.mycompany.confinance.viewmodel.objective.CreateObjectiveViewModel
+import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
+import java.util.*
 
 class CreateObjectiveActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCreateObjectiveBinding
     private val viewModel: CreateObjectiveViewModel by viewModels()
     private var selectedCardView: Int? = null
+    private var objective: ObjectiveModel? = null
+    private var editDeleteEdit: AlertDialog? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCreateObjectiveBinding.inflate(layoutInflater)
@@ -42,7 +50,11 @@ class CreateObjectiveActivity : AppCompatActivity() {
 
     private fun handleClick() {
         binding.arrowClose.setOnClickListener {
-            finish()
+            if (objective != null) {
+                handleDeleteEdit()
+            } else {
+                finish()
+            }
         }
         binding.buttonCreate.setOnClickListener {
             save()
@@ -54,20 +66,58 @@ class CreateObjectiveActivity : AppCompatActivity() {
         }
     }
 
+    private fun handleDeleteEdit() {
+        if (editDeleteEdit != null && editDeleteEdit?.isShowing == true) {
+            editDeleteEdit?.dismiss()
+        }
+
+        val build = AlertDialog.Builder(this, R.style.ThemeCustomDialog)
+        val dialogBinding =
+            CustomDialogCancellEditObjectiveBinding.inflate(LayoutInflater.from(this))
+        dialogBinding.buttonYesDelete.setOnClickListener {
+            editDeleteEdit?.dismiss()
+            startActivity(
+                Intent(this, ObjectiveActivity::class.java)
+            )
+            finish()
+        }
+        dialogBinding.buttonCancell.setOnClickListener {
+            editDeleteEdit?.dismiss()
+        }
+        editDeleteEdit = build.setView(dialogBinding.root).create()
+        editDeleteEdit?.show()
+
+    }
+
     private fun save() {
         val value = binding.editBalanceObjective.cleanDoubleValue
         val squared = binding.editSpared.cleanDoubleValue
         val descripton = binding.textNameObjective.text.toString()
         val date = binding.textData.text.toString()
         val photo = selectedCardView
+        val p = objective?.photo
 
-        viewModel.createObjective(
-            value = value,
-            savedValue = squared,
-            description = descripton,
-            date = date,
-            photo = photo
-        )
+
+        if (objective != null) {
+            viewModel.updateObjective(
+                updatedObjective = ObjectiveModel(
+                    value = value,
+                    savedValue = squared,
+                    name = descripton,
+                    date = date,
+                    photo = p
+                ),
+                objective = objective!!
+            )
+        } else {
+            viewModel.createObjective(
+                value = value,
+                savedValue = squared,
+                description = descripton,
+                date = date,
+                photo = photo
+            )
+        }
 
     }
 
@@ -202,18 +252,18 @@ class CreateObjectiveActivity : AppCompatActivity() {
     @Suppress("DEPRECATION")
     @SuppressLint("SetTextI18n")
     private fun editObjective() {
-        val objective = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        objective = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             intent.getParcelableExtra("objective", ObjectiveModel::class.java)
         } else {
             intent.getParcelableExtra("objective")
         }
 
         if (objective != null) {
-            binding.editBalanceObjective.setText("${objective.value}")
-            binding.editSpared.setText("${objective.savedValue}")
-            binding.textNameObjective.setText(objective.name)
-            binding.textData.text = objective.date
-            when (objective.photo) {
+            binding.editBalanceObjective.setText("${formatNumber(objective?.value)}")
+            binding.editSpared.setText("${formatNumber(objective?.savedValue)}")
+            binding.textNameObjective.setText(objective?.name)
+            binding.textData.text = objective?.date
+            when (objective?.photo) {
                 1 -> {
                     binding.cardHealth1.setBackgroundResource(R.drawable.background_rounded_card_objective)
                 }
@@ -250,5 +300,12 @@ class CreateObjectiveActivity : AppCompatActivity() {
         }
     }
 
+    private fun formatNumber(numero: Double?): String {
+        val formato = DecimalFormat("#,##0.00", DecimalFormatSymbols(Locale("pt", "BR")))
+        formato.isGroupingUsed = true
+        formato.groupingSize = 3
+
+        return formato.format(numero)
+    }
 
 }

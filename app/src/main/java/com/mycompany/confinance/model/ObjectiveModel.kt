@@ -6,10 +6,10 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class ObjectiveModel(
     var id: Long? = null,
-    var value: Double,
-    var savedValue: Double,
-    var name: String,
-    var photo: Int = 0,
-    var date: String,
+    var value: Double?,
+    var savedValue: Double?,
+    var name: String?,
+    var photo: Int?,
+    var date: String?= null,
     val user: User? = null
 ) : Parcelable

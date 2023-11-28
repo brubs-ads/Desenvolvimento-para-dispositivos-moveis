@@ -48,12 +48,12 @@ class ObjectiveViewHolder(private val binding: RowObjectiveBinding, private val 
             }
         }
 
-        binding.progressBarHorizontal.max = objective.value.roundToInt()
+        binding.progressBarHorizontal.max = objective.value!!.roundToInt()
         binding.textTypeObjective.text = objective.name
         binding.textDate.text = objective.date
-        binding.textValueObjective.text = "Poupado ${formatarNumero(objective.value)}"
-        binding.textValueSpared.text = "Objetivo ${formatarNumero(objective.value)}"
-        binding.progressBarHorizontal.progress = objective.savedValue.toInt()
+        binding.textValueObjective.text = "Objetivo ${formatNumber(objective.value!!)}"
+        binding.textValueSpared.text = "Poupado ${formatNumber(objective.savedValue!!)}"
+        binding.progressBarHorizontal.progress = objective.savedValue?.toInt()!!
         binding.imgEdit.visibility = View.VISIBLE
         binding.trash.visibility = View.VISIBLE
         binding.trash.setOnClickListener {
@@ -72,7 +72,7 @@ class ObjectiveViewHolder(private val binding: RowObjectiveBinding, private val 
         binding.progressBarHorizontal.progress = 5
     }
 
-    private fun formatarNumero(numero: Double): String {
+    private fun formatNumber(numero: Double): String {
         val formato = DecimalFormat("#,##0.00", DecimalFormatSymbols(Locale("pt", "BR")))
         formato.isGroupingUsed = true
         formato.groupingSize = 3

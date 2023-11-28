@@ -424,7 +424,7 @@
                             android:layout_height="41dp"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginBottom="61dp"
+                            android:layout_marginBottom="54dp"
                             android:elevation="4dp"
                             android:text="@string/create"
                             android:fontFamily="@font/lato_bold"

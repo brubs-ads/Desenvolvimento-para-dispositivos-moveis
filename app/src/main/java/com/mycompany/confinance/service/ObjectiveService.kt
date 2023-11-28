@@ -7,6 +7,7 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
+import retrofit2.http.PATCH
 import retrofit2.http.POST
 import retrofit2.http.Path
 
@@ -20,5 +21,8 @@ interface ObjectiveService {
 
     @DELETE(Constants.HTTP.URL.URL_DELETE_OBJECTIVE)
     fun deleteObjective(@Path("id") id: Long): Call<ResponseModel>
+
+    @PATCH(Constants.HTTP.URL.URL_UPDATE_OBJECTIVE)
+    fun uptadeObjective(@Path("id")id : Long, @Body objective: ObjectiveModel): Call<ResponseModel>
 
 }

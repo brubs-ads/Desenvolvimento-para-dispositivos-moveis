@@ -120,6 +120,7 @@ class ObjectiveActivity : AppCompatActivity() {
                 val intent = Intent(this, CreateObjectiveActivity::class.java)
                 intent.putExtra("objective",objectiveModel)
                 startActivity(intent)
+                finish()
             }
         }
         dialogBinding.buttonCancell.setOnClickListener {
