@@ -9,9 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.FragmentHomeBinding
-import com.mycompany.confinance.view.activity.revenue.CreateRevenueActivity
+import com.mycompany.confinance.view.activity.CreateRevenueActivity
 import com.mycompany.confinance.view.activity.GraphicActivity
-import com.mycompany.confinance.view.activity.expense.CreateExpenseActivity
 import com.mycompany.confinance.viewmodel.HomeViewModel
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
@@ -42,7 +41,7 @@ class HomeFragment : Fragment() {
             startActivity(Intent(activity, CreateRevenueActivity::class.java))
         }
         binding.textCreateExpense.setOnClickListener {
-            startActivity(Intent(activity, CreateExpenseActivity::class.java))
+            startActivity(Intent(activity, CreateRevenueActivity::class.java))
         }
         binding.textViewGraphic.setOnClickListener {
             startActivity(Intent(activity, GraphicActivity::class.java))

@@ -1,9 +1,6 @@
-package com.mycompany.confinance.view.activity.revenue
+package com.mycompany.confinance.view.activity
 
 import android.annotation.SuppressLint
-import android.app.DatePickerDialog
-import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuInflater
@@ -12,7 +9,6 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
-import androidx.core.content.ContextCompat
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityCreateRevenueBinding
@@ -41,7 +37,7 @@ class CreateRevenueActivity : AppCompatActivity() {
     private fun observe() {
         viewModel.isLoading.observe(this) {
             if (it) {
-                startActivity(Intent(this,RevenueActivity::class.java))
+                startActivity(Intent(this, MovementActivity::class.java))
                 finish()
             } else {
                 Toast.makeText(this, "erro", Toast.LENGTH_LONG).show()
@@ -151,36 +147,35 @@ class CreateRevenueActivity : AppCompatActivity() {
     private fun handleDate() {
         binding.textData.setOnClickListener {
             val datePicker = DatePickerFragment { day, month, year -> onDateSelect(day, month, year) }
-            datePicker.setStyle(R.style.DatePickRevenue)
             datePicker.show(supportFragmentManager, "datePicker")
         }
     }
 
-    @SuppressLint("SetTextI18n", "SuspiciousIndentation")
+    @SuppressLint("SetTextI18n")
     private fun onDateSelect(day: Int, mounth: Int, year: Int) {
-        val mounthNew = mounth+1
-        val formattedDay = if (day <= 9) "0$day" else "$day"
-        val formattedMonth = if (mounthNew <= 9) "0$mounthNew" else "$mounthNew"
-        val formattedDate = "$formattedDay/$formattedMonth/$year"
-        binding.textData.text = formattedDate
+        if (mounth <= 9){
+            binding.textData.text = "$day/0$mounth/$year"
+        }else{
+            binding.textData.text = "$day/$mounth/$year"
+        }
     }
 
 
     private fun save() {
-            val value = binding.editBalanceRevenue.cleanDoubleValue
+            val value = binding.editBalanceRevenue.cleanDoubleValue.toLong()
             val description = binding.editTextDescription.text.toString()
             val date = binding.textData.text.toString()
             val fixed = binding.switchRevenue.isChecked
             val repetition = binding.textRepetition.text.toString()
-            val photo = selectedCardView
+            val category = selectedCardView
 
             viewModel.createRevenue(
-                value.toLong(),
+                value,
                 description = description,
                 data = date,
                 fixedIncome = fixed,
                 repetitions = repetition,
-                photo = photo!!
+                category = category!!
             )
     }
 
@@ -198,34 +193,19 @@ class CreateRevenueActivity : AppCompatActivity() {
                 when (cardView.id) {
                     R.id.card_salary -> {
                         selectedCardView = 1
-                        binding.imgSalary.setImageResource(R.drawable.salario_verde)
-                        binding.imgInvesty.setImageResource(R.drawable.investimento)
-                        binding.imgService.setImageResource(R.drawable.servi_os)
-                        binding.imgOuther.setImageResource(R.drawable.outros_1)
                     }
 
                     R.id.card_investi -> {
                         selectedCardView = 2
-                        binding.imgInvesty.setImageResource(R.drawable.investimento_verde)
-                        binding.imgService.setImageResource(R.drawable.servi_os)
-                        binding.imgOuther.setImageResource(R.drawable.outros_1)
-                        binding.imgSalary.setImageResource(R.drawable.salario)
                     }
 
                     R.id.card_service -> {
                         selectedCardView = 3
-                        binding.imgService.setImageResource(R.drawable.servi_os_verde)
-                        binding.imgOuther.setImageResource(R.drawable.outros_1)
-                        binding.imgSalary.setImageResource(R.drawable.salario)
-                        binding.imgInvesty.setImageResource(R.drawable.investimento)
                     }
 
                     R.id.card_outro -> {
                         selectedCardView = 4
-                        binding.imgOuther.setImageResource(R.drawable.outros_verde)
-                        binding.imgService.setImageResource(R.drawable.servi_os)
-                        binding.imgSalary.setImageResource(R.drawable.salario)
-                        binding.imgInvesty.setImageResource(R.drawable.investimento)
+
                     }
                 }
 

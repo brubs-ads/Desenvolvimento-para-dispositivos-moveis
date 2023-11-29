@@ -28,7 +28,7 @@ class LoginViewModel(private val application: Application) : AndroidViewModel(ap
                 password = password,
                 listener = object : ApiListener<ResponseModel> {
                     override fun onSuccess(result: ResponseModel) {
-                        if (result.status == HTTP_OK) {
+                        if (result.status == HTTP_CREATED) {
                             _isLoading.value = true
 
                         } else {
@@ -37,10 +37,10 @@ class LoginViewModel(private val application: Application) : AndroidViewModel(ap
                         }
                     }
 
-                    override fun onFailure(message: String?, code: Int) {
+                    override fun onFailure(message: String, code: Int) {
                         _isLoading.value = false
                         _error.value = ResponseDialogCustom(
-                            message!!
+                            message
                             ,code
                         )
                     }

@@ -18,10 +18,10 @@ class CreateRevenueViewModel(private val application: Application) : AndroidView
     fun createRevenue(
         value: Long,
         description: String,
-        data: String?,
+        data: String,
         fixedIncome: Boolean?,
         repetitions: String?,
-        photo: Int
+        category: Int
     ){
         if (value != 0.0.toLong() && description != "" && data != null) {
             if (fixedIncome == false) {
@@ -33,7 +33,7 @@ class CreateRevenueViewModel(private val application: Application) : AndroidView
                     fixedIncome = null,
                     data = data,
                     repetitions = repetitions,
-                    photo = photo,
+                    category = category,
                     listener = object : ApiListener<ResponseModel> {
                         override fun onSuccess(result: ResponseModel) {
                             if (result.status == HttpURLConnection.HTTP_CREATED) {
@@ -43,7 +43,7 @@ class CreateRevenueViewModel(private val application: Application) : AndroidView
                             }
                         }
 
-                        override fun onFailure(message: String?, code: Int) {
+                        override fun onFailure(message: String, code: Int) {
                             _isLoading.value = false
                         }
 
@@ -58,7 +58,7 @@ class CreateRevenueViewModel(private val application: Application) : AndroidView
                     data = data,
                     fixedIncome = fixedIncome,
                     repetitions = null,
-                    photo = photo,
+                    category = category,
                     listener = object : ApiListener<ResponseModel> {
                         override fun onSuccess(result: ResponseModel) {
                             if (result.status == HttpURLConnection.HTTP_CREATED) {
@@ -68,7 +68,7 @@ class CreateRevenueViewModel(private val application: Application) : AndroidView
                             }
                         }
 
-                        override fun onFailure(message: String?, code: Int) {
+                        override fun onFailure(message: String, code: Int) {
                             _isLoading.value = false
                         }
 

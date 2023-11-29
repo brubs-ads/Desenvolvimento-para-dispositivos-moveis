@@ -91,7 +91,7 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/rounded_edit_text"
         android:elevation="6dp"
-        android:hint="Digite Sua Senha"
+        android:hint="@string/Type_your_email"
         android:textColorHint="@color/black_opacity_80"
         android:inputType="textPassword"
         android:textSize="14sp"
