@@ -5,7 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.activity.CreateRevenueActivity">
+        tools:context=".view.activity.revenue.CreateRevenueActivity">
 
     <com.google.android.material.appbar.AppBarLayout
             android:background="@color/green_4"
@@ -87,7 +87,7 @@
                     android:layout_below="@id/text_balance_revenue"
                     android:hint="0,00"
                     android:textSize="32sp"
-                    android:inputType="numberDecimal"
+                    android:inputType="number"
                     android:fontFamily="@font/roboto_medium"
                     android:layout_marginTop="6dp"
                     android:textColor="@color/white"
@@ -284,6 +284,7 @@
                                 android:orientation="vertical">
 
                             <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_salary"
                                     android:layout_width="70dp"
                                     android:layout_height="50dp"
                                     android:layout_gravity="center"
@@ -317,6 +318,7 @@
                                 android:orientation="vertical">
 
                             <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_investy"
                                     android:layout_width="70dp"
                                     android:layout_height="50dp"
                                     android:layout_gravity="center"
@@ -352,6 +354,7 @@
                                 android:orientation="vertical">
 
                             <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_service"
                                     android:layout_width="70dp"
                                     android:layout_height="50dp"
                                     android:layout_gravity="center"
@@ -386,6 +389,7 @@
                                 android:orientation="vertical">
 
                             <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_outher"
                                     android:layout_width="70dp"
                                     android:layout_height="50dp"
                                     android:layout_gravity="center"

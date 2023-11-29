@@ -8,6 +8,7 @@
         android:layout_marginBottom="10dp"
 >
     <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
@@ -17,6 +18,7 @@
 
 
         <androidx.cardview.widget.CardView
+                android:id="@+id/card_movement"
                 android:layout_width="324.5dp"
                 android:layout_height="91.41dp"
                 app:cardElevation="0dp"
@@ -29,13 +31,24 @@
                     android:layout_height="match_parent">
 
                 <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/image_fixed_income"
+                        android:layout_width="8.56dp"
+                        android:layout_height="11dp"
+                        app:srcCompat="@drawable/ic_launcher_background"
+                        android:elevation="4dp"
+                        android:visibility="gone"
+                        android:layout_marginStart="9dp"
+                />
+
+                <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/image_icon"
                         android:layout_width="38dp"
                         android:layout_height="38dp"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentStart="true"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8.23dp"
+                        android:layout_marginStart="16.38dp"
+                        android:translationZ="1000000000dp"
                 />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -51,6 +64,20 @@
                 />
 
                 <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_Edit"
+                        android:layout_width="17.37dp"
+                        android:layout_height="17.37dp"
+                        android:layout_toStartOf="@id/trash"
+                        android:layout_alignTop="@id/trash"
+                        android:layout_alignBottom="@id/trash"
+                        android:layout_marginEnd="9.63dp"
+                        app:srcCompat="@drawable/lapis"
+                        android:visibility="gone"
+                        app:tint="@color/black_opacity_50"
+                />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/trash"
                         android:layout_width="17.37dp"
                         android:layout_height="17.37dp"
                         android:layout_alignParentEnd="true"
@@ -74,17 +101,30 @@
                         android:textColor="@color/gray_4"
                 />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/image_frequency"
+                        android:layout_width="10.53dp"
+                        android:layout_height="10dp"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentBottom="true"
-                        android:fontFamily="@font/roboto_medium"
-                        android:textSize="8.43sp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginBottom="7dp"
-                        android:textColor="@color/black_opacity_50"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginBottom="11.41dp"
+                        android:visibility="gone"
                 />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/text_frequency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="12dp"
+                        android:layout_alignTop="@id/image_frequency"
+                        android:layout_alignBottom="@id/image_frequency"
+                        android:layout_toEndOf="@id/image_frequency"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textSize="10sp"
+                        android:textColor="@color/black_opacity_50"
+                        android:visibility="gone"
+                />
+
 
                 <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/text_value_movement"
@@ -96,7 +136,6 @@
                         android:layout_marginBottom="9dp"
                         android:fontFamily="@font/roboto_medium"
                         android:textSize="12.8sp"
-                        android:textColor="@color/green_4"
                 />
 
             </RelativeLayout>

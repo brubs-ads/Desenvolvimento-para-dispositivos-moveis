@@ -1,25 +1,34 @@
 package com.mycompany.confinance.view.activity
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.TextAppearanceSpan
+import android.view.LayoutInflater
+import android.widget.ImageView
 import androidx.activity.viewModels
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.mycompany.confinance.R
 import com.mycompany.confinance.databinding.ActivityMainBinding
+import com.mycompany.confinance.databinding.CustomDialogExitAccountBinding
 import com.mycompany.confinance.util.SharedPreferencesUtil
+import com.mycompany.confinance.view.activity.expense.ExpenseActivity
+import com.mycompany.confinance.view.activity.objective.ObjectiveActivity
+import com.mycompany.confinance.view.activity.revenue.RevenueActivity
 import com.mycompany.confinance.view.activity.user.CreateAccountActivity
+import com.mycompany.confinance.view.activity.user.UserProfileActivity
 import com.mycompany.confinance.view.company.AboutUsActivity
 import com.mycompany.confinance.view.company.TermsOfUseActivity
 import com.mycompany.confinance.viewmodel.HomeViewModel
@@ -31,10 +40,12 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private lateinit var sharedPreferences: SharedPreferences
     private val viewModel: HomeViewModel by viewModels()
     private val calendar = Calendar.getInstance()
-    private lateinit var sharedPreferences: SharedPreferences
+    private var dialog: AlertDialog? = null
 
+    @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -47,6 +58,7 @@ class MainActivity : AppCompatActivity() {
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
+
         navView.itemIconTintList = null
         val navController = findNavController(R.id.nav_host_fragment_content_main)
 
@@ -58,13 +70,42 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        val toggle = ActionBarDrawerToggle(
+            this,
+            drawerLayout,
+            binding.appBarMain.toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
+        )
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
 
         styleFontMenu(navView)
+        handleView(navView)
+        observe()
+        updateMonthYearText()
+        checkMonthAndYear()
+        handleClick()
+    }
 
+    override fun onResume() {
+        super.onResume()
+        closeMenuIfOpen()
+    }
+
+    private fun closeMenuIfOpen() {
+        val drawerLayout: DrawerLayout = binding.drawerLayout
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START)
+        }
+    }
+
+    private fun handleView(navView: NavigationView) {
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_renevue -> {
-                    startActivity(Intent(this, MovementActivity::class.java))
+                    startActivity(Intent(this, RevenueActivity::class.java))
                     true
                 }
 
@@ -78,37 +119,64 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
 
+                R.id.nav_expense -> {
+                    startActivity(Intent(this, ExpenseActivity::class.java))
+                    true
+                }
+
                 R.id.nav_terms_of_use -> {
                     startActivity(Intent(this, TermsOfUseActivity::class.java))
                     true
                 }
 
+                R.id.nav_objective -> {
+                    startActivity(Intent(this, ObjectiveActivity::class.java))
+                    true
+                }
+
                 R.id.nav_exit -> {
-                    SharedPreferencesUtil.getUserId(context = this)
-                    startActivity(
-                        Intent(this,CreateAccountActivity::class.java))
+                    handleDialogCustom()
                     true
                 }
 
                 else -> false
             }
         }
-
-        observe()
-        updateMonthYearText()
-        checkMonthAndYear()
     }
 
-    override fun onResume() {
-        super.onResume()
-        closeMenuIfOpen()
-    }
-
-    private fun closeMenuIfOpen() {
-        val drawerLayout: DrawerLayout = binding.drawerLayout
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START)
+    private fun handleDialogCustom() {
+        if (dialog != null && dialog?.isShowing == true) {
+            dialog?.dismiss()
         }
+        val build = AlertDialog.Builder(this, R.style.ThemeCustomDialog)
+        val dialogBinding = CustomDialogExitAccountBinding.inflate(LayoutInflater.from(this))
+
+        dialogBinding.buttonYesExit.setOnClickListener {
+            dialog?.dismiss()
+            SharedPreferencesUtil.saveUserId(this, 0)
+            startActivity(
+                Intent(this, CreateAccountActivity::class.java)
+            )
+        }
+
+        dialogBinding.buttonNo.setOnClickListener {
+            dialog?.dismiss()
+        }
+
+        dialog = build.setView(dialogBinding.root).create()
+        dialog?.show()
+
+    }
+
+
+    private fun handleClick() {
+        val navView: NavigationView = binding.navView
+        val imageViewHeader = navView.getHeaderView(0).findViewById<ImageView>(R.id.imageView)
+
+        imageViewHeader.setOnClickListener {
+            startActivity(Intent(this, UserProfileActivity::class.java))
+        }
+
     }
 
     private fun formatarNumero(numero: Double): String {
@@ -124,13 +192,11 @@ class MainActivity : AppCompatActivity() {
             if (isLoading) {
                 binding.appBarMain.shimmerLayoutTextTotal.shimmerColor = 0
             } else {
-                binding.appBarMain.textTotal.text = baseContext.getString(R.string.total_default)
                 binding.appBarMain.shimmerLayoutTextTotal.startLayoutAnimation()
             }
-
-            viewModel.totalBalance.observe(this) { total ->
-                binding.appBarMain.textTotal.text = formatarNumero(total)
-            }
+        }
+        viewModel.totalBalance.observe(this) { total ->
+            binding.appBarMain.textTotal.text = formatarNumero(total)
         }
     }
 
@@ -166,6 +232,17 @@ class MainActivity : AppCompatActivity() {
             0
         )
         homeItem.title = sHome
+
+        val objectiveItem = myMenu.findItem(R.id.nav_objective)
+        val sObjective = SpannableString(objectiveItem.title)
+        sObjective.setSpan(
+            TextAppearanceSpan(this, R.style.NavigationSubTitleAppearance),
+            0,
+            sObjective.length,
+            0
+        )
+
+        objectiveItem.title = sObjective
 
 
         val revenueItem = myMenu.findItem(R.id.nav_renevue)
@@ -281,20 +358,36 @@ class MainActivity : AppCompatActivity() {
         if (displayedDate.isNotEmpty()) {
             val monthAbbreviationsArray = resources.getStringArray(R.array.month_abbreviations)
             val currentYear = Calendar.getInstance().get(Calendar.YEAR)
-
+            val currentMonthAbbreviation = monthAbbreviationsArray[Calendar.getInstance().get(Calendar.MONTH)]
             val monthIndex = monthAbbreviationsArray.indexOfFirst {
                 it.equals(displayedDate.substring(0, 3), ignoreCase = true)
             }
 
             if (monthIndex >= 0) {
                 val yearString = if (displayedDate.length == 7) {
-                    displayedDate.substring(4)
+                    val selectedYear = displayedDate.substring(4)
+                    val formattedYear = if (selectedYear.length == 2) {
+                        "20$selectedYear"
+                    } else {
+                        selectedYear
+                    }
+                    formattedYear
                 } else {
-                    currentYear.toString()
+                    if (displayedDate.substring(0, 3).equals(currentMonthAbbreviation, ignoreCase = true)) {
+                        currentYear.toString()
+                    } else {
+                        displayedDate.substring(4)
+                    }
                 }
 
                 val year = try {
-                    yearString.toInt()
+                    if (yearString.length == 2) {
+                        val yw = "20${yearString}"
+                        yw.toInt()
+
+                    } else {
+                        yearString.toInt()
+                    }
                 } catch (e: NumberFormatException) {
                     currentYear
                 }

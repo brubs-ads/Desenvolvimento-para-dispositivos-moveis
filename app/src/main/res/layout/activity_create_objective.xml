@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.activity.objective.CreateObjectiveActivity">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:background="@color/blue_3"
+            android:id="@+id/appbar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="142dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            />
+
+            <ImageView
+                    android:id="@+id/arrow_close"
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:src="@drawable/fechar_x"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginStart="21dp"
+            />
+
+            <TextView
+                    android:id="@+id/text_new_objective"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="@string/create_objective"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="20sp"
+                    android:layout_toEndOf="@id/arrow_close"
+                    android:layout_alignTop="@id/arrow_close"
+                    android:layout_alignBottom="@id/arrow_close"
+                    android:layout_marginStart="10dp"
+            />
+
+            <TextView
+                    android:id="@+id/text_balance_revenue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/text_new_objective"
+                    android:text="valor de Objetivo"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="16.28sp"
+                    android:textColor="@color/white"
+                    android:layout_toEndOf="@id/arrow_close"
+                    android:layout_marginTop="19dp"
+            />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_rs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/text_balance_revenue"
+                    android:layout_alignTop="@id/edit_balance_objective"
+                    android:text="R$"
+                    android:textSize="34sp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textColor="@color/white"
+            />
+
+            <me.abhinay.input.CurrencyEditText
+                    android:id="@+id/edit_balance_objective"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/text_rs"
+                    android:layout_below="@id/text_balance_revenue"
+                    android:hint="0,00"
+                    android:textSize="34sp"
+                    android:inputType="number"
+                    android:fontFamily="@font/roboto_medium"
+                    android:layout_marginTop="6dp"
+                    android:textColor="@color/white"
+                    style="@style/NoBorderEditText"
+                    android:textColorHint="@color/white"
+                    android:layout_marginStart="8dp"
+            />
+
+            <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_below="@id/edit_balance_objective"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    app:cardCornerRadius="30dp"
+                    android:layout_marginTop="18dp">
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/image_value"
+                            android:layout_width="16.51dp"
+                            android:layout_height="15.86dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="60dp"
+                            android:src="@drawable/valor_poupado"
+                    />
+
+                    <me.abhinay.input.CurrencyEditText
+                            android:id="@+id/edit_spared"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:fontFamily="@font/roboto_bold"
+                            android:hint="Valor poupado"
+                            android:layout_alignTop="@id/image_value"
+                            android:layout_toEndOf="@id/image_value"
+                            android:layout_alignBottom="@id/image_value"
+                            android:layout_marginStart="21.39dp"
+                            android:textSize="15sp"
+                            style="@style/NoBorderEditText"
+                            android:textColorHint="@color/gray_6"
+                            android:textColor="@color/black_opacity_80"
+                    />
+
+                    <View
+                            android:id="@+id/view"
+                            android:layout_width="match_parent"
+                            android:layout_height="0.6dp"
+                            android:layout_below="@id/edit_spared"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="16dp"
+                            android:background="@color/black_opacity_50"
+                    />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/image_name"
+                            android:layout_width="16.62dp"
+                            android:layout_height="15.87dp"
+                            android:layout_alignStart="@id/image_value"
+                            android:layout_below="@id/view"
+                            android:src="@drawable/nome_do_obj_"
+                            android:layout_marginTop="40dp"
+                    />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/text_name_objective"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/image_name"
+                            android:layout_alignStart="@id/edit_spared"
+                            android:layout_alignBottom="@id/image_name"
+                            android:hint="Nome do objetivo"
+                            android:fontFamily="@font/roboto_bold"
+                            android:textSize="15sp"
+                            android:textColorHint="@color/gray_6"
+                            style="@style/NoBorderEditText"
+                            android:inputType="text"
+                    />
+
+                    <View
+                            android:id="@+id/view_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="0.6dp"
+                            android:layout_below="@id/text_name_objective"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="11dp"
+                            android:layout_marginEnd="16dp"
+                            android:background="@color/black_opacity_50"
+                    />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/image_date"
+                            android:layout_width="14.77dp"
+                            android:layout_height="16.72dp"
+                            android:layout_alignStart="@id/image_value"
+                            android:layout_below="@id/view_2"
+                            android:src="@drawable/data_obj_"
+                            android:layout_marginTop="41dp"
+                    />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/text_data"
+                            android:layout_width="wrap_content"
+                            android:layout_height="18dp"
+                            android:layout_alignTop="@id/image_date"
+                            android:layout_alignStart="@id/text_name_objective"
+                            android:layout_alignBottom="@id/image_date"
+                            android:text="@string/date"
+                            android:fontFamily="@font/roboto_bold"
+                            android:textSize="15sp"
+                            android:textColor="@color/gray_6"
+                    />
+
+                    <View
+                            android:id="@+id/view_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="0.6dp"
+                            android:layout_below="@id/text_data"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="11dp"
+                            android:layout_marginEnd="16dp"
+                            android:background="@color/black_opacity_50"
+                    />
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/image_icon"
+                            android:layout_width="14.77dp"
+                            android:layout_height="15.71dp"
+                            android:layout_alignStart="@id/image_value"
+                            android:layout_below="@id/view_3"
+                            android:src="@drawable/quadrado_icones"
+                            android:layout_marginTop="41dp"
+                    />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/text_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/image_icon"
+                            android:layout_alignStart="@id/text_data"
+                            android:text="ícones"
+                            android:fontFamily="@font/roboto_bold"
+                            android:textSize="15sp"
+                            android:textColor="@color/gray_6"
+                            android:layout_marginTop="-2dp"
+                    />
+
+                    <View
+                            android:id="@+id/card_health_1"
+                            android:layout_width="60.34dp"
+                            android:layout_height="51.99dp"
+                            android:layout_below="@id/image_icon"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginTop="43.2dp"
+                            android:layout_marginStart="24dp"
+                    />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="37.13dp"
+                            android:layout_height="37.13dp"
+                            android:layout_alignTop="@id/card_health_1"
+                            android:layout_alignBottom="@id/card_health_1"
+                            android:layout_alignEnd="@+id/card_health_1"
+                            android:layout_alignStart="@id/card_health_1"
+                            app:srcCompat="@drawable/ob__1"
+                            android:elevation="3.71dp"
+                            android:layout_marginTop="8dp"
+
+                    />
+
+                    <View
+                            android:id="@+id/card_house"
+                            android:layout_width="60.34dp"
+                            android:layout_height="51.99dp"
+                            android:layout_alignTop="@id/card_health_1"
+                            android:layout_alignBottom="@id/card_health_1"
+                            android:layout_toEndOf="@id/card_health_1"
+                            android:layout_marginStart="49.2dp"
+                    />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="37.13dp"
+                            android:layout_height="37.13dp"
+                            app:srcCompat="@drawable/casa_obj_"
+                            android:elevation="3.71dp"
+                            android:layout_alignTop="@id/card_house"
+                            android:layout_alignBottom="@id/card_house"
+                            android:layout_alignEnd="@+id/card_house"
+                            android:layout_alignStart="@id/card_house"
+                            android:layout_marginTop="8dp"
+                    />
+
+                    <View
+                            android:id="@+id/card_cell"
+                            android:layout_width="60.34dp"
+                            android:layout_height="51.99dp"
+                            android:layout_toEndOf="@id/card_house"
+                            android:layout_alignBottom="@id/card_house"
+                            android:layout_alignTop="@id/card_house"
+                            android:layout_marginStart="36dp"
+                    />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="37.13dp"
+                            android:layout_height="37.13dp"
+                            app:srcCompat="@drawable/ob__3"
+                            android:elevation="3.71dp"
+                            android:layout_alignTop="@id/card_cell"
+                            android:layout_alignBottom="@id/card_cell"
+                            android:layout_alignEnd="@+id/card_cell"
+                            android:layout_alignStart="@id/card_cell"
+                            android:layout_marginTop="8dp"
+                    />
+
+                    <View
+                            android:id="@+id/card_Marketplace"
+                            android:layout_width="60.34dp"
+                            android:layout_height="51.99dp"
+                            android:layout_alignBottom="@id/card_cell"
+                            android:layout_alignTop="@id/card_cell"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="30dp"
+                    />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="37.13dp"
+                            android:layout_height="37.13dp"
+                            app:srcCompat="@drawable/ob__4"
+                            android:elevation="3.71dp"
+                            android:layout_alignTop="@id/card_Marketplace"
+                            android:layout_alignBottom="@id/card_Marketplace"
+                            android:layout_alignEnd="@+id/card_Marketplace"
+                            android:layout_alignStart="@id/card_Marketplace"
+                            android:layout_marginTop="8dp"
+                    />
+
+                    <View
+                            android:id="@+id/card_gift"
+                            android:layout_width="60.34dp"
+                            android:layout_height="51.99dp"
+                            android:layout_below="@id/card_health_1"
+                            android:layout_alignStart="@id/card_health_1"
+                            android:layout_alignEnd="@id/card_health_1"
+                            android:layout_marginTop="17.64dp"
+                    />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="37.13dp"
+                            android:layout_height="37.13dp"
+                            app:srcCompat="@drawable/ob__5"
+                            android:elevation="3.71dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_alignStart="@id/card_gift"
+                            android:layout_alignTop="@id/card_gift"
+                            android:layout_alignEnd="@id/card_gift"
+                    />
+
+                    <View
+                            android:id="@+id/card_car"
+                            android:layout_width="60.34dp"
+                            android:layout_height="51.99dp"
+                            android:layout_alignTop="@id/card_gift"
+                            android:layout_alignStart="@id/card_house"
+                            android:layout_alignEnd="@id/card_house"
+                    />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="37.13dp"
+                            android:layout_height="37.13dp"
+                            app:srcCompat="@drawable/ob__6"
+                            android:elevation="3.71dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_alignStart="@id/card_car"
+                            android:layout_alignTop="@id/card_car"
+                            android:layout_alignEnd="@id/card_car"
+                    />
+
+
+                    <View
+                            android:id="@+id/card_job"
+                            android:layout_width="60.34dp"
+                            android:layout_height="51.99dp"
+                            android:layout_alignTop="@id/card_car"
+                            android:layout_alignStart="@id/card_cell"
+                            android:layout_alignEnd="@id/card_cell"
+                    />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="37.13dp"
+                            android:layout_height="37.13dp"
+                            app:srcCompat="@drawable/ob__7"
+                            android:elevation="3.71dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_alignStart="@id/card_job"
+                            android:layout_alignTop="@id/card_job"
+                            android:layout_alignEnd="@id/card_job"
+                    />
+
+
+                    <View
+                            android:id="@+id/card_outher_2"
+                            android:layout_width="60.34dp"
+                            android:layout_height="51.99dp"
+                            android:layout_alignTop="@id/card_job"
+                            android:layout_alignStart="@id/card_Marketplace"
+                            android:layout_alignEnd="@id/card_Marketplace"
+                    />
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="37.13dp"
+                            android:layout_height="37.13dp"
+                            app:srcCompat="@drawable/estudo_obj_"
+                            android:elevation="3.71dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_alignStart="@id/card_outher_2"
+                            android:layout_alignTop="@id/card_outher_2"
+                            android:layout_alignEnd="@id/card_outher_2"
+                    />
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/button_create"
+                            android:layout_width="192dp"
+                            android:layout_height="41dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="54dp"
+                            android:elevation="4dp"
+                            android:text="@string/create"
+                            android:fontFamily="@font/lato_bold"
+                            android:textSize="15sp"
+                            android:textColor="@color/white"
+                            android:background="@drawable/rounded_button_objective"
+                    />
+
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <View android:layout_width="match_parent"
+          android:layout_height="40dp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent"
+          android:background="@color/white"
+          android:translationZ="10000dp"
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

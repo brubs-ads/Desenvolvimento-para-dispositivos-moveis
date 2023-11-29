@@ -24,17 +24,17 @@ class HomeViewModel(private val application: Application) : AndroidViewModel(app
         repository.queryMonthAndYear(month = month, year = year,
             listener = object : ApiListener<QueryResponse> {
                 override fun onSuccess(result: QueryResponse) {
+                    _isLoading.value = true
                     _totalBalance.value = result.total
                     _totalMovement.value = QueryResponse(
-                        0.0, result.totalExpenses, result.totalRevenues,
+                        result.total, result.totalExpenses, result.totalRevenues,
                         result.userId
                     )
-                    _isLoading.value = true
                 }
 
-                override fun onFailure(message: String, code: Int) {
+                override fun onFailure(message: String?, code: Int) {
                     _isLoading.value = false
-                    _erro.value = ResponseDialogCustom(message, code)
+                    _erro.value = ResponseDialogCustom(message!!, code)
                 }
 
             })

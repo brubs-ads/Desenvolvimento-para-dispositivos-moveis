@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="317dp"
+        android:layout_height="139dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+>
+
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img"
+                android:layout_width="17dp"
+                android:layout_height="22dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="85dp"
+                app:srcCompat="@drawable/ic_launcher_background"
+        />
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_toEndOf="@id/img"
+                android:layout_alignTop="@id/img"
+                android:layout_alignBottom="@id/img"
+                android:text="Sair da Conta"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="15sp"
+                android:textColor="@color/black_opacity_80"
+                android:layout_marginStart="11dp"
+        />
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_information_exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/img"
+                android:text="Tem certeza de que deseja sair?"
+                android:layout_marginTop="13dp"
+                android:fontFamily="@font/roboto"
+                android:textSize="11.27sp"
+                android:textColor="@color/black_opacity_80"
+        />
+
+
+        <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@id/text_information_exit"
+                android:background="@color/gray"
+                android:layout_marginTop="19.24dp"
+        />
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/button_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/button_yes_exit"
+                android:layout_alignBottom="@id/button_yes_exit"
+                android:layout_toStartOf="@id/button_yes_exit"
+                android:text="Não"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="13sp"
+                android:textColor="@color/red_3"
+                android:layout_marginEnd="30dp"
+        />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_yes_exit"
+                android:layout_width="55dp"
+                android:layout_height="22dp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/view"
+                android:text="Sim"
+                android:textAllCaps="false"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="11sp"
+                android:textColor="@color/white"
+                android:layout_marginEnd="11dp"
+                android:background="@drawable/rounded_button_delete_dialog"
+                android:layout_marginTop="8.76dp"
+                android:layout_centerVertical="true"
+        />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -20,25 +20,24 @@ class GraphicViewModel(application: Application) : AndroidViewModel(application)
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
     fun queryMonthAndYear(month: Int, year: Int) {
-        _isLoading.value = false
         repository.queryMonthAndYear(month = month, year = year,
             listener = object : ApiListener<QueryResponse> {
                 override fun onSuccess(result: QueryResponse) {
-                    val revenuePercentage = result.totalRevenues / result.total
-                    val expensePercentage = result.totalExpenses / result.total
+                    _isLoading.value = true
+                  val total =  result.totalRevenues + result.totalExpenses
+                    val revenuePercentage = result.totalRevenues /total
+                    val expensePercentage = result.totalExpenses / total
 
                     _totalMovement.value = ResponseGraphic(
                         percentageRevenue = revenuePercentage.toString(),
                         percentageExpense = expensePercentage.toString(),
                         totalRevenues = result.totalRevenues,
                         totalExpenses = result.totalExpenses
-                    )
-                    _isLoading.value = true
-                }
+                    ) }
 
-                override fun onFailure(message: String, code: Int) {
+                override fun onFailure(message: String?, code: Int) {
                     _isLoading.value = false
-                    _erro.value = ResponseDialogCustom(message, code)
+                    _erro.value = ResponseDialogCustom(message!!, code)
                 }
 
             })
